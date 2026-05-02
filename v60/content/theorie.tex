@@ -1,8 +1,49 @@
 \section{Theorie}
 \label{sec:Theorie}
-    Zunächst muss dazu auf die Grundlagen des Lasings eingegangen werden, sowie auf die Funktionsweise eines Diodenlasers. 
-    \subsection{Lasing}
-    \subsection{Bandstrucktur}
+    Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom-, Teilchen- und Festkörperphysik.
+    Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
+    Im Folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwengdungsweise des Diodenlasers erläutert.
+    
+    \subsection{Absorption und Emission elektromagnetischer Stahlung}
+        Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
+        Dabei traf er die Annahme, dass die Wechselwirkung zwischen Licht und Materie durch diskrete Energien der Form $E = \symup{h}\cdot\nu$ beschrieben werden kann \cite[52]{haken_wolf_2004}.
+        Dabei ist $\nu$ die Frequenz des Lichts und $\symup{h}$ das Planck'sche Wirkungsquantum.
+        \\
+        Auf diese Interpretation stützt sich auch das Bohr'sche Atommodell (1913), welches in drei Postulaten den Elektronen diskrete Energieniveaus vorgibt.
+        Dies liefert eine Erklärung für die diskreten Emissionsspektren, die für jedes chemische Element verschieden und einzigartig sind.
+        Die Übergangsenergie, die nötig ist, um ein Elektron vom Energieniveau $E_1$ in das höhere Energieniveau $E_2$ anzuheben beträgt
+        \begin{equation}
+            \symup{\Delta}E = E_2 - E_1 = h\nu\,\mathrm{.}
+            \label{eqn:planck}
+        \end{equation}
+        Um den Übergang von $E_1$ nach $E_2$ zu realisieren, muss also dem Elektron in $E_1$ die Energie $\symup{\Delta}E$ zugeführt werden.
+        Der umgekehrte Prozess setzt entsprechend Energie $\symup{\Delta}E$ frei \cite[95]{haken_wolf_2004}.
+        \\
+        Anhand des Photoeffekts konnte Albert Einstein die Lichtquantenhypothese aufstellen und zeigen, dass elektromagnetische Strahlung nicht nur durch Wellen, sondern auch durch Lichtteilchen mit diskreten, frequenzabhängigen Energien beschrieben werden kann.
+        Für die im Diodenlaser auftretenden Prozesse ist diese Betrachtungsweise besonders relevant, da sie ermöglicht, die Wechselwirkung zwischen Licht und Materie als Prozess mit Photonenaustausch zu beschreiben.
+        \\
+        Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
+        In Abbildung \autoref{fig:atomspektrum} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in \autoref{sec:systeme} behandelt.
+        % \begin{figure}
+        %     \centering
+        %     \includegraphics[width=0.7\textwidth]{atomspektrum.png}
+        %     \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{...}}
+        %     \label{fig:atomspektrum}
+        % \end{figure}
+        \FloatBarrier
+        Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} beschriebenen Prozess.
+        Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
+        Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
+        Es befindet sich nun im Zustand $\Psi_2$.
+        \\
+        Dieser Übergang findet \textit{nicht} statt, wenn die Energiedifferenz der beiden Energieniveaus ungleich der Energie des einfallenden Photons ist.
+        Es kann also jedem Übergang $\Psi_{12}$ eine charakteristische Frequenz $\nu_{12}$ zugeordnet werden.
+        \\
+
+
+    
+    
+    \subsection{Besetzungsinversion}
     \subsection{Der Diodenlaser}
     \subsubsection{Halbleiterchip}
     \label{sec:halbleiterchip}
@@ -10,12 +51,12 @@
     Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
     die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird.  
     \subsubsection{Moden Selektion}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{netgain.png}
-        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{sample}.}
-        \label{fig:netgain}
-    \end{figure}
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.7\textwidth]{netgain.png}
+    %     \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{sample}.}
+    %     \label{fig:netgain}
+    % \end{figure}
     Die Wellenlänge des Diodenlasers, welche insgesamt die meiste Verstärkung hat, wird, wie in \autoref{fig:netgain} dargestellt, durch mehrere Faktoren bestimmt. 
     Zunächst hängt die Wellenlänge von der Bandlückle des verwendeten Halbleitermaterials ab. Dies wird in der Grafik durch "Medium" repräsentiert. Es sorgt für einen relativ breiten 
     Frequenzbereich, der verstärkt wird. Des weiteren hängt die Position von der Temperatur des Chips ab. \\ 
@@ -24,12 +65,12 @@
     dargestellt wird. Es ist von der Länge des Chips und somit ebenfalls von seiner Temperatur abhängig. Der Laser kann abhängig von den anderen Faktoren der Verstärkung zwischen den diskreten
     Moden des Resonators hin und her springen. \\
     \\
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{grating.png}
-        \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{sample}.}
-        \label{fig:netgain}
-    \end{figure}
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.7\textwidth]{grating.png}
+    %     \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{sample}.}
+    %     \label{fig:netgain}
+    % \end{figure}
 
     
 \cite{sample}
