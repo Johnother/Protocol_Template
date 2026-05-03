@@ -57,14 +57,19 @@ Nun können beide Knöpfe am Laser, sowie die Temperatur feinjustiert werden bis
 möglichst nahe kommt. Anschließend
 wird der Monitor beobachtet und der Laser über die beiden Knöpfe weiter feinjustiert, bis auf dem Bildschirm das Floureszenzlicht zu sehen ist. 
 \subsubsection{Durchscannen des Frequenzbereiches}
-Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf "output offset" ausgeschaltet werden. Dann werden der Rampengenerator das Piezo-Element und das Oszilloskop durch die BNC-Kabel so miteinander verbunden,
-wie in \autoref{fig:piezo} dargestellt. Nun wird am Rampengenerator eine Frequenz von $\qty{10}{\hertz}$ und der Knopf "attenuator" am Piezo-Element auf $1$ und die Amplitude des
+Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf "output offset" ausgeschaltet werden. Dann wird der Rampengenerator durch die BNC-Kabel mit dem Oszilloskop verbunden.
+Nun wird am Rampengenerator eine Frequenz von $\qty{10}{\hertz}$, der Knopf "attenuator" am Piezo-Element auf $1$ und die Amplitude des
 Rampengenerators auf $10$ eingestellt. Mit Hilfe des Oszilloskop kann nun am Kopf "output offset" so justiert werden, bis eine Dreieckspannung, die oben und unten nicht abgeschnitten ist, zu erkennen ist. 
+Nun werden die Elementre, wie in \autoref{fig:piezo} dargestellt, miteinander verbunden. Es wird überprüft ob, das Signal des Piezo-Elements nun im Bereich von 
+$\qty{3}{\volt}$ bis $\qty{8}{\volt}$ und gegebenenfalls nachjustiert. 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/piezoschaltung.png}
     \caption{Schamtische Schaltung für die Einstellung des Piezo-Elements und des Rampengenerators \cite{sample}.}
     \label{fig:piezo}
 \end{figure}
+\\
+Als nächstes wird hinter der Rubidiumzelle eine Photodiode, die mit dem Detektor-Eingang des Kontrollmoduls verbunden ist, in den Strahlengang der Lasers verbaut. Der Ausgang hinter dem Tiefpass 
+wird nun mit dem zweiten eingang des Oszilloskops verbunden. Am Oszilloskop sind nun Absorbtionslinien des Rubidium zu erkennen, da der Laser einen Frequenzbereich durchläuft. 
 \label{sec:Durchführung}
 
