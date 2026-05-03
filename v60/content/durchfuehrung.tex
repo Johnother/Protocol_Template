@@ -1,7 +1,9 @@
 \section{Aufbau und Durchführung}
 \subsection{Verwendete Elemente}
-Für den Versuch steht ein Optischer Tisch zur Verfügung, auf dem verschiedene Elemente montiert werden können. Dabei wird ein wie in \autoref{sec:Theorie} beschriebener Diodenläser verwendet.
-Außerdem ist eine Absorbtionszelle mit Rubidium, welche in einem Helmholtzspulenpaar montiert ist, sowie Photodioden, ein Spektrometer und ein $50/50$-Strahlteiler vorhanden. \\
+Für den Versuch steht ein Optischer Tisch zur Verfügung, auf dem verschiedene Elemente montiert werden können. Dabei wird ein wie in \autoref{sec:Theorie} beschriebener Diodenläser mitsamt Schutzabdeckung verwendet.
+Außerdem ist eine Absorbtionszelle mit Rubidium, welche in einem Helmholtzspulenpaar montiert ist, sowie Photodioden, ein Spektrometer und ein $50/50$-Strahlteiler vorhanden. Es ist ebenfalls ein Mulitmeter zur 
+Messung der Spannung am Thermoresistor und an der Diode, sowie eine Tabelle, mit der die Spannung am Thermoresistor in die Entsprechende Temperatur übersertzt werden kann, vorhanden. Außerdem standen Imbusschlüssel 
+zur verfügung, um den Laser fein zu justieren.\\
 \\
 Der Laser 
 und die Photodioden sind an ein Kontrollmodul angeschlossen. Über dieses lässt sich der an der Laserdiode anliegende Strom, die Temperatur der Laserdiode, Frequenz und Stärke eines Piezo-Elements
@@ -9,15 +11,40 @@ sowie ein Rampengenerator, der eine Dreiecksspannung erzeugt, steuern. Mit letzt
 lässt sich nach einem Tiefpass über einen Ausgang abnehmen. Dieser kann, neben dem Ausgang des Rampengenerators und Piezo-Elements an ein Zwei-Kanal-Oszilloskop angeschlossen werden. \\
 \\
 Zusätzlich
-stand eine Infrarot-Sichtkarte sowie eine Kamera, die an einen Monitor angeschlossen ist zur verfügung, um den Strahlengang des Lasers verfolgen zu können und die Floureszenz des Rubidiums zu beobachten.
+stand eine Infrarot-Sichtkarte (IR-Sichtkarte) sowie eine Kamera, die an einen Monitor angeschlossen ist zur verfügung, um den Strahlengang des Lasers verfolgen zu können und die Floureszenz des Rubidiums zu beobachten.
 Zu diesem Zweck hat die Rubidiumzelle ein Loch mit Glas davor an welches die Kamera gestellt werden kann. 
+
 \subsection{Justierung des Lasers}
+Zunächst muss der Diodenlaser zum Laufen gebracht werden und eine der diskreten Moden mit einer der größten Intensitäten gefunden werden. Zunächst wird überprüft ob die Diodenspannung am Kontrollmodul
+ausgeschaltet ist. Daraufhin kann dann der Hauptschalter am Kontrollmodul betätigt werden. 
+\subsubsection{Finden einer der Moden mit größter Intensität}
+Nun muss die Temperatur am Diodenchip auf den gewünschten Wert voreingestellt werden. Dazu wird das Multimeter, welches in \autoref{fig:mulitmeter} zu sehen ist, an den entsprechenden Ausgang des Thermoresistors am Kontrollmodul angeschlossen und auf einen
+Messbereich von $\qty{4}{\Volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mit Hilfe der Tabelle kann nun die Temperatur initial auf 
+$\qty{50}{\Caelsius}$ voreingestellt werden. Dabei ist allerdings zu beachten, dass das System eine gewisse Relaxationszeit hat, bis sich nach Drehen des Knaufes auf die neue Temperatur eingependelt hat. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{content/images/multimeter.jpeg}
+    \caption{An Kontrollmodul angeschlossenes Multimeter.}
+    \label{fig:multimeter}
+\end{figure}
+\\
+Im nächsten Schritt wird die Abdekung des Lasers abgenommen und die IR-Sichtkarte vor dem Laser in einer Halterung eingespannt werden. Außerdem sollte die Kamera auf die Karte gerichtet werden, da 
+der Laser mit bloßem Auge auf der Karte schwer zu erkennen ist. Nun kann langsam die Diodenspannung am Kontrollmodul erhöht werden, bis auf der Sichtkarte zu erkennen ist, dass die Diode in die
+Phase der Laseraktivität übergegangen ist. Nun kann mit Hilfe des passenden Imbusschlüssels der obere Knopf am Laser, wie in \autoref{fig:diodenlaser} zu erknnen, gedreht werden. Es ist auf der Sichtkarte dabei zu erkennen, wie der Laser durch
+mehrere Moden duchläuft, da seine Intensität schwankt. Dann sollte möglichst die Mode mit der größten intensität gewählt werden. Nun wird die anliegende Spannung wieder runtergeregelt und auch der
+obere Knopf am Laser ggf. erneut verstellt bis die Diode knapp oberhalb der Schwelle für die Erzeugung von Laserlicht ist. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{content/images/diodenlaser.jpeg}
+    \caption{Diodenlaser mit oberem Knopf (oben links, eingesteckter Imbusschlüssel) und unterem Knopf (unten rechts).}
+    \label{fig:diodenlaser}
+\end{figure}
+\\
+\subsubsection{Anpassung der Wellenlänge anhand von Rubidiumfloureszenz}
 
 
 
-
-
-
+bla
 
 
 \label{sec:Durchführung}
