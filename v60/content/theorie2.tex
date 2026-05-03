@@ -1,1 +1,82 @@
-Hi
+\section{Theorie}
+\label{sec:Theorie}
+    Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom-, Teilchen- und Festkörperphysik.
+    Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
+    Im Folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwengdungsweise des Diodenlasers erläutert.
+    
+    \subsection{Absorption und Emission elektromagnetischer Stahlung}
+        Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
+        Dabei traf er die Annahme, dass die Wechselwirkung zwischen Licht und Materie durch diskrete Energien der Form $E = \symup{h}\cdot\nu$ beschrieben werden kann \cite[52]{haken_wolf_2004}.
+        Dabei ist $\nu$ die Frequenz des Lichts und $\symup{h}$ das Planck'sche Wirkungsquantum.
+        \\
+        Auf diese Interpretation stützt sich auch das Bohr'sche Atommodell (1913), welches in drei Postulaten den Elektronen diskrete Energieniveaus vorgibt.
+        Dies liefert eine Erklärung für die diskreten Emissionsspektren, die für jedes chemische Element verschieden und einzigartig sind.
+        Die Übergangsenergie, die nötig ist, um ein Elektron vom Energieniveau $E_1$ in das höhere Energieniveau $E_2$ anzuheben beträgt
+        \begin{equation}
+            \symup{\Delta}E = E_2 - E_1 = h\nu\,\mathrm{.}
+            \label{eqn:planck}
+        \end{equation}
+        Um den Übergang von $E_1$ nach $E_2$ zu realisieren, muss also dem Elektron in $E_1$ die Energie $\symup{\Delta}E$ zugeführt werden.
+        Der umgekehrte Prozess setzt entsprechend Energie $\symup{\Delta}E$ frei \cite[95]{haken_wolf_2004}.
+        \\
+        Anhand des Photoeffekts konnte Albert Einstein die Lichtquantenhypothese aufstellen und zeigen, dass elektromagnetische Strahlung nicht nur durch Wellen, sondern auch durch Lichtteilchen mit diskreten, frequenzabhängigen Energien beschrieben werden kann.
+        Für die im Diodenlaser auftretenden Prozesse ist diese Betrachtungsweise besonders relevant, da sie ermöglicht, die Wechselwirkung zwischen Licht und Materie als Prozess mit Photonenaustausch zu beschreiben.
+        \\
+        Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
+        In Abbildung \autoref{fig:atomspektrum} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in \autoref{sec:systeme} behandelt.
+        % \begin{figure}mehr Elektronen im Zustand mit der niedrigsten Energie. 
+        %     \centering
+        %     \includegraphics[width=0.7\textwidth]{atomspektrum.png}
+        %     \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{...}}
+        %     \label{fig:atomspektrum}
+        % \end{figure}
+        \FloatBarrier\noindent
+        Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} beschriebenen Prozess.
+        Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
+        Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
+        Es befindet sich nun im Zustand $\Psi_2$.
+        \\
+        Dieser Übergang findet nur mit einer gewissen Wahrscheinlichkeit statt, die sich mittels der zeitabhängigen Störungstheorie und Fermi's \enquote{Goldener Regel} ermitteln lässt. 
+        Dabei ist die Zunahme der Absorptionsrate linear proportional zur Anzahl der einfallenden Photonen \cite[293]{schwabl}. 
+        \\
+
+
+    
+    
+    \subsection{Besetzungsinversion}
+    Bei der Betrachtung dieser Mehrniveausysteme ist die Boltzmann-Verteilung nach Ludwig Boltzmann von großer Bedeutung. Mit dieser lassen sich aussagen über die Besetzungswahrscheinlichkeiten im
+    thermischen Glechgewicht treffen. So sind bei fester Temperatur $T$ Energiezustände mit niedrigerer Energie deutlich stärker besetzt als diejenigen mit höherer Energie. Ist das genaue Gegenteil
+    der Fall bzw. sind höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen \cite[288]{moeller_2003}. Besetzungsinversion kann
+    Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[289]{moeller_2003}.
+    \\
+    Sind nun die meisten Teilchen eines Systems im höchsten Energieniveau kann es zu stimulierter Inversion kommen. Dazu muss sich das System in einem Resonator befinden, so dass von dem System spontan emittierte 
+    Photonen nun verstärkt werden und weitere Teilchen im höchsten Energieniveau zur Emission anregen. Dabei wird von stimulierter Emission gesprochen.
+   
+
+    \subsection{Der Diodenlaser}
+    \subsubsection{Halbleiterchip}
+    \label{sec:halbleiterchip}
+    Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. Eine Schicht ist p-dotiert - also mit Ionen, die genau ein Elektron weniger haben als die Atome des 
+    Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
+    die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird.  
+    \subsubsection{Moden Selektion}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/netgain.png}
+        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{sample}.}
+        \label{fig:netgain}
+    \end{figure}
+    Die Wellenlänge des Diodenlasers, welche insgesamt die meiste Verstärkung hat, wird, wie in \autoref{fig:netgain} dargestellt, durch mehrere Faktoren bestimmt. 
+    Zunächst hängt die Wellenlänge von der Bandlückle des verwendeten Halbleitermaterials ab. Dies wird in der Grafik durch "Medium" repräsentiert. Es sorgt für einen relativ breiten 
+    Frequenzbereich, der verstärkt wird. Des weiteren hängt die Position von der Temperatur des Chips ab. \\ 
+    \\
+    Der Diodenchip dient außerdem als Resonator, wie in \autoref{sec:halbleiterchip} beschrieben. Dadurch ergibt sich das diskrete Spektrum der Verstärkung, welches durch "Internal Cavity" 
+    dargestellt wird. Es ist von der Länge des Chips und somit ebenfalls von seiner Temperatur abhängig. Der Laser kann abhängig von den anderen Faktoren der Verstärkung zwischen den diskreten
+    Moden des Resonators hin und her springen. \\
+    \\
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/grating.png}
+        \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{sample}.}
+        \label{fig:netgain}
+    \end{figure}
