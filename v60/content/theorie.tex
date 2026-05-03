@@ -30,17 +30,27 @@
         %     \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{...}}
         %     \label{fig:atomspektrum}
         % \end{figure}
-        \FloatBarrier
+        \FloatBarrier\noindent
         Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} beschriebenen Prozess.
         Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
         Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
         Es befindet sich nun im Zustand $\Psi_2$.
         \\
-        Dieser Übergang findet \textit{nicht} statt, wenn die Energiedifferenz der beiden Energieniveaus ungleich der Energie des einfallenden Photons ist.
-        Es kann also jedem Übergang $\Psi_{12}$ eine charakteristische Frequenz $\nu_{12}$ zugeordnet werden.
+        Dieser Übergang findet nur mit einer gewissen Wahrscheinlichkeit statt, die sich mittels der zeitabhängigen Störungstheorie und Fermi's \enquote{Goldener Regel} ermitteln lässt. 
+        Dabei ist die Zunahme der Absorptionsrate linear proportional zur Anzahl der einfallenden Photonen \cite[293]{schwabl_1992}. 
         \\
-        Bei der \textbf{spontanen Emission} seindet ein System, welches sich im höheren Energieniveau $\Psi_2$ befindet ein Photon mit der Energie $\symup{\Delta}E$ aus und 
-        fällt dabei in den niedrigeren Zustand $\Psi_1$. Dies geschieht spontan ohne außere Einflüsse\cite[149]{yariv_1991}. 
+        Viele der Energieniveaus, die durch Absorption angeregt werden können, sind instabil. 
+        Die angeregten Elektronen befinden sich in einem energetisch nicht optimalen Zustand. 
+        Das Verlassen dieses angeregten Zustands in einen energetisch günstigeren Zustand erfolgt ohne äußere Einflüsse.
+        Dieser Prozess wird \textbf{spontane Emission} genannt.
+        Dabei sendet ein System, welches sich im höheren Energieniveau $\Psi_2$ befindet ein Photon mit der Energie $\symup{\Delta}E = \symup{h}\nu $ aus und fällt dabei in den niedrigeren Zustand $\Psi_1$ \cite[149]{yariv_1991}. 
+        Die Wahrscheinl1ichkeit, mit der dies geschiet, lässt sich ebenfalls störungstheoretisch berechnen.
+        Dabei kann jedem Übergang, der durch spontane Emission stattfindet, eine mittlere Lebensdauer $\tau$ zugeordnet werden.
+        Diese Lebensdauer ist abhängig von der Energiedifferenz des betrachteten Übergangs. Es folgt der Zusammenhang
+        \begin{equation}
+            \symup{\Delta}E \propto \frac{\symup{h}}{\tau}\,\mathrm{.}
+        \end{equation}
+        Je höher also die Energiedifferenz zwischen angeregtem Zustand und Grundzustand, desto kürzer ist die Lebensdauer des Zustands, bevor er durch spontane Emission zerfällt \cite[95]{schwabl_1992}.
         \\
         Im Gegensatz dazu findet \textbf{stimulierte Emission} statt, wenn ein Photon mit der Energie $\symup{\Delta}E$ auf das System im Zustand $\Psi_2$ tritt. Auch hierbei wechselt das System in
         den Zustand $\Psi_1$ und sendet dabei ein zusätzliches Photon mit der Energie $\symup{\Delta}E$ aus. Diese stimulierte Emission ist demnach proportional zur Intensität des 
