@@ -86,19 +86,31 @@
     Liegt die Fermi-Energie bei einem Material zwischen dem Leitungs- und dem Valenzband - also in der sogenannten Bandlücke - dann handelt es sich dabei um einen Isolator oder einen Halbleiter,
     da die Elektronen erst die Bandlücke überwinden müssen, um zur Leitung beitragen zu können.
     Wenn die Bandlücke klein genug ist, dass einige Elektronen schon bei Raumtemperatur diese Bandlücke überwinden können, spricht man von einem Halbleiter \cite[147 f.]{gross_marx_2022}.
-
+    \subsection{Resonatoren?}
 
     \subsection{Der Diodenlaser}
     \subsubsection{Halbleiterchip}
     \label{sec:halbleiterchip}
     Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. Eine Schicht ist p-dotiert - also mit Ionen, die genau ein Elektron weniger haben als die Atome des 
     Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
-    die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird.  
+    die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
+    hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlich der Diode befinden kann. 
+    \subsubsection{Interner Resonator}
+    Innerhalb des Halbleiterchips gibt es nur einen kleinen Streifen, in dem eine Besetzungsinversion der Elektron-Loch-Paare vorliegt und sich das emittierte Licht somit durch stimulierte Emission kaskadenartig verstärken kann. 
+    Dieser dient als optischer
+    Resonator, welcher transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenz wird. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
+    verstärkt werden, direkt von der Temperatur abhängig. In der Vertikalen wird das Licht dadurch innerhalb des Streifens gehalten, dass der Brechungsindex der aktiven Schicht höher ist als der 
+    der umliegenden Schichten. In der Transversalen sind ebenfalls Barrieren mit geringerem Brechungsindex \cite{V60}. 
+    \label{sec:internalcavity}
+    \subsection{Gitter-Rückkopplung}
+    \label{sec:gratingfeedback}
+    Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, da der interne Resonator einen rechteckigen Querschnitt hat. Daher ist direkt hinter der Diode eine optische Linse 
+    verbaut, wie in \autoref{fig:externallaser} zu erkennen ist. Außerdem hat das Licht so noch eine zu große Bandbreite, weshalb ebenfalls ein Gitter verbaut ist. Dieses reflektiert
     \subsubsection{Modenselektion}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/netgain.png}
-        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{sample}.}
+        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{V60}.}
         \label{fig:netgain}
     \end{figure}
     Die Wellenlänge des Diodenlasers, welche insgesamt die meiste Verstärkung hat, wird, wie in \autoref{fig:netgain} dargestellt, durch mehrere Faktoren bestimmt. 
@@ -112,6 +124,6 @@
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/grating.png}
-        \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{sample}.}
-        \label{fig:netgain}
+        \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{V60}.}
+        \label{fig:externallaser}
     \end{figure}
