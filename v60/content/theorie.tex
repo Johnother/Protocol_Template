@@ -5,22 +5,32 @@
     Im Folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwengdungsweise des Diodenlasers erläutert.
     
     \subsection{Absorption und Emission elektromagnetischer Stahlung}
-        Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
-        Dabei traf er die Annahme, dass die Wechselwirkung zwischen Licht und Materie durch diskrete Energien der Form $E = \symup{h}\cdot\nu$ beschrieben werden kann \cite[52]{haken_wolf_2004}.
-        Dabei ist $\nu$ die Frequenz des Lichts und $\symup{h}$ das Planck'sche Wirkungsquantum.
-        \\
-        Auf diese Interpretation stützt sich auch das Bohr'sche Atommodell (1913), welches in drei Postulaten den Elektronen diskrete Energieniveaus vorgibt.
-        Dies liefert eine Erklärung für die diskreten Emissionsspektren, die für jedes chemische Element verschieden und einzigartig sind.
-        Die Übergangsenergie, die nötig ist, um ein Elektron vom Energieniveau $E_1$ in das höhere Energieniveau $E_2$ anzuheben beträgt
-        \begin{equation}
+        % Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
+        % Dabei traf er die Annahme, dass die Wechselwirkung zwischen Licht und Materie durch diskrete Energien der Form $E = \symup{h}\cdot\nu$ beschrieben werden kann \cite[52]{haken_wolf_2004}.
+        % Dabei ist $\nu$ die Frequenz des Lichts und $\symup{h}$ das Planck'sche Wirkungsquantum.
+        % \\
+        % Auf diese Interpretation stützt sich auch das Bohr'sche Atommodell (1913), welches in drei Postulaten den Elektronen diskrete Energieniveaus vorgibt.
+        % Dies liefert eine Erklärung für die diskreten Emissionsspektren, die für jedes chemische Element verschieden und einzigartig sind.
+        % Die Übergangsenergie, die nötig ist, um ein Elektron vom Energieniveau $E_1$ in das höhere Energieniveau $E_2$ anzuheben beträgt
+        % \begin{equation}
+        %     \symup{\Delta}E = E_2 - E_1 = h\nu\,\mathrm{.}
+        %     \label{eqn:planck}
+        % \end{equation}
+        % Um den Übergang von $E_1$ nach $E_2$ zu realisieren, muss also dem Elektron in $E_1$ die Energie $\symup{\Delta}E$ zugeführt werden.
+        % Der umgekehrte Prozess setzt entsprechend Energie $\symup{\Delta}E$ frei \cite[95]{haken_wolf_2004}.
+        % \\
+        % Anhand des Photoeffekts konnte Albert Einstein die Lichtquantenhypothese aufstellen und zeigen, dass elektromagnetische Strahlung nicht nur durch Wellen, sondern auch durch Lichtteilchen mit diskreten, frequenzabhängigen Energien beschrieben werden kann.
+        % Für die im Diodenlaser auftretenden Prozesse ist diese Betrachtungsweise besonders relevant, da sie ermöglicht, die Wechselwirkung zwischen Licht und Materie als Prozess mit Photonenaustausch zu beschreiben.
+        % \\
+        Alle bekannten chemischen Elemente besitzen auf atomarer Ebene diskrete Energieniveaus, welche abhängig sind von ihrer Elektronenkonfiguration.
+        In vielen Experimenten konnte nachgewiesen werden, dass diese Niveaus auf vielfältige Weise angeregt und manipuliert werden können.
+        Durch Bestrahlung der Atome mit Photonen kann beeinflusst werden, welche Energieniveaus die Elektronen der Atomhülle besetzen.
+        Der Übergang von einem Zustand $\Psi_1$ in einen Zustand $\Psi_2$ ist dabei durch die Energiedifferenz der beiden Energieniveaus $E_1$ und $E_2$ gegben durch die Formel
+             \begin{equation}
             \symup{\Delta}E = E_2 - E_1 = h\nu\,\mathrm{.}
             \label{eqn:planck}
         \end{equation}
-        Um den Übergang von $E_1$ nach $E_2$ zu realisieren, muss also dem Elektron in $E_1$ die Energie $\symup{\Delta}E$ zugeführt werden.
-        Der umgekehrte Prozess setzt entsprechend Energie $\symup{\Delta}E$ frei \cite[95]{haken_wolf_2004}.
-        \\
-        Anhand des Photoeffekts konnte Albert Einstein die Lichtquantenhypothese aufstellen und zeigen, dass elektromagnetische Strahlung nicht nur durch Wellen, sondern auch durch Lichtteilchen mit diskreten, frequenzabhängigen Energien beschrieben werden kann.
-        Für die im Diodenlaser auftretenden Prozesse ist diese Betrachtungsweise besonders relevant, da sie ermöglicht, die Wechselwirkung zwischen Licht und Materie als Prozess mit Photonenaustausch zu beschreiben.
+        Dabei ist $\symup{h}$ das Planck'sche Wirkungsquantum und $\nu$ die Frequenz des Photons, dessen Energie der Energiedifferenz des Übergangs entspricht.
         \\
         Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
         In Abbildung \autoref{fig:atomspektrum} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in \autoref{sec:systeme} behandelt.
@@ -58,8 +68,23 @@
         Im Gegensatz zur spontanen Emission ist die Abstrahlrichtung dieses emittierten Photons nicht zufällig, sondern entlang der Ausbreitungsrichtung des einfallenden Photons.
         Eine genaue quantenmechanische Betrachtung des Prozesses zeigt, dass das einfallende und emittierte Photon in allen Quantenzahlen übereinstimmen; die beiden Photonen sind kohärent und die Intensität des Lichts hat sich verdoppelt.
         Die Intensität der stimulierten Emission ist demnach proportional zur Intensität des stimulierenden Feldes \cite[155]{yariv_1991}. 
+    \subsection{Kohärenz}
+        Die Quantenmechanik liefert mathematisch fundiert die Erkenntnis, dass das Photon, welches bei der stimulierten Emission frei wird, die gleiche Phasenbeziehung, Ausbreitungsrichtung und Frequenz hat wie das einfallende, induzierende Photon.
+        Tatsächlich stimmen die beiden Photonen in jeder Quantenzahl überein. Diese Identität der Quantenzahlen und des Verhaltens der Photonen wird als \textbf{Kohärenz} bezeichnet.
+        Kohärenz ist allerdings eine Eigenschaft, die durch externe Einflüsse behindert, eingeschränkt oder aufgehoben werden kann. Brechung und Beugung von Licht, Streuung an den Luftmolekülen sowie Interferenz mit externer Strahlung können Änderungen der Quantenzahlen verursachen.
+        Bereits minimale Abweichungen der Phase oder Frequenz, entwickeln sich mit fortschreitender Zeit weiter auseinander und sorgen für immer geringere Kohärenz. 
+        \\
+        Die Stabilität der Phase und Frequenz eines Lasers fällt unter die \textbf{zeitliche Kohärenz}. Aus ihr ergibt sich die Linienbreite und die Kohärenzlänge.
+        Die Kohärenzlänge ist die Entfernung, die sich aus der Lichtgeschwindigkeit $c$ und der Linienbreite $\symup{\Delta}\nu$ berechnet in der Form
+        \begin{equation}
+            l = c\cdot\symup{\Delta}t = \frac{c}{\symup{\Delta}\nu}\,\mathrm{.}
+        \end{equation}
+        Davon abgesehen spielt auch die Frage eine Rolle, wie gut das Licht seine uhrsprüngliche Fokussierung beibehält. Dies wird als \textbf{räumliche Kohärenz} bezeichnet.
+        \\
+        Laserlicht weist sowohl sehr hohe räumliche als auch zeitliche Kohärenz auf. Erstere ist technisch begrenzt durch den optischen Strahlengang des Laserstrahls, vor allem der Laserblende.
+        Die zeitliche Kohärenz kann über die Kohärenzlänge quantifiziert werden. Bei Lassern liegt sie im Bereich von $\qty{300000}{\kilo\meter}$.
     \subsection{Funktionsprinzip eines Lasers}
-        In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emmision ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen.
+        In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emission ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen.
         Um dies zu erreichen, müssen jedoch mehrere Voraussetzungen gegeben sein.
         Zum Einen wird ein aktives Medium benötigt, in dem die stimulierte Emission stattfindet. 
         In diesem Medium müssen zwei Energieniveaus identifiziert werden, deren Energiedifferenz der Frequenz des gewünschten Laserlichts entspricht.
@@ -71,12 +96,24 @@
             der Fall, sind also höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen \cite[288]{möller_2003}.
             Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[289]{möller_2003}.
         \subsubsection{Drei- und Vier-Niveau-Systeme}
-            Bei der Auswahl der Energieniveaus, zwischen denen die stimulierte Emission betrieben werden soll, reicht es nicht aus, die beiden Niveaus zu betrachten, die die gewünschte Energiedifferenz haben.
-            In diesem Fall wäre zur Erzeugung der Besetzungsinversion Licht genau der Frequenz nötig, das erzeugt werden soll. Das hat den Effekt, dass die Besetzungsinversion nie mehr als $50\,\%$ betragen kann.
-            Sobald das System zur Hälfte im angeregten Zustand ist, überwiegt der Effekt der stimulierten Emission\cite[000]{XXX}.
-            
-    \subsection{Kohärenz?}
-
+            Ein Zwei-Niveau-System, wie es in \autoref{fig:atomspektrum} zur Veranschaulichung genutzt wird, ist nicht in der Lage, Laserlicht über stimulierte Emission zu erzeugen.
+            Dies liegt daran, dass die spontane Emission und die Absorption quantenmechanisch den gleichen, jedoch umgekehrten Prozess beschreiben.
+            Die Wahrscheinlichkeit für beide Prozesse ist gleich, weshalb sich stimulierte Emission und Absorption ab einem gewissen Grad der Besetzungsinversion ausgleichen \cite[293]{schwabl_1992}.
+            \\
+            Daraus ergibt sich die Konsequenz, dass die Besetzungsinversion im aktiven Medium durch einen anderen physikalischen Prozess ausgelöst werden muss, als jener, der bei der stimulierten Emission ausgenutzt wird.
+            Um dies zu realisieren, werden Drei- und Vier-Niveau-Systeme verwendet. Einen Vergleich der beiden Systeme zeigt \autoref{fig:Niveausysteme}.
+            \\
+            Beim Drei-Niveau-System pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
+            Aus dem obersten Zustand $\Psi_2$ kann das System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
+            In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
+            \\
+            Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
+            \\
+            Beim Vier-Niveau-System befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
+            Der Übergang $\Psi_21$ ist langlebig und wird zum Lasen verwendet. Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. Der letzte Übergang $\Psi_10$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
+            Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten \cite[40-41]{eichler_1991}.
+            \\
+        \subsubsection{Resonatoren}
 
     \subsection{Bandstruktur}
     Die Bandstruktur ist eines der wichtigsten Konzepte der Festkörperphysik. Sie ergibt sich aus der Dispersionsrelation der Elektronen, die sich im Gitter eines Festkörpers bewegen, und ist somit
@@ -86,7 +123,6 @@
     Liegt die Fermi-Energie bei einem Material zwischen dem Leitungs- und dem Valenzband - also in der sogenannten Bandlücke - dann handelt es sich dabei um einen Isolator oder einen Halbleiter,
     da die Elektronen erst die Bandlücke überwinden müssen, um zur Leitung beitragen zu können.
     Wenn die Bandlücke klein genug ist, dass einige Elektronen schon bei Raumtemperatur diese Bandlücke überwinden können, spricht man von einem Halbleiter \cite[147 f.]{gross_marx_2022}.
-    \subsection{Resonatoren?}
 
     \subsection{Der Diodenlaser}
     \subsubsection{Halbleiterchip}
@@ -105,8 +141,12 @@
     \label{sec:internalcavity}
     \subsubsection{Gitter-Rückkopplung}
     \label{sec:gratingfeedback}
-    Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, welche sich ausbreitet, da der interne Resonator einen rechteckigen Querschnitt hat. Daher ist direkt 
-    hinter der Diode - wie in \autoref{fig:externallaser} zu erkennen - eine optische Linse 
+    Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, welche sich ausbreitet, da der interne Resonator einen rechteckigen Querschnitt hat.
+    das Laserlicht in der diode ist kohärent und breitet sich nahezu axial aus. Daher kann für den Laserstrahl die Frauenhofer-Näherung angewandt werden. 
+    Die Form des Strahls nach der Beugung an der Rechteckblende ist beschrieben durch die Fouriertransformierte der Rechteckblendenfunktion. Diese ist ein Sinus Cardinalis in beiden transversalen Raumrichtungen.
+    Bei unterschiedlich langen Seiten des Rechtecks ergibt sich daher ein elliptischer Transversalschnitt des Laserstrahls nach der Beugung \cite[000]{XXX}.
+    \\
+    Um den elliptischen Strahl zu fokussieren, ist direkt hinter der Diode - wie in \autoref{fig:externallaser} zu erkennen - eine optische Linse 
     verbaut. Außerdem hat das Licht mit $\increment v \approx \qty{50}{\mega\hertz}$ noch eine zu große Bandbreite, weshalb ebenfalls ein Beugungsgitter verbaut ist. Dies ist 
     ebenfalls in \autoref{fig:externallaser} dargestellt. 
     Dieses reflektiert die nullte Beugungsordnung und dadurch mit ca $85\%$ den größten Teil des Strahls zurück in den Diodenchip. Dadurch wird abhängig vom Gitterwinkel 
