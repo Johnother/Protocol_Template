@@ -75,7 +75,7 @@
             In diesem Fall wäre zur Erzeugung der Besetzungsinversion Licht genau der Frequenz nötig, das erzeugt werden soll. Das hat den Effekt, dass die Besetzungsinversion nie mehr als $50\,\%$ betragen kann.
             Sobald das System zur Hälfte im angeregten Zustand ist, überwiegt der Effekt der stimulierten Emission\cite[000]{XXX}.
             
-
+    \subsection{Kohärenz?}
 
 
     \subsection{Bandstruktur}
@@ -95,35 +95,48 @@
     Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
     die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
     hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlich der Diode befinden kann. 
-    \subsubsection{Interner Resonator}
+    \subsubsection{Innerer Resonator}
     Innerhalb des Halbleiterchips gibt es nur einen kleinen Streifen, in dem eine Besetzungsinversion der Elektron-Loch-Paare vorliegt und sich das emittierte Licht somit durch stimulierte Emission kaskadenartig verstärken kann. 
     Dieser dient als optischer
     Resonator, welcher transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenz wird. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
     verstärkt werden, direkt von der Temperatur abhängig. In der Vertikalen wird das Licht dadurch innerhalb des Streifens gehalten, dass der Brechungsindex der aktiven Schicht höher ist als der 
-    der umliegenden Schichten. In der Transversalen sind ebenfalls Barrieren mit geringerem Brechungsindex \cite{V60}. 
+    der umliegenden Schichten. In der Transversalen sind ebenfalls Barrieren mit geringerem Brechungsindex. Die Periodizität der Verstärkung berechnet sich nach $\increment v_{\mathrm{FSR}}=\frac{c}{2Ln}$
+    mit der Lichtgeschwindigkeit $c$ der Länge des Resonators $L$ und de, Brechungsindex $n$. Hier ergibt sich ein Wert von $\increment v_{\mathrm{FSR}}\approx \qty{60}{\giga\hertz}$ \cite{V60}. 
     \label{sec:internalcavity}
-    \subsection{Gitter-Rückkopplung}
+    \subsubsection{Gitter-Rückkopplung}
     \label{sec:gratingfeedback}
-    Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, da der interne Resonator einen rechteckigen Querschnitt hat. Daher ist direkt hinter der Diode eine optische Linse 
-    verbaut, wie in \autoref{fig:externallaser} zu erkennen ist. Außerdem hat das Licht so noch eine zu große Bandbreite, weshalb ebenfalls ein Gitter verbaut ist. Dieses reflektiert
-    \subsubsection{Modenselektion}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{content/images/netgain.png}
-        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{V60}.}
-        \label{fig:netgain}
-    \end{figure}
-    Die Wellenlänge des Diodenlasers, welche insgesamt die meiste Verstärkung hat, wird, wie in \autoref{fig:netgain} dargestellt, durch mehrere Faktoren bestimmt. 
-    Zunächst hängt die Wellenlänge von der Bandlücke des verwendeten Halbleitermaterials ab. Dies wird in der Grafik durch "Medium" repräsentiert. Es sorgt für einen relativ breiten 
-    Frequenzbereich, der verstärkt wird. Des weiteren hängt die Position von der Temperatur des Chips ab. \\ 
-    \\
-    Der Diodenchip dient außerdem als Resonator, wie in \autoref{sec:halbleiterchip} beschrieben. Dadurch ergibt sich das diskrete Spektrum der Verstärkung, welches durch "Internal Cavity" 
-    dargestellt wird. Es ist von der Länge des Chips und somit ebenfalls von seiner Temperatur abhängig. Der Laser kann abhängig von den anderen Faktoren der Verstärkung zwischen den diskreten
-    Moden des Resonators hin und her springen. \\
-    \\
+    Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, welche sich ausbreitet, da der interne Resonator einen rechteckigen Querschnitt hat. Daher ist direkt 
+    hinter der Diode - wie in \autoref{fig:externallaser} zu erkennen - eine optische Linse 
+    verbaut. Außerdem hat das Licht mit $\increment v \approx \qty{50}{\mega\hertz}$ noch eine zu große Bandbreite, weshalb ebenfalls ein Beugungsgitter verbaut ist. Dies ist 
+    ebenfalls in \autoref{fig:externallaser} dargestellt. 
+    Dieses reflektiert die nullte Beugungsordnung und dadurch mit ca $85\%$ den größten Teil des Strahls zurück in den Diodenchip. Dadurch wird abhängig vom Gitterwinkel 
+    ein Wellenlängenbereich mit deutlich kleinerer Bandbreite verstärkt und der Laser somit auf diese Wellenlänge stabilisiert. Die Beziehung zwischen Gitterwinkel und 
+    Wellenlänge ist durch $\lambda = 2 d \mathrm{sin}\theta$ gegeben. Die restlichen $15\%$ des Strahls werden, wie es durch \autoref{fig:externallaser} deutlich wird, nach
+    außen Reflektiert und bilden somit den letztentlichen Laserstrahl des Diodenlasers \cite{V60}. 
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/grating.png}
         \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{V60}.}
         \label{fig:externallaser}
     \end{figure}
+    \subsubsection{Äußerer Resonator}
+    \label{sec:externalcavity}
+    Das Beugungsgitter bildet mit dem gegenüberliegenden Ende des Diodenchips ebenfalls einen optischen Resonator. Dieser hat eine Länge von $\qty{15}{\milli\meter}$ und verstärkt
+    somit Frequenzen mit einer Periodizität von $\increment v_{\mathrm{FSR}}\approx \qty{10}{\giga\hertz}$. Diese ist somit kleiner als die des inneren Resonators. 
+    \subsubsection{Nettoverstärkung}
+    Die letztendliche Nettoverstärkung ergibt sich aus allen diesen Elementen. Dies ist in \autoref{fig:netgain} schematisch dargestellt. Dabei ist die mit "Medium" betitelte Verstärkung die in
+    \autoref{sec:halbleiterchip} beschriebene allgemeine Verstärkung des Materials. Der interne Resonator aus \autoref{sec:internalcavity} wird durch "Internal Cavity" dargestellt 
+    und der äußere Resonator aus \autoref{sec:externalcavity} durch "External Cavity". Die schmale Verstärkung der Gitter-Rückkopplung aus \autoref{sec:gratingfeedback} ist durch
+    "Grating Feedback" repräsentiert.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/netgain.png}
+        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{V60}.}
+        \label{fig:netgain}
+    \end{figure}
+    Dabei ist noch zu beachten, dass die tatsächliche Frequenz zwischen den einzelnen moden der Resonatoren springen kann, da diese diskret sind. Dabei ist die Überlagerung der beiden
+    Resonatoren und der Gitter-Rückkopplung, wie sie in \autoref{fig:modehop} dargestellt ist von Bedeutung. Verscheibt sich die Gitter-Rückkopplung durch verstellen des Gitterwinkels 
+    so dass die Verstärkung in der nächsten inneren 
+    \subsubsection{Modenspringen}
+    
+    
