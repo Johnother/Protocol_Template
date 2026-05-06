@@ -6,7 +6,8 @@ Messung der Spannung am Thermoresistor und an der Diode bereit, sowie eine Tabel
 zur Verfügung, um die Feinjustierung des Lasers zu erleichtern.\\
 \\
 Der Laser 
-und die Photodioden sind an ein Kontrollmodul angeschlossen. Über dieses lässt sich der an der Laserdiode anliegende Strom, die Temperatur der Laserdiode, Frequenz und Stärke eines Piezo-Elements
+und die Photodioden sind an ein Kontrollmodul angeschlossen. Über dieses lässt sich der an der Laserdiode anliegende Strom mit einer Genauigkeit von $\pm\qty{0.01}{\volt}$, 
+die Temperatur der Laserdiode, Frequenz und Stärke eines Piezo-Elements
 sowie ein Rampengenerator, der eine Dreiecksspannung erzeugt, steuern. Mit letzteren beiden lässt sich der Winkel des Beugungsgitters so modulieren, dass der Laser kontinuierlich durch verschiedene Frequenzen läuft. Das Signal der Photodiode
 lässt sich nach einem Tiefpass über einen Ausgang abnehmen. Dieser kann, neben dem Ausgang des Rampengenerators und Piezo-Elements an ein Zwei-Kanal-Oszilloskop angeschlossen werden. \\
 \\
@@ -16,11 +17,11 @@ Zu diesem Zweck hat die Ummantelung Rubidiumzelle ein Sichtfenster, an welches d
 stehen bereits die BNC-Kabel zum Verbinden der Ein- und Ausgänge des Oszilloskops und des Kontrollmoduls sowie Halterungen für Strahlteiler und die Sichtkarte zur Verfügung.
 
 \subsection{Justierung des Lasers}
-Zunächst muss der Diodenlaser zum in den Laser-Betrieb geschaltet und eine der diskreten Moden mit einer der größten Intensitäten gefunden werden. Zunächst wird überprüft ob die Diodenspannung am Kontrollmodul
+Zunächst muss der Diodenlaser zum in den Laser-Betrieb geschaltet und eine der diskreten Moden mit einer der größten Intensitäten gefunden werden. Dabei wird als Erstes überprüft ob die Diodenspannung am Kontrollmodul
 ausgeschaltet ist. Daraufhin kann dann der Hauptschalter am Kontrollmodul betätigt werden. 
 \subsubsection{Finden einer der Moden mit größter Intensität}
 Nun muss die Temperatur am Diodenchip auf den gewünschten Wert voreingestellt werden. Dazu wird das Multimeter, welches in \autoref{fig:multimeter} zu sehen ist, an den entsprechenden Ausgang des Thermoresistors am Kontrollmodul angeschlossen und auf einen
-Messbereich von $\qty{2}{\volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mithilfe der Tabelle kann nun die Temperatur initial auf 
+Messbereich von $\qty{2}{\volt}$ mit einer Unsicherheit von $\pm\qty{0.1}{\volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mithilfe der Tabelle kann nun die Temperatur initial auf 
 $\qty{50}{\degreeCelsius}$ voreingestellt werden. Dabei ist allerdings zu beachten, dass das System eine gewisse Relaxationszeit hat, bis sich nach Drehen des Knaufes auf die neue Temperatur eingependelt hat. 
 \begin{figure}
     \centering
