@@ -12,9 +12,9 @@ sowie ein Rampengenerator, der eine Dreiecksspannung erzeugt, steuern. Mit letzt
 lässt sich nach einem Tiefpass über einen Ausgang abnehmen. Dieser kann, neben dem Ausgang des Rampengenerators und Piezo-Elements an ein Zwei-Kanal-Oszilloskop angeschlossen werden. \\
 \\
 Zusätzlich
-steht eine Infrarot-Sichtkarte (IR-Sichtkarte) sowie eine Kamera, die an einen Monitor angeschlossen ist zur Verfügung, um den Strahlengang des Lasers verfolgen zu können und die Floureszenz des Rubidiums zu beobachten.
+steht eine Infrarot-Sichtkarte (IR-Sichtkarte) sowie eine Kamera, die an einen Monitor angeschlossen ist, zur Verfügung, um den Strahlengang des Lasers verfolgen zu können und die Floureszenz des Rubidiums zu beobachten.
 Zu diesem Zweck hat die Ummantelung Rubidiumzelle ein Sichtfenster, an welches die Kamera gestellt werden kann. Darüber hinaus 
-stehen bereits die BNC-Kabel zum Verbinden der Ein- und Ausgänge des Oszilloskops und des Kontrollmoduls sowie Halterungen für Strahlteiler und die Sichtkarte zur Verfügung.
+stehen bereits die BNC-Kabel zum Verbinden der Ein- und Ausgänge des Oszilloskops und des Kontrollmoduls sowie Halterungen für den Strahlteiler und die Sichtkarte zur Verfügung.
 
 \subsection{Justierung des Lasers}
 
@@ -34,9 +34,9 @@ $\qty{50}{\degreeCelsius}$ voreingestellt werden. Dabei ist allerdings zu beacht
 \\
 Im nächsten Schritt wird die Abdeckung des Lasers abgenommen und die IR-Sichtkarte vor dem Laser in einer Halterung eingespannt. Außerdem sollte die Kamera auf die Karte gerichtet werden, da 
 der Laser mit bloßem Auge auf der Karte schwer zu erkennen ist. Nun kann langsam die Diodenspannung am Kontrollmodul erhöht werden, bis auf der Sichtkarte zu erkennen ist, dass die Diode in die
-Phase der Laseraktivität übergegangen ist. Nun kann mithilfe des passenden Imbusschlüssels der obere Knopf am Laser, wie in \autoref{fig:diodenlaser} zu erknnen, gedreht werden. Dieser kontrolliert die vertikale Position des Gratings.
+Phase der Laseraktivität übergegangen ist. Nun kann mithilfe des passenden Inbusschlüssels der obere Knopf am Laser, wie in \autoref{fig:diodenlaser} zu erknnen, gedreht werden. Dieser kontrolliert die vertikale Position des Gratings.
 Es ist auf der Sichtkarte dabei zu erkennen, wie der Laser
-mehrere Moden duchläuft, da seine Intensität schwankt. Dann sollte möglichst die Mode mit der größten intensität gewählt werden. Nun wird die anliegende Spannung wieder runtergeregelt und auch der
+mehrere Moden duchläuft, da seine Intensität schwankt. Dann sollte möglichst die Mode mit der größten Intensität gewählt werden. Nun wird die anliegende Spannung wieder runtergeregelt und auch der
 obere Knopf am Laser ggf. erneut verstellt bis die Diode knapp oberhalb der Schwelle für die Erzeugung von Laserlicht ist. 
 \begin{figure}
     \centering
@@ -47,9 +47,9 @@ obere Knopf am Laser ggf. erneut verstellt bis die Diode knapp oberhalb der Schw
 \\
 \subsubsection{Anpassung der Wellenlänge anhand von Rubidiumfloureszenz}
 \label{sec:durch2}
-Nun wird die Rubidiumzelle in den Strahlengang gestellt, sodass der Laserstrahl sie vollständig durchquert. Dazu kann die Sichtkarte aus der Halterung entnommen und zur Hilfe verwendet werden. 
+Nach erfolgreicher vertikaler Justierung wird die Rubidiumzelle in den Strahlengang gestellt, sodass der Laserstrahl sie vollständig durchquert. Dazu kann die Sichtkarte aus der Halterung entnommen und zur Hilfe verwendet werden. 
 Zudem wird vor der Rubidiumzelle ein 50/50 Strahlteiler mittels der Halterung in den Strahlengang gebracht. Der transmittierte Anteil geht dann durch die Zelle. In den Strahlengang des reflektierten Anteils wird
-das Spektrometer eingebracht. Die Kammera sollte an das dafür vorgesehenne Loch in der Rubidiumzelle gestellt werden, um das Floureszenzlicht auf dem Monitor beobachten zu können.
+das Spektrometer eingebracht. Die Kamera sollte an das dafür vorgesehenne Sichtfenster in der Rubidiumzelle gestellt werden, um das Floureszenzlicht auf dem Monitor beobachten zu können.
 Der Aufbau ist in \autoref{fig:tischdraufsicht} zu erkennen. 
 \begin{figure}
     \centering
@@ -67,11 +67,11 @@ möglichst nahe kommt. Das Spektrometer zeigt dabei einen deutlichen Peak bei de
 wird wieder der Monitor beobachtet und der Laser über die beiden Knöpfe weiter feinjustiert, bis auf dem Bildschirm das Floureszenzlicht zu sehen ist. 
 \subsubsection{Durchscannen des Frequenzbereiches}
 \label{sec:durch3}
-Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf "output offset" ausgeschaltet werden. Dann wird der Rampengenerator durch die BNC-Kabel mit dem Oszilloskop verbunden.
-Nun wird am Rampengenerator eine Frequenz von $\qty{10}{\hertz}$, der Knopf "Attenuator" am Piezo-Element auf $1$ und die Amplitude des
-Rampengenerators auf $10$ eingestellt. Mit Hilfe des Oszilloskop kann nun am Kopf "output offset" so justiert werden, bis eine Dreieckspannung, die oben und unten nicht abgeschnitten ist, zu erkennen ist. 
-Nun werden die Elementre, wie in \autoref{fig:piezo} dargestellt, miteinander verbunden. Es wird überprüft ob, das Signal des Piezo-Elements nun im Bereich von 
-$\qty{3}{\volt}$ bis $\qty{8}{\volt}$ und gegebenenfalls nachjustiert. 
+Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf \enquote{output offset} ausgeschaltet werden. Dann wird der Rampengenerator durch die BNC-Kabel mit dem Oszilloskop verbunden.
+Nun wird am Rampengenerator eine Frequenz von $\qty{10}{\hertz}$, der Knopf \enquote{Attenuator} am Piezo-Element auf $1$ und die Amplitude des
+Rampengenerators auf $10$ eingestellt. Mithilfe des Oszilloskops kann nun am Kopf \enquote{output offset} so justiert werden, bis eine Dreieckspannung, die oben und unten auf dem Bildschirm nicht abgeschnitten ist, zu erkennen ist. 
+Nun werden die Elemente, wie in \autoref{fig:piezo} dargestellt, miteinander verbunden. Es wird überprüft ob, das Signal des Piezo-Elements nun im Bereich von 
+$\qty{3}{\volt}$ bis $\qty{8}{\volt}$ liegt und gegebenenfalls nachjustiert. 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/piezoschaltung.png}
@@ -79,7 +79,7 @@ $\qty{3}{\volt}$ bis $\qty{8}{\volt}$ und gegebenenfalls nachjustiert.
     \label{fig:piezo}
 \end{figure}
 \\
-Als nächstes wird hinter der Rubidiumzelle eine Photodiode, die mit dem Detektor-Eingang des Kontrollmoduls verbunden ist, in den Strahlengang der Lasers verbaut. Der Ausgang hinter dem Tiefpass 
-wird nun mit dem zweiten eingang des Oszilloskops verbunden. Am Oszilloskop sind nun Absorbtionslinien des Rubidiums zu erkennen, da der Laser einen Frequenzbereich durchläuft. 
+Als Nächstes wird hinter der Rubidiumzelle eine Photodiode, die mit dem Detektor-Eingang des Kontrollmoduls verbunden ist, in den Strahlengang der Lasers verbaut. Der Ausgang hinter dem Tiefpass 
+wird nun mit dem zweiten eingang des Oszilloskops verbunden. Am Oszilloskop sind nun mehrere Absorbtionslinien des Rubidiums zu erkennen, da der Laser einen Frequenzbereich durchläuft. 
 \label{sec:Durchführung}
 
