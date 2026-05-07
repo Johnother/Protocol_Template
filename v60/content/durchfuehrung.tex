@@ -17,9 +17,11 @@ Zu diesem Zweck hat die Ummantelung Rubidiumzelle ein Sichtfenster, an welches d
 stehen bereits die BNC-Kabel zum Verbinden der Ein- und Ausgänge des Oszilloskops und des Kontrollmoduls sowie Halterungen für Strahlteiler und die Sichtkarte zur Verfügung.
 
 \subsection{Justierung des Lasers}
+
 Zunächst muss der Diodenlaser zum in den Laser-Betrieb geschaltet und eine der diskreten Moden mit einer der größten Intensitäten gefunden werden. Dabei wird als Erstes überprüft ob die Diodenspannung am Kontrollmodul
 ausgeschaltet ist. Daraufhin kann dann der Hauptschalter am Kontrollmodul betätigt werden. 
 \subsubsection{Finden einer der Moden mit größter Intensität}
+\label{sec:durch1}
 Nun muss die Temperatur am Diodenchip auf den gewünschten Wert voreingestellt werden. Dazu wird das Multimeter, welches in \autoref{fig:multimeter} zu sehen ist, an den entsprechenden Ausgang des Thermoresistors am Kontrollmodul angeschlossen und auf einen
 Messbereich von $\qty{2}{\volt}$ mit einer Unsicherheit von $\pm\qty{0.1}{\volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mithilfe der Tabelle kann nun die Temperatur initial auf 
 $\qty{50}{\degreeCelsius}$ voreingestellt werden. Dabei ist allerdings zu beachten, dass das System eine gewisse Relaxationszeit hat, bis sich nach Drehen des Knaufes auf die neue Temperatur eingependelt hat. 
@@ -44,6 +46,7 @@ obere Knopf am Laser ggf. erneut verstellt bis die Diode knapp oberhalb der Schw
 \end{figure}
 \\
 \subsubsection{Anpassung der Wellenlänge anhand von Rubidiumfloureszenz}
+\label{sec:durch2}
 Nun wird die Rubidiumzelle in den Strahlengang gestellt, sodass der Laserstrahl sie vollständig durchquert. Dazu kann die Sichtkarte aus der Halterung entnommen und zur Hilfe verwendet werden. 
 Zudem wird vor der Rubidiumzelle ein 50/50 Strahlteiler mittels der Halterung in den Strahlengang gebracht. Der transmittierte Anteil geht dann durch die Zelle. In den Strahlengang des reflektierten Anteils wird
 das Spektrometer eingebracht. Die Kammera sollte an das dafür vorgesehenne Loch in der Rubidiumzelle gestellt werden, um das Floureszenzlicht auf dem Monitor beobachten zu können.
@@ -63,6 +66,7 @@ zur Hilfe genommen. Nun wird die Ausgabe des Spektrometers beobachtet und an all
 möglichst nahe kommt. Das Spektrometer zeigt dabei einen deutlichen Peak bei der Welllenlänge des Lasers an. Anschließend
 wird wieder der Monitor beobachtet und der Laser über die beiden Knöpfe weiter feinjustiert, bis auf dem Bildschirm das Floureszenzlicht zu sehen ist. 
 \subsubsection{Durchscannen des Frequenzbereiches}
+\label{sec:durch3}
 Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf "output offset" ausgeschaltet werden. Dann wird der Rampengenerator durch die BNC-Kabel mit dem Oszilloskop verbunden.
 Nun wird am Rampengenerator eine Frequenz von $\qty{10}{\hertz}$, der Knopf "Attenuator" am Piezo-Element auf $1$ und die Amplitude des
 Rampengenerators auf $10$ eingestellt. Mit Hilfe des Oszilloskop kann nun am Kopf "output offset" so justiert werden, bis eine Dreieckspannung, die oben und unten nicht abgeschnitten ist, zu erkennen ist. 
@@ -71,7 +75,7 @@ $\qty{3}{\volt}$ bis $\qty{8}{\volt}$ und gegebenenfalls nachjustiert.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/piezoschaltung.png}
-    \caption{Schamtische Schaltung für die Einstellung des Piezo-Elements und des Rampengenerators \cite{sample}.}
+    \caption{Schamtische Schaltung für die Einstellung des Piezo-Elements und des Rampengenerators \cite{V60}.}
     \label{fig:piezo}
 \end{figure}
 \\

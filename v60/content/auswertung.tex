@@ -1,9 +1,9 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Wie in \autoref{sec:Durchführung} beschrieben wird zunächst bei einer Chiptemperatur von $\qty{50}{\degreeCelsius}$, was laut vorhandener Umrechnungstabelle einer Spannung von 
+Wie in \autoref{sec:durch1} beschrieben wird zunächst bei einer Chiptemperatur von $\qty{50}{\degreeCelsius}$, was laut vorhandener Umrechnungstabelle einer Spannung von 
 $\qty{1.312}{\volt}$ am Thermoresistor entspricht, nach der Schwellenspannung ab der Laseraktivität stattfindet gesucht. Mit Hilfe der Kamera ist auf der IR-Sichtkarte deutlich zu sehen, wenn
-die Diode in die Laserphase wechselt. Auf dem Monitor sieht dies dann wie in \autoref{fig:lasingphase} aus. Bei drehen des oberen Knopfes am Laser ist nun deutlich zu erkennen, wie der Laser durch
+die Diode in die Laserphase wechselt. Auf dem Monitor sieht dies wie in \autoref{fig:lasingphase} aus. Bei drehen des oberen Knopfes am Laser ist nun deutlich zu erkennen, wie der Laser durch
 seine Moden durchwechselt. Dabei wechselt sich starke mit schwacher Intensität bzw. die Lasingaktivität mit der Diodenaktivität ab. Nach mehrmaligem Justieren sind $7$ Maxima zu erkennen, die 
 der Laser bei Drehen des Knopfes durchlief. Dies ist die geringste erreichte Anzahl an Maxima. Also wird das vierte zu erkennene Maximum für die Weiterarbeit gewählt, da dieses der Logik folgend 
 die größte Intnesität hat. Die Schwellenspannung an der Diode wurde dabei auf $U_{\mathrm{Schwelle}}=\qty{3.60(0.01)}{\volt}$ bestimmt. 
@@ -12,9 +12,9 @@ die größte Intnesität hat. Die Schwellenspannung an der Diode wurde dabei auf
   \centering
   \includegraphics[width=0.5\textwidth]{content/images/lasingphase.jpeg}
   \caption{Deutliche Lasingaktivität auf der IR-Sichtkarte.}
-  \label{fig::lasingphase}
+  \label{fig:lasingphase}
 \end{figure}
-Das Einstellen der Wellenlänge wird so wie in \autoref{sec:Durchführung} durchgeführt. Dabei wird bei den Temperaturen $\qty{50}{\degreeCelsius}$, $\qty{48}{\degreeCelsius}$ und
+Das Einstellen der Wellenlänge wird so wie in \autoref{sec:durch2} durchgeführt. Dabei wird bei den Temperaturen $\qty{50}{\degreeCelsius}$, $\qty{48}{\degreeCelsius}$ und
 $\qty{46}{\degreeCelsius}$ jeweils bei einer Spannung von $\qty{3.60}{\volt}$ bis $\qty{8.34}{\volt}$ wie Beschrieben nach der Floureszenz gesucht. Da diese nicht zu finden ist wird im Anschluss
 das Spektrometer zur Hilfe genommen. Auf dessen Ausgabe, welche in \autoref{fig:Spektrometer} zu sehen ist, ist sehr gut zu erkennen, wie der Laser zwischen verschiedenen Wellenlängen bzw. 
 Moden des inneren Resonators springt. So kann das Floureszenzlicht relativ leicht gefunden werden und der Laser ist bei der gewünschten Wellenlänge eingestellt. Da zu diesem Zeitpunkt die
@@ -45,26 +45,32 @@ Streifen erkennen.
   \label{fig:Floureszenz}
 \end{figure}
 \\
-
-
-\begin{table}
+Das in \autoref{sec:durch3} beschriebene Durchscannen eines gewissen Frequenzbereiches mittels des Piezo-Elements ergibt auf dem Oszilloskop die in \autoref{fig:oszi} gezeigte Ausgabe. 
+Hier sind keine deutlichen Absorbtionslinien zu erkennen, trotz genauem Aufbau und Durchführung wie zuvor beschrieben. 
+\begin{figure}
   \centering
-  \caption{Eine Beispieltabelle mit Messdaten.}
-  \label{tab:tabelle}
-  \sisetup{table-format=1.1, per-mode=reciprocal}
-  \begin{tblr}{
-      colspec = {S[table-format=3.0] S[table-format=2.1] S},
-      row{1} = {guard, mode=math},
-      vline{4} = {2}{-}{text=\clap{$\pm$}},
-    }
-    \toprule
-    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
-    \midrule
-    360 & 0.1 & 98.3 & 0.9 \\
-    400 & 0.2 & 99.8 & 1.0 \\
-    420 & 0.2 & 99.1 & 0.9 \\
-    \bottomrule
-  \end{tblr}
-\end{table}
-
-Siehe \autoref{fig:plot} und \autoref{tab:tabelle}!
+  \includegraphics[width=0.5\textwidth]{content/images/oszi.jpeg}
+  \caption{Ausgabe des Oszilloskops bei Durchscannen des Frequenzbereiches mit dem Piezo-Element.}
+  \label{fig:oszi}
+\end{figure}
+%\begin{table}
+%  \centering
+%  \caption{Eine Beispieltabelle mit Messdaten.}
+%  \label{tab:tabelle}
+%  \sisetup{table-format=1.1, per-mode=reciprocal}
+%  \begin{tblr}{
+%      colspec = {S[table-format=3.0] S[table-format=2.1] S},
+%      row{1} = {guard, mode=math},
+%      vline{4} = {2}{-}{text=\clap{$\pm$}},
+%    }
+%    \toprule
+%    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
+%    \midrule
+%    360 & 0.1 & 98.3 & 0.9 \\
+%    400 & 0.2 & 99.8 & 1.0 \\
+%    420 & 0.2 & 99.1 & 0.9 \\
+%    \bottomrule
+%  \end{tblr}
+%\end{table}
+%
+%Siehe \autoref{fig:plot} und \autoref{tab:tabelle}!
