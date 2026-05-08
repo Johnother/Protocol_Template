@@ -33,14 +33,16 @@
         Dabei ist $\symup{h}$ das Planck'sche Wirkungsquantum und $\nu$ die Frequenz des Photons, dessen Energie der Energiedifferenz des Übergangs entspricht.
         \\
         Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
-        In Abbildung \autoref{fig:atomspektrum} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in \autoref{sec:systeme} behandelt.
-        % \begin{figure}mehr Elektronen im Zustand mit der niedrigsten Energie. 
-        %     \centering
-        %     \includegraphics[width=0.7\textwidth]{atomspektrum.png}
-        %     \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{...}}
-        %     \label{fig:atomspektrum}
-        % \end{figure}
+        In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt. Diese Formulierung ist ebenfalls üblich und beschreibt den gleichen Prozess.
+        Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.7\textwidth]{content/images/atomanregungen.png}
+            \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{seos_project}.}
+            \label{fig:atomanregungen}
+        \end{figure}
         \FloatBarrier\noindent
+        \\
         Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} beschriebenen Prozess.
         Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
         Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
@@ -96,13 +98,20 @@
             der Fall, sind also höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen \cite[288]{möller_2003}.
             Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[289]{möller_2003}.
         \subsubsection{Drei- und Vier-Niveau-Systeme}
-            Ein Zwei-Niveau-System, wie es in \autoref{fig:atomspektrum} zur Veranschaulichung genutzt wird, ist nicht in der Lage, Laserlicht über stimulierte Emission zu erzeugen.
+        \label{sec:systeme}
+            Ein Zwei-Niveau-System, wie es in \autoref{fig:atomanregungen} zur Veranschaulichung genutzt wird, ist nicht in der Lage, Laserlicht über stimulierte Emission zu erzeugen.
             Dies liegt daran, dass die spontane Emission und die Absorption quantenmechanisch den gleichen, jedoch umgekehrten Prozess beschreiben.
             Die Wahrscheinlichkeit für beide Prozesse ist gleich, weshalb sich stimulierte Emission und Absorption ab einem gewissen Grad der Besetzungsinversion ausgleichen \cite[293]{schwabl_1992}.
             \\
             Daraus ergibt sich die Konsequenz, dass die Besetzungsinversion im aktiven Medium durch einen anderen physikalischen Prozess ausgelöst werden muss, als jener, der bei der stimulierten Emission ausgenutzt wird.
             Um dies zu realisieren, werden Drei- und Vier-Niveau-Systeme verwendet. Einen Vergleich der beiden Systeme zeigt \autoref{fig:Niveausysteme}.
-            \\
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]{content/images/Niveausysteme.png}
+                \caption{Ein Vier-Niveau-System (a) und ein Drei-Niveau-System (b) im Vergleich \cite{laserprinzipien}.}
+                \label{fig:Niveausysteme}
+            \end{figure}
+            \FloatBarrier\noindent
             Beim Drei-Niveau-System pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
             Aus dem obersten Zustand $\Psi_2$ kann das System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
             In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
@@ -110,26 +119,25 @@
             Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
             \\
             Beim Vier-Niveau-System befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
-            Der Übergang $\Psi_21$ ist langlebig und wird zum Lasen verwendet. Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. Der letzte Übergang $\Psi_10$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
+            Der Übergang $\Psi_{21}$ ist langlebig und wird zum Lasen verwendet. Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. Der letzte Übergang $\Psi_{10}$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
             Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten \cite[40-41]{eichler_1991}.
             \\
         \subsubsection{Resonatoren}
             Um den Laserbetrieb aufrechtzuerhalten, müssen die Photonen, die die stimulierte Emission in axialer Richtung auslösen können, möglichst lange im aktiven Medium verweilen. 
-            Dort stabilisiert sich der Laser, sodass die Besetzungsinversion und die stkimulierte Emission im Gleichgewicht liegen. Spontane Emission sollte nicht mehr stattfinden, weshalb die Zeit zwischen Anregung und Emission möglichst kurz sein sollte.
-            Um die kohrenten Photonen möglichst lange im Medium zu halten, werden an beiden Enden des Mediums Spiegel angebracht. Die Elektromagnetische Strahlung bildet dann stehende Wellen, die der Bedingung
+            Dort stabilisiert sich der Laser, sodass die Besetzungsinversion und die stimulierte Emission im Gleichgewicht liegen. Spontane Emission sollte nicht mehr stattfinden, weshalb die Zeit zwischen Anregung und Emission möglichst kurz sein sollte.
+            Um die kohärenten Photonen möglichst lange im Medium zu halten, werden an beiden Enden des Mediums Spiegel angebracht. Die Elektromagnetische Strahlung bildet dann stehende Wellen, die der Bedingung
             \begin{equation}
                 L = \frac{n\lambda}{2}\,\mathrm{,}\,\,\,n \in \mathbb{N}
             \end{equation}
-            genügen. Eine solche Anordnung von Spiegeln heißt \textbf{Resonator}.
+            genügen. Eine solche Anordnung von Spiegeln heißt \textbf{Resonator}. Dabei ist $L$ die Resonatorlänge, $\lambda$ die Wellenlänge des Laserlichts und $n$ die Wellenzahl, also die Anzahl der Maxima der stehenden Welle.
             \\
             Damit die Laserstrahlung im Resonator stehende Wellen bilden kann, ist also die Resonatorlänge entscheidend.
             Da die Wellenlänge des Laserlichts in der Regel im oberen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
-            Allerdings bedeutet die kurze Wellenlänge ebenso, dass auch bei Resonatorlängen im Mikrometer-Bereich 
+            Allerdings bedeutet die kurze Wellenlänge ebenso, dass sich bei Resonatorlängen im Mikrometer-Bereich viele longitudinale Moden im Resonator ausbilden können.
             Um das Auskoppeln des Laserlichts aus dem Resonator zu ermöglichen, hat einer der beiden Spiegel einen leicht abgesenkten Reflektionsgrad.
-            Durch diesen Spiegel werden in etwa $XXX\%$ des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
-            \\
-        
-
+            Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
+            Wie viel Laserlicht transmittiert wird, hängt davon ab, wie viel Licht innerhalb des Resonators nötig ist, um die stimulierte Emission stabil zu halten und Energieverluste auszugleichen.
+            Bei niederenergetischen Lasern liegt der Transmissionskoeffizient typerscherweise bei $T = \qty{1}{\percent}$ oder weniger. Hochenergetische Laser können auch Transmissionskoeffizienten im zweistelligen Prozentbereich aufweisen \cite[255]{svelto_1998}.
     \subsection{Bandstruktur}
     Die Bandstruktur ist eines der wichtigsten Konzepte der Festkörperphysik. Sie ergibt sich aus der Dispersionsrelation der Elektronen, die sich im Gitter eines Festkörpers bewegen, und ist somit
     direkt von der Gitterstruktur abhängig. Dabei ist ebenfalls die Fermi-Energie von großer Bedeutung. Sie ist genau die Energie, bis zu der die möglichen Zustände bei Temperatur $T=\qty{0}{\kelvin}$
@@ -145,13 +153,13 @@
     Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. Eine Schicht ist p-dotiert - also mit Ionen, die genau ein Elektron weniger haben als die Atome des 
     Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
     die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
-    hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlich der Diode befinden kann. 
+    hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlicht der Diode befinden kann. 
     \subsubsection{Innerer Resonator}
     Innerhalb des Halbleiterchips gibt es nur einen kleinen Streifen, in dem eine Besetzungsinversion der Elektron-Loch-Paare vorliegt und sich das emittierte Licht somit durch stimulierte Emission kaskadenartig verstärken kann. 
     Dieser dient als optischer
-    Resonator, welcher transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenz wird. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
+    Resonator, welcher transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenzt wird. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
     verstärkt werden, direkt von der Temperatur abhängig. In der Vertikalen wird das Licht dadurch innerhalb des Streifens gehalten, dass der Brechungsindex der aktiven Schicht höher ist als der 
-    der umliegenden Schichten. In der Transversalen sind ebenfalls Barrieren mit geringerem Brechungsindex. Die Periodizität der Verstärkung berechnet sich nach $\increment v_{\mathrm{FSR}}=\frac{c}{2Ln}$
+    der umliegenden Schichten. In der Transversalen befinden sich ebenfalls Barrieren mit geringerem Brechungsindex. Die Periodizität der Verstärkung berechnet sich nach $\increment v_{\mathrm{FSR}}=\frac{c}{2Ln}$
     mit der Lichtgeschwindigkeit $c$ der Länge des Resonators $L$ und de, Brechungsindex $n$. Hier ergibt sich ein Wert von $\increment v_{\mathrm{FSR}}\approx \qty{60}{\giga\hertz}$ \cite{V60}. 
     \label{sec:internalcavity}
     \subsubsection{Gitter-Rückkopplung}
@@ -159,7 +167,7 @@
     Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, welche sich ausbreitet, da der interne Resonator einen rechteckigen Querschnitt hat.
     das Laserlicht in der diode ist kohärent und breitet sich nahezu axial aus. Daher kann für den Laserstrahl die Frauenhofer-Näherung angewandt werden. 
     Die Form des Strahls nach der Beugung an der Rechteckblende ist beschrieben durch die Fouriertransformierte der Rechteckblendenfunktion. Diese ist ein Sinus Cardinalis in beiden transversalen Raumrichtungen.
-    Bei unterschiedlich langen Seiten des Rechtecks ergibt sich daher ein elliptischer Transversalschnitt des Laserstrahls nach der Beugung \cite[000]{XXX}.
+    Bei unterschiedlich langen Seiten des Rechtecks ergibt sich daher ein elliptischer Transversalschnitt des Laserstrahls nach der Beugung \cite[345]{demtröder_2026}.
     \\
     Um den elliptischen Strahl zu fokussieren, ist direkt hinter der Diode - wie in \autoref{fig:externallaser} zu erkennen - eine optische Linse 
     verbaut. Außerdem hat das Licht mit $\increment v \approx \qty{50}{\mega\hertz}$ noch eine zu große Bandbreite, weshalb ebenfalls ein Beugungsgitter verbaut ist. Dies ist 
@@ -178,10 +186,13 @@
     \label{sec:externalcavity}
     Das Beugungsgitter bildet mit dem gegenüberliegenden Ende des Diodenchips ebenfalls einen optischen Resonator. Dieser hat eine Länge von $\qty{15}{\milli\meter}$ und verstärkt
     somit Frequenzen mit einer Periodizität von $\increment v_{\mathrm{FSR}}\approx \qty{10}{\giga\hertz}$. Diese ist somit kleiner als die des inneren Resonators. 
+    \\
+    Da die Resonatorlänge hier um einen Faktor $\qty{10e5}{}$ größer ist als die Wellenlänge des Laserlichts, bilden sich im externen Resonator sehr viele verschiedene longitudinale Moden aus - deutlich mehr als im internen Resonator. 
+    
     \subsubsection{Nettoverstärkung}
     Die letztendliche Nettoverstärkung ergibt sich aus allen diesen Elementen. Dies ist in \autoref{fig:netgain} schematisch dargestellt. Dabei ist die mit "Medium" betitelte Verstärkung die in
-    \autoref{sec:halbleiterchip} beschriebene allgemeine Verstärkung des Materials. Der interne Resonator aus \autoref{sec:internalcavity} wird durch "Internal Cavity" dargestellt 
-    und der äußere Resonator aus \autoref{sec:externalcavity} durch "External Cavity". Die schmale Verstärkung der Gitter-Rückkopplung aus \autoref{sec:gratingfeedback} ist durch
+    Unterabschnitt \ref{sec:halbleiterchip} beschriebene allgemeine Verstärkung des Materials. Der interne Resonator aus  Unterabschnitt \ref{sec:internalcavity} wird durch "Internal Cavity" dargestellt 
+    und der äußere Resonator aus  Unterabschnitt \ref{sec:externalcavity} durch "External Cavity". Die schmale Verstärkung der Gitter-Rückkopplung aus  Unterabschnitt \ref{sec:gratingfeedback} ist durch
     "Grating Feedback" repräsentiert.
     \begin{figure}
         \centering
@@ -189,7 +200,7 @@
         \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{V60}.}
         \label{fig:netgain}
     \end{figure}
-    Dabei ist noch zu beachten, dass die tatsächliche Frequenz zwischen den einzelnen moden der Resonatoren springen kann, da diese diskret sind. Dabei ist die Überlagerung der beiden
+    Dabei ist noch zu beachten, dass die tatsächliche Frequenz zwischen den einzelnen Moden der Resonatoren springen kann, da diese diskret sind. Dabei ist die Überlagerung der beiden
     Resonatoren und der Gitter-Rückkopplung, wie sie in \autoref{fig:modehop} dargestellt ist von Bedeutung. Verscheibt sich die Gitter-Rückkopplung durch verstellen des Gitterwinkels 
     so dass die Verstärkung in der nächsten inneren Mode größer ist dann springt der Laser in die nächste Mode.
     \begin{figure}
