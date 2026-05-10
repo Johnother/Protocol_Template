@@ -174,14 +174,40 @@
         \label{fig:pnnach}
     \end{figure}
     \\
+    %Die Energiebänder bilden mit den Energieniveaus der Donatoren und Akzeptoren effektiv ein wie in Unterabschnitt \ref{sec:systeme} beschriebenes Vier-Zustands-System. 
+    Dabei ist der Grundzustand ein voll besetztes Energieband in der p-dotierten Schicht
     Dabei diffundieren einige der Elektronen der n-dotierten Schicht und einige der Löcher der p-dotierten Schicht an der Grenzfläche 
     in die jeweils andere Schicht. Dadurch entsteht der sogenannte Diffusionsstrom. Dieser wird allerding im thermischen Gleichgewicht durch den Driftstrom kompensiert, welcher sich dadurch ergibt, 
-    dass nahe der Grenze in der p-dotierten Schicht eine negative und in er n-dotierten Schicht eine positive Raumladungsdichte entsteht. Dieser Bereich wird Raumladungszone genannt.
-    
-    
+    dass nahe der Grenze in der p-dotierten Schicht eine negative und in er n-dotierten Schicht eine positive Raumladungsdichte entsteht. Dieser Bereich wird Raumladungszone genannt\cite[517-520]{gross_marx_2022}.
+    \\
+    Liegt an dem Halbleiter nun eine Spannung an, fungiert er als Diode. Liegt die Spannung so an, dass an der n-dotierten Schicht der Pluspol anliegt, wird die Raumladungszone an der Grenze
+    größer wodurch die Spannung an der Grenze abfällt, da bei steigender Spannung der Stromfluss abnimmt. Dies ist also die Sperrrichtung der Dioden. Liegt der Minuspol an der n-dotierten Schicht an, wird die Raumladungszone kleiner. In dieser
+    Richtung wird der fließende Strom mit steigender Spannung also größer, weshalb dies die Durchlassrichtugn ist \cite[524-526]{gross_marx_2022}.
+    \\
+    Liegt eine Spannung in Durchlassrichtung an, so verschieben sich die Fermienergien der beiden Schichtne und es gelangen Elektronen ins Leitungsband der p-Dotierten Schicht und Löcher ins 
+    Valenzband der n-dotierten Schicht. Dadurch entsteht hier die für Laseraktivität benötigte Besetzungsinversion \cite[396 f.]{svelto_1998}. Dies wird durch \autoref{fig:pnjunction} deutlich. 
+    Die Löcher und Elektronen relaxieren dann in Richtung der Grenze, wo sie anschließend miteinander Rekombinieren und dabei Photonen mit einer Energie aussenden, die etwa der Bandlücke entspricht.
+    DAs Grundprinzip ist hier also wie bei einem in Unterabschnitt \ref{sec:systeme} beschriebenem Vier-Niveau-System. 
     \subsection{Der Diodenlaser}
     \subsubsection{Halbleiterchip}
     \label{sec:halbleiterchip}
+    \begin{figure}
+        \centering
+        \begin{subfigure}{0.45\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{content/images/pnjunction1.png}
+          \caption{Ohne anliegende Spannung.}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{content/images/pnjunction2.png}
+          \caption{Bei in Durchlassrichtung anliegender Spannung.}
+        \end{subfigure}
+        
+        \caption{Schematische Darstellung der Energiebänder an der Grenzfläche mit und ohne in Durchlassrichtung anliegende Spannung \cite[396]{svelto_1998}.}
+        \label{fig:pnjunciton}
+      \end{figure}
     Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
     hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlicht der Diode befinden kann. 
     \subsubsection{Innerer Resonator}
