@@ -140,7 +140,7 @@
             Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
             Wie viel Laserlicht transmittiert wird, hängt davon ab, wie viel Licht innerhalb des Resonators nötig ist, um die stimulierte Emission stabil zu halten und Energieverluste auszugleichen.
             Bei niederenergetischen Lasern liegt der Transmissionskoeffizient typerscherweise bei $T = \qty{1}{\percent}$ oder weniger. Hochenergetische Laser können auch Transmissionskoeffizienten im zweistelligen Prozentbereich aufweisen \cite[255]{svelto_1998}.
-    \subsection{Bandstruktur}
+    \subsection{Bandstruktur und Halbleiter}
     Die Bandstruktur ist eines der wichtigsten Konzepte der Festkörperphysik. Sie ergibt sich aus der Dispersionsrelation der Elektronen, die sich im Gitter eines Festkörpers bewegen, und ist somit
     direkt von der Gitterstruktur abhängig. Dabei ist ebenfalls die Fermi-Energie von großer Bedeutung. Sie ist genau die Energie, bis zu der die möglichen Zustände bei Temperatur $T=\qty{0}{\kelvin}$
     durch die Elektronen besetzt sind. Das letzte noch vollständig mit Elektronen befüllte Energieband heißt Valenzband, das nächsthöhere heißt Leitungsband. Die Elektronen in diesem Band tragen
@@ -148,13 +148,41 @@
     Liegt die Fermi-Energie bei einem Material zwischen dem Leitungs- und dem Valenzband - also in der sogenannten Bandlücke - dann handelt es sich dabei um einen Isolator oder einen Halbleiter,
     da die Elektronen erst die Bandlücke überwinden müssen, um zur Leitung beitragen zu können.
     Wenn die Bandlücke klein genug ist, dass einige Elektronen schon bei Raumtemperatur diese Bandlücke überwinden können, spricht man von einem Halbleiter \cite[147 f.]{gross_marx_2022}.
-
+    \subsubsection{Dotierung}
+    Ein Halbleiter ist dotiert, wenn er mit Fremdatomen verunreinigt ist. Dotierung ist bei vielen Anwendungen von Halbleitern nötig, da die Ladungsträgerdichten des reinen Halbleitermaterials oft
+    zu gering sind. Bei dem Material der Verunreinigung wird zwischen Donatoren und Akzeptoren unterschieden. Für Halbleiter der IV. Hauptgruppe werden als Donatoren Elemente der V. Hauptgruppe verwendet, 
+    da sie ein überschüssiges Valenzelektron besitzen, das nicht nur Bindung benötigt wird. Dieses wird somit zusätzlich dem Leitungsband hinzugefügt. Als Akzeptoren werden Elemente der III. 
+    Hauptgruppe, da sie für die Bindung ein Elektron zu wenig besitzen und dem Valenzband somit ein Loch hinzufügen. Löcher sind dabei nicht besetzte Zustände bzw. fehlende Elektronen. 
+    Dabei liegt die Energie des Grundzustandes des Donatoratoms etwas unterhalb des Leitungsbandes und des Akzeptoratoms etwas überhalb des Valenzbandes. Somit ist eine 
+    gewisse Ionisierungsenergie nötig, um den jeweiligen Zustand ins Leitungs- bzw. Valenzband anzuregen.
+    Ist ein dotierter Halbleiter hauptsächlich mit Donatoren dotiert, so wird er n-dotiert genannt. Ist er hauptsächlich mit Akzeptoren dotiert, wrd er p-dotiert gennant \cite[503-506]{gross_marx_2022}.
+    \subsubsection{p-n-Übergang}
+    Grenzen eine p-dotierte und eine n-dotierte Schicht direkt aneinander, wird von einem p-n-Übergang gesprochen. Im thermischen Gleichgewicht müssen hier die Energiebänder verbogen sein, da 
+    das chemische Potentioal im gesamten Material konstant sein muss. Dabei wird die Bandlücke durch die Verschiebung der Bänder an der Grenze also kleiner \cite[517]{gross_marx_2022}. 
+    Eine schematische Darstellung dessen ist für getrennte p- und n-dotierte Halbleiter ist in \autoref{fig:pnvor} und für angrenzende p- und n-dotierte Hablleiterschichten 
+    in \autoref{fig:pnnach} dargestellt. Auch die Energieniveaus der Grundzustände der jeweiligen Dotierung sind in der Grafik eingezeichnet. 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/pnvor.jpeg}
+        \caption{Darstellung der Energiebänder sowei des chemischen Potenzials in getrennten p- und n-dotierten Halbleitern \cite[519]{gross_marx_2022}.}% \cite{V60}
+        \label{fig:pnvor}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/pnnach.jpeg}
+        \caption{Darstellung der Energiebänder sowei des chemischen Potenzials an der Grenze zwischen p- und n-dotierten Halbleiterschichten \cite[519]{gross_marx_2022}.}% \cite{V60}
+        \label{fig:pnnach}
+    \end{figure}
+    \\
+    Dabei diffundieren einige der Elektronen der n-dotierten Schicht und einige der Löcher der p-dotierten Schicht an der Grenzfläche 
+    in die jeweils andere Schicht. Dadurch entsteht der sogenannte Diffusionsstrom. Dieser wird allerding im thermischen Gleichgewicht durch den Driftstrom kompensiert, welcher sich dadurch ergibt, 
+    dass nahe der Grenze in der p-dotierten Schicht eine negative und in er n-dotierten Schicht eine positive Raumladungsdichte entsteht. Dieser Bereich wird Raumladungszone genannt.
+    
+    
     \subsection{Der Diodenlaser}
     \subsubsection{Halbleiterchip}
     \label{sec:halbleiterchip}
-    Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. Eine Schicht ist p-dotiert - also mit Ionen, die genau ein Elektron weniger haben als die Atome des 
-    Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstruktur so, dass
-    die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
+    Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
     hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlicht der Diode befinden kann. 
     \subsubsection{Innerer Resonator}
     Innerhalb des Halbleiterchips gibt es nur einen kleinen Streifen, in dem eine Besetzungsinversion der Elektron-Loch-Paare vorliegt und sich das emittierte Licht somit durch stimulierte Emission kaskadenartig verstärken kann. 
