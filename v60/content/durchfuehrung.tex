@@ -1,6 +1,6 @@
 \section{Aufbau und Durchführung}
 \subsection{Verwendete Elemente}
-Für den Versuch steht ein Optischer Tisch zur Verfügung, auf dem verschiedene Elemente montiert werden können. Dabei wird ein wie in \autoref{sec:Theorie} beschriebener Diodenlaser mitsamt Schutzabdeckung verwendet.
+Für den Versuch steht ein optischer Tisch zur Verfügung, auf dem verschiedene Elemente montiert werden können. Dabei wird ein wie in \autoref{sec:Theorie} beschriebener Diodenlaser mitsamt Schutzabdeckung verwendet.
 Außerdem ist eine Absorbtionszelle mit Rubidium, welche in einem Helmholtzspulenpaar montiert ist, sowie zwei Photodioden, ein Spektrometer und ein $50/50$-Strahlteiler vorhanden. Es liegt ebenfalls ein Mulitmeter zur 
 Messung der Spannung am Thermoresistor und an der Diode bereit, sowie eine Tabelle, mit der die Spannung am Thermoresistor in die entsprechende Temperatur übersertzt werden kann. Außerdem stand ein Inbusschlüssel 
 zur Verfügung, um die Feinjustierung des Lasers zu erleichtern.\\
@@ -12,7 +12,7 @@ sowie ein Rampengenerator, der eine Dreiecksspannung erzeugt, steuern. Mit letzt
 lässt sich nach einem Tiefpass über einen Ausgang abnehmen. Dieser kann, neben dem Ausgang des Rampengenerators und Piezo-Elements an ein Zwei-Kanal-Oszilloskop angeschlossen werden. \\
 \\
 Zusätzlich
-steht eine Infrarot-Sichtkarte (IR-Sichtkarte) sowie eine Kamera, die an einen Monitor angeschlossen ist, zur Verfügung, um den Strahlengang des Lasers verfolgen zu können und die Floureszenz des Rubidiums zu beobachten.
+steht eine Infrarot-Sichtkarte (IR-Sichtkarte) sowie eine Kamera, die an einen Monitor angeschlossen ist, zur Verfügung, um den Strahlengang des Lasers verfolgen zu können und die Fluoreszenz des Rubidiums zu beobachten.
 Zu diesem Zweck hat die Ummantelung Rubidiumzelle ein Sichtfenster, an welches die Kamera gestellt werden kann. Darüber hinaus 
 stehen bereits die BNC-Kabel zum Verbinden der Ein- und Ausgänge des Oszilloskops und des Kontrollmoduls sowie Halterungen für den Strahlteiler und die Sichtkarte zur Verfügung.
 
@@ -23,7 +23,7 @@ ausgeschaltet ist. Daraufhin kann dann der Hauptschalter am Kontrollmodul betät
 \subsubsection{Finden einer der Moden mit größter Intensität}
 \label{sec:durch1}
 Nun muss die Temperatur am Diodenchip auf den gewünschten Wert voreingestellt werden. Dazu wird das Multimeter, welches in \autoref{fig:multimeter} zu sehen ist, an den entsprechenden Ausgang des Thermoresistors am Kontrollmodul angeschlossen und auf einen
-Messbereich von $\qty{2}{\volt}$ mit einer Unsicherheit von $\pm\qty{0.1}{\volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mithilfe der Tabelle kann nun die Temperatur initial auf 
+Messbereich von $\qty{2}{\volt}$ mit einer Unsicherheit von $\pm\,\qty{0.1}{\volt}$ eingestellt. Die Temperatur kann nun über einen Drehknopf auf der Rückseite des Kontrollmoduls eingestellt werden. Mithilfe der Tabelle kann nun die Temperatur initial auf 
 $\qty{50}{\degreeCelsius}$ voreingestellt werden. Dabei ist allerdings zu beachten, dass das System eine gewisse Relaxationszeit hat, bis sich nach Drehen des Knaufes auf die neue Temperatur eingependelt hat. 
 \begin{figure}
     \centering
@@ -41,15 +41,15 @@ obere Knopf am Laser ggf. erneut verstellt bis die Diode knapp oberhalb der Schw
 \begin{figure}
     \centering
     \includegraphics[width=0.3\textwidth]{content/images/diodenlaser.jpeg}
-    \caption{Diodenlaser mit oberem Knopf (oben links, eingesteckter Imbusschlüssel) und unterem Knopf (unten rechts).}
+    \caption{Diodenlaser mit oberem Knopf (oben links, eingesteckter Inbusschlüssel) und unterem Knopf (unten rechts).}
     \label{fig:diodenlaser}
 \end{figure}
 \\
-\subsubsection{Anpassung der Wellenlänge anhand von Rubidiumfloureszenz}
+\subsubsection{Anpassung der Wellenlänge anhand von Rubidiumfluoreszenz}
 \label{sec:durch2}
 Nach erfolgreicher vertikaler Justierung wird die Rubidiumzelle in den Strahlengang gestellt, sodass der Laserstrahl sie vollständig durchquert. Dazu kann die Sichtkarte aus der Halterung entnommen und zur Hilfe verwendet werden. 
 Zudem wird vor der Rubidiumzelle ein 50/50 Strahlteiler mittels der Halterung in den Strahlengang gebracht. Der transmittierte Anteil geht dann durch die Zelle. In den Strahlengang des reflektierten Anteils wird
-das Spektrometer eingebracht. Die Kamera sollte an das dafür vorgesehenne Sichtfenster in der Rubidiumzelle gestellt werden, um das Floureszenzlicht auf dem Monitor beobachten zu können.
+das Spektrometer eingebracht. Die Kamera sollte an das dafür vorgesehenne Sichtfenster in der Rubidiumzelle gestellt werden, um das Fluoreszenzlicht auf dem Monitor beobachten zu können.
 Der Aufbau ist in \autoref{fig:tischdraufsicht} zu erkennen. 
 \begin{figure}
     \centering
@@ -59,12 +59,12 @@ Der Aufbau ist in \autoref{fig:tischdraufsicht} zu erkennen.
 \end{figure}
 \\
 Nun können beide Knöpfe am Laser, die anliegende Diodenspannung, sowie die Temperatur feinjustiert werden. Dabei wird zunächst wie folgt vorgegangen: Bei fester Temperatur und fester Spannung wird
-zunächst der Seitliche Knopf in beide Richtungen jeweils um Maximal eine ganze Umdrehung gehdreht und dann wieder in die Ausgangspostion gebracht. Ist kein Floureszenzlicht zu sehen wird nun die 
-Spannung um etwas $\qty{0.33}{\volt}$ erhöht und das Drehen des Knopfes wiederholt. Dabei lässt sich die Spannung maximal auf $\qty{8.43}{\volt}$ erhöhen. Ist weiterhin kein Floureszenzlicht zu sehen
-wird der Prozess für eine andere Temperatur wiederholt. Diese wird dabei jeweils in $\qty{2}{\degreeCelsius}$ Schritten angepasst. Ist immer noch keine Floureszenz zu erkennen, wird das Spektrometer 
+zunächst der Seitliche Knopf in beide Richtungen jeweils um Maximal eine ganze Umdrehung gehdreht und dann wieder in die Ausgangspostion gebracht. Ist kein Fluoreszenzlicht zu sehen wird nun die 
+Spannung um etwas $\qty{0.33}{\volt}$ erhöht und das Drehen des Knopfes wiederholt. Dabei lässt sich die Spannung maximal auf $\qty{8.43}{\volt}$ erhöhen. Ist weiterhin kein Fluoreszenzlicht zu sehen
+wird der Prozess für eine andere Temperatur wiederholt. Diese wird dabei jeweils in $\qty{2}{\degreeCelsius}$ Schritten angepasst. Ist immer noch keine Fluoreszenz zu erkennen, wird das Spektrometer 
 zur Hilfe genommen. Nun wird die Ausgabe des Spektrometers beobachtet und an allen vier Stellschrauben gedreht, bis die angezeigte Wellenlänge den gewünschten $\qty{780}{\nano\meter}$ der Rubidiumübergänge
 möglichst nahe kommt. Das Spektrometer zeigt dabei einen deutlichen Peak bei der Welllenlänge des Lasers an. Anschließend
-wird wieder der Monitor beobachtet und der Laser über die beiden Knöpfe weiter feinjustiert, bis auf dem Bildschirm das Floureszenzlicht zu sehen ist. 
+wird wieder der Monitor beobachtet und der Laser über die beiden Knöpfe weiter feinjustiert, bis auf dem Bildschirm das Fluoreszenzlicht zu sehen ist. 
 \subsubsection{Durchscannen des Frequenzbereiches}
 \label{sec:durch3}
 Zunächst muss die Amplitude des Rampengenerators am Kontrollmodul sowie der Knopf \enquote{output offset} ausgeschaltet werden. Dann wird der Rampengenerator durch die BNC-Kabel mit dem Oszilloskop verbunden.
