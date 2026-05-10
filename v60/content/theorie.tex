@@ -115,7 +115,7 @@
             \end{figure}
             \FloatBarrier\noindent
             Beim \textbf{Drei-Niveau-System} pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
-            Aus dem obersten Zustand $\Psi_2$ kann das System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
+            Aus dem obersten Zustand $\Psi_2$ kann dasDaher System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
             In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
             \\
             Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
@@ -125,7 +125,8 @@
             Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten \cite[40-41]{eichler_1991}.
             \\
         \subsubsection{Resonatoren}
-            Um den Laserbetrieb aufrechtzuerhalten, müssen die Photonen, die die stimulierte Emission in axialer Richtung auslösen können, möglichst lange im aktiven Medium verweilen. 
+        \label[sec:resonator]
+            Um den Laserbetrieb aufrechtzuerhalten, müDaherssen die Photonen, die die stimulierte Emission in axialer Richtung auslösen können, möglichst lange im aktiven Medium verweilen. 
             Dort stabilisiert sich der Laser, sodass die Besetzungsinversion und die stimulierte Emission im Gleichgewicht liegen. Spontane Emission sollte nicht mehr stattfinden, weshalb die Zeit zwischen Anregung und Emission möglichst kurz sein sollte.
             Um die kohärenten Photonen möglichst lange im Medium zu halten, werden an beiden Enden des Mediums Spiegel angebracht. Die Elektromagnetische Strahlung bildet dann stehende Wellen, die der Bedingung
             \begin{equation}
@@ -136,7 +137,7 @@
             Damit die Laserstrahlung im Resonator stehende Wellen bilden kann, ist also die Resonatorlänge entscheidend.
             Da die Wellenlänge des Laserlichts in der Regel im dreistelligen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
             Allerdings bedeutet die kurze Wellenlänge ebenso, dass sich bei Resonatorlängen im Mikrometer-Bereich viele longitudinale Moden im Resonator ausbilden können.
-            Um das Auskoppeln des Laserlichts aus dem Resonator zu ermöglichen, hat einer der beiden Spiegel einen leicht abgesenkten Reflektionsgrad.
+            Um das Auskoppeln des Laserlichts aus dem RDaheresonator zu ermöglichen, hat einer der beiden Spiegel einen leicht abgesenkten Reflektionsgrad.
             Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
             Wie viel Laserlicht transmittiert wird, hängt davon ab, wie viel Licht innerhalb des Resonators nötig ist, um die stimulierte Emission stabil zu halten und Energieverluste auszugleichen.
             Bei niederenergetischen Lasern liegt der Transmissionskoeffizient typerscherweise bei $T = \qty{1}{\percent}$ oder weniger. Hochenergetische Laser können auch Transmissionskoeffizienten im zweistelligen Prozentbereich aufweisen \cite[255]{svelto_1998}.
@@ -157,6 +158,7 @@
     gewisse Ionisierungsenergie nötig, um den jeweiligen Zustand ins Leitungs- bzw. Valenzband anzuregen.
     Ist ein dotierter Halbleiter hauptsächlich mit Donatoren dotiert, so wird er n-dotiert genannt. Ist er hauptsächlich mit Akzeptoren dotiert, wrd er p-dotiert gennant \cite[503-506]{gross_marx_2022}.
     \subsubsection{p-n-Übergang}
+    \label{sec:pnubergang}
     Grenzen eine p-dotierte und eine n-dotierte Schicht direkt aneinander, wird von einem p-n-Übergang gesprochen. Im thermischen Gleichgewicht müssen hier die Energiebänder verbogen sein, da 
     das chemische Potentioal im gesamten Material konstant sein muss. Dabei wird die Bandlücke durch die Verschiebung der Bänder an der Grenze also kleiner \cite[517]{gross_marx_2022}. 
     Eine schematische Darstellung dessen ist für getrennte p- und n-dotierte Halbleiter ist in \autoref{fig:pnvor} und für angrenzende p- und n-dotierte Hablleiterschichten 
@@ -175,7 +177,7 @@
     \end{figure}
     \\
     %Die Energiebänder bilden mit den Energieniveaus der Donatoren und Akzeptoren effektiv ein wie in Unterabschnitt \ref{sec:systeme} beschriebenes Vier-Zustands-System. 
-    Dabei ist der Grundzustand ein voll besetztes Energieband in der p-dotierten Schicht
+    %Dabei ist der Grundzustand ein voll besetztes Energieband in der p-dotierten Schicht
     Dabei diffundieren einige der Elektronen der n-dotierten Schicht und einige der Löcher der p-dotierten Schicht an der Grenzfläche 
     in die jeweils andere Schicht. Dadurch entsteht der sogenannte Diffusionsstrom. Dieser wird allerding im thermischen Gleichgewicht durch den Driftstrom kompensiert, welcher sich dadurch ergibt, 
     dass nahe der Grenze in der p-dotierten Schicht eine negative und in er n-dotierten Schicht eine positive Raumladungsdichte entsteht. Dieser Bereich wird Raumladungszone genannt\cite[517-520]{gross_marx_2022}.
@@ -184,41 +186,50 @@
     größer wodurch die Spannung an der Grenze abfällt, da bei steigender Spannung der Stromfluss abnimmt. Dies ist also die Sperrrichtung der Dioden. Liegt der Minuspol an der n-dotierten Schicht an, wird die Raumladungszone kleiner. In dieser
     Richtung wird der fließende Strom mit steigender Spannung also größer, weshalb dies die Durchlassrichtugn ist \cite[524-526]{gross_marx_2022}.
     \\
-    Liegt eine Spannung in Durchlassrichtung an, so verschieben sich die Fermienergien der beiden Schichtne und es gelangen Elektronen ins Leitungsband der p-Dotierten Schicht und Löcher ins 
-    Valenzband der n-dotierten Schicht. Dadurch entsteht hier die für Laseraktivität benötigte Besetzungsinversion \cite[396 f.]{svelto_1998}. Dies wird durch \autoref{fig:pnjunction} deutlich. 
-    Die Löcher und Elektronen relaxieren dann in Richtung der Grenze, wo sie anschließend miteinander Rekombinieren und dabei Photonen mit einer Energie aussenden, die etwa der Bandlücke entspricht.
-    DAs Grundprinzip ist hier also wie bei einem in Unterabschnitt \ref{sec:systeme} beschriebenem Vier-Niveau-System. 
-    \subsection{Der Diodenlaser}
-    \subsubsection{Halbleiterchip}
-    \label{sec:halbleiterchip}
+    Eine Solche Halbleiterdiode kann nun als nach dem Prinzip eines wie in Unterabschnitt \ref{sec:systeme} beschriebenen Vier-Niveau-Systems Photonen emittieren. 
+    Dabei entspricht das Valenzband in der p-dotierten Schicht dem Grundzustand beim 
+    Vier-Niveau-System. Liegt nun an der Diode eine Spannung in Durchlassrichtung an, so verschieben sich die Fermienergien der beiden Schichten und es gelangen Elektronen ins Leitungsband der 
+    p-Dotierten Schicht und somit Löcher ins Valenzband der n-dotierten Schicht. Das Leitungsband in der n-dotierten Schicht entspricht dabei dem höchsten Energieniveau beim Modell des
+    Vier-Nivau-Systems. Es entsteht hier also durch die anliegende Spannung die für Laseraktivität benötigte Besetzungsinversion zwischen Grundzustand und höchstem Zustand. 
+    Dies wird in \autoref{fig:pnjunciton} verdeutlicht. 
+    Die Löcher und Elektronen relaxieren dann in Richtung der Grenze, wo sie anschließend miteinander Rekombinieren und dabei Photonen mit einer Energie aussenden, 
+    die etwa der Bandlücke entspricht.
+    Dies ist analog zu der Emission der beiden mittleren Energieniveaus im Vier-Nivau-System. 
+    Der Bereich an der Grenzfläche, in welchem diese Emission stattfindet, wird aktiver Bereich genannt \cite[396 f.]{svelto_1998}.
     \begin{figure}
         \centering
-        \begin{subfigure}{0.45\textwidth}
+        \begin{subfigure}{0.3\textwidth}
           \centering
           \includegraphics[width=\linewidth]{content/images/pnjunction1.png}
           \caption{Ohne anliegende Spannung.}
         \end{subfigure}
         \hfill
-        \begin{subfigure}{0.45\textwidth}
+        \begin{subfigure}{0.3\textwidth}
           \centering
           \includegraphics[width=\linewidth]{content/images/pnjunction2.png}
           \caption{Bei in Durchlassrichtung anliegender Spannung.}
         \end{subfigure}
-        
         \caption{Schematische Darstellung der Energiebänder an der Grenzfläche mit und ohne in Durchlassrichtung anliegende Spannung \cite[396]{svelto_1998}.}
         \label{fig:pnjunciton}
       \end{figure}
-    Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
-    hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlicht der Diode befinden kann. 
-    \subsubsection{Innerer Resonator}
-    Innerhalb des Halbleiterchips gibt es nur einen kleinen Streifen, in dem eine Besetzungsinversion der Elektron-Loch-Paare vorliegt und sich das emittierte Licht somit durch stimulierte Emission kaskadenartig verstärken kann. 
-    Dieser dient als optischer
-    Resonator, welcher transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenzt wird. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
+    \subsection{Der Diodenlaser}
+    Um den Diodenlaser zu verstehen sind die folgenden vier Komponenten entscheidend:
+    \subsubsection{Der Halbleiterchip}
+    \label{sec:halbleiterchip}
+    Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit p- und n-dotierter Schicht. Hier findet genau der in Unterabschnitt \ref{sec:pnubergang} beschriebene Prozess statt, wenn
+    eine Spannung anliegt. Findet hier nur spontane Emission statt, ist die Diode in der LED-Phase (Light emitting diode). Die Wellenlänge der emittierten Photonen hängt dabei von der Breite der 
+    Bandlücke ab. Diese wiederum hängt sowohl vom Material des Halbleiters als auch, wie es aus Unterabschnitt \ref{sec:pnubergang} hervorgeht, von der anliegenden Spannung ab. Auch die Temperatur 
+    hat einen Einfluss auf die Energiebänder. 
+    Somit gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Wellenlängenbereich vor, in dem sich das emittierte Licht der Diode befinden kann \cite{V60}. 
+    \subsubsection{Der Innerer Resonator}
+    Damit es nun auch zu Laseraktivit kommen kann bzw. die Diode in ihre Laserphase übergehen kann, muss die Emission, wie in Unterabschnitt \ref{sec:resonator} erläutert, in einem Resonator 
+    befinden. Nur so kann es auch zu stimulierter Emission und daduch zu Lasing kommen. Dazu gibt es innerhalb des Halbleiterchips einen eine Streifen, welcher als optischer Resonator dient.
+    Dieser wird transversal durch Spaltflächen an den Rändern des Halbleiterchips begrenzt. Somit ist die Länge des Resonators und somit auch die Frequenzen, die durch ihn
     verstärkt werden, direkt von der Temperatur abhängig. In der Vertikalen wird das Licht dadurch innerhalb des Streifens gehalten, dass der Brechungsindex der aktiven Schicht höher ist als der 
     der umliegenden Schichten. In der Transversalen befinden sich ebenfalls Barrieren mit geringerem Brechungsindex. Die Periodizität der Verstärkung berechnet sich nach $\increment v_{\mathrm{FSR}}=\frac{c}{2Ln}$
     mit der Lichtgeschwindigkeit $c$ der Länge des Resonators $L$ und de, Brechungsindex $n$. Hier ergibt sich ein Wert von $\increment v_{\mathrm{FSR}}\approx \qty{60}{\giga\hertz}$ \cite{V60}. 
     \label{sec:internalcavity}
-    \subsubsection{Gitter-Rückkopplung}
+    \subsubsection{Die Gitter-Rückkopplung}
     \label{sec:gratingfeedback}
     Das von der Diode so ausgesendete Licht hat hat eine ellipsenförmige Wellenfront, welche sich ausbreitet, da der interne Resonator einen rechteckigen Querschnitt hat.
     das Laserlicht in der diode ist kohärent und breitet sich nahezu axial aus. Daher kann für den Laserstrahl die Frauenhofer-Näherung angewandt werden. 
@@ -238,7 +249,7 @@
         \caption{Dartstellung des Diodenlasers mit Beugungsgitter.}% \cite{V60}
         \label{fig:externallaser}
     \end{figure}
-    \subsubsection{Äußerer Resonator}
+    \subsubsection{Der Äußerer Resonator}
     \label{sec:externalcavity}
     Das Beugungsgitter bildet mit dem gegenüberliegenden Ende des Diodenchips ebenfalls einen optischen Resonator. Dieser hat eine Länge von $\qty{15}{\milli\meter}$ und verstärkt
     somit Frequenzen mit einer Periodizität von $\increment v_{\mathrm{FSR}}\approx \qty{10}{\giga\hertz}$. Diese ist somit kleiner als die des inneren Resonators. 
