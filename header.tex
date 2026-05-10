@@ -1,6 +1,6 @@
 \documentclass[
   bibliography=totoc,     % Literatur im Inhaltsverzeichnis
-  captions=tableheading,  % Tabellenüberschriften
+  captions=true,  % Tabellenüberschriften
   titlepage=firstiscover, % Titelseite ist Deckblatt
 ]{scrartcl}
 
@@ -85,6 +85,23 @@
 % Seite drehen für breite Tabellen: landscape Umgebung
 \usepackage{pdflscape}
 
+% Grafiken können eingebunden werden
+\usepackage{graphicx}
+
+% Hyperlinks im Dokument
+\usepackage[
+  german,
+  unicode,        % Unicode in PDF-Attributen erlauben
+  pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
+  pdfcreator={},  % ┐ PDF-Attribute säubern
+  pdfproducer={}, % ┘
+]{hyperref}
+\hypersetup{
+  hyperfigures=true
+}
+% erweiterte Bookmarks im PDF
+\usepackage{bookmark}
+
 % Captions schöner machen.
 \usepackage[
   labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
@@ -93,9 +110,6 @@
 ]{caption}
 % subfigure, subtable, subref
 \usepackage{subcaption}
-
-% Grafiken können eingebunden werden
-\usepackage{graphicx}
 
 % schöne Tabellen
 \usepackage{tabularray}
@@ -117,17 +131,6 @@
 % Quellendatenbank
 \addbibresource{../lit.bib}
 \addbibresource{../programme.bib}
-
-% Hyperlinks im Dokument
-\usepackage[
-  german,
-  unicode,        % Unicode in PDF-Attributen erlauben
-  pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
-  pdfcreator={},  % ┐ PDF-Attribute säubern
-  pdfproducer={}, % ┘
-]{hyperref}
-% erweiterte Bookmarks im PDF
-\usepackage{bookmark}
 
 % Trennung von Wörtern mit Strichen
 \usepackage[shortcuts]{extdash}

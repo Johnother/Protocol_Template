@@ -2,7 +2,7 @@
 \label{sec:Theorie}
     Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom-, Teilchen- und Festkörperphysik.
     Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
-    Im Folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwengdungsweise des Diodenlasers erläutert.
+    Im folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwendungsweise des Diodenlasers erläutert.
     
     \subsection{Absorption und Emission elektromagnetischer Stahlung}
         % Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
@@ -34,16 +34,15 @@
         \\
         Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
         In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt. Diese Formulierung ist ebenfalls üblich und beschreibt den gleichen Prozess.
-        Für die Funktionsweise eines Lasers sind Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
+        Für die Funktionsweise eines Lasers sind allerdings Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
         \begin{figure}
             \centering
             \includegraphics[width=0.7\textwidth]{content/images/atomanregungen.png}
-            \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System \cite{seos_project}.}
+            \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System.}%\protect\cite{seos_project}
             \label{fig:atomanregungen}
         \end{figure}
         \FloatBarrier\noindent
-        \\
-        Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} beschriebenen Prozess.
+        Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} von rechts nach links beschriebenen Prozess.
         Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
         Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
         Es befindet sich nun im Zustand $\Psi_2$.
@@ -71,8 +70,8 @@
         Eine genaue quantenmechanische Betrachtung des Prozesses zeigt, dass das einfallende und emittierte Photon in allen Quantenzahlen übereinstimmen; die beiden Photonen sind kohärent und die Intensität des Lichts hat sich verdoppelt.
         Die Intensität der stimulierten Emission ist demnach proportional zur Intensität des stimulierenden Feldes \cite[155]{yariv_1991}. 
     \subsection{Kohärenz}
-        Die Quantenmechanik liefert mathematisch fundiert die Erkenntnis, dass das Photon, welches bei der stimulierten Emission frei wird, die gleiche Phasenbeziehung, Ausbreitungsrichtung und Frequenz hat wie das einfallende, induzierende Photon.
-        Tatsächlich stimmen die beiden Photonen in jeder Quantenzahl überein. Diese Identität der Quantenzahlen und des Verhaltens der Photonen wird als \textbf{Kohärenz} bezeichnet.
+        Die Quantenmechanik liefert die Erkenntnis, dass das Photon, welches bei der stimulierten Emission frei wird, die gleiche Phasenbeziehung, Ausbreitungsrichtung und Frequenz hat wie das einfallende, induzierende Photon.
+        Tatsächlich stimmen die beiden Photonen in jeder Quantenzahl überein. Diese Identität der Quantenzahlen und des Verhaltens der Photonen wird als \textbf{Kohärenz} bezeichnet.\\
         Kohärenz ist allerdings eine Eigenschaft, die durch externe Einflüsse behindert, eingeschränkt oder aufgehoben werden kann. Brechung und Beugung von Licht, Streuung an den Luftmolekülen sowie Interferenz mit externer Strahlung können Änderungen der Quantenzahlen verursachen.
         Bereits minimale Abweichungen der Phase oder Frequenz, entwickeln sich mit fortschreitender Zeit weiter auseinander und sorgen für immer geringere Kohärenz. 
         \\
@@ -84,7 +83,7 @@
         Davon abgesehen spielt auch die Frage eine Rolle, wie gut das Licht seine uhrsprüngliche Fokussierung beibehält. Dies wird als \textbf{räumliche Kohärenz} bezeichnet.
         \\
         Laserlicht weist sowohl sehr hohe räumliche als auch zeitliche Kohärenz auf. Erstere ist technisch begrenzt durch den optischen Strahlengang des Laserstrahls, vor allem der Laserblende.
-        Die zeitliche Kohärenz kann über die Kohärenzlänge quantifiziert werden. Bei Lassern liegt sie im Bereich von $\qty{300000}{\kilo\meter}$.
+        Die zeitliche Kohärenz kann über die Kohärenzlänge quantifiziert werden. Bei Lassern liegt sie im Bereich von $\qty{300000}{\kilo\meter}$ \cite[325]{haken_wolf_2004}.
     \subsection{Funktionsprinzip eines Lasers}
         In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emission ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen.
         Um dies zu erreichen, müssen jedoch mehrere Voraussetzungen gegeben sein.
@@ -97,6 +96,9 @@
             thermischen Glechgewicht treffen. So sind bei fester Temperatur $T$ Energiezustände mit niedrigerer Energie deutlich stärker besetzt als diejenigen mit höherer Energie. Ist das genaue Gegenteil
             der Fall, sind also höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen \cite[288]{möller_2003}.
             Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[289]{möller_2003}.
+            \\
+            Die Erzeugung von Besetzungsinversion kann auf viele Weisen erfolgen, die gewählt Methode der Energiezufuhr oder des \enquote{Pumpens} ist abhängig vom Lasertyp. 
+            So werden Farbstofflaser oft mit Blitzlampen gepumpt, Halbleiterlaser durch einen elektrischen Strom im Halbleiterchip.
         \subsubsection{Drei- und Vier-Niveau-Systeme}
         \label{sec:systeme}
             Ein Zwei-Niveau-System, wie es in \autoref{fig:atomanregungen} zur Veranschaulichung genutzt wird, ist nicht in der Lage, Laserlicht über stimulierte Emission zu erzeugen.
@@ -108,17 +110,17 @@
             \begin{figure}
                 \centering
                 \includegraphics[width=0.7\textwidth]{content/images/Niveausysteme.png}
-                \caption{Ein Vier-Niveau-System (a) und ein Drei-Niveau-System (b) im Vergleich \cite{laserprinzipien}.}
+                \caption{Ein Vier-Niveau-System (a) und ein Drei-Niveau-System (b) im Vergleich.} %\cite{laserprinzipien}
                 \label{fig:Niveausysteme}
             \end{figure}
             \FloatBarrier\noindent
-            Beim Drei-Niveau-System pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
+            Beim \textbf{Drei-Niveau-System} pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
             Aus dem obersten Zustand $\Psi_2$ kann das System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
             In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
             \\
             Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
             \\
-            Beim Vier-Niveau-System befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
+            Beim \textbf{Vier-Niveau-System} befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
             Der Übergang $\Psi_{21}$ ist langlebig und wird zum Lasen verwendet. Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. Der letzte Übergang $\Psi_{10}$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
             Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten \cite[40-41]{eichler_1991}.
             \\
@@ -132,7 +134,7 @@
             genügen. Eine solche Anordnung von Spiegeln heißt \textbf{Resonator}. Dabei ist $L$ die Resonatorlänge, $\lambda$ die Wellenlänge des Laserlichts und $n$ die Wellenzahl, also die Anzahl der Maxima der stehenden Welle.
             \\
             Damit die Laserstrahlung im Resonator stehende Wellen bilden kann, ist also die Resonatorlänge entscheidend.
-            Da die Wellenlänge des Laserlichts in der Regel im oberen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
+            Da die Wellenlänge des Laserlichts in der Regel im dreistelligen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
             Allerdings bedeutet die kurze Wellenlänge ebenso, dass sich bei Resonatorlängen im Mikrometer-Bereich viele longitudinale Moden im Resonator ausbilden können.
             Um das Auskoppeln des Laserlichts aus dem Resonator zu ermöglichen, hat einer der beiden Spiegel einen leicht abgesenkten Reflektionsgrad.
             Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
@@ -151,7 +153,7 @@
     \subsubsection{Halbleiterchip}
     \label{sec:halbleiterchip}
     Das Herzstück des verwendeten Diodenlasers ist ein Halbleiterchip mit mehreren Schichten. Eine Schicht ist p-dotiert - also mit Ionen, die genau ein Elektron weniger haben als die Atome des 
-    Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstrucktur so, dass
+    Halbleitermaterials - und die andere Schicht n-dotiert - also mit Ionen, die genau ein Elektron mehr haben. Wird nun ein Strom angelegt, verschieben sich die Bänder der Bandstruktur so, dass
     die Bandlücke an der Grenze zwischen der n- und p-dotierten Schicht kleiner wird. So können hier in der aktiven Schicht Elektron-Loch-Paare rekombinieren und senden dabei ein Photon aus \cite{V60}. Dieses
     hat dann etwa die Energie der Bandlücke. Daher gibt das Material, dessen Temperatur und die anliegende Spannung einen groben Frequenzbereich vor, in dem sich das emittierte Laserlicht der Diode befinden kann. 
     \subsubsection{Innerer Resonator}
@@ -179,7 +181,7 @@
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/grating.png}
-        \caption{Dartstellung des Diodenlasers mit Beugungsgitter \cite{V60}.}
+        \caption{Dartstellung des Diodenlasers mit Beugungsgitter.}% \cite{V60}
         \label{fig:externallaser}
     \end{figure}
     \subsubsection{Äußerer Resonator}
@@ -187,7 +189,7 @@
     Das Beugungsgitter bildet mit dem gegenüberliegenden Ende des Diodenchips ebenfalls einen optischen Resonator. Dieser hat eine Länge von $\qty{15}{\milli\meter}$ und verstärkt
     somit Frequenzen mit einer Periodizität von $\increment v_{\mathrm{FSR}}\approx \qty{10}{\giga\hertz}$. Diese ist somit kleiner als die des inneren Resonators. 
     \\
-    Da die Resonatorlänge hier um einen Faktor $\qty{10e5}{}$ größer ist als die Wellenlänge des Laserlichts, bilden sich im externen Resonator sehr viele verschiedene longitudinale Moden aus - deutlich mehr als im internen Resonator. 
+    Da die Resonatorlänge hier um einen Faktor $10^5$ größer ist als die Wellenlänge des Laserlichts, bilden sich im externen Resonator sehr viele verschiedene longitudinale Moden aus - deutlich mehr als im internen Resonator. 
     
     \subsubsection{Nettoverstärkung}
     Die letztendliche Nettoverstärkung ergibt sich aus allen diesen Elementen. Dies ist in \autoref{fig:netgain} schematisch dargestellt. Dabei ist die mit "Medium" betitelte Verstärkung die in
@@ -197,7 +199,7 @@
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/netgain.png}
-        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen \cite{V60}.}
+        \caption{Schematische Darstellung, wie die einzenlen Bauteile des Diodenlasers zur Vertärkung (net gain) bei verschiedenen Wellenlängen (wavelenght) beitragen.}% \cite{V60}
         \label{fig:netgain}
     \end{figure}
     Dabei ist noch zu beachten, dass die tatsächliche Frequenz zwischen den einzelnen Moden der Resonatoren springen kann, da diese diskret sind. Dabei ist die Überlagerung der beiden
@@ -206,7 +208,7 @@
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/modehop.png}
-        \caption{Schematische Darstellung der Überlagerung der Nettoverstärkung mit verschiedenen Moden der beiden Resonatoren \cite{V60}.}
+        \caption{Schematische Darstellung der Überlagerung der Nettoverstärkung mit verschiedenen Moden der beiden Resonatoren.}% \cite{V60}
         \label{fig:modehop}
     \end{figure}
     
