@@ -1,28 +1,51 @@
 \section{Theorie}
 \label{sec:Theorie}
-\subsection{Funktionsweise des Operationsverstärkers}
-\cite{V51}
+\subsection{Grundprinzip des Operationsverstärkers}
+Der Operationsverstärker besteht im wesentlichen aus mehreren Differenzverstärkern. Der erste Differenzverstärker ist die Eingangstufe.
+Dabei ergibt sich die Differenz aus den beiden Eingängen des Operationsverstärkers, wobei einer der eingänge invertierend ist ($-$) und der andere nicht-invertierend ($+$).
+Die hier anliegende Spannungsdifferenz wird also verstärkt und dann wiederum am Ausgang ausgegeben. 
+Hierbei ist die Ausgangsstufe allerdings als eine aus einem npn- und einem pnp-Transistor bestehende Gegentaktstufe realisiert. 
+
+%\begin{equation*}
+%    U_{\mathrm{aus}}= A\left( U_{\mathrm{ein},+} - U_{\mathrm{ein}, -}\right) \, .
+%\end{equation*}
+%\textbf{PRÜFEN UND QUELLE FINDEN}
+%Wobei $ U_{\mathrm{aus}}$ die resultierende Ausgangsspannung ist, $A$ die Verstärkung und $U_{\mathrm{ein},+} - U_{\mathrm{ein}, -}$ die an den Eingangen anliegende Differenz. 
+Diese sorgt dafür Gegentaktstufe dafür, dass das Ausgangssignal abhängig von der Polarität der anliegenden Spannungsdifferenz positiv oder negativ ist.
+Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine negative am Operationsverstärker anliegt.
+Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze, die am Ausgang erreicht werden kann. 
+Am Ein- und Ausgang des Operationsverstärkers liegt dabei jeweils ein Widerstand an \cite[3 f.]{federau_2017}.
+\subsection{Steckplätze des Operationsverstärkers}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/images/opvinputs.png}
+    \caption{Darstellung der Steckplätze des Verwendeten Operationsverstärkers \cite{TI_LM741_2025}.}
+    \label{fig:opvinputs}
+\end{figure}
+\subsection{Der ideale und reale Operationsverstärker}
+Der ideale Operationsverstärker hat einen unendlich großen Eingangswiderstand und sein Ausgangswiderstand beträgt $R=\qty{0}{\ohm}$. 
 
 
 
 
+
+
+%fehlt noch: gegenkopplung -> lineare Verstärkung -> Kennlinie
 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/opvinputs.png}
-    \caption{Darstellung der Steckplätze des Verwendeten OPVs \cite{TI_LM741_2025}.}
-    \label{fig:opvinputs}
+    \includegraphics[width=0.7\textwidth]{content/images/kennlinie.png}
+    \caption{Beispiel einer typischen Kennlinie eines Operationsverstärkers \cite{haas_2022}.}
+    \label{fig:kennlinie}
 \end{figure}
-
-
-
 
 
 
 %--------------------------------------------------------------------------------------------------
 
 \subsection{Schaltungen mit dem Operationsverstärker}
+Für diverse Schaltungen kann der Operationsverstärker nun als Blackbox angenommen werden. 
 \subsubsection{Invertierender Linearverstärker}
 \begin{figure}
     \centering
