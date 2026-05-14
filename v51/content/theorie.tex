@@ -16,14 +16,26 @@ Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine
 Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze, die am Ausgang erreicht werden kann. 
 Am Ein- und Ausgang des Operationsverstärkers liegt dabei jeweils ein Widerstand an \cite[3 f.]{federau_2017}.
 \subsection{Steckplätze des Operationsverstärkers}
+Der Operationsverstärker hat mehrere Steckplätze welche verschiedene Funktionen haben.
+Der in diesem Versuch verwendete Operationsverstärker vom Typ LM741 hat acht Steckplätze, welche in \autoref{fig:opvinputs} zu sehen sind. 
+Dabei sind für diesen Versuch die folgenden Steckplätze relevant:
+Die Steckplätze 2 Inverting Input und 3 Non-Invertin Input sind, wie es deren Namen deutlich machen, der invertierende und nicht-invertierende Eingang. 
+Aus ihnen ergibt sich somit die eingehende Spannungsdifferenz.
+Die Eingänge 4 ($V^-$) und 7 ($v^+$) sind die beiden bereits beschriebenen Versorgungsspannungen.
+Der Ausgang liegt auf dem Steckplatz 6 (Output) \cite{TI_LM741_2025}.
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/opvinputs.png}
+    \includegraphics[width=0.4\textwidth]{content/images/opvinputs.png}
     \caption{Darstellung der Steckplätze des Verwendeten Operationsverstärkers \cite{TI_LM741_2025}.}
     \label{fig:opvinputs}
 \end{figure}
 \subsection{Der ideale und reale Operationsverstärker}
 Der ideale Operationsverstärker hat einen unendlich großen Eingangswiderstand und sein Ausgangswiderstand beträgt $R=\qty{0}{\ohm}$. 
+Die Verstärkung sowie die Bandbreite der Übertragung ist also unendlich groß. 
+Bei einem realen Operationsverstärker kann dies nicht der Fall sein.  
+Die Widerstände sind endlich: Meist liegt der Eingangswiderstand bei $> \qty{1}{\mega\ohm}$ und der Ausgangswiderstand bei $10 \mathrm{bis} \qty{1000}{\ohm}$.
+Er kann Verstärkungen von ca. $10^4$ bis $10^6$ erreichen. 
+Die Bandbreite ist ebenfalls nach oben beschränkt, da die Transistoren im Operationsverstärker nicht unendlich schnell schalten können \cite[2]{federau_2017}. 
 
 
 
