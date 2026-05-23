@@ -1,17 +1,18 @@
-\section{Theorie}
+\section{Grundlagen des Operationsverstärkers}
 \label{sec:Theorie}
-\subsection{Grundprinzip des Operationsverstärkers}
+\subsection{Funktionsprinzip des Operationsverstärkers}
 Der Operationsverstärker besteht im wesentlichen aus mehreren Differenzverstärkern. Der erste Differenzverstärker ist die Eingangstufe.
 Dabei ergibt sich die Differenz aus den beiden Eingängen des Operationsverstärkers, wobei einer der eingänge invertierend ist ($-$) und der andere nicht-invertierend ($+$).
 Die hier anliegende Spannungsdifferenz wird also verstärkt und dann wiederum am Ausgang ausgegeben. 
 Hierbei ist die Ausgangsstufe allerdings als eine aus einem npn- und einem pnp-Transistor bestehende Gegentaktstufe realisiert. 
 \\
 \begin{equation*}
-    U_{\mathrm{aus}}= A\left( U_{\mathrm{ein},+} - U_{\mathrm{ein}, -}\right) \, .
+    U_{\mathrm{a}}= A\left( U_{\mathrm{e},+} - U_{\mathrm{e}, -}\right) \, .
     \label{equ:verstaerkung}
 \end{equation*}
 %\textbf{PRÜFEN UND QUELLE FINDEN}
-Wobei $ U_{\mathrm{aus}}$ die resultierende Ausgangsspannung ist, $A$ die Verstärkung und $U_{\mathrm{ein},+} - U_{\mathrm{ein}, -}$ die an den Eingangen anliegende Differenz. 
+Wobei $ U_{\mathrm{a}}$ die resultierende Ausgangsspannung ist, $A$ die Verstärkung und $U_{\mathrm{e},+} - U_{\mathrm{e}, -}$ die an den Eingangen anliegende Differenz. 
+Vereinfachend wird nun $U_{\mathrm{e}}=U_{\mathrm{e},+} - U_{\mathrm{e}, -}$, also die anliegende Spannungsdifferenz, als Eingangsspannung verwendet.
 \\
 Diese sorgt dafür Gegentaktstufe dafür, dass das Ausgangssignal abhängig von der Polarität der anliegenden Spannungsdifferenz positiv oder negativ ist.
 Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine negative am Operationsverstärker anliegt.
@@ -61,9 +62,10 @@ Auch dies ist in der Kennlinie deutlich zu erkennen.
 
 %--------------------------------------------------------------------------------------------------
 
-\subsection{Schaltungen mit dem Operationsverstärker}
-Für diverse Schaltungen kann der Operationsverstärker nun als Blackbox angenommen werden. 
-\subsubsection{Invertierender Linearverstärker}
+\section{Verwendete Schaltungen mit dem Operationsverstärker}
+In diesem Versuch werden die vier in diesem Abschnitt folgenden Schaltungen aufgebaut und näher untersucht.
+Dabei kann der Operationsverstärker nun als Blackbox angenommen werden. 
+\subsection{Invertierender Linearverstärker}
 Die einfachste hier verwendete Schaltung ist der invertierende Linearverstärker mit Gegenkopplung, wie er in \autoref{fig:schalt1} dargestellt ist.
 Die Schaltung zeichnet sich dadurch aus, dass der Ausgang mit dem invertierenden Eingang über einen Widerstand verbunden ist. 
 Daher wird von einer Gegenkopplung gesprochen. 
@@ -72,50 +74,83 @@ Somit vergrößert sich der Bereich der Eingangsspannung, in dem die Verstärkun
 So kann mit dieser Schaltung die Verstärkung des Operationsverstärkers ermittelt werden. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/schalt1.png}
+    \includegraphics[width=0.5\textwidth]{content/images/schalt1.png}
     \caption{Schaltung eines invertierenden Linearverstärkers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt1}
 \end{figure}
 
 
-\subsubsection{Umkehr-Integrator}
+\subsection{Umkehr-Integrator}
 Die Schaltung in \autoref{fig:schalt2} ist ein Umkehr-Integrator. 
 Das Ausgangssignal ist also die Stammfunktion des Eingangssignals.
 Hierbei ist nun anstelle von zwei Widerständen ein Widerstand und ein Kondensator verbaut.  
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/schalt2.png}
+    \includegraphics[width=0.5\textwidth]{content/images/schalt2.png}
     \caption{Schaltung eines Umkehr-Integrators mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt2}
 \end{figure}
 Warum die Schaltung diese Eigenschaft hat, wird durch folgendes deutlich: 
 Für den Strom am Widerstand $R$ und am Kondensator $C$ gilt jeweils: \textbf{QUELLE?}
 \begin{align*}
-    I=\frac{U_{\mathrm{e}}}{R} & & I = C \frac{\mathrm{d} U_{\mathrm{a}}}{\mathrm{d} t} \, .
+    I_{\mathrm{R}}=\frac{U_{\mathrm{e}}}{R} & & I_{\mathrm{C}} = C \frac{\mathrm{d} U_{\mathrm{a}}}{\mathrm{d} t} \, .
 \end{align*}
 Wegen der Knotenregel müssen beide Ströme gleich sein. Gleichsetzen und Umformen liefert somit den Zusammenhang 
 \begin{equation}
-    U_{\mathrm{a}}\left(t\right) = - \frac{1}{RC}\int U_{\mathrm{e}}\left(t\right) \, \mathrm{d} t
+    U_{\mathrm{a}}\left(t\right) = - \frac{1}{RC}\int U_{\mathrm{e}}\left(t\right) \, \mathrm{d} \nonumber
 \end{equation}
 zwischen Ein- und Ausgangsspannung. Somit ist zu erkennen, dass die Schaltung tatsächlich das Eingangssignal integriert. 
-%Frequenzabhängigkeit
+Liegt hier am Eingnag eine Wechselstromspannung an, dann ergibts sich der Zusammenhang
+\begin{equation}
+    \frac{U_{\mathrm{a}}}{U_{\mathrm{e}}} \propto \frac{1}{f}
+    \label{equ:fint}
+\end{equation}
+zwischen dem Verhältnis von Ein- und Ausgangsspannung und der Frequenz $f$ des Eingangssignals.
 
-\subsubsection{Invertierender Differenzierer}
+\subsection{Invertierender Differenzierer}
 Werden Kondensator und Widerstand in der vorherigen Schaltung vertauscht, dann leitet die resultierende Schaltung das Eingangssignal ab. 
 Die Schaltung ist ein invertierender Differenzierer und in \autoref{fig:schalt3} zu erkennen. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/schalt3.png}
+    \includegraphics[width=0.5\textwidth]{content/images/schalt3.png}
     \caption{Schaltung eines invertierenden Differenzierers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt3}
 \end{figure}
 Durch ähnliches Vorgehen, wie bei dem Umkehr-Integrator wird klar, warum diese Schaltung ein Differenzierer ist:
+Erneut gilt am Kondensator $C$ und am Widerstand $R$ jeweils: \textbf{QUELLE?}
+\begin{align*}
+     & & I_{\mathrm{C}} = C \frac{\mathrm{d} U_{\mathrm{e}}}{\mathrm{d} t} & & I_{\mathrm{R}}=\frac{U_{\mathrm{a}}}{R} \, . 
+\end{align*}
+Daraus ergibt sich bei dieser Schaltung allerdings
+\begin{equation}
+    U_{\mathrm{a}}\left(t\right) = - RC \frac{\mathrm{d} U_{\mathrm{e}}}{\mathrm{d} t}\, , \nonumber
+\end{equation}
+da Widerstand und Kondensator im Vergleich zum Umkehr-Integrator vertauscht sind.
+Dies zeigt, dass bei dieser Schaltung das Ausgangssignal der Ableitung des Eingangssignals entspricht.
+Hierbei ergibt sich bei Anliegen einer Wechselstromspannung nun allerdings 
+\begin{equation}
+    \frac{U_{\mathrm{a}}}{U_{\mathrm{e}}} \propto f
+    \label{equ:fdiff}
+\end{equation}
+als Proportionalität.
 
-
-\subsubsection{Schmitt-Trigger}
+\subsection{Schmitt-Trigger}
+Eine weitere Schaltung ist der in \autoref{fig:schalt4} dargestellte Schmitt-Trigger.
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/images/schalt4.png}
+    \includegraphics[width=0.5\textwidth]{content/images/schalt4.png}
     \caption{Schaltung eines Schmitt-Triggers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt4}
+\end{figure} 
+Der Aufbau ist ähnlich wie beim Linearverstärker, allerding wird statt einer Gegenkopplung nun eine Mitkopplung verwendet.
+Das heißt, dass heir der Ausgang statt an den invertierenden Eingang an den nicht-invertierenden Eingang gekoppelt ist.
+Dadurch tritt der genau entgegengesetzte Effekt, wie bei der Gegenkopplung des Linearverstärkers auf.
+Die Steigung im Bereich der Linearen Verstärkung wird so stark, dass die Schaltung sofort die positive oder negative maximale Ausgangsspannung ausgibt.
+Dabei gibt es für die eingehende Spannungsdifferenz eine Schwelle, ab der der Schmitt-Trigger in das jeweils andere Maximum wechselt.
+Dabei hat die Schaltung aufgrund dieses Kippverhaltens als Kennlinie eine sogenannte Hysterese, wie sie in \autoref{fig:hysterese} zu erkennen ist. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{content/images/schalt4.png}
+    \caption{\textbf{NOCH EINFUEGEN} \cite{haas_2022}.}
+    \label{fig:hysterese}
 \end{figure}
