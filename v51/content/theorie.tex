@@ -79,21 +79,37 @@ So kann mit dieser Schaltung die Verstärkung des Operationsverstärkers ermitte
 
 
 \subsubsection{Umkehr-Integrator}
+Die Schaltung in \autoref{fig:schalt2} ist ein Umkehr-Integrator. 
+Das Ausgangssignal ist also die Stammfunktion des Eingangssignals.
+Hierbei ist nun anstelle von zwei Widerständen ein Widerstand und ein Kondensator verbaut.  
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/schalt2.png}
     \caption{Schaltung eines Umkehr-Integrators mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt2}
 \end{figure}
-
+Warum die Schaltung diese Eigenschaft hat, wird durch folgendes deutlich: 
+Für den Strom am Widerstand $R$ und am Kondensator $C$ gilt jeweils: \textbf{QUELLE?}
+\begin{align*}
+    I=\frac{U_{\mathrm{e}}}{R} & & I = C \frac{\mathrm{d} U_{\mathrm{a}}}{\mathrm{d} t} \, .
+\end{align*}
+Wegen der Knotenregel müssen beide Ströme gleich sein. Gleichsetzen und Umformen liefert somit den Zusammenhang 
+\begin{equation}
+    U_{\mathrm{a}}\left(t\right) = - \frac{1}{RC}\int U_{\mathrm{e}}\left(t\right) \, \mathrm{d} t
+\end{equation}
+zwischen Ein- und Ausgangsspannung. Somit ist zu erkennen, dass die Schaltung tatsächlich das Eingangssignal integriert. 
+%Frequenzabhängigkeit
 
 \subsubsection{Invertierender Differenzierer}
+Werden Kondensator und Widerstand in der vorherigen Schaltung vertauscht, dann leitet die resultierende Schaltung das Eingangssignal ab. 
+Die Schaltung ist ein invertierender Differenzierer und in \autoref{fig:schalt3} zu erkennen. 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/schalt3.png}
     \caption{Schaltung eines invertierenden Differenzierers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt3}
 \end{figure}
+Durch ähnliches Vorgehen, wie bei dem Umkehr-Integrator wird klar, warum diese Schaltung ein Differenzierer ist:
 
 
 \subsubsection{Schmitt-Trigger}
