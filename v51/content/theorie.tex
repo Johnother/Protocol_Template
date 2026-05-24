@@ -7,7 +7,7 @@ Die hier anliegende Spannungsdifferenz wird also verstärkt und dann wiederum am
 Hierbei ist die Ausgangsstufe allerdings als eine aus einem npn- und einem pnp-Transistor bestehende Gegentaktstufe realisiert. 
 Diese sorgt dafür, dass das Ausgangssignal abhängig von der Polarität der anliegenden Spannungsdifferenz positiv oder negativ ist.
 Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine negative am Operationsverstärker anliegt.
-Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze, die am Ausgang erreicht werden kann. 
+Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze $\left| U_{\mathrm{a,max}}\right|$, die am Ausgang erreicht werden kann. 
 Am Ein- und Ausgang des Operationsverstärkers liegt dabei jeweils ein Widerstand an \cite[3 f.]{federau_2017}.
 \\
 Die Verstärkung des Operationsverstärkers $A$ wird dabei durch
@@ -159,15 +159,15 @@ Dadurch tritt der genau entgegengesetzte Effekt, wie bei der Gegenkopplung des L
 Die Steigung im Bereich der Linearen Verstärkung wird so stark, dass die Schaltung sofort die positive oder negative maximale Ausgangsspannung ausgibt.
 Dabei gibt es für die eingehende Spannungsdifferenz eine Schwelle, ab der der Schmitt-Trigger in das jeweils andere Maximum wechselt.
 Dieses Kippverhalten wird auch anhand der Kennlinie der Schaltung - die sogenannte Hysterese -, wie sie in \autoref{fig:hysterese} zu erkennen ist, deutlich.
-Die Schwellspannung ab der die Schaltung jeweils Kippt ist durch \textbf{NOCH EINFUEGEN UND QUELLE FINDEN}
+Die Schwellspannung ab der die Schaltung jeweils Kippt ist durch
 \begin{equation}
-    U_{\mathrm{Schwelle}} = U
+    U_{\mathrm{Schwelle}} = \pm \left|U_{\mathrm{a,max}}\right| \frac{R_1}{R_1+R_2}
     \label{equ:fdiff}
 \end{equation}
-gegeben.
+gegeben \cite[126]{haas_2022}.
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{content/images/schalt4.png}
-    \caption{\textbf{NOCH EINFUEGEN} \cite{haas_2022}.}
+    \includegraphics[width=0.5\textwidth]{content/images/hysterese.png}
+    \caption{Schematische Darstellung der Hysterese bzw. der Kennlinie eines Schmitt-Triggers mit minimaler bzw. maximaler Amplitude $U_{\mathrm{A\,min}}$ und $U_{\mathrm{A\,max}}$ sowie den Schwellspannungen $U_{\mathrm{E \, auf}}$ und $U_{\mathrm{E \, ab}}$ \cite[125]{haas_2022}.}
     \label{fig:hysterese}
 \end{figure}

@@ -17,7 +17,7 @@ Dadurch wird auch das Eingangssignal für den Operationsverstärker generiert.
 \\
 Durch ein T-Stück und ein BNC-Kabel wird der Ausgang des Signalgenerators auch an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
 Der andere Eingang des Oszilloskops wird über einen Adapter an das Breadboard angeschlossen. 
-So kann bei der Durchführung Ein- und Ausgangssignal am Oszilloskop vermessen werden. 
+So kann bei der Durchführung Ein- und Ausgangssignal am Oszilloskop mittels eingebautem Cursor vermessen werden. 
 \\
 Auf dem Breadbord können so die in \autoref{sec:schaltungen} beschriebenen Schaltungen aufgebaut werden. 
 Dazu sind verschiedene Operationsverstärker der Typen LM741, LM358 und TL072 vorhanden.
@@ -37,7 +37,7 @@ Zur Untersuchung des invertierenden Linearverstärkers wird dieser zunächst auf
 \textbf{WAS WIRD WIE VERBUNDEN}
 \\
 Nun können für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände die Verstärkung abhängig von der Frequenz vermessen werden. 
-Dazu wird zunächst am Signalgenerator eine feste Amplitude eingestellt. 
+Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit feste Amplitude \textbf{WERT} eingestellt. 
 Anschließen wird die Frequenz bei $\qty{1}{\hertz}$ startend über mehrere Dekaden in exponentiell größer werdenden Schritten erhöht. 
 Bei jedem Schritt wird mit dem Cursor am Oszilloskop dann sowohl die Amplitude des Ausgangssignals als auch der zeitliche Abstand zwischen den beiden Signalen gemessen.
 Letzteres gelingt, indem von Maximum des Eingangssignals zu Maximum des Ausgangssignals gemessen wird. 
@@ -66,7 +66,35 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
 \end{table}
 
 
-\subsection{Untersuchung des Integrators und des Differenzierers}
+\subsection{Untersuchung des Integrators}
+Um nun den Linearverstärker zu einem Umkehr-Integrator umzubauen muss der Widerstand $R_2$ durch einen Kondensator ausgetauscht werden.
+Es ergibt sich dann ein Schaltbild wie in \autoref{fig:schalt2}.
+Hier bei wurden \textbf{Welche R UND C ??} verwendet.
+Nun wird erneut bei $\qty{1}{\hertz}$ startend über mehrere Dekaden schrittweise die Frequenz erhöht. 
+Wobei auch hier die Schritte exponentiell größer werden. 
+Erneut wird mit dem Cursor am Oszilloskop die Amplitude der Ausgangsspannung gemessen.
+Als Eingangsspannung wird hier \textbf{EINGANGSSPANNUNG} gewählt.
+Zudem wird auch hier der Phasenversatz mit gleichem Verfahren wie beim Linearverstärker ermittelt. 
+Anschließend wird am Signalgenerator eine Frequenz gewählt die etwa dem Inversen der Zeitkonstante entspricht, da hier die integrierende Eigenschaft der Schaltung besonders gut zu erkennen ist. 
+Nacheinander wird nun ein Sinus-, Dreiecks- und Rechteckssignal am Generator eingestellt.
+Am Oszilloskop wird nun beobachtet, ob das Ausgangssignal der jeweiligen Stammfunktion entspricht. 
 
+\subsection{Untersuchung des Differenzierers}
+Beim invertierenden Differenzierer müssen Widerstand und Kondensator im Vergleich zum Integrator vertauscht werden, um die Schaltung aus \autoref{fig:schalt3} aufzubauen.
+\textbf{WERTE}
+Die Messung wird nun genauso durchgeführt, wie beim Integrator.
+Auch hierbei wird für ein Sinus-, Dreiecks- und Rechteckssignal jeweils das Ausgangssignal am Oszilloskop beobachtet.
+Dabei sollte die Frequenz \textbf{INVERS ODER NICHT?} entsprechen.
 
 \subsection{Untersuchung des Schmitt-Triggers}
+Um den Schmitt-Trigger aufzubauen, wird die Kopllung nun an den nicht-invertierenden Eingang angeschlossen. 
+Es werden die Widerstände $R_1 =\qty{10}{\kilo\ohm}$ und $R_2 =\qty{100}{\kilo\ohm}$ verwendet, sodass sich das Schaltbild wie in \autoref{fig:schalt4} ergibt. 
+Am Eingang wird nun wieder ein sinusförmiges Signal angelegt. Die Frequenz wird dabei auf \textbf{WERT} festgelegt. 
+Nun wird die Amplitude des Signals schrittweise bei $\qty{0}{\volt}$ startend in Schritten von einigen $\unit{\milli\volt}$ erhöht.
+Dabei wird dann die Amplitude ermittelt, ab der bei der Schaltung das Kippverhalten festzustellen ist.
+Dies entspricht dann der Schwellspannung.
+\\
+Zusätzlich wird die Schwellspannung auch wie folgt bestimmt:
+Am Signalgenerator sollte ein Dreieckssignal bei einer Amplitude, die eindeutig größer als die Schwellspannung ist, eingestellt werden.
+Nun kann mittels des Cursors am Oszilloskop die Spannung des Eingangssignals bestimmt werden, aber der die Schaltung jeweils kippt. 
+Dies wird insgesamt $5$ mal pro Kipprichtung durchgeführt. 
