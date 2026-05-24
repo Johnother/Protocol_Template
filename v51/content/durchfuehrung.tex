@@ -5,9 +5,11 @@ Zunächst ist eine Spannungsquelle vorhanden, die zwei Spannungen erzeugen und a
 Die Spannung kann dabei über Drehknöpfe eingestellt werden.
 Da bei einem der beiden Ausgänge allerdings die vom Generator angezeigte Spannung nicht stimmt, steht zusätzlich ein Voltmeter zur Verfügung. 
 Dieses wird durch die vorhandenen Kabel mit Bananensteckern an den entsprechenden Ausgang verbunden, um die Spannung überprüfen zu können.
-Der positive Ausgang der ersten Spannung des Generators wird mit dem Eingang $V_b$ des ebenfalls vorhandenen Breadboards verbunden.
-Der negative Ausgang der ersten Spannung wird sowohl mit dem Anschluss für die Masse auf dem Breadboard als auch mit dem positiven Ausgang der zweiten Spannung am Generator verbunden.
-Der negative Ausgang der zweiten Spannung wird wiederum mit dem Anschluss $V_a$ verbunden. So ist diese Spannung invertiert bzw. negativ. \textbf{PRUEFEN OB SO ODER ANDERS HERUM}
+Der positive Ausgang der ersten Spannung des Generators wird mit dem Eingang $V_a$ des ebenfalls vorhandenen Breadboards verbunden.
+Der negative Ausgang der ersten Spannung wird mit dem positiven Ausgang der zweiten Spannung am Generator verbunden.
+Dieser wiederum wird zusätzlich mit dem Anschluss für die Masse am Breadboard verbunden. 
+Der negative Ausgang der zweiten Spannung wird mit dem Anschluss $V_b$ verbunden. 
+So ist diese Spannung invertiert bzw. negativ.
 Am Generator wird nunr bei beiden Spannungen jeweils $\qty{15}{\volt}$ eingestellt. 
 So wird die Versorgungsspannung für den Operationsverstärker erzeugt.
 \\ 
@@ -22,19 +24,23 @@ So kann bei der Durchführung Ein- und Ausgangssignal am Oszilloskop mittels ein
 Auf dem Breadbord können so die in \autoref{sec:schaltungen} beschriebenen Schaltungen aufgebaut werden. 
 Dazu sind verschiedene Operationsverstärker der Typen LM741, LM358 und TL072 vorhanden.
 Allerdings wird hier nur ein Operationsverstärker des Typs LM741 verwendet.
-Außerdem stehen mehrere \textbf{KABELTYP VON DEN KLEINEN KABELN} sowie verschiedene Widerstände und Kondensatoren zur Verfügung.
+Außerdem stehen mehrere Steckbrückenkabel sowie verschiedene Widerstände und Kondensatoren zur Verfügung.
 In \autoref{fig:aufbau} ist der gesamte so eben beschriebene Aufbau zu sehen. 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{content/images/kennlinie.png}
-  \caption{\textbf{NOCH EINFUEGEN!}.}
+  \includegraphics[width=0.7\textwidth]{content/images/aufbau.jpg}
+  \caption{Aufsicht auf den Experimentiertisch mit Spannungsquelle, Signalgenerator, Breadboard und Oszilloskop sowie entsprechender Verkabelung für den Schmitt-Tirgger.}
   \label{fig:aufbau}
 \end{figure}
 
 
 \subsection{Untersuchung des Linearverstärkers}
 Zur Untersuchung des invertierenden Linearverstärkers wird dieser zunächst auf dem Breadboard wie in \autoref{fig:schalt1} zu sehen Aufgebaut. 
-\textbf{WAS WIRD WIE VERBUNDEN}
+Dabei müssen zunächst die Anschlüsse $V_a$ und $V_b$ als Versorgungsspannungen entsprechend mit den Steckplätzen $4$ und $7$ am Operationsverstärker durch die Steckbrückenkabel verbunden werden. 
+Der Anschluss $V_c$ wird über einen Widerstand $R_1$ an den invertierenden Eingang des Operationsverstärkers (Steckplatz $2$). 
+Der Ausgang des Operationsverstärkers (Steckplatz $6$) ist an den Adapter für das Oszilloskop anzuschließen. 
+Außerdem ist der Ausgang für die Gegenkopllung über einen Widerstand $R_2$ ebenfalls an den invertierenden Eingang anzuschließen.
+Die Masse wird sowohl mit dem nicht-invertierenden Eingang auf Steckplatz $3$ des Operationsverstärkers als auch mit dem Adapter fürs Oszilloskop verbunden. 
 \\
 Nun können für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände die Verstärkung abhängig von der Frequenz vermessen werden. 
 Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit feste Amplitude \textbf{WERT} eingestellt. 
