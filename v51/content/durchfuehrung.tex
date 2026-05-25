@@ -43,16 +43,17 @@ Außerdem ist der Ausgang für die Gegenkopllung über einen Widerstand $R_2$ eb
 Die Masse wird sowohl mit dem nicht-invertierenden Eingang auf Steckplatz $3$ des Operationsverstärkers als auch mit dem Adapter fürs Oszilloskop verbunden. 
 \\
 Nun können für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände die Verstärkung abhängig von der Frequenz vermessen werden. 
-Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit feste Amplitude \textbf{WERT} eingestellt. 
+Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit einer festen Amplitude von $\qty{1}{\volt}$ eingestellt. 
 Anschließen wird die Frequenz bei $\qty{1}{\hertz}$ startend über mehrere Dekaden in exponentiell größer werdenden Schritten erhöht. 
 Bei jedem Schritt wird mit dem Cursor am Oszilloskop dann sowohl die Amplitude des Ausgangssignals als auch der zeitliche Abstand zwischen den beiden Signalen gemessen.
+Dies wird so lange gemacht, bis ein deutlicher Abfall der Verstärkung zu verzeichnen ist. 
 Letzteres gelingt, indem von Maximum des Eingangssignals zu Maximum des Ausgangssignals gemessen wird. 
 Daraus kann dann der Phasenversatz bestimmt werden. 
 Dies wird für die vier Verhähltnisse von Widerständen durchgeführt, wie sie in \autoref{tab:widerstaende} dargestellt sind.
 Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetragen.
 \begin{table}
   \centering
-  \caption{\textbf{TABELLE NOCH AUSFUELLEN!}}
+  \caption{Bei den vier Messdurchgängen verwendete Widerstände für $R_1$ und $R_2$.}
   \label{tab:tabelle}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
@@ -61,12 +62,12 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
       %vline{4} = {2}{-}{text=\clap{$\pm$}},
     }
     \toprule
-    \mathrm{Messdurchgang}&R_1 \mathbin{/} \unit{\ohm} & R_2 \mathbin{/} \unit{\ohm} & U_{\mathrm{e,max}} \\
+    \mathrm{Messdurchgang}&R_1 \mathbin{/} \unit{\kilo\ohm} & R_2 \mathbin{/} \unit{\kilo\ohm}  \\
     \midrule
-    1 & 0 & 0 & 0 \\
-    2 & 0 & 0 & 0 \\
-    3 & 0 & 0 & 0 \\
-    4 & 0 & 0 & 0 \\
+    1 & 10 & 100  \\
+    2 & 15 & 100  \\
+    3 & 47 & 100  \\
+    4 & 68 & 100  \\
     \bottomrule
   \end{tblr}
 \end{table}
@@ -75,32 +76,33 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
 \subsection{Untersuchung des Integrators}
 Um nun den Linearverstärker zu einem Umkehr-Integrator umzubauen muss der Widerstand $R_2$ durch einen Kondensator ausgetauscht werden.
 Es ergibt sich dann ein Schaltbild wie in \autoref{fig:schalt2}.
-Hier bei wurden \textbf{Welche R UND C ??} verwendet.
+Hier bei wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit einer Kapatzität von $C=\qty{100}{\nano\farad}$ verwendet.
 Nun wird erneut bei $\qty{1}{\hertz}$ startend über mehrere Dekaden schrittweise die Frequenz erhöht. 
 Wobei auch hier die Schritte exponentiell größer werden. 
 Erneut wird mit dem Cursor am Oszilloskop die Amplitude der Ausgangsspannung gemessen.
-Als Eingangsspannung wird hier \textbf{EINGANGSSPANNUNG} gewählt.
+Als Eingangsspannung wird hierbei erneut eine Amplitude von $\qty{1}{\volt}$ gewählt.
 Zudem wird auch hier der Phasenversatz mit gleichem Verfahren wie beim Linearverstärker ermittelt. 
-Anschließend wird am Signalgenerator eine Frequenz gewählt die etwa dem Inversen der Zeitkonstante entspricht, da hier die integrierende Eigenschaft der Schaltung besonders gut zu erkennen ist. 
+Anschließend wird am Signalgenerator eine Frequenz gewählt die etwa dem Inversen der Zeitkonstante also $\nu=ac{1}{RC}$ entspricht, da hier die integrierende Eigenschaft der Schaltung besonders gut zu erkennen ist. 
 Nacheinander wird nun ein Sinus-, Dreiecks- und Rechteckssignal am Generator eingestellt.
 Am Oszilloskop wird nun beobachtet, ob das Ausgangssignal der jeweiligen Stammfunktion entspricht. 
 
 \subsection{Untersuchung des Differenzierers}
 Beim invertierenden Differenzierer müssen Widerstand und Kondensator im Vergleich zum Integrator vertauscht werden, um die Schaltung aus \autoref{fig:schalt3} aufzubauen.
-\textbf{WERTE}
+Es wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit der Kapatzität $C=\qty{1}{\micro\farad}$ in die Schaltung eingesetzt.
 Die Messung wird nun genauso durchgeführt, wie beim Integrator.
 Auch hierbei wird für ein Sinus-, Dreiecks- und Rechteckssignal jeweils das Ausgangssignal am Oszilloskop beobachtet.
-Dabei sollte die Frequenz \textbf{INVERS ODER NICHT?} entsprechen.
+Dabei sollte die Frequenz etwa der Zeitkonstante und somit $\nu=RC$ entsprechen.
 
 \subsection{Untersuchung des Schmitt-Triggers}
 Um den Schmitt-Trigger aufzubauen, wird die Kopllung nun an den nicht-invertierenden Eingang angeschlossen. 
 Es werden die Widerstände $R_1 =\qty{10}{\kilo\ohm}$ und $R_2 =\qty{100}{\kilo\ohm}$ verwendet, sodass sich das Schaltbild wie in \autoref{fig:schalt4} ergibt. 
-Am Eingang wird nun wieder ein sinusförmiges Signal angelegt. Die Frequenz wird dabei auf \textbf{WERT} festgelegt. 
+Am Eingang wird nun wieder ein sinusförmiges Signal angelegt. Die Frequenz wird dabei auf $\nu = \qty{10}{\hertz}$ festgelegt. 
 Nun wird die Amplitude des Signals schrittweise bei $\qty{0}{\volt}$ startend in Schritten von einigen $\unit{\milli\volt}$ erhöht.
 Dabei wird dann die Amplitude ermittelt, ab der bei der Schaltung das Kippverhalten festzustellen ist.
 Dies entspricht dann der Schwellspannung.
 \\
 Zusätzlich wird die Schwellspannung auch wie folgt bestimmt:
 Am Signalgenerator sollte ein Dreieckssignal bei einer Amplitude, die eindeutig größer als die Schwellspannung ist, eingestellt werden.
+Hier wird eine Amplitude von $\qty{3}{\volt}$ gewählt.
 Nun kann mittels des Cursors am Oszilloskop die Spannung des Eingangssignals bestimmt werden, aber der die Schaltung jeweils kippt. 
 Dies wird insgesamt $5$ mal pro Kipprichtung durchgeführt. 
