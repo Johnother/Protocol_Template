@@ -10,10 +10,10 @@ Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine
 Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze $\left| U_{\mathrm{a,max}}\right|$, die am Ausgang erreicht werden kann. 
 Am Ein- und Ausgang des Operationsverstärkers liegt dabei jeweils ein Widerstand an \cite[2 f.]{federau_2017}.
 Die Verstärkung des Operationsverstärkers $V$ wird dabei durch
-\begin{equation*}
+\begin{equation}
     V = \frac{U_{\mathrm{a}}}{U_{\mathrm{e}}}
-    \label{equ:verstaerkung}
-\end{equation*}
+    \label{eqn:verstaerkung}
+\end{equation}
 definiert. 
 Dabie ist $ U_{\mathrm{a}}$ die resultierende Ausgangsspannung und $U_{\mathrm{e}}$ die an den Eingangen anliegende Spannungsdifferenz \cite[108]{haas_2022}.
 \\
@@ -82,7 +82,8 @@ Somit vergrößert sich der Bereich der Eingangsspannung, in dem die Verstärkun
 \\
 An den beiden Widerständen $R_1$ und $R_2$ muss der gleiche Strom $I$ fließen, also folgt mit dem Ohmschen Gesetz aus \autoref{equ:verstaerkung}
 \begin{equation}
-    V = \frac{R_2}{R_1}
+    \label{eqn:V_theo}
+    V = -\frac{R_2}{R_1}
 \end{equation}
 für die Verstärkung des Operationsverstärkers \cite[12]{federau_2017}.
 \begin{figure}
@@ -91,6 +92,11 @@ für die Verstärkung des Operationsverstärkers \cite[12]{federau_2017}.
     \caption{Schaltung eines invertierenden Linearverstärkers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt1}
 \end{figure}
+\textbf{Gleichung für die Grenzfrequenz}
+\begin{equation}
+    \label{eqn:grenzfrequenz}
+    A\left(f_\symup{G}\right) = \frac{A_0}{\sqrt{2}}
+\end{equation}
 
 \subsection{Umkehr-Integrator}
 Die Schaltung in \autoref{fig:schalt2} ist ein Umkehr-Integrator. 
