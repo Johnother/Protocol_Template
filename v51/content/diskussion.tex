@@ -1,2 +1,84 @@
 \section{Diskussion}
 \label{sec:Diskussion}
+Zur Bestimmung der relativen Abweichungen zwischen theoretischem und experimentell bestimmtem Wert wird die Gleichung
+\begin{equation*}
+    \symup{\Delta}x = \frac{|x_{\mathrm{exp}} - x_{\mathrm{theo}}|}{x_{\mathrm{theo}}}
+\end{equation*}
+verwendet.
+\subsection{invertierender Linearverstärker}
+Die theoretischen und expermentellen Werte der Leerlaufverstärkung sowie ihre relative Abweichung sind für die vier Messreihen in \autoref{tab:leer} aufgelistet.
+\begin{table}
+  \centering
+  \caption{Experimentelle und theoretische Werte für die Leerlaufverstärkung, sowie deren relative Abweichung.}
+  \label{tab:leer}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.3] S[table-format=1.3] S[table-format=1.1] },
+      row{1} = {guard, mode=math},
+      vline{4} = {2}{-}{text=\clap{$\pm$}},
+    }
+    \toprule
+    \mathrm{Messreihe} & V_{\mathrm{theo}} & \SetCell[c=2]{c} V_{\mathrm{exp}} & & \symup{\Delta}V \mathbin{/} \% \\
+    \midrule
+    1   & 10    & 9.47 & 0.02   & 5.3  \\
+    2   & 6.67  & 6.36 & 0.07   & 4.6  \\
+    3   & 2.13  & 1.966 & 0.032 & 6.3  \\
+    4   & 1.47  & 1.39 & 0.04   & 5.4  \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+Die Abweichungen liegen alle im einstelligen Prozentbereich. Die berechneten Werte stimmen also gut mit der Theorie überein. Ein Zusammenhang zwischen größerer Leerlaufverstärkung und Fehler ist nicht erkennbar.\\
+Ein Grund für die Abweichungen kann sein, dass die Plateaus alle eine leichte Steigung aufweisen. Diese ist durch den Fit-Parameter $b_0$ beschrieben. 
+In den Berechnungen von \autoref{subsec:linear} ist zu sehen, dass die Parameter $b_0$ für alle vier Messreihen in der Größenordnung $b_0 \sim 10^{-3}$ liegen.
+Im Idealfall wäre dieser Wert Null. Eine leichte Abweichung kann über mehrere Dekaden eine Abweichung verursachen.
+\\
+Die experimentell bestimmten Bandbreitenprodukte sind in \autoref{tab:bandwidth} aufgelistet.
+\begin{table}
+  \centering
+  \caption{EExperimentell bestimmte Werte für das Bandbreitenprodukt.}
+  \label{tab:bandwidth}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.3] S[table-format=1.3] S[table-format=1.1] },
+      row{1} = {guard, mode=math},
+      vline{3} = {2}{-}{text=\clap{$\pm$}},
+    }
+    \toprule
+    \mathrm{Messreihe} & \SetCell[c=2]{c} \mathrm{Bandbreitenprodukt} \mathbin{/} \unit{\kilo\hertz} \\
+    \midrule
+    1 & 200 & 60 \\
+    2 & 240 & 90 \\
+    3 & 240 & 80 \\
+    4 & 240 & 70 \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+Hierbei ist auffällig, dass die Mittelwerte der letzten drei Messreihen identisch sind, die Standardabweichung aber mit sinkender Verstärkung fällt.
+Das Bandbreitenprodukt der ersten Messreihe mit der höchsten Verstärkung weicht deutlich von den anderen ab. 
+Eine Fehlerquelle könnte sein, dass die Bandbreite mit steigender Verstärkung geringer wird und dadurch Abweichungen in der Plateaulänge entstehen.
+\subsection{Umkehr-Integrator und invertierender Differenzierer}
+Für den Umkehr-Integrator sollte nach \autoref{equ:fint} die Steigung der Gerade $m = -1$ sein, dür en Differenzierer gemäß \autoref{equ:fdiff} $m=1$.
+Die Fit-Funktionen liefern für die Steigungen
+\begin{align*}
+    b_{\mathrm{int,exp}} &= \qty{-0.841(0.005)}{}, & b_{\mathrm{diff,exp}} &= \qty{0.895(0.003)}{}. \\
+\end{align*}
+Die Abweichungen zu den Theoriewerten betragen
+\begin{align*}
+    \symup{\Delta}b_{\mathrm{int}} &= \qty{15.9(0.5)}{\%}, & \symup{\Delta}b_{\mathrm{diff}} &= \qty{10.5(0.3)}{\%}. \\
+\end{align*}
+Die großen Abweichungen deuten auf systematische Fehler hin. Das Ablesen der Werte erfolgte mit den Cursorn des Oszilloskops. 
+Es ist möglich, dass beim Ablesen Fehler gemacht wurden. Auch Fehler bei der Auswahl der Widerstände und Kondensatoren sind denkbar. 
+Die Werte der Bauteile liegen weit auseinander, was zu Fehlern in der Signalübertragung führen könnte.
+\subsection{Schmitt-Trigger}
+Sowohl in \autoref{fig:schmittSin} als auch in \autoref{fig:schmittTri} ist die Hysterese des Schmitt-Triggers deutlich zu erkennen.\\
+Die experimentellen Bestimmungen liefern Werte für die Schwellspannung von 
+\begin{align*}
+    U_{\mathrm{Schwell,sin}} &= \pm\qty{1.402(0.0005)}{\volt}, & \overline{U}_{\mathrm{Schwell,tri}} &= \pm\qty{1.4031(0.0045)}{\volt}. \\
+\end{align*}
+Die Abweichung der beiden Werte zueinander ist erkennbar gering. Zm theoretischen Wert $U_{\mathrm{Schwell,theo}} = \pm\qty{1.36}{\volt}$ betragen die relativen Abweichungen
+\begin{align*}
+    \symup{\Delta}U_{\mathrm{Schwell,sin}} &= \qty{3.10(0.04)}{\%}, & \symup{\Delta}{U}_{\mathrm{Schwell,tri}} &= \qty{3.17(0.33)}{\%}. \\
+\end{align*}
+Die Abweichungen zum Theoriewert sind also ebenfalls sehr gering. 
+Dass die experimentellen Werte sich näher liegen als dem Theoriewert deutet darauf hin, dass der Wert im Experiment überschätzt wurde. 
+Die Werte wurden am Oszilloskop abgelesen und sind möglicherweise leicht verrauscht.
