@@ -8,8 +8,9 @@ Hierbei ist die Ausgangsstufe allerdings als eine aus einem npn- und einem pnp-T
 Diese sorgt dafür, dass das Ausgangssignal abhängig von der Polarität der anliegenden Spannungsdifferenz positiv oder negativ ist.
 Dies ist möglich, da als Versorgungsspannung sowohl eine positive als auch eine negative am Operationsverstärker anliegt.
 Diese Versorgungsspannung bestimmt somit auch die maximale Spannung bzw. Aussteuergrenze $\left| U_{\mathrm{a,max}}\right|$, die am Ausgang erreicht werden kann. 
-Am Ein- und Ausgang des Operationsverstärkers liegt dabei jeweils ein Widerstand an \cite[2 f.]{federau_2017}.
-Die Verstärkung des Operationsverstärkers $V$ wird dabei durch
+Am Ein- und Ausgang des Operationsverstärkers liegt jeweils ein Widerstand an \cite[2 f.]{federau_2017}.
+\\
+Die Verstärkung des Operationsverstärkers $V$ wird durch
 \begin{equation}
     V = \frac{U_{\mathrm{a}}}{U_{\mathrm{e}}}
     \label{eqn:verstaerkung}
@@ -17,23 +18,23 @@ Die Verstärkung des Operationsverstärkers $V$ wird dabei durch
 definiert. 
 Dabie ist $ U_{\mathrm{a}}$ die resultierende Ausgangsspannung und $U_{\mathrm{e}}$ die an den Eingangen anliegende Spannungsdifferenz \cite[108]{haas_2022}.
 \\
-Des Weiteren ist anzumerken, dass die Versorgungsspannungen idealerweise so gewählt werden, dass beide den gleichen Betrag haben.
-Ansonsten würden Wechselstromspannungen einen Offset bekommen, da der Arbeitsbereich des Operationsverstärkers verschoben wäre. \textbf{Quelle?}
-\\
-\textbf{REST VON DEN VORBEREITUNGSAUFGABEN??}
+%Des Weiteren ist anzumerken, dass die Versorgungsspannungen idealerweise so gewählt werden, dass beide den gleichen Betrag haben.
+%Ansonsten würden Wechselstromspannungen einen Offset bekommen, da der Arbeitsbereich des Operationsverstärkers verschoben wäre. \textbf{Quelle?}
+%\\
+
 
 \subsection{Steckplätze des Operationsverstärkers}
 Der Operationsverstärker hat mehrere Steckplätze welche verschiedene Funktionen haben.
 Der in diesem Versuch verwendete Operationsverstärker vom Typ LM741 hat acht Steckplätze, welche in \autoref{fig:opvinputs} zu sehen sind. 
 Dabei sind für diesen Versuch die folgenden Steckplätze relevant:
-Die Steckplätze 2 Inverting Input und 3 Non-Invertin Input sind, wie es deren Namen deutlich machen, der invertierende und nicht-invertierende Eingang. 
+Die Steckplätze 2 Inverting Input und 3 Non-Inverting Input sind, wie es deren Namen deutlich machen, der invertierende und nicht-invertierende Eingang. 
 Aus ihnen ergibt sich somit die eingehende Spannungsdifferenz.
 Die Eingänge 4 ($V^-$) und 7 ($v^+$) sind die beiden bereits beschriebenen Versorgungsspannungen.
 Der Ausgang liegt auf dem Steckplatz 6 (Output) \cite{TI_LM741_2025}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{content/images/opvinputs.png}
-    \caption{Darstellung der Steckplätze des Verwendeten Operationsverstärkers \cite{TI_LM741_2025}.}
+    \caption{Darstellung der Steckplätze des verwendeten Operationsverstärkers vom Typ LM741 \cite[3]{TI_LM741_2025}.}
     \label{fig:opvinputs}
 \end{figure}
 \subsection{Der ideale und reale Operationsverstärker}
@@ -42,8 +43,7 @@ Die Verstärkung sowie die Bandbreite der Übertragung ist also unendlich groß.
 Bei einem realen Operationsverstärker kann dies nicht der Fall sein.  
 Die Widerstände sind endlich: Meist liegt der Eingangswiderstand bei $> \qty{1}{\mega\ohm}$ und der Ausgangswiderstand bei $10 \,  \mathrm{bis} \, \qty{1000}{\ohm}$.
 Er kann Verstärkungen von ca. $10^4$ bis $10^6$ erreichen.
-\textbf{Offset} 
-Die Bandbreite ist ebenfalls nach oben beschränkt, da die Transistoren im Operationsverstärker nicht unendlich schnell schalten können \cite[2]{federau_2017}. 
+Die Bandbreite ist ebenfalls nach oben beschränkt, da die Transistoren im Operationsverstärker nicht unendlich schnell schalten können \cite[2]{federau_2017}.
 
 
 
@@ -53,7 +53,7 @@ Die Bandbreite ist ebenfalls nach oben beschränkt, da die Transistoren im Opera
 %fehlt noch: gegenkopplung -> lineare Verstärkung -> Kennlinie
 \subsection{Kennlinie eines Operationsverstärkers}
 Eine typische Kennlinie eines Operationsverstärkers von Ein- und Ausgangsspannung ist beispielhaft in \autoref{fig:kennlinie} zu erkennen. 
-Dabei wird deutlich, dass die Verstärkung zunächst linear ist, wie bereits aus \autoref{equ:verstaerkung} hervorgeht. 
+Dabei wird deutlich, dass die Verstärkung zunächst linear ist, wie bereits aus \autoref{eqn:verstaerkung} hervorgeht. 
 Ist nun aber die theoretisch erreichte Ausgangsspannung größer als die Versorgungsspannung, steigt die Ausgangsspannung natürlich nicht weiter, sondern bleibt auf ihrem maximalen Wert.
 Der Operationsverstärker übersteuert \cite[4]{federau_2017}. 
 Auch dies ist in der Kennlinie deutlich zu erkennen. 
@@ -61,7 +61,7 @@ Es gibt sowohl Schaltungen, die den Betrieb im linearen Bereich nutzen, als auch
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{content/images/kennlinie.png}
-    \caption{Beispiel einer typischen Kennlinie eines Operationsverstärkers \cite{haas_2022}.}
+    \caption{Beispiel einer typischen Kennlinie zwischen Eingangsspannung $U_{\mathrm{e}}$ und Ausgangsspannung $U_{\mathrm{a}}$ eines Operationsverstärkers \cite{haas_2022}.}
     \label{fig:kennlinie}
 \end{figure}
 
@@ -80,7 +80,7 @@ Daher wird von einer Gegenkopplung gesprochen.
 Diese sorgt wiederum dafür, dass die Verstärkung des Operationsverstärkers abflacht, da durch die Kopllung des Ausgangs an den invertierenden Eingang, die Spannungsdifferenz am Eingang verringert wird.
 Somit vergrößert sich der Bereich der Eingangsspannung, in dem die Verstärkung linear ist und noch nicht ihren Grenzwert erreicht hat. 
 \\
-An den beiden Widerständen $R_1$ und $R_2$ muss der gleiche Strom $I$ fließen, also folgt mit dem Ohmschen Gesetz aus \autoref{equ:verstaerkung}
+An den beiden Widerständen $R_1$ und $R_2$ muss der gleiche Strom $I$ fließen, also folgt mit dem Ohmschen Gesetz aus \autoref{eqn:verstaerkung}
 \begin{equation}
     \label{eqn:V_theo}
     V = -\frac{R_2}{R_1}
@@ -92,11 +92,25 @@ für die Verstärkung des Operationsverstärkers \cite[12]{federau_2017}.
     \caption{Schaltung eines invertierenden Linearverstärkers mit dem Operationsverstärker \cite{V51}.}
     \label{fig:schalt1}
 \end{figure}
-\textbf{Gleichung für die Grenzfrequenz}
+Bei einer anliegenden Wechselspannung ist die Bandbreite endlich, wie bereits in autoref{sec:Theorie} erwähnt. 
+Es wird also erwartet, dass ab einer Grenzfrequenz $f_{\mathrm{G}}$ die Verstärkung wieder abnimmt. 
+Diese Grenzfrequenz ist als diejenige Frequenz definiert, bei der die Verstärkung noch $70,7 \%$ \cite{electronicstutorials} also etwa dem $\sqrt{2}$ fachen der maximalen Verstärkung $V_{\mathrm{max}}$ entspricht. 
+Es muss daher
 \begin{equation}
     \label{eqn:grenzfrequenz}
-    A(f_{\mathrm{G}}) = \frac{A_0}{\sqrt{2}}
+    V(f_{\mathrm{G}}) = \frac{V_{\mathrm{max}}}{\sqrt{2}} 
 \end{equation}
+für die Grenzfrequenz gelten.
+\\
+Die Grenzfrequenz ist dabei der Bandbreite gleichzusetetzen. 
+Da diese proportional zur Verstärkung wächst muss dabei
+\begin{equation}
+    V\cdot f_{\mathrm{G}} = const. 
+    \label{eqn:bandbreitenprodukt}
+\end{equation}
+gelten \cite{e3tudortmund}.
+
+
 
 \subsection{Umkehr-Integrator}
 Die Schaltung in \autoref{fig:schalt2} ist ein Umkehr-Integrator. 
@@ -109,7 +123,7 @@ Hierbei ist nun anstelle von zwei Widerständen ein Widerstand und ein Kondensat
     \label{fig:schalt2}
 \end{figure}
 Warum die Schaltung diese Eigenschaft hat, wird durch folgendes deutlich: 
-Für den Strom am Widerstand $R$ und am Kondensator $C$ gilt jeweils:
+Für den Strom am Widerstand $R$ \cite[15]{haas_2022} und am Kondensator $C$ \cite[195]{haas_2022} gilt jeweils:
 \begin{align*}
     I_{\mathrm{R}}=\frac{U_{\mathrm{e}}}{R} & & I_{\mathrm{C}} = C \frac{\mathrm{d} U_{\mathrm{a}}}{\mathrm{d} t} \, .
 \end{align*}
@@ -117,13 +131,14 @@ Wegen der Knotenregel müssen beide Ströme gleich sein. Gleichsetzen und Umform
 \begin{equation}
     U_{\mathrm{a}}\left(t\right) = - \frac{1}{RC}\int U_{\mathrm{e}}\left(t\right) \, \mathrm{d} \nonumber
 \end{equation}
-zwischen Ein- und Ausgangsspannung. Somit ist zu erkennen, dass die Schaltung tatsächlich das Eingangssignal integriert. 
-Liegt hier am Eingnag eine Wechselstromspannung an, dann ergibts sich der Zusammenhang
+zwischen Ein- und Ausgangsspannung \cite{e3tudortmund}. 
+Somit ist zu erkennen, dass die Schaltung tatsächlich das Eingangssignal integriert. 
+Liegt hier am Eingnag eine Wechselstromspannung an, dann ergibts sich aus der Gleichung mit \autoref{eqn:verstaerkung} der Zusammenhang
 \begin{equation}
     A \propto \frac{1}{f}
     \label{equ:fint}
 \end{equation}
-zwischen der Verstärkung und der Frequenz $f$ des Eingangssignals.
+zwischen der Verstärkung und der Frequenz $f = RC$ des Eingangssignals.
 
 \subsection{Invertierender Differenzierer}
 Werden Kondensator und Widerstand in der vorherigen Schaltung vertauscht, dann leitet die resultierende Schaltung das Eingangssignal ab. 
@@ -135,7 +150,7 @@ Die Schaltung ist ein invertierender Differenzierer und in \autoref{fig:schalt3}
     \label{fig:schalt3}
 \end{figure}
 Durch ähnliches Vorgehen, wie bei dem Umkehr-Integrator wird klar, warum diese Schaltung ein Differenzierer ist:
-Erneut gilt am Kondensator $C$ und am Widerstand $R$ jeweils: \textbf{QUELLE?}
+Erneut gilt am Kondensator $C$ und am Widerstand $R$ jeweils:
 \begin{align*}
      & & I_{\mathrm{C}} = C \frac{\mathrm{d} U_{\mathrm{e}}}{\mathrm{d} t} & & I_{\mathrm{R}}=\frac{U_{\mathrm{a}}}{R} \, . 
 \end{align*}
@@ -143,9 +158,9 @@ Daraus ergibt sich bei dieser Schaltung allerdings
 \begin{equation}
     U_{\mathrm{a}}\left(t\right) = - RC \frac{\mathrm{d} U_{\mathrm{e}}}{\mathrm{d} t}\, , \nonumber
 \end{equation}
-da Widerstand und Kondensator im Vergleich zum Umkehr-Integrator vertauscht sind.
+da Widerstand und Kondensator im Vergleich zum Umkehr-Integrator vertauscht sind \cite{e3tudortmund}.
 Dies zeigt, dass bei dieser Schaltung das Ausgangssignal der Ableitung des Eingangssignals entspricht.
-Hierbei ergibt sich bei Anliegen einer Wechselstromspannung nun allerdings 
+Hierbei ergibt sich bei Anliegen einer Wechselstromspannung aus der Gleichung mit \autoref{eqn:verstaerkung} nun allerdings 
 \begin{equation}
     A \propto f
     \label{equ:fdiff}
@@ -153,6 +168,7 @@ Hierbei ergibt sich bei Anliegen einer Wechselstromspannung nun allerdings
 als Proportionalität.
 
 \subsection{Schmitt-Trigger}
+\label{subsec:schmitt}
 Eine weitere Schaltung ist der in \autoref{fig:schalt4} dargestellte Schmitt-Trigger.
 \begin{figure}
     \centering

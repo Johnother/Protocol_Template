@@ -1,10 +1,46 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Fehlerrechnung}
+\label{sec:fehlerrechnung}
+%\subsection{Mittelwert}
+Für die Auswertung des Versuchs werden die folgenden Formeln zu Verarbeitung der Messunsicherheiten verwendet: 
+Der Mittelwert wird mithilfe von
+
+\begin{equation}
+\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
+\label{eqn:mittelwert}
+\end{equation}
+bestimmt.
+%\subsection{Standardabweichung}
+Die Standardabweichung wird anhand von
+\begin{equation}
+\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
+\label{eqn:standardabweichung}
+\end{equation}
+berechnet.
+%\subsubsection{Standardabweichung des Mittelwerts}
+Die Standardabweichung des Mittwertes wird mithilfe von 
+\begin{equation}
+\Delta \bar{x} = \frac{\sigma}{\sqrt{N}}
+\label{eqn:standardmittelwert}
+\end{equation}
+bestimmt.
+%\subsection{Gaußsche Fehlerfortpflanzung}
+Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
+\begin{equation}
+\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
+\label{eqn:fehlerfortpflanzung}
+\end{equation}
+ermittelt werden.
+
+
+
+
 \subsection{Verstärkung des invertierenden Linearverstärkers}
 \label{subsec:linear}
 Anhand des frequenzabhängigen Spannungsverlaufs wird nun die Leerlaufverstärkung, die Grenzfrequenz und das Bandbreitenprodukt bestimmt. 
 Die Spannung des Eingangssignals beträgt $U_{\mathrm{e}} = 1\,\unit{\volt}$. Die momentane Verstärkung ergibt sich gemäß \autoref{eqn:verstaerkung}, wobei $U_{\mathrm{e}}$ im Nenner steht. Die gemessene Spannung kann also direkt als Verstärkung aufgefasst werden.\\
-Verstärkung und Frequenz werden für jede Messreihe in einem doppelt-logarithmischen Diagramm aufgetragen. Die gemessenen Werte für Frequenz, Ausgangsspannung und Phasenversatz sind im Anhang, \autoref{sec:Anhang} in den Tabellen \ref{tab:lin1}, \ref{tab:lin2}, \ref{tab:lin3} und \ref{tab:lin4} aufgeführt.\\
+Verstärkung und Frequenz werden für jede Messreihe in einem doppelt-logarithmischen Diagramm aufgetragen. Die gemessenen Werte für Frequenz, Ausgangsspannung und Phasenversatz sind im Anhang \autoref{sec:Anhang}, in den Tabellen \ref{tab:lin1}, \ref{tab:lin2}, \ref{tab:lin3} und \ref{tab:lin4} aufgeführt.\\
 Die theoretische Verstärkung wird aus dem Verhältnis der verwendeten Widerstände aus \autoref{tab:widerstaende} mittels \autoref{eqn:V_theo} berechnet. Es ergeben sich folgende theoretische Verstärkungen:
 % \begin{align*}
 %   V_{\mathrm{theo,1}} &= 10, \\
@@ -15,7 +51,7 @@ Die theoretische Verstärkung wird aus dem Verhältnis der verwendeten Widerstä
 % \noindent
 \begin{table}
   \centering
-  \caption{Eine Beispieltabelle mit Messdaten.}
+  \caption{Aus den verwendeten Widerständen berechnete theoretische Verstärkungen.}
   \label{tab:gain}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
@@ -160,14 +196,19 @@ Das Bandbreitenprodukt beträgt
 \begin{equation}
   V_4\cdot B = A_{0,4}\cdot F_{\mathrm{G},4} = \qty{240(70)}{\kilo\hertz}.
 \end{equation}
+
+
+
+
+
 \subsection{Phasenbeziehung des invertierenden Linearverstärkers}
 Die Phasendifferenz zwischen Eingangs- und Ausgangsspannung wird am Oszilloskop als Zeitintervall $\symup{\Delta}t$ zwischen zwei benachbarten Maxima in Millisekunden gemessen. 
 Um daraus die Phasendifferenz im Gradmaß zu erhalten, werden die Messwerte mit der Gleichung
 \begin{equation*}
   \symup{\Delta\phi} = \symup{\Delta}t \cdot f\cdot 360\unit{\degree}
 \end{equation*}
-umgerechnet.\\
-Der erhaltene Frequanzgang der Phasendifferenz für alle vier Messreihen wird in \autoref{fig:phasendifferenz} dargestellt. Die $x-$Achse ist dabei loarithmiert. 
+umgerechnet \cite{studyflix}.\\
+Der erhaltene Frequanzgang der Phasendifferenz für alle vier Messreihen wird in \autoref{fig:phasendifferenz} dargestellt. Die $x-$Achse ist dabei logarithmiert. 
 Die Zuordnung der Diagramme zu ihrer jeweiligen Messreihe erfolgt über ihre theoretische Verstärkung (vgl. \autoref{tab:gain}).
 \begin{figure}
   \centering
@@ -177,9 +218,12 @@ Die Zuordnung der Diagramme zu ihrer jeweiligen Messreihe erfolgt über ihre the
 \end{figure}
 \FloatBarrier
 \noindent
-Der Wertebereich erstreckt sich bei den vier Messreihen über etwa $180\,\unit{\degree}$, die Kurven scheinen alle ein Plateau im mittleren Bereich zu besitzen, davor mit Rechtskrümmung und danach mit Linkskrümmung zu steigen.\\
+Der Wertebereich erstreckt sich bei den vier Messreihen über etwa $180\,\unit{\degree}$. Die Kurven besitzen alle ein Plateau im mittleren Bereich und steigen davor mit Rechtskrümmung und danach mit Linkskrümmung.\\
+
+
+
 \subsection{Frequenzgang und Funktionstest des Umkehr-Integrators}
-Die Messwerte des Frequenzgangs des Umkehr-Integrators sind in \autoref{tab:integrator} aufgeführt. Zur Auswertung werden sie in einem doppelt-logarithmischen Diagramm dargestellt. Dies zeit \autoref{fig:integrator}.
+Die Messwerte des Frequenzgangs des Umkehr-Integrators sind in \autoref{tab:integrator} aufgeführt. Zur Auswertung werden sie in einem doppelt-logarithmischen Diagramm dargestellt. Dies zeigt \autoref{fig:integrator}.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/integrator.pdf}
@@ -188,24 +232,24 @@ Die Messwerte des Frequenzgangs des Umkehr-Integrators sind in \autoref{tab:inte
 \end{figure}
 \FloatBarrier
 \noindent
-Gemäß \autoref{equ:fint} ist die Verstärkung des Umkehr-Integrators invers-proportional zur Frequenz. In einem doppelt-logarithmischen Diagramm entspricht dies Gerade mit der Steigung $m_{\mathrm{int,theo}}=-1$.
+Gemäß \autoref{equ:fint} ist die Verstärkung des Umkehr-Integrators invers-proportional zur Frequenz. In einem doppelt-logarithmischen Diagramm entspricht dies einer Geraden mit der Steigung $m_{\mathrm{int,theo}}=-1$.
 Zur Überprüfung der Frequenzabhängigkeit der Verstärkung wird als Fit-Funktion \autoref{eqn:fit} verwendet. Dabei entspricht der Parameter $b$ der Steigung der Geraden im Diagramm.\\
 Aus dem Fit ergeben sich folgende Parameter
 \begin{align*}
   A &= \qty{655(16)}{}, & b &= \qty{-0.841(0.005)}{}.\\
 \end{align*}
-Die Steigung ist gleich dem Exponenten der Fit-Funktion. Die Steigung beträgt also
+Die Steigung ist gleich dem Exponenten der Fit-Funktion. Sie beträgt also
 \begin{equation}
   m_{\mathrm{int,exp}} = b = \qty{-0.841(0.005)}{}.
 \end{equation}
 \\
 Zur Veranschaulichung der Funktionsweise werden ein Sinussignal, ein Rechtecksignal und ein Dreiecksignal an den Eingang des Umkehr-Integrators gelegt. 
-Die Abbildungen \ref{fig:intSin}, \ref{fig:intRec} und \ref{intTri} zeigen das Eingangs- und Ausgangssignal auf dem Oszilloskop. Dabei ist die XXXFARBEXXX Kurve das Eingangssignal und die XXXFARBEXXX Kurve das Ausgangssignal.
+Die Abbildungen \ref{fig:intSin}, \ref{fig:intRec} und \ref{fig:intTri} zeigen das Eingangs- und Ausgangssignal auf dem Oszilloskop. Dabei ist die gelbe Kurve das Eingangssignal und die grüne Kurve das Ausgangssignal.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/intSin.png}
   \caption{Sinusförmiges Eingangssignal und cosinusförmiges Ausgangssignal am Umkehr-Integrator.}
-  \label{fig:integrator}
+  \label{fig:intSin}
 \end{figure}
 \FloatBarrier
 \noindent
@@ -213,7 +257,7 @@ Die Abbildungen \ref{fig:intSin}, \ref{fig:intRec} und \ref{intTri} zeigen das E
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/intRec.png}
   \caption{Rechteck- Eingangssignal und Dreieck- Ausgangssignal am Umkehr-Integrator.}
-  \label{fig:integrator}
+  \label{fig:intRec}
 \end{figure}
 \FloatBarrier
 \noindent
@@ -221,13 +265,18 @@ Die Abbildungen \ref{fig:intSin}, \ref{fig:intRec} und \ref{intTri} zeigen das E
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/intTri.png}
   \caption{Dreieck- Eingangssignal und sinusförmiges Ausgangssignal am Umkehr-Integrator.}
-  \label{fig:integrator}
+  \label{fig:intTri}
 \end{figure}
 \FloatBarrier
 \noindent
 Es ist gut zu erkennen, dass die Ausgangssignale den Stammfunktionen der Eingangssignale entsprechen.
+
+
+
+
+
 \subsection{Frequenzgang und Funktionstest des invertierenden Differenzierers}
-Die Messwerte des Frequenzgangs des Differenzierers sind in \autoref{tab:diff} aufgeführt. Diese werden ebenfalls in einem doppelt-logarithmischen Diagramm dargestellt, welches \autoref{fig:diff} zeigt.
+Die Messwerte des Frequenzgangs des Differenzierers sind in \autoref{tab:differenzierer} aufgeführt. Diese werden ebenfalls in einem doppelt-logarithmischen Diagramm dargestellt, welches \autoref{fig:diff} zeigt.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/differenzierer.pdf}
@@ -250,7 +299,7 @@ Die Funktionsweise des invertierenden Differenzierers wird in den Abbildungen \r
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/diffSin.png}
-  \caption{Sinusförmiges Eingangssignal und negativ- cosinusförmiges Ausgangssignal am invertierenden Differenzierer.}
+  \caption{Sinusförmiges Eingangssignal und cosinusförmiges Ausgangssignal am invertierenden Differenzierer.}
   \label{fig:diffSin}
 \end{figure}
 \FloatBarrier
@@ -272,6 +321,9 @@ Die Funktionsweise des invertierenden Differenzierers wird in den Abbildungen \r
 \FloatBarrier
 \noindent
 Der Differenzierer sorgt dafür, dass das Ausgangssignal der Ableitung des Eingangssignals entspricht. Dies ist auf dem Oszilloskop gut erkennbar der Fall.
+
+
+
 \subsection{Schwellspannung und Hysterese-Kurve des Schmitt-Triggers}
 Der theoretische Wert der Schwellspannung wird mit \autoref{equ:U_schwell} berechnet. Für den verwendeten Aufbau ergibt sich
 \begin{equation}
@@ -304,7 +356,7 @@ Für die zweite experimentelle Bestimmung der Schwellspannung wird ein Dreiecksi
 Es werden fünf positive und fünf negative Messwerte für die Schwellspannung gemessen. Diese zeigt \autoref{tab:schmittTri}.
 \begin{table}
   \centering
-  \caption{Gemessene Schwellspannungen an der Hysterese-Kurve aus \autoref{fig:schmittTri}.}
+  \caption{Gemessene Schwellspannungen an der Hysterese-Kurve aus \autoref{tab:schmittTri}.}
   \label{tab:gain}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
