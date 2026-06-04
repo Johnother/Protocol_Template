@@ -1,9 +1,27 @@
 \section{Theorie}
 \label{sec:Theorie}
-    Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom-, Teilchen- und Festkörperphysik.
-    Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
+    Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom- und Festkörperphysik.
+    %Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
     Im folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwendungsweise des Diodenlasers erläutert.
     
+
+
+    \subsection{Kohärenz}
+        Licht ist kohärent, wenn die eines Lichtstrahls in ihren Quantenzahlen übereinstimmen. \textbf{QUELLE}%reicht das nicht lol?
+        %Die Quantenmechanik liefert die Erkenntnis, dass das Photon, welches bei der stimulierten Emission frei wird, die gleiche Phasenbeziehung, Ausbreitungsrichtung und Frequenz hat wie das einfallende, induzierende Photon.
+        %Tatsächlich stimmen die beiden Photonen in jeder Quantenzahl überein. Diese Identität der Quantenzahlen und des Verhaltens der Photonen wird als \textbf{Kohärenz} bezeichnet.\\
+        %Kohärenz ist allerdings eine Eigenschaft, die durch externe Einflüsse behindert, eingeschränkt oder aufgehoben werden kann. Brechung und Beugung von Licht, Streuung an den Luftmolekülen sowie Interferenz mit externer Strahlung können Änderungen der Quantenzahlen verursachen.
+        %Bereits minimale Abweichungen der Phase oder Frequenz, entwickeln sich mit fortschreitender Zeit weiter auseinander und sorgen für immer geringere Kohärenz. 
+        %\\
+        %Die Stabilität der Phase und Frequenz eines Lasers fällt unter die \textbf{zeitliche Kohärenz}. Aus ihr ergibt sich die Linienbreite und die Kohärenzlänge.
+        %Die Kohärenzlänge ist die Entfernung, die sich aus der Lichtgeschwindigkeit $c$ und der Linienbreite $\symup{\Delta}\nu$ berechnet in der Form
+        %\begin{equation}
+        %    l = c\cdot\symup{\Delta}t = \frac{c}{\symup{\Delta}\nu}\,\mathrm{.}
+        %\end{equation}
+        %Davon abgesehen spielt auch die Frage eine Rolle, wie gut das Licht seine uhrsprüngliche Fokussierung beibehält. Dies wird als \textbf{räumliche Kohärenz} bezeichnet.
+        %\\
+        %Laserlicht weist sowohl sehr hohe räumliche als auch zeitliche Kohärenz auf. Erstere ist technisch begrenzt durch den optischen Strahlengang des Laserstrahls, vor allem der Laserblende.
+        %Die zeitliche Kohärenz kann über die Kohärenzlänge quantifiziert werden. Bei Lassern liegt sie im Bereich von $\qty{300000}{\kilo\meter}$ \cite[325]{haken_wolf_2004}.
     \subsection{Absorption und Emission elektromagnetischer Stahlung}
         % Im Jahr 1900 formulierte Max Planck sein Strahlungsgesetz für das elektromagnetische Spektrum eines Schwarzkörperstahlers.
         % Dabei traf er die Annahme, dass die Wechselwirkung zwischen Licht und Materie durch diskrete Energien der Form $E = \symup{h}\cdot\nu$ beschrieben werden kann \cite[52]{haken_wolf_2004}.
@@ -22,9 +40,14 @@
         % Anhand des Photoeffekts konnte Albert Einstein die Lichtquantenhypothese aufstellen und zeigen, dass elektromagnetische Strahlung nicht nur durch Wellen, sondern auch durch Lichtteilchen mit diskreten, frequenzabhängigen Energien beschrieben werden kann.
         % Für die im Diodenlaser auftretenden Prozesse ist diese Betrachtungsweise besonders relevant, da sie ermöglicht, die Wechselwirkung zwischen Licht und Materie als Prozess mit Photonenaustausch zu beschreiben.
         % \\
-        Alle bekannten chemischen Elemente besitzen auf atomarer Ebene diskrete Energieniveaus, welche abhängig sind von ihrer Elektronenkonfiguration.
-        In vielen Experimenten konnte nachgewiesen werden, dass diese Niveaus auf vielfältige Weise angeregt und manipuliert werden können.
-        Durch Bestrahlung der Atome mit Photonen kann beeinflusst werden, welche Energieniveaus die Elektronen der Atomhülle besetzen.
+        %Alle bekannten chemischen Elemente besitzen auf atomarer Ebene diskrete Energieniveaus, welche abhängig sind von ihrer Elektronenkonfiguration.
+        %In vielen Experimenten konnte nachgewiesen werden, dass diese Niveaus auf vielfältige Weise angeregt und manipuliert werden können.
+        %Durch Bestrahlung der Atome mit Photonen kann beeinflusst werden, welche Energieniveaus die Elektronen der Atomhülle besetzen.
+        Elektronen in Atomhüllen befinden sich auf diskreten Energieniveaus. 
+        Dabei können sie durch Absorbtion sowie stimulierte und sponane Emission zwischen zwei Energieniveaus wechseln \cite[53]{haken_wolf_2004}. 
+        Dabei wird entweder ein Photon absorbiert oder Emittiert.
+        In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht.
+         Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt.
         Der Übergang von einem Zustand $\Psi_1$ in einen Zustand $\Psi_2$ ist dabei durch die Energiedifferenz der beiden Energieniveaus $E_1$ und $E_2$ gegben durch die Formel
         \begin{equation}
             \symup{\Delta}E = E_2 - E_1 = h\nu\,\mathrm{.}
@@ -32,9 +55,9 @@
         \end{equation}
         Dabei ist $\symup{h}$ das Planck'sche Wirkungsquantum und $\nu$ die Frequenz des Photons, dessen Energie der Energiedifferenz des Übergangs entspricht.
         \\
-        Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
-        In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt. Diese Formulierung ist ebenfalls üblich und beschreibt den gleichen Prozess.
-        Für die Funktionsweise eines Lasers sind allerdings Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
+        %Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
+        %In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt. Diese Formulierung ist ebenfalls üblich und beschreibt den gleichen Prozess.
+        %Für die Funktionsweise eines Lasers sind allerdings Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
         \begin{figure}
             \centering
             \includegraphics[width=0.7\textwidth]{content/images/atomanregungen.png}
@@ -42,71 +65,73 @@
             \label{fig:atomanregungen}
         \end{figure}
         \FloatBarrier\noindent
-        Bei der \textbf{Absorption} handelt es sich um den durch \autoref{eqn:planck} von rechts nach links beschriebenen Prozess.
-        Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
-        Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
-        Es befindet sich nun im Zustand $\Psi_2$.
+        Bei der \textbf{Absorption} trifft ein Photon mit der Energiedifferenz $\increment E=h \nu$ der beiden Energieniveaus auf das Atom und regt so das Elektron von Energienivau $E_1$ in $E_2$ an.
+         %handelt es sich um den durch \autoref{eqn:planck} von rechts nach links beschriebenen Prozess.
+       % Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
+        %Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
+        %Es befindet sich nun im Zustand $\Psi_2$.
         \\
-        Dieser Übergang findet nur mit einer gewissen Wahrscheinlichkeit statt, die sich mittels der zeitabhängigen Störungstheorie und Fermi's \enquote{Goldener Regel} ermitteln lässt. 
-        Dabei ist die Zunahme der Absorptionsrate linear proportional zur Anzahl der einfallenden Photonen \cite[293]{schwabl_1992}.\\
+        %Dieser Übergang findet nur mit einer gewissen Wahrscheinlichkeit statt, die sich mittels der zeitabhängigen Störungstheorie und Fermi's \enquote{Goldener Regel} ermitteln lässt. 
+        %Dabei ist die Zunahme der Absorptionsrate linear proportional zur Anzahl der einfallenden Photonen \cite[293]{schwabl_1992}.\\
         \\
-        Viele der Energieniveaus, die durch Absorption angeregt werden können, sind instabil. 
-        Die angeregten Elektronen befinden sich in einem energetisch nicht optimalen Zustand. 
+        %Viele der 
+        Energieniveaus, die durch Absorption angeregt werden können, sind instabil. 
+        %Die angeregten Elektronen befinden sich in einem energetisch nicht optimalen Zustand. 
         Das Verlassen dieses angeregten Zustands in einen energetisch günstigeren Zustand erfolgt ohne äußere Einflüsse.
-        Dieser Prozess wird \textbf{spontane Emission} genannt.
-        Dabei sendet ein System, welches sich im höheren Energieniveau $\Psi_2$ befindet ein Photon mit der Energie $\symup{\Delta}E = \symup{h}\nu $ aus und fällt dabei in den niedrigeren Zustand $\Psi_1$ \cite[149]{yariv_1991}. 
-        Die Richtung, in die das Photon emittiert wird, ist zufällig und wird als Fluoreszenzlicht wahrgenommen.
-        Die Wahrscheinlichkeit, mit der dies geschiet, lässt sich ebenfalls störungstheoretisch berechnen.
-        Dabei kann jedem Übergang, der durch spontane Emission stattfindet, eine mittlere Lebensdauer $\tau$ zugeordnet werden.
-        Diese Lebensdauer ist abhängig von der Energiedifferenz des betrachteten Übergangs. Es folgt der Zusammenhang
-        \begin{equation}
-            \symup{\Delta}E \propto \frac{\symup{h}}{\tau}\,\mathrm{.}
-        \end{equation}
-        Je höher also die Energiedifferenz zwischen angeregtem Zustand und Grundzustand, desto kürzer ist die Lebensdauer des Zustands, bevor er durch spontane Emission zerfällt \cite[95]{schwabl_1992}.\\
+        Dabei wird ein Photon der Energie $\increment E = h \nu$ emittiert und das Elektron fällt wieder in das niedrigere Energieniveau $E_1$.
+        Dieser Prozess wird \textbf{spontane Emission} genannt \cite[149]{yariv_1991}.
+        %Dabei sendet ein System, welches sich im höheren Energieniveau $\Psi_2$ befindet ein Photon mit der Energie $\symup{\Delta}E = \symup{h}\nu $ aus und fällt dabei in den niedrigeren Zustand $\Psi_1$ \cite[149]{yariv_1991}. 
+        %Die Richtung, in die das Photon emittiert wird, ist zufällig und wird als Fluoreszenzlicht wahrgenommen.
+        %Die Wahrscheinlichkeit, mit der dies geschiet, lässt sich ebenfalls störungstheoretisch berechnen.
+        %Dabei kann jedem Übergang, der durch spontane Emission stattfindet, eine mittlere Lebensdauer $\tau$ zugeordnet werden.
+        %Diese Lebensdauer ist abhängig von der Energiedifferenz des betrachteten Übergangs. Es folgt der Zusammenhang
+        %\begin{equation}
+        %    \symup{\Delta}E \propto \frac{\symup{h}}{\tau}\,\mathrm{.}
+        %\end{equation}
+        %Je höher also die Energiedifferenz zwischen angeregtem Zustand und Grundzustand, desto kürzer ist die Lebensdauer des Zustands, bevor er durch spontane Emission zerfällt \cite[95]{schwabl_1992}.\\
         \\
-        Die \textbf{stimulierte Emission} findet statt, wenn ein Photon mit der Energie $\symup{\Delta}E$ auf das System im Zustand $\Psi_2$ trifft. 
-        Dieses Photon wird nicht absorbiert, sondern löst den Übergang des Systems in den Zustand $\Psi_1$ aus, wobei das System dabei ein zusätzliches Photon mit der Energie $\symup{\Delta}E$ aussendet. 
-        Im Gegensatz zur spontanen Emission ist die Abstrahlrichtung dieses emittierten Photons nicht zufällig, sondern entlang der Ausbreitungsrichtung des einfallenden Photons.
-        Eine genaue quantenmechanische Betrachtung des Prozesses zeigt, dass das einfallende und emittierte Photon in allen Quantenzahlen übereinstimmen; die beiden Photonen sind kohärent und die Intensität des Lichts hat sich verdoppelt.
-        Die Intensität der stimulierten Emission ist demnach proportional zur Intensität des stimulierenden Feldes \cite[155]{yariv_1991}. 
-    \subsection{Kohärenz}
-        Die Quantenmechanik liefert die Erkenntnis, dass das Photon, welches bei der stimulierten Emission frei wird, die gleiche Phasenbeziehung, Ausbreitungsrichtung und Frequenz hat wie das einfallende, induzierende Photon.
-        Tatsächlich stimmen die beiden Photonen in jeder Quantenzahl überein. Diese Identität der Quantenzahlen und des Verhaltens der Photonen wird als \textbf{Kohärenz} bezeichnet.\\
-        Kohärenz ist allerdings eine Eigenschaft, die durch externe Einflüsse behindert, eingeschränkt oder aufgehoben werden kann. Brechung und Beugung von Licht, Streuung an den Luftmolekülen sowie Interferenz mit externer Strahlung können Änderungen der Quantenzahlen verursachen.
-        Bereits minimale Abweichungen der Phase oder Frequenz, entwickeln sich mit fortschreitender Zeit weiter auseinander und sorgen für immer geringere Kohärenz. 
-        \\
-        Die Stabilität der Phase und Frequenz eines Lasers fällt unter die \textbf{zeitliche Kohärenz}. Aus ihr ergibt sich die Linienbreite und die Kohärenzlänge.
-        Die Kohärenzlänge ist die Entfernung, die sich aus der Lichtgeschwindigkeit $c$ und der Linienbreite $\symup{\Delta}\nu$ berechnet in der Form
-        \begin{equation}
-            l = c\cdot\symup{\Delta}t = \frac{c}{\symup{\Delta}\nu}\,\mathrm{.}
-        \end{equation}
-        Davon abgesehen spielt auch die Frage eine Rolle, wie gut das Licht seine uhrsprüngliche Fokussierung beibehält. Dies wird als \textbf{räumliche Kohärenz} bezeichnet.
-        \\
-        Laserlicht weist sowohl sehr hohe räumliche als auch zeitliche Kohärenz auf. Erstere ist technisch begrenzt durch den optischen Strahlengang des Laserstrahls, vor allem der Laserblende.
-        Die zeitliche Kohärenz kann über die Kohärenzlänge quantifiziert werden. Bei Lassern liegt sie im Bereich von $\qty{300000}{\kilo\meter}$ \cite[325]{haken_wolf_2004}.
+        Die \textbf{stimulierte Emission} findet statt, wenn ein Photon mit der Energie $\symup{\Delta}E$ auf das System trifft, welches sich bereits im angeregten Energieniveau $E_2$ befindet. 
+        Durch das einfallende Photon stimuliert, fällt auch hier das System in das niedrigere Energieniveau $E_1$ unter Emission eines weiteren Photons der Energie $\increment E$. 
+        Da das zweite Photon ist dabei kohärent zu dem ersten. 
+        Die Intensität verdoppelt sich dabei und ist somit proportional zur Intensität des stimulierenden Lichtes \cite[155]{yariv_1991}.
+        %im Zustand $\Psi_2$ trifft. 
+        %Dieses Photon wird nicht absorbiert, sondern löst den Übergang des Systems in den Zustand $\Psi_1$ aus, wobei das System dabei ein zusätzliches Photon mit der Energie $\symup{\Delta}E$ aussendet. 
+        %Im Gegensatz zur spontanen Emission ist die Abstrahlrichtung dieses emittierten Photons nicht zufällig, sondern entlang der Ausbreitungsrichtung des einfallenden Photons.
+        %Eine genaue quantenmechanische Betrachtung des Prozesses zeigt, dass das einfallende und emittierte Photon in allen Quantenzahlen übereinstimmen; die beiden Photonen sind kohärent und die Intensität des Lichts hat sich verdoppelt.
+        %Die Intensität der stimulierten Emission ist demnach proportional zur Intensität des stimulierenden Feldes \cite[155]{yariv_1991}. 
+    
     \subsection{Funktionsprinzip eines Lasers}
         In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emission ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen.
-        Um dies zu erreichen, müssen jedoch mehrere Voraussetzungen gegeben sein.
-        Zum Einen wird ein aktives Medium benötigt, in dem die stimulierte Emission stattfindet. 
-        In diesem Medium müssen zwei Energieniveaus identifiziert werden, deren Energiedifferenz der Frequenz des gewünschten Laserlichts entspricht.
-        In dem Medium werden von den emittierten Photonen weitere Emissionen stimuliert und so eine Photonenkaskade erzeugt.
+        Um dies zu erreichen, müssen jedoch mehrere Voraussetzungen gegeben sein:
+        %Zum Einen wird ein aktives Medium benötigt, in dem die stimulierte Emission stattfindet. 
+        %In diesem Medium müssen zwei Energieniveaus identifiziert werden, deren Energiedifferenz der Frequenz des gewünschten Laserlichts entspricht.
+        %In dem Medium werden von den emittierten Photonen weitere Emissionen stimuliert und so eine Photonenkaskade erzeugt.
         \subsubsection{Besetzungsinversion}
-            Für die Erzeugung einer Photonenkaskade müssen die emittierten Photonen das aktive Medium erneut im angeregten Zustand antreffen.
-            Bei der Betrachtung dieser Mehrniveausysteme ist die Boltzmann-Verteilung nach Ludwig Boltzmann von großer Bedeutung. Mit dieser lassen sich aussagen über die Besetzungswahrscheinlichkeiten im
-            thermischen Glechgewicht treffen. So sind bei fester Temperatur $T$ Energiezustände mit niedrigerer Energie deutlich stärker besetzt als diejenigen mit höherer Energie. Ist das genaue Gegenteil
-            der Fall, sind also höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen \cite[288]{möller_2003}.
-            Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[289]{möller_2003}.
+            %Für die Erzeugung einer Photonenkaskade müssen die emittierten Photonen das aktive Medium erneut im angeregten Zustand antreffen.
+            Damit Laserlicht hoher Intensität aufrecht erhalten werden kann, muss eine Besetzungsinversion vorliegen. 
+            Diese liegt vor, wenn mehr Elektronen im energetisch höheren Zustand sind, als im niedrigeren. 
+            Dies ist im thermischen Gleichgewicht nicht der Fall \cite[288-289]{möller_2003}. 
+            Besetzungsinversion muss somit durch einen Pumpprozess erreicht werden. \textbf{QUELLE bitte}
+            %Bei der Betrachtung dieser Mehrniveausysteme ist die Boltzmann-Verteilung nach Ludwig Boltzmann von großer Bedeutung. 
+            %Mit dieser lassen sich aussagen über die Besetzungswahrscheinlichkeiten im
+            %thermischen Glechgewicht treffen. 
+            %Im thermischen Gleichgewicht% fester Temperatur $T$ 
+            %sind Energiezustände mit niedrigerer Energie deutlich stärker besetzt als diejenigen mit höherer Energie. 
+            %Ist das genaue Gegenteil
+            %der Fall, sind also höhere Energieniveaus deutlich stärker besetzt, dann wird von einer Besetzungsinversion gesprochen.
+            %Dies kann durch Prozesse erreicht werden. 
+            %Die Besetzungsinversion ist essenzielle Bedingung für das Erzeugen von Laserlicht \cite[288-289]{möller_2003}.
             \\
-            Die Erzeugung von Besetzungsinversion kann auf viele Weisen erfolgen, die gewählt Methode der Energiezufuhr oder des \enquote{Pumpens} ist abhängig vom Lasertyp. 
-            So werden Farbstofflaser oft mit Blitzlampen gepumpt, Halbleiterlaser durch einen elektrischen Strom im Halbleiterchip.
+            %Die Erzeugung von Besetzungsinversion kann auf viele Weisen erfolgen, die gewählt Methode der Energiezufuhr oder des \enquote{Pumpens} ist abhängig vom Lasertyp. 
+            %So werden Farbstofflaser oft mit Blitzlampen gepumpt, Halbleiterlaser durch einen elektrischen Strom im Halbleiterchip.
         \subsubsection{Drei- und Vier-Niveau-Systeme}
         \label{sec:systeme}
             Ein Zwei-Niveau-System, wie es in \autoref{fig:atomanregungen} zur Veranschaulichung genutzt wird, ist nicht in der Lage, Laserlicht über stimulierte Emission zu erzeugen.
             Dies liegt daran, dass die spontane Emission und die Absorption quantenmechanisch den gleichen, jedoch umgekehrten Prozess beschreiben.
             Die Wahrscheinlichkeit für beide Prozesse ist gleich, weshalb sich stimulierte Emission und Absorption ab einem gewissen Grad der Besetzungsinversion ausgleichen \cite[293]{schwabl_1992}.
             \\
-            Daraus ergibt sich die Konsequenz, dass die Besetzungsinversion im aktiven Medium durch einen anderen physikalischen Prozess ausgelöst werden muss, als jener, der bei der stimulierten Emission ausgenutzt wird.
-            Um dies zu realisieren, werden Drei- und Vier-Niveau-Systeme verwendet. Einen Vergleich der beiden Systeme zeigt \autoref{fig:Niveausysteme}.
+            Daraus ergibt sich die Konsequenz, für Laseremission ein System im mehr als zwei Niveaus vorliegen muss. %dass die Besetzungsinversion im aktiven Medium durch einen anderen physikalischen Prozess ausgelöst werden muss, als jener, der bei der stimulierten Emission ausgenutzt wird.
+            Es werden sich zum beispiel Drei- und Vier-Niveau-Systeme, wie in \autoref{fig:Niveausysteme} dargestellt, zunutze gemacht. %Einen Vergleich der beiden Systeme zeigt \autoref{fig:Niveausysteme}.
             \begin{figure}
                 \centering
                 \includegraphics[width=0.7\textwidth]{content/images/Niveausysteme.png}
@@ -114,33 +139,42 @@
                 \label{fig:Niveausysteme}
             \end{figure}
             \FloatBarrier\noindent
-            Beim \textbf{Drei-Niveau-System} pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
-            Aus dem obersten Zustand $\Psi_2$ kann dasDaher System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
-            In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
+            %%Beim \textbf{Drei-Niveau-System} pumpt ein externer physikalischer Prozess das System vom Grundzustand $\Psi_0$ in einen Zustand $\Psi_2$, sodass die Energiedifferenz $\symup{\Delta}E_{21}$ größer ist als die Energiedifferenz, auf der die spontant Emission betrieben werden soll.
+            %Aus dem obersten Zustand $\Psi_2$ kann dasDaher System nun entweder mit der gewünschten Laserfrequenz in Zustand $\Psi_1$ zerfallen und danach in den Grundzustand relaxieren, oder zuerst in den Zustand $\Psi_1$ relaxieren und danach in den Grundzustand zerfallen durch Aussendung eines Photons auf der Laserfrequenz \cite[326]{haken_wolf_2004}.
+            %In beiden Fällen muss der relaxierende Übergang eine sehr geringe mittlere Lebensdauer besitzen, der zum Lasen verwendete Übergang dafür eine relativ hohe mittlere Lebensdauer.
+            %\\
+            %Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
             \\
-            Das Drei-Niveau-System besitzt den Nachteil, dass der Laser immer aus dem Grundzustand gepumpt werden muss. Da der Grundzustand stabil ist, ist viel Energie nötig, um die Besetzungsinversion herzustellen und aufrechtzuerhalten.
-            \\
-            Beim \textbf{Vier-Niveau-System} befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
+            Für diesen Versuch ist insbesondere das Vier-Niveau-System relevant.
+            %Beim \textbf{Vier-Niveau-System} 
+            Dabie befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. Das System wird extern in den Zustand $\Psi_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in den Zustand $\Psi_2$ relaxiert.
             Der Übergang $\Psi_{21}$ ist langlebig und wird zum Lasen verwendet. Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. Der letzte Übergang $\Psi_{10}$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
             Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten \cite[40-41]{eichler_1991}.
             \\
         \subsubsection{Resonatoren}
         \label{sec:resonator}
             Um den Laserbetrieb aufrechtzuerhalten, müssen die Photonen, die die stimulierte Emission in axialer Richtung auslösen können, möglichst lange im aktiven Medium verweilen. 
-            Dort stabilisiert sich der Laser, sodass die Besetzungsinversion und die stimulierte Emission im Gleichgewicht liegen. Spontane Emission sollte nicht mehr stattfinden, weshalb die Zeit zwischen Anregung und Emission möglichst kurz sein sollte.
-            Um die kohärenten Photonen möglichst lange im Medium zu halten, werden an beiden Enden des Mediums Spiegel angebracht. Die Elektromagnetische Strahlung bildet dann stehende Wellen, die der Bedingung
+            Dort stabilisiert sich der Laser, sodass die Besetzungsinversion und die stimulierte Emission im Gleichgewicht liegen. 
+            %Spontane Emission sollte nicht mehr stattfinden, weshalb die Zeit zwischen Anregung und Emission möglichst kurz sein sollte.
+            Um die kohärenten Photonen möglichst lange im Medium zu halten, werden an beiden Enden des Mediums Spiegel angebracht. 
+            Eine solche Anordnung von Spiegeln heißt \textbf{Resonator}. 
+            Die elektromagnetische Strahlung bildet im Resonator stehende Wellen, die der Bedingung
             \begin{equation}
                 L = \frac{n\lambda}{2}\,\mathrm{,}\,\,\,n \in \mathbb{N}
+                \label{eqn:resontor}
             \end{equation}
-            genügen. Eine solche Anordnung von Spiegeln heißt \textbf{Resonator}. Dabei ist $L$ die Resonatorlänge, $\lambda$ die Wellenlänge des Laserlichts und $n$ die Wellenzahl, also die Anzahl der Maxima der stehenden Welle.
-            \\
-            Damit die Laserstrahlung im Resonator stehende Wellen bilden kann, ist also die Resonatorlänge entscheidend.
-            Da die Wellenlänge des Laserlichts in der Regel im dreistelligen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
-            Allerdings bedeutet die kurze Wellenlänge ebenso, dass sich bei Resonatorlängen im Mikrometer-Bereich viele longitudinale Moden im Resonator ausbilden können.
+            genügen. 
+            Dabei ist $L$ die Resonatorlänge, $\lambda$ die Wellenlänge des Laserlichts und $n$ die Wellenzahl, also die Anzahl der Maxima der stehenden Welle.
+            Damit der Laserstrahl also die gewünschte Wellenlänge hat, muss die Länge des Resonators entsprechend abgestimmt werden. 
+            %Damit die Laserstrahlung im Resonator stehende Wellen bilden kann, ist also die Resonatorlänge entscheidend.
+            %Da die Wellenlänge des Laserlichts in der Regel im dreistelligen Nanometer-Bereich liegt, haben schon kleine Änderungen der Resonatorlänge einen großen Einfluss auf die Stabilität des Lasers.
+            %Allerdings bedeutet die kurze Wellenlänge ebenso, dass sich bei Resonatorlängen im Mikrometer-Bereich viele longitudinale Moden im Resonator ausbilden können.
             Um das Auskoppeln des Laserlichts aus dem Resonator zu ermöglichen, hat einer der beiden Spiegel einen leicht abgesenkten Reflektionsgrad.
-            Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
-            Wie viel Laserlicht transmittiert wird, hängt davon ab, wie viel Licht innerhalb des Resonators nötig ist, um die stimulierte Emission stabil zu halten und Energieverluste auszugleichen.
-            Bei niederenergetischen Lasern liegt der Transmissionskoeffizient typerscherweise bei $T = \qty{1}{\percent}$ oder weniger. Hochenergetische Laser können auch Transmissionskoeffizienten im zweistelligen Prozentbereich aufweisen \cite[255]{svelto_1998}.
+            Dabei ist allerdings entscheidend, dass die Verstärkung des Lasers größer ist, als die Verluste durch das Auskoppeln \cite[255]{svelto_1998}. \textbf{PASST DAS SO MIT QUELLE?}
+            %Durch diesen Spiegel wird ein Teil des Laserlichts aus dem Resonator gelassen und dem weiteren Strahlengang des Lasers zugeführt.
+            %Wie viel Laserlicht transmittiert wird, hängt davon ab, wie viel Licht innerhalb des Resonators nötig ist, um die stimulierte Emission stabil zu halten und Energieverluste auszugleichen.
+            %Bei niederenergetischen Lasern liegt der Transmissionskoeffizient typerscherweise bei $T = \qty{1}{\percent}$ oder weniger. 
+            %Hochenergetische Laser können auch Transmissionskoeffizienten im zweistelligen Prozentbereich aufweisen \cite[255]{svelto_1998}.
     \subsection{Bandstruktur und Halbleiter}
     Die Bandstruktur ist eines der wichtigsten Konzepte der Festkörperphysik. Sie ergibt sich aus der Dispersionsrelation der Elektronen, die sich im Gitter eines Festkörpers bewegen, und ist somit
     direkt von der Gitterstruktur abhängig. Dabei ist ebenfalls die Fermi-Energie von großer Bedeutung. Sie ist genau die Energie, bis zu der die möglichen Zustände bei Temperatur $T=\qty{0}{\kelvin}$
