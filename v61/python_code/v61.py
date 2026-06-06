@@ -24,6 +24,8 @@ def quad(x,a,b,c):
 def cos(phi,A,phi0,C):
     return  A*np.cos(phi-phi0)**2+C
 
+dunkelAmp=0.009
+dunkelWat=-0.037
 
 #####fit für tem00 mode####
 
@@ -33,7 +35,7 @@ tem01 = np.genfromtxt("TEM01.txt")
 
 
 x = tem00[:,0]
-I = tem00[:,1]
+I = (tem00[:,1]-dunkelAmp)
 I_err = tem00[:,2]
 
 
@@ -75,7 +77,7 @@ fig.savefig("../content/images/tem00.pdf")
 ######Fit für TEM01 mode######
 
 x = tem01[:,0]
-I = tem01[:,1]
+I = (tem01[:,1]-dunkelAmp)
 I_err = tem01[:,2]
 
 
@@ -119,7 +121,7 @@ konkon = np.genfromtxt("konkon.txt")
 
 L = konkon[:,0]
 L_err = konkon[:,1]
-I = konkon[:,2]
+I = (konkon[:,2]-dunkelWat)
 I_err = konkon[:,3]
 
 
@@ -158,7 +160,7 @@ plankon = np.genfromtxt("plankon.txt")
 
 L = plankon[:,0]
 L_err = plankon[:,1]
-I = plankon[:,2]
+I = (plankon[:,2]-dunkelWat)
 I_err = plankon[:,3]
 
 popt,pcov=curve_fit(lin,L,I,sigma=I_err,absolute_sigma=True)
@@ -197,7 +199,7 @@ fig.savefig("../content/images/plankon.pdf")
 pol = np.genfromtxt("pol.txt")
 
 phi = pol[:,0]
-I = pol[:,1]
+I = (pol[:,1]-dunkelWat)
 I_err = pol[:,2]
 
 n = len(phi)
@@ -229,7 +231,7 @@ with open("tab_pol.txt", "w") as f:
         f.write(f"{left} & {mid} & {right} \\\\\n")
 
 
-#phi = np.deg2rad(pol[:,0])
+phi = np.deg2rad(pol[:,0])
 
 
 popt,pcov=curve_fit(cos,phi,I,sigma=I_err,absolute_sigma=True)
@@ -287,8 +289,63 @@ fig.savefig("../content/images/pol_polar.pdf")
 
 ####Wellenlaenge Gitter 80####
 
+gitter = np.genfromtxt("gitter80.txt")
+
+index = np.argmin(abs(gitter[:, 0]))
+x0 = gitter[index,0]
+xn= abs(gitter[:,0]-x0)
+print(index)
+an=xn[1::2]
+
+np.savetxt("an80.txt", an, fmt="%.6f")
+lamb=[]
+g=1/80
+d=0.74
+
+for i in range(len(an)):
+    if i == (index+1)/2:
+        continue
+    else:
+        n=abs(i-(index+1)/2)
+        L=(an[i]*g)/(n*np.sqrt(d**2 +an[i]**2))
+        lamb.append(L*10**(6))
 
 
 
+Lmean=np.mean(lamb)
+std = np.std(lamb,ddof=1)
 
+print("Gitter80")
+print(lamb)
+print(f"lambda    = {Lmean:.8f}    \u00B1 {std:.8f} ")
 ####Wellenlaenge Gitter 100####
+
+
+gitter = np.genfromtxt("gitter100.txt")
+
+index = np.argmax(gitter[:, 1])
+x0 = gitter[index,0]
+xn= abs(gitter[:,0]-x0)
+
+an=xn[1::2]
+
+np.savetxt("an100.txt", an, fmt="%.6f")
+lamb=[]
+g=1/100
+d=0.74
+
+for i in range(len(an)):
+    if i == (index+1)/2:
+        continue
+    else:
+        n=abs(i-(index+1)/2)
+        L=(an[i]*g)/(n*np.sqrt(d**2 +an[i]**2))
+        lamb.append(L*10**(6))
+
+
+Lmean=np.mean(lamb)
+std = np.std(lamb,ddof=1)
+
+print("Gitter100")
+print(lamb)
+print(f"lamda   = {Lmean:.8f}    \u00B1 {std:.8f} ")
