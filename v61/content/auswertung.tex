@@ -1,9 +1,10 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+In der Auswertung werden die Rechnungen, Plots und Fit-Funktionen mit \cite{matplotlib}, \cite{numpy}, \cite{scipy} und \cite{uncertainties} durchgefürht bzw. erstellt.
 \subsection{Fehlerrechnung}
 \label{sec:fehlerrechnung}
 %\subsection{Mittelwert}
-Für die Auswertung des Versuchs werden die folgenden Formeln zu Verarbeitung der Messunsicherheiten verwendet: 
+Zur Verarbeitung der Messunsicherheiten werden außerdem die folgenden Fomreln verwendet: 
 Der Mittelwert wird mithilfe von
 
 \begin{equation}
@@ -12,12 +13,12 @@ Der Mittelwert wird mithilfe von
 \end{equation}
 bestimmt.
 %\subsection{Standardabweichung}
-%Die Standardabweichung wird anhand von
-%\begin{equation}
-%\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
-%\label{eqn:standardabweichung}
-%\end{equation}
-%berechnet.
+Die Standardabweichung wird anhand von
+\begin{equation}
+\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
+\label{eqn:standardabweichung}
+\end{equation}
+berechnet.
 %%\subsubsection{Standardabweichung des Mittelwerts}
 Die Standardabweichung des Mittwertes wird mithilfe von 
 \begin{equation}
@@ -33,18 +34,40 @@ bestimmt.
 %\end{equation}
 %ermittelt werden.
 
+
+
+
+
+
+
+
+
 \subsection{Berechnung der theoretischen Stabilitätsbedinung}
 \label{subsec:theostab}
 Zunächst wird die theoretische Stabilitätsbedingung von der Anordnung mit zwei konkaven Spiegeln mit gleichem Krümmungsradius $r$ berechnet.
 Nach \autoref{eqn:g} gilt $g_1 g_2 = g_1^2 = 1 - 2 \frac{L}{r} + \left(\frac{L}{r}\right)^2$.
 Es ergibt sich also eine quadratische Abhängigkeit von $L$.
 Die maximale Länge des Resonators ist nach \autoref{eqn:stabbed} $L_{\mathrm{max}}=\qty{2.8}{\meter}$.
-Diese ist für $r=\qty{1400}{\milli\meter}$ in \textbf{FIGURE} dargestellt. 
+Diese ist für $r=\qty{1400}{\milli\meter}$ in \autoref{fig:theostab} dargestellt. 
 \\
 Für die Anordnung mit einem Planspiegel und einem konkaven Spiegel mit Krümmungsradius $r$ ergibt sich nach \autoref{eqn:g} $g_1 g_2 = 1 \cdot g_2 = 1 - \frac{L}{r}$, da für den Planspiegel der Krümmungsradius als $\infty$ angenommen wird und somit $g_1 = 1$ ist.
 Hierbei ergibt sich also eine lineare Abhängigkeit von $L$.
 Nach \autoref{eqn:stabbed} ergibt sich eine maximale Resonatorlänge von $L_{\mathrm{max}}=\qty{1.4}{\meter}$.
-Auch diese Stabilitätsbedingung ist für $r=\qty{1400}{\milli\meter}$ in \textbf{FIGURE} dargestellt. 
+Auch diese Stabilitätsbedingung ist für $r=\qty{1400}{\milli\meter}$ in \autoref{fig:theostab} dargestellt. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{content/images/theostab.pdf}
+  \caption{Theoretisch berechnete Stabilitätsbedingung für eine Anorndung mit zwei konkaven Spiegeln sowei eine Anordnung mit einem Planspiegel und einem konkaven Spiegel.}
+  \label{fig:theostab}
+\end{figure}
+
+
+
+
+
+
+
 
 
 
@@ -62,7 +85,7 @@ Die Parameter des Fits lauten:
     A_{00}= \\
     C= \, . 
 \end{align*}
-
+Dabei wird für den Fit der zu $I_{\mathrm{dunkel}}=\qty{0.009}{\micro\ampere}$ gemessene Dunkelstrom jeweils von den einzelnen Werten abgezogen. 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{content/images/tem00.pdf}
@@ -81,7 +104,7 @@ Die Parameter des Fits lauten:
     A_{00}= \\
     C=  \, .
 \end{align*}
-
+Auch hier wird zuvor der Dunkelstrom abegezogen.
 
 \begin{figure}
   \centering
@@ -92,6 +115,14 @@ Die Parameter des Fits lauten:
 Auch hier entsprechen die Messwerte der erwarteten Verteilung. 
 Allerdings ist zu erkennen, dass die beiden Peaks unterschiedlich groß sind. 
 Die Abweichungen sind bei der TEM01-Mode also deutlicher. 
+
+
+
+
+
+
+
+
 
 \subsection{Auswertung der Messung der Stabilitätsbedingung}
 \label{subsec:stab}
@@ -109,7 +140,8 @@ Diese hat die Parameter
     b= \\
     c= \, .
 \end{align*}
-
+Auch hier muss zuvor der Dunkelstrom jeweils von den Werte abgezogen werden.
+Diese wurde für das hier verwendete Gerät zu $I_{\mathrm{dunkel}}=\qty{-0.037}{\milli\watt}$ gemessen.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{content/images/konkon.pdf}
@@ -131,7 +163,7 @@ Es ergeben sich die Parameter
   a= \\
   b= \, .
 \end{align*}
-
+Erneut wird hier vorher der Dunkelstrom von jedem Messwert abgezogen. 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{content/images/plankon.pdf}
@@ -149,10 +181,25 @@ Bei größerer Resonatorlänge konnte keine Laseraktivität mehr erzeugt werden.
 
 
 
+   
+
+
+
 
 
 \subsection{Auswertung der Messung der Polarisation}
-
+\label{subsec:pol}
+Die Ergebnisse der Messung der Polarisation sind in \autoref{tab:pol} zu finden. 
+An die Werte wird ein Fit der Form \autoref{eqn:pol} angepasst.
+Es ergeben sich dabei 
+\begin{align*}
+  A= \\
+  \phi_0= \\
+  C= \, .
+\end{align*}
+als Fit-Parameter.
+Der Fit und die Messwerte sind in \autoref{fig:pol} aufgetragen. 
+Dabei wurde hier wieder der Dunkelstrom der Photodiode aus \autoref{subsec:tem} von den Werten abgezogen. 
 
 \begin{figure}
   \centering
@@ -160,13 +207,19 @@ Bei größerer Resonatorlänge konnte keine Laseraktivität mehr erzeugt werden.
   \caption{Darstellung der Messung der Polarisations mit Fit-Funktion proportional zu $\mathrm{cos}^2$.}
   \label{fig:pol}
 \end{figure}
+Die Werte entsprechen sehr genau der erwarteten Funktion. 
+%Das Maximum liegt bei einem Winkel von
+%\begin{equation}
+%  \phi_{\mathrm{max}} = \\
+%\end{equation}
 
+%Maximum von Werten schwierig, wenn dann max vom Fit
 
 
 
 
 \subsection{Bestimmung der Wellenlänge}
-
-
+\label{subsec:well}
+Wellenlänge doof
 \autoref{eqn:wellenlaenge}
 
