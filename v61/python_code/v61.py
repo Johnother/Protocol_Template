@@ -315,26 +315,22 @@ fig.savefig("../content/images/pol_polar.pdf")
 
 ####Wellenlaenge Gitter 80####
 
-gitter = np.genfromtxt("gitter80.txt")
+gitter = np.genfromtxt("abstand80.txt")
 
-index = np.argmin(abs(gitter[:, 0]))
-x0 = gitter[index,0]
-xn= abs(gitter[:,0]-x0)
-print(index)
-an=xn[1::2]
 
-np.savetxt("an80.txt", an, fmt="%.6f")
+index = gitter[:,0]
+ab = gitter[:,1]
+
+abeff = ab/index
+
+#print(abeff)
 lamb=[]
 g=1/80
-d=0.74
+d=72
 
-for i in range(len(an)):
-    if i == (index+1)/2:
-        continue
-    else:
-        n=abs(i-(index+1)/2)
-        L=(an[i]*g)/(n*np.sqrt(d**2 +an[i]**2))
-        lamb.append(L*10**(6))
+for i in range(len(abeff)):
+        La=(abeff[i]*g)/(np.sqrt(d**2 +ab[i]**2))
+        lamb.append(La*1e6)
 
 
 
@@ -347,26 +343,24 @@ print(f"lambda    = {Lmean:.8f}    \u00B1 {std:.8f} ")
 ####Wellenlaenge Gitter 100####
 
 
-gitter = np.genfromtxt("gitter100.txt")
 
-index = np.argmax(gitter[:, 1])
-x0 = gitter[index,0]
-xn= abs(gitter[:,0]-x0)
+gitter = np.genfromtxt("abstand100.txt")
 
-an=xn[1::2]
 
-np.savetxt("an100.txt", an, fmt="%.6f")
+index = gitter[:,0]
+ab = gitter[:,1]
+
+abeff = ab/index
+
+#print(abeff)
 lamb=[]
 g=1/100
-d=0.74
+d=72
 
-for i in range(len(an)):
-    if i == (index+1)/2:
-        continue
-    else:
-        n=abs(i-(index+1)/2)
-        L=(an[i]*g)/(n*np.sqrt(d**2 +an[i]**2))
-        lamb.append(L*10**(6))
+for i in range(len(abeff)):
+        La=(abeff[i]*g)/(np.sqrt(d**2 +ab[i]**2))
+        lamb.append(La*1e6)
+
 
 
 Lmean=np.mean(lamb)
@@ -374,4 +368,4 @@ std = np.std(lamb,ddof=1)
 
 print("Gitter100")
 print(lamb)
-print(f"lamda   = {Lmean:.8f}    \u00B1 {std:.8f} ")
+print(f"lambda    = {Lmean:.8f}    \u00B1 {std:.8f} ")
