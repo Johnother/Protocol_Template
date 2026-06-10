@@ -220,6 +220,67 @@ Die Werte entsprechen sehr genau der erwarteten Funktion.
 
 \subsection{Bestimmung der Wellenlänge}
 \label{subsec:well}
-Wellenlänge doof
-\autoref{eqn:wellenlaenge}
+Die Ergebnisse der Messung der Beugungsmaxima sind in für das Gitter mit $\qty{80}{\per\milli\meter}$ Gitterlinien sind in \autoref{tab:gitter80} und die für das Gitter mit $\qty{100}{\per\milli\meter}$ Gitterlinien in \autoref{tab:gitter100} aufgetragen. 
+Daraus wird jeweils das größte Beugungsmaximum als Hauptmaximum identifiziert. 
+Für das Gitter mit $\qty{80}{\per\milli\meter}$ Gitterlinien ergibt sich das Maximum bei $x=\qty{6.6}{\milli\meter}$ udn für das Gitter mit $\qty{100}{\per\milli\meter}$ Gitterlinien ergibt sich das Maximum bei $x=\qty{11.3}{\milli\meter}$
+Die sich damit ergebden Abstände der einzenlen Beugungsmaxima zum Hauptmaximum sind in \autoref{tab:abstaende} zu finden.
+Mit diesen kann nach \autoref{eqn:wellenlaenge} die Wellenlänge des Lasers bestimmt werden. 
+Dabei ist die Gitterkonstante $g$ das Inverse der Anzahl an Gitterlinien pro Millimeter. 
+Der Abständ zwischen Gitter und Photodiode beträgt $d=\qty{7.2}{\centi\meter}$.
+Die berechneten Wellenlängen sind in \autoref{tab:wellenlaenge} eingetragen. 
+Daraus ergeben sich nach \autoref{eqn:mittelwert}
 
+\begin{table}[H]   
+  \centering
+  \caption{Aus \autoref{tab:gitter80} und \autoref{tab:gitter100} ermittelte Abstände der Beugunsmaxima $a$ zum Hauptmaximum und die entsprechende Beugungsordnung $n$.}
+  \begin{tabular}{cc cc}
+  \toprule
+  \multicolumn{2}{c}{Gitter $\qty{80}{\per\milli\meter}$} &
+  \multicolumn{2}{c}{Gitter $\qty{100}{\per\milli\meter}$} \\
+  \cmidrule(lr){1-2} \cmidrule(lr){3-4}
+  $n \,/\, [1]$&
+  $a \,/\, [\unit{\milli\meter}]$ &
+  $n \,/\, [1]$&
+  $a \,/\, [\unit{\milli\meter}]$ \\
+  \midrule
+  -5  &  17,8 & -5 & 22,4 \\  
+  -4  &  14,4 & -4 & 18,4 \\
+  -3  &  10,4 & -3 & 13,5 \\
+  -2  &  7,0  & -2 & 9,1 \\
+  -1  &  3,7  & -1 & 4,8 \\
+  1  &  3,6   & 1  & 4,6 \\
+  2  &  7,3   & 2  & 9,3 \\
+  3  &  11,0  & {} & {} \\
+  4  &  14,6  & {} & {} \\
+  \bottomrule
+  \end{tabular}
+  \label{tab:abstaende}
+\end{table}
+
+
+\begin{table}[H]   
+  \centering
+  \caption{Durch die Abstände der einzelnen Beugungsmaxima aus \autoref{tab:abstaende} ermittelte Wellenlängen $\lambda$.}
+  \begin{tabular}{cc cc}
+  \toprule
+  \multicolumn{2}{c}{Gitter $\qty{80}{\per\milli\meter}$} &
+  \multicolumn{2}{c}{Gitter $\qty{100}{\per\milli\meter}$} \\
+  \cmidrule(lr){1-2} \cmidrule(lr){3-4}
+  $n \,/\, [1]$&
+  $\lambda \,/\, [\unit{\nano\meter}]$ &
+  $n \,/\, [1]$&
+  $\lambda \,/\, [\unit{\nano\meter}]$ \\
+  \midrule
+  -5  &  599,99 & -5 & 594,13 \\  
+  -4  &  612,86 & -4 & 619,00 \\
+  -3  &  595,67 & -3 & 614,30 \\
+  -2  &  604,79 & -2 & 626,96 \\
+  -1  &  641,51 & -1 & 665,19 \\
+  1  &  624,22  & 1  & 637,59 \\
+  2  &  630,45  & 2  & 640,51 \\
+  3  &  629,27 & {} & {} \\
+  4  &  621,04 & {} & {} \\
+  \bottomrule
+  \end{tabular}
+  \label{tab:wellenlaenge}
+\end{table}
