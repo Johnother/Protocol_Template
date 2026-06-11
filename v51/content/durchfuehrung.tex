@@ -1,57 +1,63 @@
 \section{Durchführung}
 \label{sec:Durchführung}
+In diesem Abschnitt wird die Durchführung des Versuchs erläutert. Dazu wird als erstes auf die verwendeten Elemente eingegangen.
 \subsection{Verwendete Elemente und grundlegender Aufbau}
-Zunächst ist eine Spannungsquelle vorhanden, die zwei Spannungen erzeugen und ausgeben kann. 
-Die Spannung kann dabei über Drehknöpfe eingestellt werden.
-Weil bei einem der beiden Ausgänge allerdings die vom Generator angezeigte Spannung nicht stimmt, steht zusätzlich ein Voltmeter zur Verfügung. 
-Dieses wird durch die vorhandenen Kabel mit Bananensteckern an den entsprechenden Ausgang verbunden, um die Spannung überprüfen zu können.
-Der positive Ausgang der ersten Spannung des Generators wird mit dem Eingang $V_a$ des ebenfalls vorhandenen Breadboards verbunden.
-Der negative Ausgang der ersten Spannung wird mit dem positiven Ausgang der zweiten Spannung am Generator verbunden.
-Dieser wiederum wird zusätzlich mit dem Anschluss für die Masse am Breadboard verbunden. 
-Der negative Ausgang der zweiten Spannung wird mit dem Anschluss $V_b$ verbunden. 
-So ist diese Spannung invertiert bzw. negativ.
-Am Generator wird nunr bei beiden Spannungen jeweils $\qty{15}{\volt}$ eingestellt. 
-So wird die Versorgungsspannung für den Operationsverstärker erzeugt.
+Zunächst ist eine Spannungsquelle vorhanden, die zwei Gleichspannungen erzeugen kann.%und ausgeben kann. 
+%Die Spannung kann dabei über Drehknöpfe eingestellt werden.
+%Weil bei einem der beiden Ausgänge allerdings die vom Generator angezeigte Spannung nicht stimmt, steht zusätzlich ein Voltmeter zur Verfügung. 
+%Dieses wird durch die vorhandenen Kabel mit Bananensteckern an den entsprechenden Ausgang verbunden, um die Spannung überprüfen zu können.
+Mit einem zusätzlichen Voltmeter wird die ausgegebene Spannung genauer überprüft. 
+Diese Spannungen werden als Versorgungsspannungen über die Eingänge des Breadboards mit dem Operationsverstärker verbunden.
+Eine der beiden wird dabei für den negativen Eingang invertiert und einer mit der Masse des Breadboards verbunden. 
+%Der positive Ausgang der ersten Spannung des Generators wird mit dem Eingang $V_a$ des ebenfalls vorhandenen Breadboards verbunden.
+%Der negative Ausgang der ersten Spannung wird mit dem positiven Ausgang der zweiten Spannung am Generator verbunden.
+%Dieser wiederum wird zusätzlich mit dem Anschluss für die Masse am Breadboard verbunden. 
+%Der negative Ausgang der zweiten Spannung wird mit dem Anschluss $V_b$ verbunden. 
+%So ist diese Spannung invertiert bzw. negativ.
+Am Generator wird bei beiden Spannungen jeweils $\qty{15}{\volt}$ eingestellt. 
+%So wird die Versorgungsspannung für den Operationsverstärker erzeugt.
 \\ 
-Außerdem wird ein Signalgenerator verwendet, welcher Sinus-, Dreiecks- und Rechteckspannungen ausgeben kann, wobei Frequenz und Amplitude frei einstellbar sind.
-Mit einem entsprechenden Kabel, kann dessen ausgang mit dem Eingang $V_c$ und der Masse des Breadboards verbunden werden. 
-Dadurch wird auch das Eingangssignal für den Operationsverstärker generiert.
-\\
-Durch ein T-Stück und ein BNC-Kabel wird der Ausgang des Signalgenerators auch an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
-Der andere Eingang des Oszilloskops wird über einen Adapter an das Breadboard angeschlossen. 
+Außerdem wird ein Signalgenerator verwendet, welcher Sinus-, Dreiecks- und Rechteckspannungen ausgeben kann.%, wobei Frequenz und Amplitude frei einstellbar sind.
+Dessen Ausgang wird als Eingangssignal über das Breadboard mit dem Operationsverstärker  und mit der Masse des Breadboards verbunden.
+Außerdem wird er an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
+%Mit einem entsprechenden Kabel, kann dessen Ausgang mit dem Eingang $V_c$ und der Masse des Breadboards verbunden werden. 
+%Dadurch wird auch das Eingangssignal für den Operationsverstärker generiert.
+%\\
+%Durch ein T-Stück und ein BNC-Kabel wird der Ausgang des Signalgenerators auch an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
+Der andere Eingang des Oszilloskops wird über das Breadboard mit dem Ausgang des Operationsverstärkers verbunden.%einen Adapter an das Breadboard angeschlossen. 
 So kann bei der Durchführung Ein- und Ausgangssignal am Oszilloskop mittels eingebautem Cursor vermessen werden. 
 \\
-Auf dem Breadbord können so die in \autoref{sec:schaltungen} beschriebenen Schaltungen aufgebaut werden. 
+Auf dem Breadboard können so die in \autoref{sec:schaltungen} beschriebenen Schaltungen aufgebaut werden. 
 Dazu sind verschiedene Operationsverstärker der Typen LM741, LM358 und TL072 vorhanden.
 Allerdings wird hier nur ein Operationsverstärker des Typs LM741 verwendet.
-Außerdem stehen mehrere Steckbrückenkabel sowie verschiedene Widerstände und Kondensatoren zur Verfügung.
-In \autoref{fig:aufbau} ist der gesamte so eben beschriebene Aufbau zu sehen. 
+Außerdem stehen %mehrere Steckbrückenkabel sowie 
+verschiedene Widerstände und Kondensatoren zur Verfügung.
+In \autoref{fig:aufbau} ist der gesamte Aufbau zu sehen. 
 \\
 Bei der Durchführung ist darauf zu achten, dass die an den Operationsverstärker maximal anzulegende Spannung von $\qty{15}{\volt}$ \cite[4]{TI_LM741_2025} für jeden Eingang nicht überschritten wird. 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/aufbau.jpg}
-  \caption{Aufsicht auf den Experimentiertisch mit Spannungsquelle, Signalgenerator, Breadboard und Oszilloskop sowie entsprechender Verkabelung für den Schmitt-Tirgger.}
+  \caption{Aufsicht auf den Experimentiertisch mit Spannungsquelle, Signalgenerator, Breadboard und Oszilloskop sowie entsprechender Verkabelung für den Schmitt-Trigger.}
   \label{fig:aufbau}
 \end{figure}
 
 
 \subsection{Untersuchung des Linearverstärkers}
-Zur Untersuchung des invertierenden Linearverstärkers wird dieser zunächst auf dem Breadboard wie in \autoref{fig:schalt1} zu sehen Aufgebaut. 
-Dabei müssen zunächst die Anschlüsse $V_a$ und $V_b$ als Versorgungsspannungen entsprechend mit den Steckplätzen $4$ und $7$ am Operationsverstärker durch die Steckbrückenkabel verbunden werden. 
-Der Anschluss $V_c$ wird über einen Widerstand $R_1$ an den invertierenden Eingang des Operationsverstärkers (Steckplatz $2$). 
-Der Ausgang des Operationsverstärkers (Steckplatz $6$) ist an den Adapter für das Oszilloskop anzuschließen. 
-Außerdem ist der Ausgang für die Gegenkopllung über einen Widerstand $R_2$ ebenfalls an den invertierenden Eingang anzuschließen.
-Die Masse wird sowohl mit dem nicht-invertierenden Eingang auf Steckplatz $3$ des Operationsverstärkers als auch mit dem Adapter fürs Oszilloskop verbunden. 
-\\
-Nun können für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände die Verstärkung abhängig von der Frequenz vermessen werden. 
+Zur Untersuchung des invertierenden Linearverstärkers wird dieser zunächst auf dem Breadboard, wie in \autoref{fig:schalt1} zu sehen, aufgebaut. 
+%Dabei müssen zunächst die Anschlüsse $V_a$ und $V_b$ als Versorgungsspannungen entsprechend mit den Steckplätzen $4$ und $7$ am Operationsverstärker durch die Steckbrückenkabel verbunden werden. 
+%Der Anschluss $V_c$ wird über einen Widerstand $R_1$ an den invertierenden Eingang des Operationsverstärkers (Steckplatz $2$). 
+%Der Ausgang des Operationsverstärkers (Steckplatz $6$) ist an den Adapter für das Oszilloskop anzuschließen. 
+%Außerdem ist der Ausgang für die Gegenkopllung über einen Widerstand $R_2$ ebenfalls an den invertierenden Eingang anzuschließen.
+%Die Masse wird sowohl mit dem nicht-invertierenden Eingang auf Steckplatz $3$ des Operationsverstärkers als auch mit dem Adapter fürs Oszilloskop verbunden. 
+%\\
+Für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände wird die Verstärkung abhängig von der Frequenz vermessen. 
 Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit einer festen Amplitude von $\qty{1}{\volt}$ eingestellt. 
 Anschließen wird die Frequenz bei $\qty{1}{\hertz}$ startend über mehrere Dekaden in exponentiell größer werdenden Schritten erhöht. 
 Bei jedem Schritt wird mit dem Cursor am Oszilloskop dann sowohl die Amplitude des Ausgangssignals als auch der zeitliche Abstand zwischen den beiden Signalen gemessen.
-Dies wird so lange gemacht, bis ein deutlicher Abfall der Verstärkung zu verzeichnen ist. 
-Letzteres gelingt, indem von Maximum des Eingangssignals zu Maximum des Ausgangssignals gemessen wird. 
-Daraus kann dann der Phasenversatz bestimmt werden. 
-Dies wird für die vier Verhähltnisse von Widerständen durchgeführt, wie sie in \autoref{tab:widerstaende} dargestellt sind.
+Letzteres gelingt, indem von Maximum des Eingangssignals zu Maximum des Ausgangssignals gemessen und daraus der Phasenversatz bestimmt wird. 
+Dies wird so lange gemacht, bis ein deutlicher Abfall der Verstärkung zu verzeichnen ist und für 
+die vier Verhähltnisse von Widerständen durchgeführt, wie sie in \autoref{tab:widerstaende} dargestellt sind, wiederholt.
 Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetragen.
 \begin{table}
   \centering
@@ -76,35 +82,46 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
 
 
 \subsection{Untersuchung des Integrators}
-Um nun den Linearverstärker zu einem Umkehr-Integrator umzubauen muss der Widerstand $R_2$ durch einen Kondensator ausgetauscht werden.
-Es ergibt sich dann ein Schaltbild wie in \autoref{fig:schalt2}.
-Hier bei wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit einer Kapatzität von $C=\qty{100}{\nano\farad}$ verwendet.
-Nun wird erneut bei $\qty{1}{\hertz}$ startend über mehrere Dekaden schrittweise die Frequenz erhöht. 
-Wobei auch hier die Schritte exponentiell größer werden. 
-Erneut wird mit dem Cursor am Oszilloskop die Amplitude der Ausgangsspannung gemessen.
-Als Eingangsspannung wird hierbei erneut eine Amplitude von $\qty{1}{\volt}$ gewählt.
-Zudem wird auch hier der Phasenversatz mit gleichem Verfahren wie beim Linearverstärker ermittelt. 
-Anschließend wird am Signalgenerator eine Frequenz gewählt die etwa dem Inversen der Zeitkonstante also $\nu=ac{1}{RC}$ entspricht, da hier die integrierende Eigenschaft der Schaltung besonders gut zu erkennen ist. 
-Nacheinander wird nun ein Sinus-, Dreiecks- und Rechteckssignal am Generator eingestellt.
-Am Oszilloskop wird nun beobachtet, ob das Ausgangssignal der jeweiligen Stammfunktion entspricht. 
+Um den Linearverstärker zu einem Umkehr-Integrator umzubauen %muss der Widerstand $R_2$ durch einen Kondensator ausgetauscht werden.
+wird das Schaltbild wie in \autoref{fig:schalt2} aufgebaut.
+Es wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit einer Kapatzität von $C=\qty{100}{\nano\farad}$ verwendet.
+Bei $\qty{1}{\hertz}$ startend wird über mehrere Dekaden schrittweise exponentiell die Frequenz erhöht und am Oszilloskop die Amplitude ermittelt.
+%Wobei auch hier die Schritte exponentiell größer werden. 
+%Erneut wird mit dem Cursor am Oszilloskop die Amplitude der Ausgangsspannung gemessen.
+Als Eingangsspannung wird eine Amplitude von $\qty{1}{\volt}$ gewählt.
+Der Phasenversatz wird wie beim Linearverstärker ermittelt. 
+Anschließend wird am Signalgenerator eine Frequenz gewählt die etwa dem Inversen der Zeitkonstante also $\nu=\frac{1}{RC}$ entspricht, da hier die integrierende Eigenschaft der Schaltung besonders gut zu erkennen ist. 
+Nacheinander wird ein Sinus-, Dreiecks- und Rechteckssignal am Generator eingestellt und 
+am Oszilloskop das Ausgangssignal beobachtet. 
+
+
+
 
 \subsection{Untersuchung des Differenzierers}
-Beim invertierenden Differenzierer müssen Widerstand und Kondensator im Vergleich zum Integrator vertauscht werden, um die Schaltung aus \autoref{fig:schalt3} aufzubauen.
-Es wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit der Kapatzität $C=\qty{1}{\micro\farad}$ in die Schaltung eingesetzt.
-Die Messung wird nun genauso durchgeführt, wie beim Integrator.
+%Beim invertierenden Differenzierer müssen Widerstand und Kondensator im Vergleich zum Integrator vertauscht werden, um 
+Es wird die Schaltung aus \autoref{fig:schalt3} aufgebaut.
+Dabei wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit der Kapatzität $C=\qty{1}{\micro\farad}$ in die Schaltung eingesetzt.
+Die Messung wird genauso durchgeführt, wie beim Integrator.
 Auch hierbei wird für ein Sinus-, Dreiecks- und Rechteckssignal jeweils das Ausgangssignal am Oszilloskop beobachtet.
 Dabei sollte die Frequenz etwa der Zeitkonstante und somit $\nu=RC$ entsprechen.
 
+
+
+
+
 \subsection{Untersuchung des Schmitt-Triggers}
-Um den Schmitt-Trigger aufzubauen, wird die Kopllung nun an den nicht-invertierenden Eingang angeschlossen. 
-Es werden die Widerstände $R_1 =\qty{10}{\kilo\ohm}$ und $R_2 =\qty{100}{\kilo\ohm}$ verwendet, sodass sich das Schaltbild wie in \autoref{fig:schalt4} ergibt. 
-Am Eingang wird nun wieder ein sinusförmiges Signal angelegt. Die Frequenz wird dabei auf $\nu = \qty{10}{\hertz}$ festgelegt. 
-Nun wird die Amplitude des Signals schrittweise bei $\qty{0}{\volt}$ startend in Schritten von einigen $\unit{\milli\volt}$ erhöht.
-Dabei wird dann die Amplitude ermittelt, ab der bei der Schaltung das Kippverhalten festzustellen ist.
-Dies entspricht dann der Schwellspannung.
+Für den Schmitt-Trigger wird 
+%Um den Schmitt-Trigger aufzubauen, wird die Kopllung nun an den nicht-invertierenden Eingang angeschlossen. 
+%Es werden die Widerstände $R_1 =\qty{10}{\kilo\ohm}$ und $R_2 =\qty{100}{\kilo\ohm}$ verwendet, sodass sich das 
+das Schaltbild aus \autoref{fig:schalt4} auf dem Breadboard aufgebaut. 
+Am Eingang wird ein sinusförmiges Signal mit der Frequenz $\nu = \qty{10}{\hertz}$ angelegt. 
+Die Amplitude des Signals wird bei $\qty{0}{\volt}$ startend in Schritten von einigen $\unit{\milli\volt}$ erhöht.
+Dabei wird dei Amplitude ermittelt, ab der bei der Schaltung das Kippverhalten festzustellen ist.
+Diese entspricht der Schwellspannung.
 \\
-Zusätzlich wird die Schwellspannung auch wie folgt bestimmt:
-Am Signalgenerator sollte ein Dreieckssignal bei einer Amplitude, die eindeutig größer als die Schwellspannung ist, eingestellt werden.
+Zusätzlich wird die Schwellspannung wie folgt bestimmt:
+Am Signalgenerator wird ein Dreieckssignal bei einer Amplitude, die größer als die Schwellspannung ist, eingestellt.
 Hier wird eine Amplitude von $\qty{3}{\volt}$ gewählt.
-Nun kann mittels des Cursors am Oszilloskop die Spannung des Eingangssignals bestimmt werden, aber der die Schaltung jeweils kippt. 
+%Nun kann mittels des Cursors 
+Am Oszilloskop wird die Spannung des Eingangssignals bestimmt, aber der die Schaltung kippt. 
 Dies wird insgesamt $5$ mal pro Kipprichtung durchgeführt. 
