@@ -1,37 +1,55 @@
 \section{Theorie}
 \label{sec:Theorie}
-Ein Laser nutzt die stimulierte Emission von Photonen innerhalb eines aktiven Mediums, um kohärentes, monochromatisches Licht zu erzeugen.
-Im Folgenden wird zuerst das Funktionsprinzip erläutert und anschließend auf die Funktionsweise des Helium-Neon Lasers übertragen.
+Ein Laser ist eine Quelle für kohärentes, monochromatisches, hochintensives Licht. 
+Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS anschließend auf die Funktionsweise des Helium-Neon Lasers übertragen.
 \subsection{Funktionsweise eines Lasers}
 \label{subsec:funktion}
-    Zur Erzeugung des Laserlichts wird die \textbf{stimulierte Emission} genutzt. 
-    Sie ist neben der Absorption und spontanen Emission einer der drei Grundprozesse, die beeinflussen können, auf welchem Energieniveau sich ein Atom befindet.
-    \autoref{fig:atomanregungen} zeigt die drei Prozesse anschaulich.
+    Zur Erzeugung des Laserlichts wird die \textbf{stimulierte Emission}, oft auch \enquote{induzierte} Emission genannt, genutzt. 
+    Sie ist neben der Absorption und spontanen Emission einer der drei Grundprozesse, die beeinflussen können, in welchem Energieniveau sich ein Atom befindet.
+    \autoref{fig:atomanregungen} zeigt die drei Prozesse.
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{content/images/atomanregungen}
-        \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau System~\cite{seos_project}.}
+        \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System~\cite{seos_project}.}
         \label{fig:atomanregungen}
     \end{figure}
     \FloatBarrier\noindent
-    Absorption findet nur statt, wenn die Frequenz des Photons der Energiedifferenz des unteren und oberen Energieniveaus entspricht.
+    Absorption findet nur statt, wenn die Frequenz des einfallenden Photons der Energiedifferenz des unteren und oberen Energieniveaus entspricht.
     Es muss also gelten
     \begin{equation*}
         \symup{h}\cdot f = E_2 - E_1 = \increment E.
     \end{equation*}
     Die angeregten Energieniveaus sind instabil, weshalb spontane Emission nach einer Halbwertzeit $\tau$ auftritt.
-    Die Frequenz des Photons entspricht der Energiedifferenz des Übergangs, die Abstrahlrichtung ist zufällig.\\
+    Die Frequenz des emittierten Photons entspricht der Energiedifferenz des Übergangs, die Abstrahlrichtung ist zufällig.\\
     Die stimulierte Emission findet statt, wenn ein Photon der Energie $\increment E$ auf ein Atom im angeregten Energieniveau $E_2$ trifft.
     Das Atom wechselt in das Niveau $E_1$ und sendet ein Photon der Energie $\increment E$ aus, das zu dem einfallenden Photon kohärent ist. 
     Das bedeutet, dass sie in allen Quantenzahlen übereinstimmen und sich in die gleiche Richtung ausbreiten.
     Der Prozess verdoppelt jedes einfallende Photon und steigert somit die Intensität des Lichts im aktiven Medium.\\\\
     Für den Laserbetrieb soll möglichst viel stimulierte Emission ausgelöst werden, weshalb sich die Atome des Mediums größtenteils im angeregten Zustand befinden sollen.
-    Dies heißt \textbf{Besetzungsinversion} und wird durch einen externen physikalischen Prozess erzwungen, der oft als \enquote{Pumpen} bezeichnet wird.
-    Es muss sich dabei um einen anderen Niveauübergang handeln als den, der für die stimulierte Emission verwendet wird, da das Pumpen sonst selbst die stimulierte Emission auslöst, was die Besetzungsinversion verhindert.
-    Zwei-Niveau Systeme eignen sich daher nicht für den Laserbetrieb, da in ihnen nur ein Niveauübergang möglich ist.\\\\
+    Dies heißt \textbf{Besetzungsinversion} und wird durch einen externen physikalischen Prozess erzwungen, der oft als \enquote{Pumpen} bezeichnet wird~\cite[400]{haken_wolf_2004}.
+    Es muss sich dabei um einen anderen Niveauübergang handeln als den, der für die stimulierte Emission verwendet wird. Das Pumpen löst sonst selbst die stimulierte Emission aus, was die Besetzungsinversion verhindert.
+    Zwei-Niveau-Systeme eignen sich daher nicht für den Laserbetrieb, da in ihnen nur ein Niveauübergang möglich ist.\\\\
     Die ersten Photonen, die stimulierte Emission auslösen, stammen aus der spontanen Emission, deren Photonen in verschiedene Richtungen emittiert werden. 
-    Ein Resonator, bestehend aus zwei gegenübersehenden Spiegeln an zwei Seiten des aktiven Mediums, sorgt für die Auswahl einer Vorzugsrichtung für Photonen, die sich parallel zur optischen Achse bewegen.
+    Ein \textbf{optischer Resonator}, bestehend aus zwei gegenübersehenden Spiegeln an zwei Seiten des aktiven Mediums, sorgt für die Auswahl einer Vorzugsrichtung für die emittierten Photonen. 
+    Parallel zur optischen Achse propagierende Photonen werden reflektiert und erneut durch das aktive Medium geschickt, die anderen Photonen verlassen den Aufbau. 
+    Neu ausgelöste stimulierte Emissionen fühen so schnell zu einer Emissionskaskade von Photonen mit Ausbreitungsrichtung entlang der optischen Achse~\cite[252]{demtröder_1016}.
+    Einer der beiden Spiegel des Resonators ist nahezu totalreflektierend, der andere ist teilreflektierend.
     Einen solchen Aufbau zeigt schematisch \autoref{fig:resonator}.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/resonator}
+        \caption{Schematische Darstellung eines Lasers~\cite[252]{demtröder_2016}.}
+        \label{fig:resonator}
+    \end{figure}
+    \FloatBarrier\noindent
+    Die gesammelten Photonen werden als Laserlicht durch den teilreflektierenden Spiegel aus dem Resonator ausgekoppelt. 
+    Dadurch entsteht ein Defizit an Photonen im Resonator, die nicht mehr für die stimulierte Emission zur Verfügung stehen.
+    Das Erhöhen der Pumpleistung sorgt dafür, dass die Atome schneller in den angeregten Zustand zurückkehren und die verbliebenen Photonen jeweils mehr Emissionen stimulieren können.
+    Der Laserbetrieb kann nur aufrechterhalten werden, wenn die Pumpleistung höher ist als die Gesamtverluste des Laserlichts~\cite[402-407]{haken_wolf_2004}.
+    Das Verhältnis von Energiezufuhr und Energieverlusten ist das grundlegende Prinzip, das den Betrieb eines Lasers ermöglicht.
+    \subsection{Niveauschema des HeNe-Lasers}
+    \label{subsec:niveauschema}
+    Das aktive Medium des HeNe-Lasers ist ein Gasgemisch aus Helium und Neon. Das Gemisch dient als ein Vier-Niveau-System, bei dem das Neon die Laserübergänge bereitstellt.
     
     
 % 
