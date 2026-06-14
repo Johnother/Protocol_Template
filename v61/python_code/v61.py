@@ -10,10 +10,10 @@ import uncertainties.unumpy as unp
 
 
 def gauss(x,A,x0,w):
-    return A*np.exp(-4*(x-x0)**2/(w**2))
+    return A*np.exp(-2*(x-x0)**2/(w**2))
 
 def gaushermite(x,A,x0,w):
-    return A*8*((x-x0)/(w))**2*np.exp(-4*(x-x0)**2/w**2)
+    return A*2*((x-x0)/(w))**2*np.exp(-2*(x-x0)**2/w**2)
 
 def lin(x,a,b):
     return a*x+b
