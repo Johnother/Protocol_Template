@@ -2,7 +2,10 @@
 \label{sec:Theorie}
 Ein Laser ist eine Quelle für kohärentes, monochromatisches, hochintensives Licht. 
 Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS anschließend auf die Funktionsweise des Helium-Neon Lasers übertragen.
-\subsection{Funktionsweise eines Lasers}
+% 
+% 
+% 
+\subsection{Funktionsprinzip eines Lasers}
 \label{subsec:funktion}
     Zur Erzeugung des Laserlichts wird die \textbf{stimulierte Emission}, oft auch \enquote{induzierte} Emission genannt, genutzt. 
     Sie ist neben der Absorption und spontanen Emission einer der drei Grundprozesse, die beeinflussen können, in welchem Energieniveau sich ein Atom befindet.
@@ -32,7 +35,7 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS ansch
     Die ersten Photonen, die stimulierte Emission auslösen, stammen aus der spontanen Emission, deren Photonen in verschiedene Richtungen emittiert werden. 
     Ein \textbf{optischer Resonator}, bestehend aus zwei gegenübersehenden Spiegeln an zwei Seiten des aktiven Mediums, sorgt für die Auswahl einer Vorzugsrichtung für die emittierten Photonen. 
     Parallel zur optischen Achse propagierende Photonen werden reflektiert und erneut durch das aktive Medium geschickt, die anderen Photonen verlassen den Aufbau. 
-    Neu ausgelöste stimulierte Emissionen fühen so schnell zu einer Emissionskaskade von Photonen mit Ausbreitungsrichtung entlang der optischen Achse~\cite[252]{demtröder_1016}.
+    Neu ausgelöste stimulierte Emissionen fühen so schnell zu einer Emissionskaskade von Photonen mit Ausbreitungsrichtung entlang der optischen Achse~\cite[252]{demtröder_2016}.
     Einer der beiden Spiegel des Resonators ist nahezu totalreflektierend, der andere ist teilreflektierend.
     Einen solchen Aufbau zeigt schematisch \autoref{fig:resonator}.
     \begin{figure}
@@ -47,16 +50,66 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS ansch
     Das Erhöhen der Pumpleistung sorgt dafür, dass die Atome schneller in den angeregten Zustand zurückkehren und die verbliebenen Photonen jeweils mehr Emissionen stimulieren können.
     Der Laserbetrieb kann nur aufrechterhalten werden, wenn die Pumpleistung höher ist als die Gesamtverluste des Laserlichts~\cite[402-407]{haken_wolf_2004}.
     Das Verhältnis von Energiezufuhr und Energieverlusten ist das grundlegende Prinzip, das den Betrieb eines Lasers ermöglicht.
-    \subsection{Niveauschema des HeNe-Lasers}
+    % 
+    % 
+    % 
+    \subsection{Funktionsweise des HeNe-Lasers}
     \label{subsec:niveauschema}
-    Das aktive Medium des HeNe-Lasers ist ein Gasgemisch aus Helium und Neon. Das Gemisch dient als ein Vier-Niveau-System, bei dem das Neon die Laserübergänge bereitstellt.
-    
-    
+    Der Helium-Neon Laser ist ein Gasentladungslaser, das aktive Medium ist ein Gemisch aus Helium und Neon in einer Gasentladungsröhre. 
+    Das Gemisch dient als ein Vier-Niveau-System, bei dem das Neon die Laserübergänge bereitstellt.
+    \autoref{fig:niveauschema} zeigt das Niveauschema.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/niveauschema.png}
+        \caption{Niveauschema des Helium-Neon Lasers~\cite[68]{eichler_2015}.}
+        \label{fig:niveauschema}
+    \end{figure}
+    \FloatBarrier\noindent
+    Das Niveauschema zeigt, dass der HeNe-Laser Laserlicht auf drei Wellenlägen erzeugen kann, von denen eine im sichtbaren Bereich bei $\lambda=633\,\unit{\nano\meter}$ liegt.
+    Licht dieser Wellenlänge wird beim Niveauübergang $3\symup{s}_2 \to 2\symup{p}_4$ emittiert.\\
+    Die Besetzungsinversion wird durch eine Pumpspannung erzeugt, die an der Gasentladungsröhre angelegt wird.
+    Es werden nicht direkt die Neon-Atome angeregt, sondern die Helium-Atome durch Stöße mit Elektronen der Entladung in höhere Energieniveaus versetzt. 
+    Diese Niveaus sind metastabil, bleiben also lange besetzt, was für eine starke Besetzungsinversion sorgt.\\
+    Durch Stöße 2. Art zwischen Helium und Neon wird die Anregungsenergie des Heliums auf das Neon übertragen, wobei übrige Energie als Wärme auf das Neon übergeht.
+    Das angeregte Neon fällt über Emission des für den Laser verwendeten Lichts in ein niedrigeres Energieniveau und relaxiert von dort über Stöße in den Grundzustand~\cite[69]{eichler_2015}.   
+% 
+% 
+% 
+    \subsection{Stabilitätsbedingung des offenen Resonators}
+    \label{subsec:stabilitaet}
+    Ein optischer Resonator wie in \autoref{fig:resonator}, der nur durch die Resonatorspiegel begrenzt ist, wird als \enquote{offen} bezeichnet~\cite[165]{demtroeder_2011}.
+    Das Laserlicht kann bei falscher Ausrichtung der Spiegel oder hoher räumlicher Divergenz den Resonator verlassen.
+    Es wird daher eine \textbf{Stabilitätsbedingung} für offene Resonatoren mit verschiedenen Spiegelformen formuliert.\\
+    Die Reflektion einer gaußförmigen Grundmode im Resonator verknüpft die Resonatorlänge mit den Krümmungsradien der Resonatorspiegel.
+    Dabei wird vorausgesetzt, dass sich die Gauß-Mode nach einem Durchlauf durch den Resonator nicht verändert hat.
+    Die Berechnung liefert die Formulierung des Stabilitätsparameters
+    \begin{equation}
+        g_i = 1- \frac{L}{r_i},\, i\in \{1,2\},
+        \label{eqn:g}
+    \end{equation}
+    mit der Resonatorlänge $L$ und dem Krümmungsradius $r_i$ für den $i-$ten Resonatorspiegel.
+    Mit dem Stabilitätsparameter wird die Fleckgröße der Gaußmode auf den Spiegeln beschrieben. 
+    Daraus ergibt sich die Stabilitätsbedingung
+    \begin{equation}
+        0 < g_1 g_2 < 1. 
+        \label{eqn:stabbed}
+    \end{equation}
+    Außerhalb dieses Intervalls divergiert der Gauß-Strahl, was bedeutet, dass der Laserstrahl den Resonator verlässt und der Laserbetrieb zusammenbricht~\cite[174]{demtroeder_2011}.
+% 
+% 
+% 
+    \subsection{Transversale Moden im Resonator}
+    Aufgrund von Beugungseffekten an den Resonatorspiegeln ist die Intensitätsverteilung im Resonator nicht homogen, sondern eine Überlagerung der Beugungsmoden der Spiegel, die durch die Fresnel'sche Beugungstheorie beschrieben werden~\cite[167f]{demtroeder_2011}.
+    Als Lösung ergibt sich für runde Spiegel eine transversale Intensitätsverteilung der Form
+% 
+    mit den Hermitischen Polynomen $m$-ter und $n$-ter Ordnung, den generalisierten Koordinaten $w$
 % 
 % 
 % 
 % 
-% 
+\subsection{Polarisation am Brewster-Fenster}
+Das aus dem Laser austretende Licht ist zunächst nicht polarisiert.
+Ein Brewster-Fenster im Resonator sorgt dafür, dass 
 \cite{V61}
 \cite{demtroeder_2011}
 \cite{eichler_2015}
@@ -74,15 +127,9 @@ und
 \end{equation}
 kannst du machen schön alles drum herum nh
 
-\begin{equation}
-    0 < g_1 g_2 < 1 
-    \label{eqn:stabbed}
-\end{equation}
+
 mit 
-\begin{equation}
-    g_i = 1- \frac{L}{r_i}
-    \label{eqn:g}
-\end{equation}
+
 steht auch im \cite{demtroeder_2011}
 
 \begin{equation}
