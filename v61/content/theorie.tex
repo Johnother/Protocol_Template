@@ -1,13 +1,13 @@
 \section{Theorie}
 \label{sec:Theorie}
 Ein Laser ist eine Quelle für kohärentes, monochromatisches, hochintensives Licht. 
-Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS anschließend auf die Funktionsweise des Helium-Neon Lasers übertragen.
+Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert und anschließend auf die Funktionsweise des Helium-Neon Lasers übertragen.
 % 
 % 
 % 
 \subsection{Funktionsprinzip eines Lasers}
 \label{subsec:funktion}
-    Zur Erzeugung des Laserlichts wird die \textbf{stimulierte Emission}, oft auch \enquote{induzierte} Emission genannt, genutzt. 
+    Zur Erzeugung des Laserlichts wird die \textbf{stimulierte Emission}, auch \enquote{induzierte} Emission genannt, genutzt. 
     Sie ist neben der Absorption und spontanen Emission einer der drei Grundprozesse, die beeinflussen können, in welchem Energieniveau sich ein Atom befindet.
     \autoref{fig:atomanregungen} zeigt die drei Prozesse.
     \begin{figure}
@@ -22,13 +22,13 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS ansch
     \begin{equation*}
         \symup{h}\cdot f = E_2 - E_1 = \increment E.
     \end{equation*}
-    Die angeregten Energieniveaus sind instabil, weshalb spontane Emission nach einer Halbwertzeit $\tau$ auftritt.
+    Die angeregten Energieniveaus sind instabil, weshalb spontane Emission auftritt.
     Die Frequenz des emittierten Photons entspricht der Energiedifferenz des Übergangs, die Abstrahlrichtung ist zufällig.\\
     Die stimulierte Emission findet statt, wenn ein Photon der Energie $\increment E$ auf ein Atom im angeregten Energieniveau $E_2$ trifft.
     Das Atom wechselt in das Niveau $E_1$ und sendet ein Photon der Energie $\increment E$ aus, das zu dem einfallenden Photon kohärent ist. 
     Das bedeutet, dass sie in allen Quantenzahlen übereinstimmen und sich in die gleiche Richtung ausbreiten.
     Der Prozess verdoppelt jedes einfallende Photon und steigert somit die Intensität des Lichts im aktiven Medium.\\\\
-    Für den Laserbetrieb soll möglichst viel stimulierte Emission ausgelöst werden, weshalb sich die Atome des Mediums größtenteils im angeregten Zustand befinden sollen.
+    Für den Laserbetrieb soll möglichst viel stimulierte Emission ausgelöst werden, weshalb sich die Atome des Mediums größtenteils im angeregten Zustand befinden müssen.
     Dies heißt \textbf{Besetzungsinversion} und wird durch einen externen physikalischen Prozess erzwungen, der oft als \enquote{Pumpen} bezeichnet wird~\cite[400]{haken_wolf_2004}.
     Es muss sich dabei um einen anderen Niveauübergang handeln als den, der für die stimulierte Emission verwendet wird. Das Pumpen löst sonst selbst die stimulierte Emission aus, was die Besetzungsinversion verhindert.
     Zwei-Niveau-Systeme eignen sich daher nicht für den Laserbetrieb, da in ihnen nur ein Niveauübergang möglich ist.\\\\
@@ -100,9 +100,32 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert undS ansch
 % 
     \subsection{Transversale Moden im Resonator}
     Aufgrund von Beugungseffekten an den Resonatorspiegeln ist die Intensitätsverteilung im Resonator nicht homogen, sondern eine Überlagerung der Beugungsmoden der Spiegel, die durch die Fresnel'sche Beugungstheorie beschrieben werden~\cite[167f]{demtroeder_2011}.
-    Als Lösung ergibt sich für runde Spiegel eine transversale Intensitätsverteilung der Form
-% 
-    mit den Hermitischen Polynomen $m$-ter und $n$-ter Ordnung, den generalisierten Koordinaten $w$
+    Die Intensitätsverteilung beträgt allgemein
+    \begin{equation*}
+        I_{p,l}(r,\phi) = I_0\rho^l\left( L_p^l(\rho) \right)^2\cos{l\phi}^2\exp{-\rho},\,\,\,\rho = \frac{2r^2}{w^2},
+    \end{equation*}
+    mit dem Radius $r$, der maximalen Intensität $I_0$, dem Polarwinkel $\phi$ und dem Stahlradius $w$.
+    $L_p^l$ sind die zugeordneten Lagruerre-Polynome, die Ordnung der Moden ist durch die Parameter $p,l\in \mathbb{N}_0$ gegeben~\cite[263]{eichler_2011}.
+    \autoref{fig:TEM} zeigt die ersten zwölf Moden.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{content/images/TEM.png}
+        \caption{Transversalmoden im zylinderförmigen Resonator~\cite{TEM_RG}.}
+        \label{fig:TEM}
+    \end{figure}
+    \FloatBarrier\noindent
+    Für die Messung der Moden $\mathrm{TEM}_{00}$ und $\mathrm{TEM}_{01}$ genügt es, den horizontalen Querschnitt zu betrachten, also $\phi=0$ zu setzen.
+    Die Laguerre-Polynome vereinfachen sich zu $L_0^l(\rho) = 1$.
+    Die beiden Moden haben also die Intensitätsverteilungen
+    \begin{equation}
+    I_{00}= I_0 \exp{-\frac{2r^2}{w^2}}
+    \label{eqn:tem00}
+\end{equation}
+und
+\begin{equation}
+    I_{01}= I_0\frac{2r^2}{w^2}\exp{-\frac{2r^2}{w^2}}.
+    \label{eqn:tem01}
+\end{equation}
 % 
 % 
 % 
