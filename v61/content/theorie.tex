@@ -27,7 +27,7 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert und anschl
     Die stimulierte Emission findet statt, wenn ein Photon der Energie $\increment E$ auf ein Atom im angeregten Energieniveau $E_2$ trifft.
     Das Atom wechselt in das Niveau $E_1$ und sendet ein Photon der Energie $\increment E$ aus, das zu dem einfallenden Photon kohärent ist. 
     Das bedeutet, dass sie in allen Quantenzahlen übereinstimmen und sich in die gleiche Richtung ausbreiten.
-    Der Prozess verdoppelt jedes einfallende Photon und steigert somit die Intensität des Lichts im aktiven Medium~\cite[59f]{haken_wolf_2004}.\\\\
+    Der Prozess verdoppelt jedes einfallende Photon und steigert somit die Intensität des Lichts im aktiven Medium~\cite[59 f.]{haken_wolf_2004}.\\\\
     Für den Laserbetrieb soll möglichst viel stimulierte Emission ausgelöst werden, weshalb sich die Atome des Mediums größtenteils im angeregten Zustand befinden müssen.
     Dies heißt \textbf{Besetzungsinversion} und wird durch einen externen physikalischen Prozess erzwungen, der oft als \enquote{Pumpen} bezeichnet wird~\cite[400]{haken_wolf_2004}.
     Es muss sich dabei um einen anderen Niveauübergang handeln als den, der für die stimulierte Emission verwendet wird. Das Pumpen löst sonst selbst die stimulierte Emission aus, was die Besetzungsinversion verhindert.
@@ -99,7 +99,7 @@ Im Folgenden wird zuerst das grundlegende Funktionsprinzip erläutert und anschl
 % 
 % 
     \subsection{Transversale Moden im Resonator}
-    Aufgrund von Beugungseffekten an den Resonatorspiegeln ist die Intensitätsverteilung im Resonator nicht homogen, sondern eine Überlagerung der Beugungsmoden der Spiegel, die durch die Fresnel'sche Beugungstheorie beschrieben werden~\cite[167f]{demtroeder_2011}.
+    Aufgrund von Beugungseffekten an den Resonatorspiegeln ist die Intensitätsverteilung im Resonator nicht homogen, sondern eine Überlagerung der Beugungsmoden der Spiegel, die durch die Fresnel'sche Beugungstheorie beschrieben werden~\cite[167 f.]{demtroeder_2011}.
     Die Intensitätsverteilung beträgt allgemein
     \begin{equation*}
         I_{p,l}(r,\phi) = I_0\rho^l\left( L_p^l(\rho) \right)^2\cos^2{(l\phi)}e^{-\rho},\,\,\,\rho = \frac{2r^2}{w^2},
@@ -136,19 +136,21 @@ Das aus dem Laser austretende Licht ist zunächst nicht polarisiert.
 Um den Laserstrahl mit möglichst geringem Intensitätsverlust zu polarisieren, wird ein Brewster-Fenster verwendet.
 Es steht im Brewster-Winkel zur optischen Achse, weswegen es p-polarisiertes Licht nahezu unreflektiert passieren lässt.
 Das s-polarisierte Licht wird nahezu totalreflektiert.
-Nach mehreren Schichten dieser Anordnung ist die s-polarisierte Komponente aus dem Licht im Resonator entfernt.\\
-Die Abhängigkeit der restlichen Intesität vom Polarisationswinkel ist durch das Gesetz von Malus gegeben mit
+Dadurch sind die Verluste für das s-Polarisierte Licht zu groß, sodass stabiler Laserbetrieb nur für p-Polarisiertes Licht möglich ist.
+Der Laser ist dadurch linear Polarisiert \cite{spektrum_brewster}. \\
+%Nach mehreren Schichten dieser Anordnung ist die s-polarisierte Komponente aus dem Licht im Resonator entfernt.\\
+Die Abhängigkeit der restlichen Intesität vom Polarisationswinkel ist durch das Gesetz von Malus \cite{leifi_malus} gegeben mit
 \begin{equation}
-    I\left(\phi\right)= A \mathrm{cos}^2\left(\phi - \phi_0\right). 
+    I\left(\phi\right)= A \mathrm{cos}^2\left(\phi - \phi_0\right) \, . 
     \label{eqn:pol}
 \end{equation}
 % 
 \subsection{Wellenlängenbestimmung am optischen Gitter}
-Zur Bestimmung der WelLenlänge des Laserlichts eignet sich ein optisches Gitter. 
+Zur Bestimmung der Wellenlänge des Laserlichts eignet sich ein optisches Gitter. 
 Durch Beugung an den Gitterlinien ergibt sich ein Gangunterschied $\increment s$ zwischen den Lichtstrahlen, welcher zu konstruktiver und destruktiver Interferenz führt.
-Der Gangunterschied kann mit dem Satz des Pythagoras unter Kleinwinkelnäherung über die Gitterkonstante $g$, dem Abstand zwischen Gitter und Schirm $e$ und dem Abstand zweier Maxima $a$ beschrieben werden durch
+Der Gangunterschied kann mit dem Satz des Pythagoras unter Kleinwinkelnäherung über die Gitterkonstante $g$, dem Abstand zwischen Gitter und Schirm $d$ und dem Abstand zweier Maxima $a$ beschrieben werden durch
 \begin{equation*}
-    \frac{\increment s}{g} = \frac{a}{\sqrt{e^2+a^2}}.
+    \frac{\increment s}{g} = \frac{a}{\sqrt{d^2+a^2}}.
 \end{equation*}
 Mit der Bedingung für konstruktive Interferenz
 \begin{equation*}
@@ -159,15 +161,16 @@ ergibt sich daraus der Zusammenhang zur Wellenlänge
     \lambda = \frac{a_{k} g }{k \sqrt{a_{k}^2 + d^2}}.
     \label{eqn:wellenlaenge}
 \end{equation}
-in Abhängigkeit der $k$-ten Ordnung der Gittermaxima~\cite{leifi_v61}.
+in Abhängigkeit der $k$-ten Ordnung der Gittermaxima. 
+Dabei ist $a_k$ der Abstand des $k$-ten Maximums zum Hauptmaximum \cite{leifi_v61}.
 % 
 % 
 % 
-\\\\
+\subsection{Relative Abweichung experimenteller Messwerte}
 Zur Berechnung der relativen Abweichung von experimentell bestimmten Werten zu theoretischen Werten wird 
 \begin{equation}
     \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|
     \label{eqn:relabw}
 \end{equation}
-verwendet. 
+verwendet \cite{relabw}. 
 

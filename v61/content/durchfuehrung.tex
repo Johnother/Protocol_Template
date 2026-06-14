@@ -9,7 +9,7 @@ Als Grundlage des Aufbaus dient eine optische Schiene. Die Gasentladungsröhre s
   \label{fig:aufbau_echt}
 \end{figure}
 \FloatBarrier\noindent
-Die weiteren für den Versuch benötigten optischen Elemente sind zwei Lochblenden mit Fadenkreuz zur Justierung, zwei Photodioden, eine Streulinse zur Vergrößerung des Laserstrahls, mehrere optische Gitter und ein Wolframdraht mit $d = 5\,\unit{\micro\meter}$ Durchmesser.
+Die weiteren für den Versuch benötigten optischen Elemente sind zwei Lochblenden mit Fadenkreuz zur Justierung, ein Photodetektor, eine Photodioden, eine Streulinse zur Vergrößerung des Laserstrahls, mehrere optische Gitter und ein Wolframdraht mit $d = 5\,\unit{\micro\meter}$ Durchmesser.
 In \autoref{fig:spiegel} sind die Eigenschaften der verwendeten Resonatorspiegel aufgelistet.
 \begin{figure}
   \centering
@@ -19,31 +19,61 @@ In \autoref{fig:spiegel} sind die Eigenschaften der verwendeten Resonatorspiegel
 \end{figure} 
 \FloatBarrier\noindent
 Für den Versuch werden die Spiegel aus der ersten, dritten und vierten Zeile verwendet.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
 \section{Durchführung}
 \label{Durchführung}
 Zuerst wird die Justierung des Aufbaus überprüft. Dazu wird zunächst die Gasentladungsröhre entlang des Justierlasers positioniert.
 Danach wird der auskoppelnde Spiegel in den Strahlengang eingebracht und so eingestellt, dass die Beugungsringe des Justierlasers mittig auf Fadenkreuz der Lochblende sind.
 Der zweite Resonatorspiegel wird ebenso justiert und anschließend die Gasentladungsröhre eingeschaltet. 
 Der zweite Resonatorspiegel wird so lange nachjustiert, bis die Laseraktivität einsetzt.
+%
+%
+%
+%
 \subsection{Messung der Stabilitätsbedingung}
-  Für die Überprüfung der Stabilitätsbedingung werden die Resonatorspiegel auf maximale Laserintensität justiert. 
+  Für die Überprüfung der Stabilitätsbedingung werden die Resonatorspiegel mit Hilfe des Photodetektros auf maximale Laserintensität justiert. 
   Anschließend wird die Resonatorlänge vergrößert, bis die maximale stabile Resonatorlänge erreicht ist, oder keine Laseraktivität mehr erreicht werden kann. 
   Dazu wird die Spiegelausrichtung so nachjustiert, dass das Intensitätsmaximum beibehalten wird.\\
   Dies wird zuerst für die beiden konkaven Spiegel durchgeführt. 
   Danach wird der zweite Resonatorspiegel durch den flachen Spiegel ersetzt und die Messung wiederholt.
+  %
+  %
+  %
+  %
 \subsection{Messung der Moden $\mathrm{TEM}_{00}$ und $\mathrm{TEM}_{01}$}
-Für die Messung der transversalen Moden muss der Laserstrahl vergrößert werden. Dazu wird die Streulinse in den Strahlengang ausserhalb des Resonators eingebracht und eine Photodiode montiert.
+Für die Messung der transversalen Moden muss der Laserstrahl vergrößert werden. Dazu wird die Streulinse in den Strahlengang ausserhalb des Resonators eingebracht und es wird dahinter eine Photodiode montiert.
 Die Photodiode sitzt auf einer senkrecht zur optsichen Achse verschiebbaren Schiene mit einer Millimeter-Skala und $1/10\,\unit{\milli\meter}$ Nonius.\\
 Für den Resonator werden hier die beiden konkaven Spiegel verwendet und der Laser auf maximale Intensität justiert.
+Für beide Moden wird der Photostrom der Diode abhängig von ihrer Verschiebung gemessen.
 Die Grundmode wird zuerst gemessen.
-Der Querschnitt entspricht dann der $00$-Mode aus \autoref{fig:TEM}.
-Für die Messung der ersten Mode wird der Wolframdraht in den Resonator eingesetzt und so positioniert, dass er den Strahl mittig teilt, ohne den Laserbetrieb zu beenden.
-Dadurch wird die Grundmode unterdrückt und der Strahlquerschnitt entspricht der Mode $01$ aus \autoref{fig:TEM}.
+Der Querschnitt entspricht dann der $\mathrm{TEM}_{00}$-Mode aus \autoref{fig:TEM}.
+Für die Messung der $\mathrm{TEM}_{01}$-Mode wird der Wolframdraht in den Resonator eingesetzt und so positioniert, dass er mittig im Strahl steht.%, ohne den Laserbetrieb zu beenden.
+Dadurch sind die Verluste der Grundmode so groß, dass für sie kein stabiler Laserbetrieb zustande kommt. 
+Es dominiert die  $\mathrm{TEM}_{01}$-Mode aus \autoref{fig:TEM}.
 % 
+%
+%
+%
 \subsection{Polarisationsmessung}
 Zur Überprüfung der Polarisationsabhängigkeit wird ein Polarisationsfilter in den Strahlengang nach dem Auskoppelspiegel eingebracht und die Strahlintensität mit einer Photodiode gemessen.
 Die Position des Filters wird in $ \increment \phi = \qty{2}{\degree}$-Schritten von $\phi_{\min} = \qty{0}{\degree}$ bis $\phi_{\max} = \qty{180}{\degree}$ eingestellt.
+Die Intensität wird mit dem Photodetektor gemessen.
+%
+%
+%
+%
+%
 \subsection{Messung der Wellenlänge}
 Für die Messung der Wellenlänge werden zwei Gitter mit den Gitterkonstanten $g_1 = 80\mathbin{/}\unit{\milli\meter}$ und $g_2 = 100\mathbin{/}\unit{\milli\meter}$ verwendet.
-Es wird für jedes der beiden Gitter eine Messung durchgeführt.
-Der Laser wird erneut auf maximale Intensität justiert und die Position der Minima und Maxima mit der Photodiode mit der Millimeterskala gemessen.
+Es wird für jedes der beiden Gitter die Position und Intensität der Maxima mit der Photodiode mit der Millimeterskala gemessen.
