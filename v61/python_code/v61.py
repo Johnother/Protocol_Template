@@ -126,13 +126,13 @@ ax.errorbar(x,I,yerr=I_err,fmt="x",capsize=3,label="Messwerte")
 
 x_fit=np.linspace(np.min(x),np.max(x),1000)
 
-ax.plot(x_fit,gaushermite(x_fit,*popt),label="Fit für TEM01-Mode")
+ax.plot(x_fit,gaushermite(x_fit,*popt),label=r"Fit für $\mathrm{TEM}_{01}$-Mode")
 
 ax.set_xlabel(r"$x$ [mm]")
 ax.set_ylabel(r"$I$ [\mu A]")
 
 ax.set_xlim(-16,16)
-ax.set_ylim(0,8)
+ax.set_ylim(0,2)
 
 ax.grid()
 ax.legend()
