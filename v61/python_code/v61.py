@@ -140,7 +140,7 @@ ax.legend()
 fig.savefig("../content/images/tem01.pdf")
 
 
-####stabilitätsbedingung konvex konvex####
+####stabilitätsbedingung konkav konkav####
 
 konkon = np.genfromtxt("konkon.txt")
 
@@ -179,7 +179,7 @@ ax.legend()
 
 fig.savefig("../content/images/konkon.pdf")
 
-####stabilitätsbedingung konvex konvex####
+####stabilitätsbedingung plan konkav####
 
 plankon = np.genfromtxt("plankon.txt")
 
@@ -265,6 +265,7 @@ a_err, phi0_err = np.sqrt(np.diag(pcov))
 print("Polfit")
 print(f"A    = {A:.3f}    \u00B1 {A_err:.3f} ")
 print(f"phi0 = {phi0:.5f} \u00B1 {phi0_err:.5f} ")
+print(f"phi0 = {np.rad2deg(phi0):.5f} \u00B1 {np.rad2deg(phi0_err):.5f} ")
 #print(f"C    = {C:.3f}   \u00B1  {C_err:.3f} ")
 
 
