@@ -27,15 +27,44 @@ Die Standardabweichung des Mittwertes wird mithilfe von
 \end{equation}
 bestimmt.
 %%\subsection{Gaußsche Fehlerfortpflanzung}
-%Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
-%\begin{equation}
-%\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
-%\label{eqn:fehlerfortpflanzung}
-%\end{equation}
-%ermittelt werden.
+Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
+\begin{equation}
+\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
+\label{eqn:fehlerfortpflanzung}
+\end{equation}
+ermittelt werden.
 
+\subsection{Untersuchung der Frequenzabhängkeit der Leitungskonstanten}
+\label{subsec:leitkon}
+Die Ergebnisse der Messung der Leitungskonstanten sind in \autoref{tab:messind} aufgetragen. 
+Daraus ergeben sich die Beträge der Impedanzen $\left|Z\right|$ nach \autoref{eqn:impedanz}.
+Der Phasenversatz $\varphi$ ergibt sich jeweils nach \autoref{eqn:phase}.
+Beides ist in Abhängigkeit der Frequenz in \autoref{tab:imp_phi} angegeben.
+Die Unsicherheiten ergeben sich dabei jeweils nach \autoref{eqn:fehlerfortpflanzung}.
+\begin{table}[H]
 
-
+    \centering
+    \caption{Aus \autoref{tab:messind} berechnete Impedanzen $\left|Z\right|$ und Phasenversätze $\varphi$.}
+    \begin{tabular}{ccc}
+    \toprule
+    $f \,/\, [\unit{\kilo\hertz}]$& $\left|Z\right| \,/\, [\unit{\ohm}]$ & $\varphi \,/\, [\textdegree]$ \\
+    \midrule
+    1 & 12,577 $\pm$ 0,628 & 87,69 $\pm$ 0,12 \\
+    2  & 6,592 $\pm$ 0,013 & 85,52 $\pm$ 0,01 \\
+    3  & 4,426 $\pm$ 0,002 & 83,28 $\pm$ 0,01 \\
+    4  & 3,391 $\pm$ 0,002 & 81,10 $\pm$ 0,02 \\
+    5  & 2,769 $\pm$ 0,003 & 78,92 $\pm$ 0,02 \\
+    6  & 2,351 $\pm$ 0,004 & 76,72 $\pm$ 0,03 \\
+    7  & 2,075 $\pm$ 0,004 & 74,63 $\pm$ 0,04 \\
+    8  & 1,895 $\pm$ 0,005 & 72,69 $\pm$ 0,05 \\
+    9  & 1,744 $\pm$ 0,005 & 70,68 $\pm$ 0,07 \\
+    10 & 1,626 $\pm$ 0,006 & 68,65 $\pm$ 0,09 \\
+    20 & 1,347 $\pm$ 0,001 & 52,12 $\pm$ 0,05 \\
+    100 &7,342 $\pm$ 0,002 & 16,97 $\pm$ 0,05 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:imp_phi}
+\end{table}
 
 
 

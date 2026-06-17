@@ -25,6 +25,15 @@ omega = 2*np.pi*f
 
 Z = unp.sqrt(R**2 + (omega**2)*L**2)
 
+phi = unp.arctan((omega*L)/(R))* 180 / np.pi
+
+
+with open("imp_phi.txt", "w") as g:
+    for i in range(len(f)):
+        g.write(f"{f[i]} & {Z[i].nominal_value:.5f} & {Z[i].std_dev:.5f} & {phi[i].nominal_value:.5f} & {phi[i].std_dev:.5f} \\\\\n")
+
+
+
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(omega,unp.nominal_values(L),yerr=unp.std_devs(L),fmt="x",color="darkorange",capsize=3,label="Induktivitätsbelag")
 
