@@ -20,6 +20,7 @@ imp = np.genfromtxt("impedanz.txt")
 f = imp[:,0]*10**3
 L = unp.uarray(imp[:,1]*10**(-6),imp[:,2]*10**(-6))
 R = unp.uarray(imp[:,3],imp[:,4])
+C = unp.uarray(imp[:,5]*10**(-12),imp[:,6]*10**(-12))
 
 omega = 2*np.pi*f
 
@@ -91,6 +92,26 @@ ax.grid()
 ax.legend()
 
 fig.savefig("../content/images/imp.pdf")
+
+
+fig, ax = plt.subplots(layout="constrained")
+
+ax.errorbar(omega,unp.nominal_values(C),yerr=unp.std_devs(C),fmt="x",color="crimson",capsize=3,label="Kapatzitätsbelag")
+
+#x_fit=np.linspace(np.min(x),np.max(x),1000)
+
+#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
+
+ax.set_xlabel(r"$\omega$ [Hz]")
+ax.set_ylabel(r"$C$ [F]")
+
+#ax.set_xlim(-16,16)
+#ax.set_ylim(0,8)
+
+ax.grid()
+ax.legend()
+
+fig.savefig("../content/images/kap.pdf")
 
 #### Bestimmung der Laenge ###
 
