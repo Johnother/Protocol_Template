@@ -65,9 +65,167 @@ Die Unsicherheiten ergeben sich dabei jeweils nach \autoref{eqn:fehlerfortpflanz
     \end{tabular}
     \label{tab:imp_phi}
 \end{table}
+In \autoref{fig:leitungskonstanten} sind die Leitungskonstanten $R$, $L$, $C$ und $\left|Z\right|$ in Diagrammen abhängig von der Signalfrequenz $\omega$ graphisch dargestellt.
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/ohm.pdf}
+        %\caption{Erstes Bild}
+        %\label{fig:ohm}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/ind.pdf}
+        %\caption{Zweites Bild}
+        %\label{fig:ind}
+    \end{subfigure}
+    \vspace{0.5cm}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kap.pdf}
+        %\caption{Drittes Bild}
+        %\label{fig:kap}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/imp.pdf}
+        %\caption{Viertes Bild}
+        %\label{fig:imp}
+    \end{subfigure}
+    \caption{Graphische Darstellung der Leitungskonstanten des Koaxialkabels abhängig von der Frequenz $\omega$, wobei $R$ der Ohmscher Belag, $I$ der Induktivitätsbelag , $C$ der Kapazitätsbelag und $\left|Z\right|$ die Impedanz ist.}
+    \label{fig:leitungskonstanten}
+\end{figure}
+%
+%
+%
+%
+%
+%
+\subsection{Ermittlung der Länge und Dämpfung verschiedener Koaxialkabel}
+Die Messung Zeitdifferenz zwischen ausgehendem und reflektiertem Spannungspuls sowie deren Amplituden ist für sechs verschiedene Koaxialkabel in \autoref{tab:messlendaem} angegeben.
+Die entsprechenden Ausgaben am Oszilloskop sind in \autoref{fig:lendeambilder} zu sehen.
+Aus den Zeitdifferenzen $\Delta t$ lässt sich nach \autoref{eqn:laenge} die Länge der Kabel bestimmen.
+Die Phasengeschwindigkeit ist nach \autoref{eqn:phasengeschw} $v_{\mathrm{Phase}}\approx\qty{2.00e8}{\meter\per\second}$.
+Außerdem lassen sich aus dem Amplitudenverhältnis $\frac{U_0}{U_L}$ mit der ermittelten Länge der Kabel, die Dämpfungskonstanten $\alpha$ der Kabel nach \autoref{eqn:daempfung} bestimmen.
+Die berechneten Werte von $L$ und $\alpha$ sind in \autoref{tab:lendeam} für die sechs Kabel eingetragen.
+\begin{table}[H]
+    \centering
+    \caption{Aus \autoref{tab:messlendaem} berechnete Längen $L$ und Dämpfungen $\alpha$ sechs verschiedener Koaxialkabel.}
+    \begin{tabular}{ccc}
+    \toprule
+    Kabel & $L \,/\, [\unit{\meter}]$ & $\alpha \,/\, [1/\unit{\meter}]$ \\
+    \midrule
+    1 & 83,9  $\pm$ 1,0 & 0,0087 $\pm$ 0,0004  \\
+    2 & 5,0   $\pm$ 0,2 & 0,0235 $\pm$ 0,0026  \\
+    3 & 10,0  $\pm$ 0,4 & 0,0177 $\pm$ 0,0015  \\
+    4 & 1,7   $\pm$ 0,1 & 0,1341 $\pm$ 0,0103  \\
+    5 & 10,0  $\pm$ 0,4 & 0,0253 $\pm$ 0,0016  \\
+    6 & 1,3   $\pm$ 0,1 & 0,0299 $\pm$ 0,0088  \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:lendaem}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel1.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel2.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel3.JPG}
+    \end{subfigure}
+    \vspace{0.5cm}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel4.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel5.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/kabel6.JPG}
+    \end{subfigure}
+
+    \caption{Ausgabe am Oszilloskop, bei der Vermessung der Reflektierten Pulse von Kabel 1 (oben links), Kabel 2 (oben mitte), Kabel 3 (oben rechts), Kabel 4 (unten links), Kabel 5 (unten mitte) und Kabel 6 (unten rechts).}
+    \label{fig:lendeambilder}
+\end{figure}
+%
+%
+%
+%
+%
+%
+%
+%
+\subsection{Untersuchung der Verschiedenen Abschlüsse}
 
 
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_1.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_2.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_3.JPG}
+    \end{subfigure}
 
+    \vspace{0.5cm}
 
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_5.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_8.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_offen.JPG}
+    \end{subfigure}
 
+    \vspace{0.5cm}
 
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_kurzschluss.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_50ohm.JPG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/images/abschluss_75ohm.JPG}
+    \end{subfigure}
+
+    \caption{Ausgabe am Oszilloskop, bei der Vermessung von Abschluss 1 (oben links), Abschluss 2 (oben mitte), Abschluss 3 (oben rechts), Abschluss 5 (mitte links), Abschluss 8 (mitte mitte), des offenen Abschlusses (mitte rechts), des Kurzschlusses als Abschluss (unten links), des $\qty{50}{\ohm}$ Widerstandes als Abschluss (unten mitte) und des $\qty{75}{\ohm}$ Widerstandes als Abschluss (unten rechts).}
+    \label{fig:lendeambilder}
+\end{figure}

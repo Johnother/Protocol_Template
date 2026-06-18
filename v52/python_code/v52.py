@@ -36,57 +36,41 @@ with open("imp_phi.txt", "w") as g:
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(omega,unp.nominal_values(L),yerr=unp.std_devs(L),fmt="x",color="darkorange",capsize=3,label="Induktivitätsbelag")
+ax.errorbar(omega,unp.nominal_values(L),yerr=unp.std_devs(L),fmt="x",color="darkorange",capsize=3,label=r"$L\left(\omega\right)$")
 
-
-#x_fit=np.linspace(np.min(x),np.max(x),1000)
-
-#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
-
-ax.set_xlabel(r"$\omega$ [Hz]")
+ax.set_xlabel(r"$\omega$ [rad/s]")
 ax.set_ylabel(r"$L$ [H]")
-
-#ax.set_xlim(-16,16)
-#ax.set_ylim(0,8)
-
+ax.set_title(r"Induktivitätsbelag $L\left(\omega\right)$")
 ax.grid()
 ax.legend()
 
 fig.savefig("../content/images/ind.pdf")
 
+
+
+
+
 fig, ax = plt.subplots(layout="constrained")
 
-ax.errorbar(omega,unp.nominal_values(R),yerr=unp.std_devs(R),fmt="x",color="yellowgreen",capsize=3,label="Ohmscher Belag")
-
-
-#x_fit=np.linspace(np.min(x),np.max(x),1000)
-
-#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
-
-ax.set_xlabel(r"$\omega$ [Hz]")
+ax.errorbar(omega,unp.nominal_values(R),yerr=unp.std_devs(R),fmt="x",color="yellowgreen",capsize=3,label=r"$R\left(\omega\right)$")
+ax.set_title(r"Ohmscher Belag $R\left(\omega\right)$")
+ax.set_xlabel(r"$\omega$ [rad/s]")
 ax.set_ylabel(r"$R$ [$\Omega$]")
-
-#ax.set_xlim(-16,16)
-#ax.set_ylim(0,8)
 
 ax.grid()
 ax.legend()
 
 fig.savefig("../content/images/ohm.pdf")
 
+
+
+
 fig, ax = plt.subplots(layout="constrained")
 
-ax.errorbar(omega,unp.nominal_values(Z),yerr=unp.std_devs(Z),fmt="x",color="c",capsize=3,label="Impedanzbetrag")
-
-#x_fit=np.linspace(np.min(x),np.max(x),1000)
-
-#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
-
-ax.set_xlabel(r"$\omega$ [Hz]")
+ax.errorbar(omega,unp.nominal_values(Z),yerr=unp.std_devs(Z),fmt="x",color="steelblue",capsize=3,label=r"$\left|Z\right| \left(\omega\right)$")
+ax.set_title(r"Impedanzbetrag $\left|Z\right| \left(\omega\right)$")
+ax.set_xlabel(r"$\omega$ [rad/s]")
 ax.set_ylabel(r"$Z$ [$\Omega$]")
-
-#ax.set_xlim(-16,16)
-#ax.set_ylim(0,8)
 
 ax.grid()
 ax.legend()
@@ -94,24 +78,23 @@ ax.legend()
 fig.savefig("../content/images/imp.pdf")
 
 
+
+
 fig, ax = plt.subplots(layout="constrained")
 
-ax.errorbar(omega,unp.nominal_values(C),yerr=unp.std_devs(C),fmt="x",color="crimson",capsize=3,label="Kapatzitätsbelag")
-
-#x_fit=np.linspace(np.min(x),np.max(x),1000)
-
-#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
-
-ax.set_xlabel(r"$\omega$ [Hz]")
+ax.errorbar(omega,unp.nominal_values(C),yerr=unp.std_devs(C),fmt="x",color="crimson",capsize=3,label=r"$C \left(\omega\right)$")
+ax.set_title(r"Kapazitätsbelag $C \left(\omega\right)$")
+ax.set_xlabel(r"$\omega$ [rad/s]")
 ax.set_ylabel(r"$C$ [F]")
-
-#ax.set_xlim(-16,16)
-#ax.set_ylim(0,8)
 
 ax.grid()
 ax.legend()
 
 fig.savefig("../content/images/kap.pdf")
+
+
+
+
 
 #### Bestimmung der Laenge ###
 
@@ -124,7 +107,11 @@ delt = unp.uarray(ld[:,1]*10**(-9),ld[:,2]*10**(-9))
 A0 = unp.uarray(ld[:,3],ld[:,5])
 A1 = unp.uarray(ld[:,4],ld[:,5])
 
-vphas = 2e8
+epsr=2.25
+vphas=const.c/np.sqrt(epsr)
+print("Phasengeschwindigkeit:")
+print(vphas)
+#vphas = 2e8
 
 L = vphas*delt/2
 
@@ -135,7 +122,7 @@ L = vphas*delt/2
 print(A0)
 print(A1)
 
-Alpha =  (1/L)*unp.log(A0/A1)
+Alpha =  (1/(2*L))*unp.log(A0/A1)
 
 daem = ufloat(np.mean(unp.nominal_values(Alpha)),np.std(unp.nominal_values(Alpha)))
 print(Alpha)
@@ -151,62 +138,6 @@ eps = ((const.c*delt)/(2*L))**2
 
 with open("laenge_daempfung.txt", "w") as f:
     for i in range(len(L)):
-        f.write(f"{index[i]} & {L[i].nominal_value} & {L[i].std_dev} & {Alpha[i].nominal_value:.5f} & {Alpha[i].std_dev:.5f} & {eps[i].nominal_value:.10f} & {eps[i].std_dev:.10f} \\\\\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-########
-
-#p0 = [np.max(I), x[np.argmax(I)], 2.0]
-#
-#
-#popt, pcov = curve_fit(gauss,x,I,p0=p0,sigma=I_err,absolute_sigma=True)
-#
-#A, x0, w= popt
-#A_err, x0_err, w_err = np.sqrt(np.diag(pcov))
-#
-#
-#print("TEM00-Fit:")
-#print(f"A     = {A:.3f} ± {A_err:.3f}")
-#print(f"x0    = {x0:.3f} ± {x0_err:.3f} mm")
-#print(f"w = {w:.3f} ± {w_err:.3f} mm")
-##print(f"C     = {C:.3f} ± {C_err:.3f}")
-#
-#fig, ax = plt.subplots(layout="constrained")
-#ax.errorbar(x,I,yerr=I_err,fmt="x",capsize=3,label="Messwerte")
-#
-#x_fit=np.linspace(np.min(x),np.max(x),1000)
-#
-#ax.plot(x_fit,gauss(x_fit, *popt),label="Gaußförmiger-Fit")
-#
-#ax.set_xlabel(r"$x$ [mm]")
-#ax.set_ylabel(r"$I$ [\mu A]")
-#
-#ax.set_xlim(-16,16)
-#ax.set_ylim(0,8)
-#
-#ax.grid()
-#ax.legend()
-#
-#fig.savefig("../content/images/tem00.pdf")
+        f.write(f"{index[i]} & {L[i].nominal_value:.3f} & {L[i].std_dev:.3f} & {Alpha[i].nominal_value:.4f} & {Alpha[i].std_dev:.4f}  \\\\\n")
 
 
