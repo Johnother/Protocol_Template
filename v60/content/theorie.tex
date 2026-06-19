@@ -1,8 +1,8 @@
 \section{Theorie}
 \label{sec:Theorie}
-    Die Funktionsweise des Diodenlasers basiert auf einer Vielzahl von theoretischen Grundlagen aus der Quantenmechanik, sowie Atom- und Festkörperphysik.
+    Die Funktionsweise des Diodenlasers basiert auf theoretischen Grundlagen aus der Quantenmechanik, sowie Atom- und Festkörperphysik.
     %Die für die technische Realisierbarkeit des Diodenlasers nötige Halbleitertechnik gilt als Schlüsseltechnologie der ersten Quantenrevolution.\\
-    Im folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktions- und Anwendungsweise des Diodenlasers erläutert.
+    Im folgenden Abschnitt werden diese Grundlagen vorgestellt und zum Verständnis der Funktionsweise des Diodenlasers erläutert.
     
 
 
@@ -45,42 +45,43 @@
         %In vielen Experimenten konnte nachgewiesen werden, dass diese Niveaus auf vielfältige Weise angeregt und manipuliert werden können.
         %Durch Bestrahlung der Atome mit Photonen kann beeinflusst werden, welche Energieniveaus die Elektronen der Atomhülle besetzen.
         Elektronen in Atomhüllen befinden sich auf diskreten Energieniveaus. 
-        Dabei können sie durch Absorbtion sowie stimulierte und sponane Emission zwischen zwei Energieniveaus wechseln~\cite[53]{haken_wolf_2004}. 
+        Sie können durch Absorbtion sowie stimulierte und sponane Emission zwischen zwei Energieniveaus wechseln. 
         Dabei wird entweder ein Photon absorbiert oder emittiert.
         In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht.
          Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt.
-        Der Übergang von einem Zustand $\Psi_1$ in einen Zustand $\Psi_2$ ist dabei durch die Energiedifferenz der beiden Energieniveaus $E_1$ und $E_2$ gegben durch die Formel
+        Die Energiedifferenz des Übergangs zwischen den Energieniveaus $E_1$ und $E_2$ ist durch
         \begin{equation}
-            \symup{\Delta}E = E_2 - E_1 = h f\,\mathrm{.}
+            \symup{\Delta}E = E_2 - E_1 = h f
             \label{eqn:planck}
         \end{equation}
-        Dabei ist $\symup{h}$ das Planck'sche Wirkungsquantum und $f$ die Frequenz des Photons, dessen Energie der Energiedifferenz des Übergangs entspricht.
+        gegeben.
+        Dabei ist $\symup{h}$ das Planck'sche Wirkungsquantum und $f$ die Frequenz des Photons, dessen Energie der Energiedifferenz des Übergangs entspricht~\cite[59]{haken_wolf_2004}.
         \\
         %Bei den Prozessen, die mittels Photonenaustausch das Energieniveau eines Elektrons in der Atomhülle ändern können, wird unterschieden zwischen der Absorption, der spontanen Emission und der stimulierten Emission \cite[53]{haken_wolf_2004}.
         %In \autoref{fig:atomanregungen} werden die drei Prozesse anhand eines Zwei-Niveau-Systems veranschaulicht. Die stimulierte Emission wird dort \enquote{induzierte} Emission genannt. Diese Formulierung ist ebenfalls üblich und beschreibt den gleichen Prozess.
         %Für die Funktionsweise eines Lasers sind allerdings Drei- oder Vier-Niveau-Systeme nötig. Diese werden in  Unterabschnitt \ref{sec:systeme} behandelt. 
         \begin{figure}
             \centering
-            \includegraphics[width=0.7\textwidth]{content/images/atomanregungen.png}
+            \includegraphics[width=0.5\textwidth]{content/images/atomanregungen.png}
             \caption{Absorption, spontane Emission und stimulierte Emission in einem Zwei-Niveau-System~\cite{seos_project}.}
             \label{fig:atomanregungen}
         \end{figure}
         \FloatBarrier\noindent
-        Bei der \textbf{Absorption} trifft ein Photon mit der Energiedifferenz $\increment E$ der beiden Energieniveaus auf das Atom und regt so das Elektron von Energienivau $E_1$ in $E_2$ an.
+        Bei der \textbf{Absorption} trifft ein Photon mit der Energiedifferenz $\increment E$ der beiden Energieniveaus auf das Atom und regt so das Elektron von Energienivau $E_1$ in $E_2$ an~\cite[59]{haken_wolf_2004}.
          %handelt es sich um den durch \autoref{eqn:planck} von rechts nach links beschriebenen Prozess.
        % Ein auf die Materie treffendes Photon der Energie $\symup{h}\nu$ wechselwirkt mit dem Elektron $\Psi_1$, das sich im Energieniveau $E_1$ befindet.
         %Wenn es ein höheres Energieniveau $E_2$ gibt, dessen energetischer Abstand $\symup{\Delta}E$ von $E_1$ gleich der Energie des einfallenden Photons ist, dann ändert sich der Zustand des Elektrons.
         %Es befindet sich nun im Zustand $\Psi_2$.
-        \\
         %Dieser Übergang findet nur mit einer gewissen Wahrscheinlichkeit statt, die sich mittels der zeitabhängigen Störungstheorie und Fermi's \enquote{Goldener Regel} ermitteln lässt. 
         %Dabei ist die Zunahme der Absorptionsrate linear proportional zur Anzahl der einfallenden Photonen \cite[293]{schwabl_1992}.\\
-        \\
         %Viele der 
-        Energieniveaus, die durch Absorption angeregt werden können, sind instabil. 
+        \\
+        %Energieniveaus, die durch Absorption angeregt werden können, sind instabil. 
         %Die angeregten Elektronen befinden sich in einem energetisch nicht optimalen Zustand. 
-        Das Verlassen dieses angeregten Zustands in einen energetisch günstigeren Zustand erfolgt ohne äußere Einflüsse.
+        Elektronen verlassen den angeregent Zustand nach einer mittleren Lebensauer wieder, ohne äußere Einflüsse.
         Dabei wird ein Photon der Energie $\increment E$ emittiert und das Elektron fällt wieder in das niedrigere Energieniveau $E_1$.
-        Dieser Prozess wird \textbf{spontane Emission} genannt~\cite[149]{yariv_1991}.
+        Dieser Prozess wird \textbf{spontane Emission} genannt~\cite[60]{haken_wolf_2004}.
+        \\
         %Dabei sendet ein System, welches sich im höheren Energieniveau $\Psi_2$ befindet ein Photon mit der Energie $\symup{\Delta}E = \symup{h}\nu $ aus und fällt dabei in den niedrigeren Zustand $\Psi_1$ \cite[149]{yariv_1991}. 
         %Die Richtung, in die das Photon emittiert wird, ist zufällig und wird als Fluoreszenzlicht wahrgenommen.
         %Die Wahrscheinlichkeit, mit der dies geschiet, lässt sich ebenfalls störungstheoretisch berechnen.
@@ -90,12 +91,12 @@
         %    \symup{\Delta}E \propto \frac{\symup{h}}{\tau}\,\mathrm{.}
         %\end{equation}
         %Je höher also die Energiedifferenz zwischen angeregtem Zustand und Grundzustand, desto kürzer ist die Lebensdauer des Zustands, bevor er durch spontane Emission zerfällt \cite[95]{schwabl_1992}.\\
-        \\
         Die \textbf{stimulierte Emission} findet statt, wenn ein Photon mit der Energie $\symup{\Delta}E$ auf das System trifft, welches sich bereits im angeregten Energieniveau $E_2$ befindet. 
-        Durch das einfallende Photon stimuliert, fällt auch hier das System in das niedrigere Energieniveau $E_1$ unter Emission eines weiteren Photons der Energie $\increment E$. 
+        Durch das einfallende Photon stimuliert, fällt auch hier das System in das niedrigere Energieniveau $E_1$ unter Emission eines weiteren Photons der Energie $\increment E$.
+        Die Photonenzahl und Intensität verdoppeln sich.
         Alle Quantenzahlen des emittierten Photons sind gleich denen des einfallenden Photons.
         Das entstehende Licht ist kohärent.~\cite[31]{eichler_2015}.
-        Die Intensität verdoppelt sich dabei und ist somit proportional zur Intensität des stimulierenden Lichtes~\cite[155]{yariv_1991}.
+        
         %im Zustand $\Psi_2$ trifft. 
         %Dieses Photon wird nicht absorbiert, sondern löst den Übergang des Systems in den Zustand $\Psi_1$ aus, wobei das System dabei ein zusätzliches Photon mit der Energie $\symup{\Delta}E$ aussendet. 
         %Im Gegensatz zur spontanen Emission ist die Abstrahlrichtung dieses emittierten Photons nicht zufällig, sondern entlang der Ausbreitungsrichtung des einfallenden Photons.
@@ -103,7 +104,7 @@
         %Die Intensität der stimulierten Emission ist demnach proportional zur Intensität des stimulierenden Feldes \cite[155]{yariv_1991}. 
     
     \subsection{Funktionsprinzip eines Lasers}
-        In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emission ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen.
+        In der Lasertechnik wird der intensitätsverstärkende Prozess der stimulierten Emission ausgeutzt, um hochintensive, kohärente elektromagnetische Strahlung zu erzeugen~\cite[401 f.]{haken_wolf_2004}.
         Um dies zu erreichen, müssen jedoch mehrere Voraussetzungen gegeben sein:
         %Zum Einen wird ein aktives Medium benötigt, in dem die stimulierte Emission stattfindet. 
         %In diesem Medium müssen zwei Energieniveaus identifiziert werden, deren Energiedifferenz der Frequenz des gewünschten Laserlichts entspricht.
@@ -113,7 +114,8 @@
             Damit Laserlicht hoher Intensität aufrecht erhalten werden kann, muss eine Besetzungsinversion vorliegen. 
             Diese ist der Fall, wenn mehr Elektronen im energetisch höheren Zustand sind, als im niedrigeren. 
             Dies ist im thermischen Gleichgewicht nicht der Fall~\cite[288-289]{möller_2003}. 
-            Besetzungsinversion muss somit durch einen Pumpprozess erreicht werden~\cite[400]{haken_wolf_2004}.% \textbf{QUELLE bitte}
+            \\
+            Besetzungsinversion muss somit durch einen Pumpprozess erreicht werden~\cite[401 f.]{haken_wolf_2004}.% \textbf{QUELLE bitte}
             %Bei der Betrachtung dieser Mehrniveausysteme ist die Boltzmann-Verteilung nach Ludwig Boltzmann von großer Bedeutung. 
             %Mit dieser lassen sich aussagen über die Besetzungswahrscheinlichkeiten im
             %thermischen Glechgewicht treffen. 
@@ -149,12 +151,13 @@
             \\
             Für diesen Versuch ist insbesondere das Vier-Niveau-System relevant.
             %Beim \textbf{Vier-Niveau-System} 
-            Dabei befindet sich der Niveauübergang, der zum Lasen verwendet wird, immer zwischen dem Grundzustand und dem höchsten der vier Zustände. 
+            %Dabei befindet sich der Niveauübergang, der zum Lasen verwendet wird, zwischen dem Grundzustand und dem höchsten der vier Zustände. 
+            Dessen Funktionsprinzip wird durch \autoref{fig:Niveausysteme} deutlich:
             Das System wird extern ins Energieniveau $E_3$ gepumpt, von wo aus es mit kurzer Lebensdauer in das Niveau $E_2$ relaxiert.
-            Der Übergang $E_{21}$ ist langlebig und wird zum Lasen verwendet. 
-            Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. 
-            Der letzte Übergang $E_{10}$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
-            Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten~\cite[44-45]{eichler_2015}.
+            Der Übergang $E_{2\rightarrow 1}$ ist langlebig und wird zum Lasen verwendet. 
+            %Nach der stimulierten Emission befindet sich das System anders als im Drei-Niveau-System noch nicht im Grundzustand. 
+            Der letzte Übergang $E_{1\rightarrow 0}$ findet ebenfalls relaxierend statt und hat eine sehr kurze Lebensdauer.
+            %Daher wird für dieses System weniger Energie benötigt, um die Besetzungsinversion aufrechtzuerhalten~\cite[44-45]{eichler_2015}.
             \\
         \subsubsection{Resonatoren}
         \label{sec:resonator}
