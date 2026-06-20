@@ -1,24 +1,24 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 \subsection{invertierender Linearverstärker}
-Die theoretischen und expermentellen Werte der Leerlaufverstärkung sowie ihre relative Abweichung nach \autoref{eqn:relabw} sind für die vier Messreihen in \autoref{tab:leer} aufgelistet.
+Die theoretischen und experimentellen Werte der Leerlaufverstärkung sowie ihre relative Abweichung nach \autoref{eqn:relabw} sind für die vier Messreihen in \autoref{tab:leer} aufgelistet.
 \begin{table}
   \centering
   \caption{Experimentelle und theoretische Werte für die Leerlaufverstärkung, sowie deren relative Abweichung.}
   \label{tab:leer}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
-      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.3] S[table-format=1.3] S[table-format=1.1] },
+      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.2] S[table-format=1.3] S[table-format=1.3] S[table-format=1.1] },
       row{1} = {guard, mode=math},
-      vline{4} = {2}{-}{text=\clap{$\pm$}},
+      vline{3,5} = {2}{-}{text=\clap{$\pm$}},
     }
     \toprule
-    \mathrm{Messreihe} & V_{\mathrm{theo}} & \SetCell[c=2]{c} V_{\mathrm{exp}} & & \symup{\Delta}V \mathbin{/} \% \\
+    \mathrm{Messreihe} & \SetCell[c=2]{c} V_{\mathrm{theo}} & & \SetCell[c=2]{c} V_{\mathrm{exp}} & & \symup{\Delta}V \mathbin{/} \% \\
     \midrule
-    1   & 10    & 9.47 & 0.02   & 5.3  \\
-    2   & 6.67  & 6.36 & 0.07   & 4.6  \\
-    3   & 2.13  & 1.966 & 0.032 & 6.3  \\
-    4   & 1.47  & 1.39 & 0.04   & 5.4  \\
+    1   & 10   & 0.14 & 9.44 & 0.02   & 5.6  \\
+    2   & 6.67 & 0.09 & 6.36 & 0.02   & 4.6  \\
+    3   & 2.13 & 0.03 & 1.966 & 0.002 & 7.7  \\
+    4   & 1.47 & 0.02 & 1.39 & 0.04   & 5.4  \\
     \bottomrule
   \end{tblr}
 \end{table}
@@ -30,21 +30,21 @@ Im Idealfall wäre dieser Wert Null. Eine leichte Abweichung kann über mehrere 
 Die experimentell bestimmten Bandbreitenprodukte sind in \autoref{tab:bandwidth} aufgelistet.
 \begin{table}
   \centering
-  \caption{EExperimentell bestimmte Werte für das Bandbreitenprodukt.}
+  \caption{Experimentell bestimmte Werte für das Bandbreitenprodukt.}
   \label{tab:bandwidth}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
-      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.3] S[table-format=1.3] S[table-format=1.1] },
+      colspec = {S[table-format=1.0] S[table-format=3.0] S[table-format=2.0] },
       row{1} = {guard, mode=math},
       vline{3} = {2}{-}{text=\clap{$\pm$}},
     }
     \toprule
-    \mathrm{Messreihe} & \SetCell[c=2]{c} \mathrm{Bandbreitenprodukt} \mathbin{/} \unit{\kilo\hertz} \\
+    \mathrm{Messreihe} & \SetCell[c=2]{c} V\cdot B \mathbin{/} \unit{\kilo\hertz} & \\
     \midrule
-    1 & 200 & 60 \\
-    2 & 240 & 90 \\
-    3 & 240 & 80 \\
-    4 & 240 & 70 \\
+    1 & 205 & 4  \\
+    2 & 238 & 13 \\
+    3 & 240 & 7  \\
+    4 & 238 & 12 \\
     \bottomrule
   \end{tblr}
 \end{table}
@@ -52,14 +52,14 @@ Hierbei ist auffällig, dass die Mittelwerte der letzten drei Messreihen identis
 Das Bandbreitenprodukt der ersten Messreihe mit der höchsten Verstärkung weicht deutlich von den anderen ab. 
 Eine Fehlerquelle könnte sein, dass die Bandbreite mit steigender Verstärkung geringer wird und dadurch Abweichungen in der Plateaulänge entstehen.
 \subsection{Umkehr-Integrator und invertierender Differenzierer}
-Für den Umkehr-Integrator sollte nach \autoref{equ:fint} die Steigung der Gerade $m = -1$ sein, dür en Differenzierer gemäß \autoref{equ:fdiff} $m=1$.
+Für den Umkehr-Integrator sollte nach \autoref{equ:fint} die Steigung der Gerade $m = -1$ sein, für den Differenzierer gemäß \autoref{equ:fdiff} $m=1$.
 Die Fit-Funktionen liefern für die Steigungen
 \begin{align*}
-    b_{\mathrm{int,exp}} &= \qty{-0.841(0.005)}{}, & b_{\mathrm{diff,exp}} &= \qty{0.895(0.003)}{}. \\
+    b_{\mathrm{int,exp}} &= \qty{-0.8872(0.0002)}{}, & b_{\mathrm{diff,exp}} &= \qty{0.8925(0.0013)}{}. \\
 \end{align*}
 Die Abweichungen zu den Theoriewerten betragen
 \begin{align*}
-    \symup{\Delta}b_{\mathrm{int}} &= \qty{15.9(0.5)}{\%}, & \symup{\Delta}b_{\mathrm{diff}} &= \qty{10.5(0.3)}{\%}. \\
+    \symup{\Delta}b_{\mathrm{int}} &= \qty{11.28(0.02)}{\%}, & \symup{\Delta}b_{\mathrm{diff}} &= \qty{10.70(0.13)}{\%}. \\
 \end{align*}
 Die großen Abweichungen deuten auf systematische Fehler hin. Das Ablesen der Werte erfolgte mit den Cursorn des Oszilloskops. 
 Es ist möglich, dass beim Ablesen Fehler gemacht wurden. Auch Fehler bei der Auswahl der Widerstände und Kondensatoren sind denkbar. 
@@ -70,7 +70,7 @@ Die experimentellen Bestimmungen liefern Werte für die Schwellspannung von
 \begin{align*}
     U_{\mathrm{Schwell,sin}} &= \pm\qty{1.402(0.0005)}{\volt}, & \overline{U}_{\mathrm{Schwell,tri}} &= \pm\qty{1.4031(0.0045)}{\volt}. \\
 \end{align*}
-Die Abweichung der beiden Werte zueinander ist erkennbar gering. Zm theoretischen Wert $U_{\mathrm{Schwell,theo}} = \pm\qty{1.36}{\volt}$ betragen die relativen Abweichungen nach \autoref{eqn:relabw}
+Die Abweichung der beiden Werte zueinander ist erkennbar gering. Zum theoretischen Wert $U_{\mathrm{Schwell,theo}} = \pm\qty{1.36}{\volt}$ betragen die relativen Abweichungen nach \autoref{eqn:relabw}
 \begin{align*}
     \symup{\Delta}U_{\mathrm{Schwell,sin}} &= \qty{3.10(0.04)}{\%}, & \symup{\Delta}{U}_{\mathrm{Schwell,tri}} &= \qty{3.17(0.33)}{\%}. \\
 \end{align*}

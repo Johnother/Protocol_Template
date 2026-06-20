@@ -35,12 +35,17 @@ ermittelt werden.
 
 \subsection{Verstärkung des invertierenden Linearverstärkers}
 \label{subsec:linear}
-Anhand des frequenzabhängigen Spannungsverlaufs wird nun die Leerlaufverstärkung, die Grenzfrequenz und das Bandbreitenprodukt bestimmt.\\
-Die Auswertung der Daten erfolgt in der Programmiersprache \enquote{Python}. Dazu werden die Bibliotheken \enquote{Numpy} \cite{numpy}, \enquote{Matplotlib} \cite{matplotlib}, \enquote{Scipy} \cite{scipy} und \enquote{uncertainties} \cite{uncertainties} verwendet.
+Anhand des frequenzabhängigen Spannungsverlaufs wird die Leerlaufverstärkung, die Grenzfrequenz und das Bandbreitenprodukt bestimmt.\\
+Die Auswertung der Daten erfolgt in der Programmiersprache \enquote{Python}. 
+Dazu werden die Bibliotheken \enquote{Numpy}~\cite{numpy}, \enquote{Matplotlib}~\cite{matplotlib}, \enquote{Scipy}~\cite{scipy} und \enquote{uncertainties}~\cite{uncertainties} verwendet.
 Der Code ist dem Protokoll in \autoref{sec:minted} beigefügt.
-Die Spannung des Eingangssignals beträgt $U_{\mathrm{e}} = 1\,\unit{\volt}$. Die momentane Verstärkung ergibt sich gemäß \autoref{eqn:verstaerkung}, wobei $U_{\mathrm{e}}$ im Nenner steht. Die gemessene Spannung kann also direkt als Verstärkung aufgefasst werden.\\
-Verstärkung und Frequenz werden für jede Messreihe in einem doppelt-logarithmischen Diagramm aufgetragen. Die gemessenen Werte für Frequenz, Ausgangsspannung und Phasenversatz sind im Anhang \autoref{sec:Anhang}, in den Tabellen \ref{tab:lin1}, \ref{tab:lin2}, \ref{tab:lin3} und \ref{tab:lin4} aufgeführt.\\
-Die theoretische Verstärkung wird aus dem Verhältnis der verwendeten Widerstände aus \autoref{tab:widerstaende} mittels \autoref{eqn:V_theo} berechnet. Es ergeben sich folgende theoretische Verstärkungen:
+Die Spannung des Eingangssignals beträgt $U_{\mathrm{e}} = 1\,\unit{\volt}$. 
+Die momentane Verstärkung ergibt sich gemäß \autoref{eqn:verstaerkung}, wobei $U_{\mathrm{e}}$ im Nenner steht. 
+Die gemessene Spannung kann direkt als Verstärkung aufgefasst werden.\\
+Verstärkung und Frequenz werden für jede Messreihe in einem doppelt-logarithmischen Diagramm aufgetragen. 
+Die gemessenen Werte für Frequenz, Ausgangsspannung und Phasenversatz sind im Anhang \autoref{sec:Anhang}, in den Tabellen~\ref{tab:lin1},~\ref{tab:lin2},~\ref{tab:lin3} und~\ref{tab:lin4} aufgeführt.\\
+Die theoretische Verstärkung wird aus dem Verhältnis der verwendeten Widerstände aus \autoref{tab:widerstaende} mittels \autoref{eqn:V_theo} berechnet. 
+Es ergeben sich folgende theoretische Verstärkungen:
 % \begin{align*}
 %   V_{\mathrm{theo,1}} &= 10, \\
 %   V_{\mathrm{theo,2}} &\approx 6.67, \\
@@ -54,26 +59,27 @@ Die theoretische Verstärkung wird aus dem Verhältnis der verwendeten Widerstä
   \label{tab:gain}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
-      colspec = {S[table-format=1.0] S[table-format=2.2]},
+      colspec = {S[table-format=1.0] S[table-format=2.2] S[table-format=1.2]},
       row{1} = {guard},
+      vline{3} = {2}{-}{text=\clap{$\pm$}}
     }
     \toprule
-      Messreihe & Verstärkung \\
+      Messreihe & \SetCell[c=2]{c} Verstärkung & \\
     \midrule
-      1 & 10   \\
-      2 & 6.67 \\
-      3 & 2.13 \\
-      4 & 1.47 \\
+      1 & 10 & 0.14  \\
+      2 & 6.67 & 0.09 \\
+      3 & 2.13 & 0.03 \\
+      4 & 1.47 & 0.02 \\
     \bottomrule
   \end{tblr}
 \end{table}
 \FloatBarrier
 Das negative Vorzeichen wird hier vernachlässigt, da die gemessenen Spannungswerte ebenfalls ohne Vorzeichen betrachtet werden.\\
-Bei der ersten Messreihe werden die Widerstände $R_1 = \qty{10}{\kilo\ohm}$ und $R_2 = \qty{100}{\kilo\ohm}$ verwendet. Die gegeneinander aufgetragenen Messwerte aus \autoref{tab:lin1} zeigt \autoref{fig:lin1}. 
+Bei der ersten Messreihe werden die Widerstände $R_1 = \qty{10(0.1)}{\kilo\ohm}$ und $R_2 = \qty{100(1)}{\kilo\ohm}$ verwendet. Die gegeneinander aufgetragenen Messwerte aus \autoref{tab:lin1} zeigt \autoref{fig:lin1}. 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{content/images/lin1.pdf}
-  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{10}{\kilo\ohm}$ und $R_2 = \qty{100}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
+  \includegraphics[width=0.7\textwidth]{content/images/lin1.pdf}
+  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{10(0.1)}{\kilo\ohm}$ und $R_2 = \qty{100(1)}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
   \label{fig:lin1}
 \end{figure}
 \FloatBarrier
@@ -90,14 +96,14 @@ Zur Bestimmung der Leerlaufverstärkung wird die Höhe des Spannungsplateaus dur
 verwendet. Für das Plateau beschreibt der Parameter $A=A_0$ die Höhe der Leerlaufverstärkung. Der Parameter $b=b_0$ sollte nahe Null liegen. An ihm kann abgelesen werden, wie konstant die Werte auf dem Plateau sind.
 Aus dem Fit der Gerade auf dem Plateau ergibt sich für die Parameter:
 \begin{align}
-  A_{0,1} &= \qty{9.47(0.02)}{}\,\mathrm{,} \\
-  b_{0,1} &= \qty{1.8(0.3)e-3}{}\,\mathrm{.}
+  A_{0,1} &= \qty{9.44(0.02)}{}\,\mathrm{,} \\
+  b_{0,1} &= \qty{1.7(0.5)e-3}{}\,\mathrm{.}
 \end{align}
-Die experimentelle Leerlaufverstärkung ist also $V_1 = A_{0,1} \qty{9.47(0.02)}{}$.\\
+Die experimentelle Leerlaufverstärkung ist also $V_1 = A_{0,1} \qty{9.44(0.02)}{}$.\\
 Die Werte für die Parameter aus dem Fit des abfallenden Bereiches sind
 \begin{align}
-  A_{\mathrm{lin},1} &= \qty{5.2(0.9)e4}, \\
-  b_{\mathrm{lin},1} &= \qty{-0.898(0.017)}{}.
+  A_{\mathrm{lin},1} &= \qty{5.25(0.07)e4}, \\
+  b_{\mathrm{lin},1} &= \qty{-0.898(0.001)}{}.
 \end{align}
 Die Grenzfrequenz ist definiert durch den Abfall der Verstärkung um etwa $70.7\%$ und wird durch \autoref{eqn:grenzfrequenz} beschrieben. Sie entspricht der Bandbreite des Operationsverstärkers. Durch Einsetzen der Fit-Funktion in diese Gleichung folgt
 \begin{equation}
@@ -110,91 +116,91 @@ Durch Umstellen ergibt sich als Formel für die Grenzfrequenz
 \end{equation}
 Mit den Parametern aus den beiden Fit-Funktionen ergibt sich für die erste Messreihe mit Fehlerfortpflanzung gemäß \autoref{eqn:fehlerfortpflanzung} eine Grenzfrequenz von
 \begin{equation}
-  f_{\mathrm{G},1} = \qty{22(6)}{\kilo\hertz}\,\mathrm{.}
+  f_{\mathrm{G},1} = \qty{21.7(0.5)}{\kilo\hertz}\,\mathrm{.}
 \end{equation}
 Das Bandbreitenprodukt ergibt sich aus der Grenzfrequenz und der maximalen Verstärkung aus \autoref{eqn:bandbreitenprodukt}. Experimentell bestimmt beträgt das Bandbreitenprodukt
 \begin{equation}
-  V_1\cdot B = A_{0,1}\cdot F_{\mathrm{G},1} = \qty{200(60)}{\kilo\hertz}.
+  V_1\cdot B = A_{0,1}\cdot f_{\mathrm{G},1} = \qty{205(4)}{\kilo\hertz}.
 \end{equation}
 \\
-Für die zweite Messreihe wird der Widerstand $R_1=\qty{15}{\kilo\ohm}$ verwendet, der Widerstand $R_2$ wird nicht verändert. \autoref{fig:lin2} zeigt die Messwerte dieses OPV aus \autoref{tab:lin2} als doppelt-logarithmisches Diagramm. 
+Für die zweite Messreihe wird der Widerstand $R_1=\qty{15(0.15)}{\kilo\ohm}$ verwendet, der Widerstand $R_2$ wird nicht verändert. \autoref{fig:lin2} zeigt die Messwerte dieses OPV aus \autoref{tab:lin2} als doppelt-logarithmisches Diagramm. 
 Dabei werden wieder die Messwerte im Frequenzbereich vor dem Plateau nicht betrachtet.
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{content/images/lin2.pdf}
-  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{15}{\kilo\ohm}$ und $R_2 = \qty{100}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
+  \includegraphics[width=0.7\textwidth]{content/images/lin2.pdf}
+  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{15(0.15)}{\kilo\ohm}$ und $R_2 = \qty{100(1)}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
   \label{fig:lin2}
 \end{figure}
 \FloatBarrier
 \noindent
 Zur Auswertung von Plateau und linear abfallendem Bereich wird wieder die Fit-Funktion aus \autoref{eqn:fit} verwendet. Die Fit-Parameter für das Plateau und den abfallenden Bereich sind
 \begin{align}
-  A_{0,2} &= \qty{6.36(0.07)}{}, \\
-  b_{0,2} &= \qty{3.7(1.8)e-3}{}, \\
-  A_{\mathrm{lin},2} &= \qty{1.10(0.29)e5}, \\
-  b_{\mathrm{lin},2} &= \qty{-0.959(0.025)}{}.
+  A_{0,2} &= \qty{6.36(0.02)}{}, \\
+  b_{0,2} &= \qty{4.0(0.4)e-3}{}, \\
+  A_{\mathrm{lin},2} &= \qty{1.10(0.04)e5}, \\
+  b_{\mathrm{lin},2} &= \qty{-0.960(0.004)}{}.
 \end{align}
-Für diesen OPV beträgt die Leerlaufverstärkung also $V_2 = A_{0,2} = \qty{6.36(0.07)}{}$.
+Für diesen OPV beträgt die Leerlaufverstärkung $V_2 = A_{0,2} = \qty{6.36(0.02)}{}$.
 Mit der umgestellten Formel für die Grenzfrequenz aus \autoref{eqn:f_G} und Fehlerfortpflanzung nach \autoref{eqn:fehlerfortpflanzung} ergibt sich für die zweite Messreihe eine Grenzfrequenz von
 \begin{equation}
-  f_{\mathrm{G},2} = \qty{37(15)}{\kilo\hertz}\,\mathrm{.}
+  f_{\mathrm{G},2} = \qty{37.4(2)}{\kilo\hertz}\,\mathrm{.}
 \end{equation}
 Das Bandbreitenprodukt beträgt
 \begin{equation}
-  V_2\cdot B = A_{0,2}\cdot F_{\mathrm{G},2} = \qty{240(90)}{\kilo\hertz}.
+  V_2\cdot B = A_{0,2}\cdot f_{\mathrm{G},2} = \qty{238(13)}{\kilo\hertz}.
 \end{equation}
 \\
-Die dritte Messreihe verwendet den Widerstand $R_1=\qty{47}{\kilo\ohm}$. $R_2$ bleibt unverändert. 
+Die dritte Messreihe verwendet den Widerstand $R_1=\qty{47(0.47)}{\kilo\ohm}$. $R_2$ bleibt unverändert. 
 Den Frequenzgang der Verstärkung aus \autoref{tab:lin3}, ohne die Messwerte vor dem Plateau zu berücksichtigen, zeigt \autoref{fig:lin3}. 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{content/images/lin3.pdf}
-  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{47}{\kilo\ohm}$ und $R_2 = \qty{100}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
+  \includegraphics[width=0.7\textwidth]{content/images/lin3.pdf}
+  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{47(0.47)}{\kilo\ohm}$ und $R_2 = \qty{100(1)}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
   \label{fig:lin3}
 \end{figure}
 \FloatBarrier
 \noindent
 Aus den mit \autoref{eqn:fit} erstellten Fits für das Plateau und den abfallenden Bereich ergeben sich die Fit-Parameter
 \begin{align}
-  A_{0,3} &= \qty{1.966(0.032)}{}, \\
-  b_{0,3} &= \qty{6.5(2.5)e-3}{}, \\
-  A_{\mathrm{lin},3} &= \qty{1.44(0.33)e5}, \\
-  b_{\mathrm{lin},3} &= \qty{-0.986(0.019)}{}.
+  A_{0,3} &= \qty{1.966(0.002)}{}, \\
+  b_{0,3} &= \qty{6.5(0.1)e-3}{}, \\
+  A_{\mathrm{lin},3} &= \qty{1.44(0.03)e5}, \\
+  b_{\mathrm{lin},3} &= \qty{-0.986(0.002)}{}.
 \end{align}
-Die experimentelle Leerlaufverstärkung beträgt $V_3 = A_{0,3} = \qty{1.966(0.032)}{}$.
+Die experimentelle Leerlaufverstärkung beträgt $V_3 = A_{0,3} = \qty{1.966(0.002)}{}$.
 Mit \autoref{eqn:f_G} und \autoref{eqn:fehlerfortpflanzung} ergibt sich für die Grenzfrequenz der dritten Messreihe
 \begin{equation}
-  f_{\mathrm{G},3} = \qty{120(40)}{\kilo\hertz}\,\mathrm{.}
+  f_{\mathrm{G},3} = \qty{122.2(3.5)}{\kilo\hertz}\,\mathrm{.}
 \end{equation}
 Für das Bandbreitenprodukt folgt damit
 \begin{equation}
-  V_3\cdot B = A_{0,3}\cdot F_{\mathrm{G},3} = \qty{240(80)}{\kilo\hertz}.
+  V_3\cdot B = A_{0,3}\cdot f_{\mathrm{G},3} = \qty{240(7)}{\kilo\hertz}.
 \end{equation}
 \\
-Für die letzte Messreihe wird der Widerstand $R_1 = \qty{68}{\kilo\ohm}$ verwendet. Den Frequenzgang der Verstärkung aus \autoref{tab:lin4} zeigt die \autoref{fig:lin4}. Die Messwerte vor dem Plateau werden nicht berücksichtigt.
+Für die letzte Messreihe wird der Widerstand $R_1 = \qty{68(0.68)}{\kilo\ohm}$ verwendet. Den Frequenzgang der Verstärkung aus \autoref{tab:lin4} zeigt die \autoref{fig:lin4}. Die Messwerte vor dem Plateau werden nicht berücksichtigt.
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{content/images/lin4.pdf}
-  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{68}{\kilo\ohm}$ und $R_2 = \qty{100}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
+  \includegraphics[width=0.7\textwidth]{content/images/lin4.pdf}
+  \caption{Verstärkung des invertierenden Linearverstärkers mit $R_1 = \qty{68(0.68)}{\kilo\ohm}$ und $R_2 = \qty{100(1)}{\kilo\ohm}$, abhängig von der Frequenz der Eingangsspannung.}
   \label{fig:lin4}
 \end{figure}
 \FloatBarrier
 \noindent
 Die Fit-Parameter aus \autoref{eqn:fit} für das Plateau und den abfallenden Bereich sind
 \begin{align}
-  A_{0,4} &= \qty{1.39(0.04)}{}, \\
-  b_{0,4} &= \qty{5.4(3.1)e-3}{}, \\
-  A_{\mathrm{lin},4} &= \qty{1.68(0.34)e5}, \\
-  b_{\mathrm{lin},4} &= \qty{-1.000(0.017)}{}.
+  A_{0,4} &= \qty{1.393(0.002)}{}, \\
+  b_{0,4} &= \qty{5.4(0.1)e-3}{}, \\
+  A_{\mathrm{lin},4} &= \qty{1.68(0.06)e5}, \\
+  b_{\mathrm{lin},4} &= \qty{-1.000(0.003)}{}.
 \end{align}
 Für die experimentelle Leerlaufverstärkung ergibt sich hier also $V_4 = A_{0,4} = \qty{1.39(0.04)}{}$.
 Die aus diesen Parametern berechnete Grenzfrequenz gemäß \autoref{eqn:f_G} und \autoref{eqn:fehlerfortpflanzung} beträgt
 \begin{equation}
-  f_{\mathrm{G},4} = \qty{170(50)}{\kilo\hertz}\,\mathrm{.}
+  f_{\mathrm{G},4} = \qty{171(8)}{\kilo\hertz}\,\mathrm{.}
 \end{equation}
 Das Bandbreitenprodukt beträgt
 \begin{equation}
-  V_4\cdot B = A_{0,4}\cdot F_{\mathrm{G},4} = \qty{240(70)}{\kilo\hertz}.
+  V_4\cdot B = A_{0,4}\cdot f_{\mathrm{G},4} = \qty{238(12)}{\kilo\hertz}.
 \end{equation}
 
 \subsection{Phasenbeziehung des invertierenden Linearverstärkers}
@@ -203,12 +209,12 @@ Um daraus die Phasendifferenz im Gradmaß zu erhalten, werden die Messwerte mit 
 \begin{equation*}
   \symup{\Delta\phi} = \symup{\Delta}t \cdot f\cdot 360\unit{\degree}
 \end{equation*}
-umgerechnet \cite{studyflix}.\\
+umgerechnet~\cite{studyflix}.\\
 Der erhaltene Frequanzgang der Phasendifferenz für alle vier Messreihen wird in \autoref{fig:phasendifferenz} dargestellt. Die $x-$Achse ist dabei logarithmiert. 
 Die Zuordnung der Diagramme zu ihrer jeweiligen Messreihe erfolgt über ihre theoretische Verstärkung (vgl. \autoref{tab:gain}).
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{content/images/lin_phase.pdf}
+  \includegraphics[width=0.7\textwidth]{content/images/lin_phase.pdf}
   \caption{Phasendifferenzen in Abhängigkeit der Frequenz für die vier Messreihen des invertierenden Linearverstärkers, sortiert nach ihrer theoretischen Verstärkung.}
   \label{fig:phasendifferenz}
 \end{figure}
@@ -220,7 +226,7 @@ Der Wertebereich erstreckt sich bei den vier Messreihen über etwa $180\,\unit{\
 Die Messwerte des Frequenzgangs des Umkehr-Integrators sind in \autoref{tab:integrator} aufgeführt. Zur Auswertung werden sie in einem doppelt-logarithmischen Diagramm dargestellt. Dies zeigt \autoref{fig:integrator}.
 \begin{figure}
   \centering
-  \includegraphics[height=0.25\textheight]{content/images/integrator.pdf}
+  \includegraphics[height=0.5\textwidth]{content/images/integrator.pdf}
   \caption{Verstärkung des Umkehr-Integrators abhängig von der Frequenz, doppelt-logarithmischer Plot.}
   \label{fig:integrator}
 \end{figure}
@@ -230,15 +236,15 @@ Gemäß \autoref{equ:fint} ist die Verstärkung des Umkehr-Integrators invers-pr
 Zur Überprüfung der Frequenzabhängigkeit der Verstärkung wird als Fit-Funktion \autoref{eqn:fit} verwendet. Dabei entspricht der Parameter $b$ der Steigung der Geraden im Diagramm.\\
 Aus dem Fit ergeben sich folgende Parameter
 \begin{align*}
-  A &= \qty{655(16)}{}, & b &= \qty{-0.841(0.005)}{}.\\
+  A &= \qty{796(0.7)}{}, & b &= \qty{-0.8872(0.0002)}{}.\\
 \end{align*}
 Die Steigung ist gleich dem Exponenten der Fit-Funktion. Sie beträgt also
 \begin{equation}
-  m_{\mathrm{int,exp}} = b = \qty{-0.841(0.005)}{}.
+  m_{\mathrm{int,exp}} = b = \qty{-0.8872(0.0002)}{}.
 \end{equation}
 \\
 Zur Veranschaulichung der Funktionsweise werden ein Sinussignal, ein Rechtecksignal und ein Dreiecksignal an den Eingang des Umkehr-Integrators gelegt. 
-Die Abbildungen \ref{fig:intSin}, \ref{fig:intRec} und \ref{fig:intTri} zeigen das Eingangs- und Ausgangssignal auf dem Oszilloskop. Dabei ist die gelbe Kurve das Eingangssignal und die grüne Kurve das Ausgangssignal.
+Die Abbildungen~\ref{fig:intSin},~\ref{fig:intRec} und~\ref{fig:intTri} zeigen das Eingangs- und Ausgangssignal auf dem Oszilloskop. Dabei ist die gelbe Kurve das Eingangssignal und die grüne Kurve das Ausgangssignal.
 \begin{figure}
   \centering
   \includegraphics[height=0.25\textheight]{content/images/intSin.png}
@@ -270,7 +276,7 @@ Es ist gut zu erkennen, dass die Ausgangssignale den Stammfunktionen der Eingang
 Die Messwerte des Frequenzgangs des Differenzierers sind in \autoref{tab:differenzierer} aufgeführt. Diese werden ebenfalls in einem doppelt-logarithmischen Diagramm dargestellt, welches \autoref{fig:diff} zeigt.
 \begin{figure}
   \centering
-  \includegraphics[height=0.25\textheight]{content/images/differenzierer.pdf}
+  \includegraphics[height=0.5\textwidth]{content/images/differenzierer.pdf}
   \caption{Verstärkung des invertierenden Differenzierers abhängig von der Frequenz, doppelt-logarithmischer Plot.}
   \label{fig:diff}
 \end{figure}
@@ -279,13 +285,13 @@ Die Messwerte des Frequenzgangs des Differenzierers sind in \autoref{tab:differe
 Aus \autoref{equ:fdiff} geht hervor, dass die Verstärkung des Differenzierers linear proportional zur Frequenz ist. In einem doppelt-logarithmischen Plot entspricht dies einer Gerade mit der Steigung $m_{\mathrm{diff,theo}} = 1$.
 Um dies zu zeigen, wird erneut \autoref{eqn:fit} als Fit-Funktin verwendet. Die Fit-Parameter aus \autoref{fig:diff} sind
  \begin{align*}
-  A &= \qty{9.6(0.8)e-3}{}, & b &= \qty{0.895(0.003)}{}.\\
+  A &= \qty{9.71(0.09)e-3}{}, & b &= \qty{0.8925(0.0013)}{}.\\
 \end{align*}
-Die Steigung beträgt also 
+Die Steigung beträgt 
 \begin{equation}
-  m_{\mathrm{diff,exp}}= b =\qty{0.895(0.003)}{}.
+  m_{\mathrm{diff,exp}}= b =\qty{0.8925(0.0013)}{}.
 \end{equation}
-Die Funktionsweise des invertierenden Differenzierers wird in den Abbildungen \ref{fig:diffSin}, \ref{fig:diffRec} und \ref{fig:diffTri} überprüft. Dabei werden Eingangs- und Ausgangssignal auf dem Oszilloskop angezeigt.
+Die Funktionsweise des invertierenden Differenzierers wird in den Abbildungen~\ref{fig:diffSin},~\ref{fig:diffRec} und~\ref{fig:diffTri} überprüft. Dabei werden Eingangs- und Ausgangssignal auf dem Oszilloskop angezeigt.
 \begin{figure}
   \centering
   \includegraphics[height=0.25\textheight]{content/images/diffSin.png}
@@ -366,7 +372,7 @@ Es werden fünf positive und fünf negative Messwerte für die Schwellspannung g
 \end{table}
 Aus diesen zehn Werten wird der Mittelwert nach \autoref{eqn:mittelwert} und dessen Abweichung nach \autoref{eqn:standardmittelwert} gebildet. Dafür wird der Betrag der Messwerte genommen, um das negative Vorzeichen zu kompensieren. Die mittlere Schwellspanung beträgt 
 \begin{equation}
-  \overline{U_{\mathrm{Schwell,tri}}} = \pm\qty{1.4031(0.0045)}{\volt}.
+  \overline{U}_{\mathrm{Schwell,tri}} = \pm\qty{1.4031(0.0045)}{\volt}.
 \end{equation}
 % \begin{figure}
 %   \begin{subfigure}{0.48\textwidth}

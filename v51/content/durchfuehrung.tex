@@ -2,7 +2,7 @@
 \label{sec:Durchführung}
 In diesem Abschnitt wird die Durchführung des Versuchs erläutert. Dazu wird als erstes auf die verwendeten Elemente eingegangen.
 \subsection{Verwendete Elemente und grundlegender Aufbau}
-Zunächst ist eine Spannungsquelle vorhanden, die zwei Gleichspannungen erzeugen kann.%und ausgeben kann. 
+Zunächst ist eine Spannungsquelle vorhanden, die zwei Gleichspannungen erzeugen kann. %und ausgeben kann. 
 %Die Spannung kann dabei über Drehknöpfe eingestellt werden.
 %Weil bei einem der beiden Ausgänge allerdings die vom Generator angezeigte Spannung nicht stimmt, steht zusätzlich ein Voltmeter zur Verfügung. 
 %Dieses wird durch die vorhandenen Kabel mit Bananensteckern an den entsprechenden Ausgang verbunden, um die Spannung überprüfen zu können.
@@ -17,14 +17,14 @@ Eine der beiden wird dabei für den negativen Eingang invertiert und einer mit d
 Am Generator wird bei beiden Spannungen jeweils $\qty{15}{\volt}$ eingestellt. 
 %So wird die Versorgungsspannung für den Operationsverstärker erzeugt.
 \\ 
-Außerdem wird ein Signalgenerator verwendet, welcher Sinus-, Dreiecks- und Rechteckspannungen ausgeben kann.%, wobei Frequenz und Amplitude frei einstellbar sind.
+Außerdem wird ein Signalgenerator verwendet, welcher Sinus-, Dreiecks- und Rechteckspannungen ausgeben kann. %, wobei Frequenz und Amplitude frei einstellbar sind.
 Dessen Ausgang wird als Eingangssignal über das Breadboard mit dem Operationsverstärker  und mit der Masse des Breadboards verbunden.
 Außerdem wird er an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
 %Mit einem entsprechenden Kabel, kann dessen Ausgang mit dem Eingang $V_c$ und der Masse des Breadboards verbunden werden. 
 %Dadurch wird auch das Eingangssignal für den Operationsverstärker generiert.
 %\\
 %Durch ein T-Stück und ein BNC-Kabel wird der Ausgang des Signalgenerators auch an den einen Eingang eines Zwei-Kanal-Oszilloskops angeschlossen. 
-Der andere Eingang des Oszilloskops wird über das Breadboard mit dem Ausgang des Operationsverstärkers verbunden.%einen Adapter an das Breadboard angeschlossen. 
+Der andere Eingang des Oszilloskops wird über das Breadboard mit dem Ausgang des Operationsverstärkers verbunden. %einen Adapter an das Breadboard angeschlossen. 
 So kann bei der Durchführung Ein- und Ausgangssignal am Oszilloskop mittels eingebautem Cursor vermessen werden. 
 \\
 Auf dem Breadboard können so die in \autoref{sec:schaltungen} beschriebenen Schaltungen aufgebaut werden. 
@@ -53,8 +53,8 @@ Zur Untersuchung des invertierenden Linearverstärkers wird dieser zunächst auf
 %\\
 Für vier verschiedene Verstärkungen bzw. Verhältnisse der eingesetzten Widerstände wird die Verstärkung abhängig von der Frequenz vermessen. 
 Dazu wird zunächst am Signalgenerator ein sinusförmiges Signal mit einer festen Amplitude von $\qty{1}{\volt}$ eingestellt. 
-Anschließen wird die Frequenz bei $\qty{1}{\hertz}$ startend über mehrere Dekaden in exponentiell größer werdenden Schritten erhöht. 
-Bei jedem Schritt wird mit dem Cursor am Oszilloskop dann sowohl die Amplitude des Ausgangssignals als auch der zeitliche Abstand zwischen den beiden Signalen gemessen.
+Anschließend wird die Frequenz bei $\qty{1}{\hertz}$ startend über mehrere Dekaden in exponentiell größer werdenden Schritten erhöht. 
+Bei jedem Schritt wird mit dem Cursor am Oszilloskop sowohl die Amplitude des Ausgangssignals als auch der zeitliche Abstand zwischen den beiden Signalen gemessen.
 Letzteres gelingt, indem von Maximum des Eingangssignals zu Maximum des Ausgangssignals gemessen und daraus der Phasenversatz bestimmt wird. 
 Dies wird so lange gemacht, bis ein deutlicher Abfall der Verstärkung zu verzeichnen ist und für 
 die vier Verhähltnisse von Widerständen durchgeführt, wie sie in \autoref{tab:widerstaende} dargestellt sind, wiederholt.
@@ -65,17 +65,17 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
   \label{tab:widerstaende}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
-      colspec = {S[table-format=3.0] S[table-format=2.1] S},
+      colspec = {S[table-format=1.0] S[table-format=2.0] S[table-format=1.2] S[table-format=3.0] S[table-format=1.0]},
       row{1} = {guard, mode=math},
-      %vline{4} = {2}{-}{text=\clap{$\pm$}},
+      vline{3,5} = {2}{-}{text=\clap{$\pm$}},
     }
     \toprule
-    \mathrm{Messdurchgang}&R_1 \mathbin{/} \unit{\kilo\ohm} & R_2 \mathbin{/} \unit{\kilo\ohm}  \\
+    \mathrm{Messdurchgang} & \SetCell[c=2]{c} R_1 \mathbin{/} \unit{\kilo\ohm} & & \SetCell[c=2]{c} R_2 \mathbin{/} \unit{\kilo\ohm} & \\
     \midrule
-    1 & 10 & 100  \\
-    2 & 15 & 100  \\
-    3 & 47 & 100  \\
-    4 & 68 & 100  \\
+    1 & 10 & 0.1 & 100 & 1  \\
+    2 & 15 & 0.15 & 100 & 1  \\
+    3 & 47 & 0.47 & 100 & 1  \\
+    4 & 68 & 0.68 & 100 & 1  \\
     \bottomrule
   \end{tblr}
 \end{table}
@@ -84,7 +84,7 @@ Außerdem ist auch die jeweils eingestellte Amplitude am Signalgenerator eingetr
 \subsection{Untersuchung des Integrators}
 Um den Linearverstärker zu einem Umkehr-Integrator umzubauen %muss der Widerstand $R_2$ durch einen Kondensator ausgetauscht werden.
 wird das Schaltbild wie in \autoref{fig:schalt2} aufgebaut.
-Es wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit einer Kapatzität von $C=\qty{100}{\nano\farad}$ verwendet.
+Es wird ein Widerstand von $R=\qty{1(0.01)}{\kilo\ohm}$ und ein Kondensator mit einer Kapatzität von $C=\qty{100(5)}{\nano\farad}$ verwendet.
 Bei $\qty{1}{\hertz}$ startend wird über mehrere Dekaden schrittweise exponentiell die Frequenz erhöht und am Oszilloskop die Amplitude ermittelt.
 %Wobei auch hier die Schritte exponentiell größer werden. 
 %Erneut wird mit dem Cursor am Oszilloskop die Amplitude der Ausgangsspannung gemessen.
@@ -100,7 +100,7 @@ am Oszilloskop das Ausgangssignal beobachtet.
 \subsection{Untersuchung des Differenzierers}
 %Beim invertierenden Differenzierer müssen Widerstand und Kondensator im Vergleich zum Integrator vertauscht werden, um 
 Es wird die Schaltung aus \autoref{fig:schalt3} aufgebaut.
-Dabei wird ein Widerstand von $R=\qty{1}{\kilo\ohm}$ und ein Kondensator mit der Kapatzität $C=\qty{1}{\micro\farad}$ in die Schaltung eingesetzt.
+Dabei wird ein Widerstand von $R=\qty{1(0.01)}{\kilo\ohm}$ und ein Kondensator mit der Kapatzität $C=\qty{1(0.05)}{\micro\farad}$ in die Schaltung eingesetzt.
 Die Messung wird genauso durchgeführt, wie beim Integrator.
 Auch hierbei wird für ein Sinus-, Dreiecks- und Rechteckssignal jeweils das Ausgangssignal am Oszilloskop beobachtet.
 Dabei sollte die Frequenz etwa der Zeitkonstante und somit $\nu=RC$ entsprechen.
