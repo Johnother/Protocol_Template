@@ -151,22 +151,22 @@ I = (konkon[:,2]-dunkelWat)
 I_err = konkon[:,3]
 
 
-popt,pcov=curve_fit(quad,L,I,sigma=I_err,absolute_sigma=True)
+#popt,pcov=curve_fit(quad,L,I,sigma=I_err,absolute_sigma=True)
+#
+#a, b, c = popt
+#a_err, b_err, c_err = np.sqrt(np.diag(pcov))
 
-a, b, c = popt
-a_err, b_err, c_err = np.sqrt(np.diag(pcov))
-
-print("konkon-Fit:")
-print(f"a = {a:.4f} \u00B1 {a_err:.4f}")
-print(f"b = {b:.4f} \u00B1 {b_err:.4f}")
-print(f"c = {c:.4f} \u00B1 {c_err:.4f}")
+#print("konkon-Fit:")
+#print(f"a = {a:.4f} \u00B1 {a_err:.4f}")
+#print(f"b = {b:.4f} \u00B1 {b_err:.4f}")
+#print(f"c = {c:.4f} \u00B1 {c_err:.4f}")
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(L,I,yerr=I_err,fmt="x",capsize=3,label="Messwerte")
 
-x_fit=np.linspace(np.min(x),np.max(x),1000)
+#x_fit=np.linspace(np.min(x),np.max(x),1000)
 
-ax.plot(x_fit,quad(x_fit, *popt),label="Quadratischer Fit")
+#ax.plot(x_fit,quad(x_fit, *popt),label="Quadratischer Fit")
 
 ax.set_xlabel(r"$L$ [m]")
 ax.set_ylabel(r"$I$ [mW]")
@@ -189,22 +189,22 @@ L_err = plankon[:,1]
 I = (plankon[:,2]-dunkelWat)
 I_err = plankon[:,3]
 
-popt,pcov=curve_fit(lin,L,I,sigma=I_err,absolute_sigma=True)
+#popt,pcov=curve_fit(lin,L,I,sigma=I_err,absolute_sigma=True)
+#
+#a, b = popt
+#a_err, b_err = np.sqrt(np.diag(pcov))
 
-a, b = popt
-a_err, b_err = np.sqrt(np.diag(pcov))
-
-print("plankon-Fit:")
-print(f"a = {a:.4f} \u00B1 {a_err:.4f}")
-print(f"b = {b:.4f} \u00B1 {b_err:.4f}")
+#print("plankon-Fit:")
+#print(f"a = {a:.4f} \u00B1 {a_err:.4f}")
+#print(f"b = {b:.4f} \u00B1 {b_err:.4f}")
 
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(L,I,yerr=I_err,fmt="x",capsize=3,label="Messwerte")
 
-x_fit=np.linspace(np.min(x),np.max(x),1000)
+#x_fit=np.linspace(np.min(x),np.max(x),1000)
 
-ax.plot(x_fit,lin(x_fit, *popt),label="Linearer Fit")
+#ax.plot(x_fit,lin(x_fit, *popt),label="Linearer Fit")
 
 ax.axvline(x=np.max(L),color="red",linestyle="--",linewidth=1.5,label=rf"$L_{{\max}} = {np.max(L):.3f}\,\mathrm{{m}}$")
 
