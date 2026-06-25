@@ -130,7 +130,9 @@ print(f"alpha    = {daem.nominal_value:.8f}    \u00B1 {daem.std_dev:.8f} ")
 
 ### Dielektrizität ###
 
-eps = ((const.c*delt)/(2*L))**2
+Ltheo = np.array([85, 5, 10, 1.5 , 10, 1.15])
+
+eps = ((const.c*delt)/(2*Ltheo))**2
 
 
 
@@ -138,8 +140,19 @@ eps = ((const.c*delt)/(2*L))**2
 
 with open("laenge_daempfung.txt", "w") as f:
     for i in range(len(L)):
-        f.write(f"{index[i]} & {L[i].nominal_value:.3f} & {L[i].std_dev:.3f} & {Alpha[i].nominal_value:.4f} & {Alpha[i].std_dev:.4f}  \\\\\n")
+        f.write(f"{index[i]} & {L[i].nominal_value:.3f} & {L[i].std_dev:.3f} & {Alpha[i].nominal_value:.4f} & {Alpha[i].std_dev:.4f} &  {eps[i].nominal_value:.4f} & {eps[i].std_dev:.4f}\\\\\n")
 
+
+### relative Abweichungen ###
+
+abwL = 100*np.abs((unp.nominal_values(L) - Ltheo)/(Ltheo))
+
+abweps = 100*np.abs((unp.nominal_values(eps)-epsr)/(epsr))
+
+
+with open("relabw.txt", "w") as f:
+    for i in range(len(abwL)):
+        f.write(f"{index[i]} & {abwL[i]:.3f} & {abweps[i]:.3f} \\\\\n")
 
 ### Reihenschaltung ###
 

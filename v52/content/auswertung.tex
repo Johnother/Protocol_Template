@@ -104,26 +104,29 @@ In \autoref{fig:leitungskonstanten} sind die Leitungskonstanten $R$, $L$, $C$ un
 %
 %
 %
-\subsection{Ermittlung der Länge und Dämpfung verschiedener Koaxialkabel}
+\subsection{Ermittlung der Länge, Dämpfung und Dielektrizitäten verschiedener Koaxialkabel}
 Die Messung Zeitdifferenz zwischen ausgehendem und reflektiertem Spannungspuls sowie deren Amplituden ist für sechs verschiedene Koaxialkabel in \autoref{tab:messlendaem} angegeben.
 Die entsprechenden Ausgaben am Oszilloskop sind in \autoref{fig:lendeambilder} zu sehen.
 Aus den Zeitdifferenzen $\Delta t$ lässt sich nach \autoref{eqn:laenge} die Länge der Kabel bestimmen.
 Die Phasengeschwindigkeit ist nach \autoref{eqn:phasengeschw} $v_{\mathrm{Phase}}\approx\qty{2.00e8}{\meter\per\second}$.
-Außerdem lassen sich aus dem Amplitudenverhältnis $\frac{U_0}{U_L}$ mit der ermittelten Länge der Kabel, die Dämpfungskonstanten $\alpha$ der Kabel nach \autoref{eqn:daempfung} bestimmen.
-Die berechneten Werte von $L$ und $\alpha$ sind in \autoref{tab:lendeam} für die sechs Kabel eingetragen.
+Außerdem lassen sich aus dem Amplitudenverhältnis $\frac{U_0}{U_l}$ mit der ermittelten Länge der Kabel, die Dämpfungskonstanten $\alpha$ der Kabel nach \autoref{eqn:daempfung} bestimmen.
+Die Dielektrizitäten lassen sich nach \autoref{eqn:diel} berechnen.
+Dabei wurde für die Länge $l$ die genauen Kabellänge aus \autoref{tab:lentheo} verwendet. 
+Die berechneten Werte von $l$, $\alpha$ und $\epsilon_r$ sind in \autoref{tab:lendaem} für die sechs Kabel eingetragen.
+
 \begin{table}[H]
     \centering
-    \caption{Aus \autoref{tab:messlendaem} berechnete Längen $L$ und Dämpfungen $\alpha$ sechs verschiedener Koaxialkabel.}
-    \begin{tabular}{ccc}
+    \caption{Aus \autoref{tab:messlendaem} berechnete Längen $l$ Dämpfungen $\alpha$ und Dielektrizitäten $\epsilon_r$ sechs verschiedener Koaxialkabel.}
+    \begin{tabular}{cccc}
     \toprule
-    Kabel & $L \,/\, [\unit{\meter}]$ & $\alpha \,/\, [1/\unit{\meter}]$ \\
+    Kabel & $l \,/\, [\unit{\meter}]$ & $\alpha \,/\, [1/\unit{\meter}]$ & $\epsilon_r\,/\, [1] $\\
     \midrule
-    1 & 83,9  $\pm$ 1,0 & 0,0087 $\pm$ 0,0004  \\
-    2 & 5,0   $\pm$ 0,2 & 0,0235 $\pm$ 0,0026  \\
-    3 & 10,0  $\pm$ 0,4 & 0,0177 $\pm$ 0,0015  \\
-    4 & 1,7   $\pm$ 0,1 & 0,1341 $\pm$ 0,0103  \\
-    5 & 10,0  $\pm$ 0,4 & 0,0253 $\pm$ 0,0016  \\
-    6 & 1,3   $\pm$ 0,1 & 0,0299 $\pm$ 0,0088  \\
+    1,0 & 83,942 $\pm$ 0,999 & 0,0087 $\pm$ 0.0004 &  2,19 $\pm$ 0,05\\
+    2,0 &  4,997 $\pm$ 0,200 & 0,0235 $\pm$ 0.0026 &  2,25 $\pm$ 0,18\\
+    3,0 &  9,993 $\pm$ 0,400 & 0,0177 $\pm$ 0.0015 &  2,25 $\pm$ 0,18\\
+    4,0 &  1,699 $\pm$ 0,100 & 0,1341 $\pm$ 0.0103 &  2,89 $\pm$ 0,34\\
+    5,0 &  9,993 $\pm$ 0,400 & 0,0253 $\pm$ 0.0016 &  2,25 $\pm$ 0,18\\
+    6,0 &  1,299 $\pm$ 0,100 & 0,0299 $\pm$ 0.0088 &  2,87 $\pm$ 0,44\\
     \bottomrule
     \end{tabular}
     \label{tab:lendaem}
