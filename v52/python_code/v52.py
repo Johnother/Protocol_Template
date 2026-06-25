@@ -141,3 +141,22 @@ with open("laenge_daempfung.txt", "w") as f:
         f.write(f"{index[i]} & {L[i].nominal_value:.3f} & {L[i].std_dev:.3f} & {Alpha[i].nominal_value:.4f} & {Alpha[i].std_dev:.4f}  \\\\\n")
 
 
+### Reihenschaltung ###
+
+reihe = np.genfromtxt("reihe.txt")
+
+U = unp.uarray(reihe[:,0],reihe[:,1])
+
+Gam1 = U[1]/U[0]
+
+Gam2 = U[2]/(U[0]*(1-Gam1)**2)
+
+Gam03 = U[3]/(U[0]*Gam1*Gam2*(1-Gam1)**2)
+
+Gam04 = U[4]/(U[0]*(Gam2**2)*(1-Gam1)**4)
+
+print("Reflektionsfaktoren")
+print(f"Gamma_0 mit U3 = ", Gam03)
+print(f"Gamma_0 mit U4 = ", Gam04)
+print(f"Gamma_1 =  ", Gam1)
+print(f"Gamma_2 =  ", Gam2)
