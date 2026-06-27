@@ -164,9 +164,9 @@ Gam1 = U[1]/U[0]
 
 Gam2 = U[2]/(U[0]*(1-Gam1)**2)
 
-Gam03 = U[3]/(U[0]*Gam1*Gam2*(1-Gam1)**2)
+Gam03 = U[3]/(U[0]*(Gam2**2)*(1-Gam1)**2)
 
-Gam04 = U[4]/(U[0]*(Gam2**2)*(1-Gam1)**4)
+Gam04 = - unp.sqrt(U[4]/(U[0]*(Gam2**3)*(1-Gam1)**2))
 
 print("Reflektionsfaktoren")
 print(f"Gamma_0 mit U3 = ", Gam03)

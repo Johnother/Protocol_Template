@@ -277,23 +277,23 @@ In \autoref{fig:impulsfahrplan} ist der Impulsfahrplan für die Reihenschaltung 
 Die Grafik wurde mit Notability \cite{notability} erstellt.
 Dabei entsprechen die Spannungen $U_i$ den eben genannten Messwerten. 
 Auf den einzelnen Pulsen sind die Formeln für die gemessenen Spannungen abhängig der Reflexionsfaktoren angegeben.
-$\Gamma_0$ ist der Reflexionsfaktor an dem Ende des $\qty{50}{\ohm}$ Kabels, welches an das Messgerät angeschlossen ist, $\Gamma_1$ der an der Schnittstelle der beiden Kabel 
+$\Gamma_{-1}$ ist der Reflexionsfaktor am Übergang vom $\qty{75}{\ohm}$ Kabel zum $\qty{50}{\ohm}$ Kabel, $\Gamma_1$ der am Übergang in die andere Richung 
 und $\Gamma_2$ der am offenen Ende des $\qty{75}{\ohm}$ Kabels.
-Da der gemessene Wert für $U_1$ deutlich kleiner ist als der für $U_2$ wird zunächst angenommen, dass $\Gamma_1$ deutlich kleiner ist als $\Gamma_2$. 
-Auf Grundlage dessen werden einige der Impulse, die an der Grenzfläche Reflektiert werden, vernachlässigt. 
+Es wird angenommen, dass die Reflexionen an dem Ende des $\qty{50}{\ohm}$ Kabel am Messgerät sehr gering sind und somit vernachlässigt werden können. 
 Die vernachlässigten Pulse sind im Impulsfahrplan durch gestrichelte Linien gekennzeichnet. 
 \\
 Es ergeben sich 
 \begin{align}
     U_1 &= \Gamma_1 U_0 \label{eqn:u1}\\
     U_2 &= \Gamma_2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u2}\\
-    U_3 &= \Gamma_0 \Gamma_1 \Gamma_2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u3}\\
-    U_4 &= \Gamma_0 \Gamma_2^2 \left(1-\Gamma_1\right)^4 U_0 \label{eqn:u4} \, .
+    U_3 &= \Gamma_{-1} \Gamma_2^2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u3}\\
+    U_4 &= \Gamma_{-1}^2 \Gamma_2^3 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u4} \, .
 \end{align}
 Daraus können mit den Messwerten die Reflexionsfaktoren berechnet werden.
 Aus \autoref{eqn:u1} ergibt sich $\Gamma_1 \approx 0,15 \pm 0,01 $. 
 Damit wiederum ergibt sich durch \autoref{eqn:u2} $\Gamma_2 \approx 0,92 \pm 0,03$.
-Daraus ergibt sich mit \autoref{eqn:u3} $\Gamma_0 \approx -1,07 \pm 0,13 $ und mit \autoref{eqn:u4} $\Gamma_0 \approx 0,07 \pm 0,02$.
+Daraus ergibt sich mit \autoref{eqn:u3} $\Gamma_{-1} \approx -0.18 \pm 0,02 $ und mit \autoref{eqn:u4} $\Gamma_{-1} \approx -0,24 \pm 0,04$.
+Da zu erwarten ist, dass $\Gamma_{-1}$ negativ ist, weil auch das Signal $U_3$ negativ ist, wird bei dessen Bestimmung anhand von $U_4$ der negative Wert der Quadratwurzel verwendet. 
 Die Unsicherheiten ergeben sich jeweils nach \autoref{eqn:fehlerfortpflanzung}.
 \begin{figure}
     \centering
@@ -303,7 +303,7 @@ Die Unsicherheiten ergeben sich jeweils nach \autoref{eqn:fehlerfortpflanzung}.
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{content/images/impulsfahrplan.jpg}
+    \includegraphics[width=0.5\textwidth]{content/images/impulsfahrplan.jpeg}
     \caption{Impulsfahrplan bei Reihenschaltung eines $\qty{50}{\ohm}$ Kabels mit einem $\qty{75}{\ohm}$ Kabel, erstellt mit \cite{notability}.}
     \label{fig:impulsfahrplan}
 \end{figure}
