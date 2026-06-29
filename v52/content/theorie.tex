@@ -1,49 +1,104 @@
 \section{Theorie}
 \label{sec:Theorie}
-
-
+Koaxialkabel sind in der Signalübertragungstechnik weit verbreitet. 
+Im Folgenden sollen die Grundeigenschaften eines Koaxilkabels sowie allgemeine Leitungseigenschaften bei der Signalübertragung erläutert werden.
+%
+%
+%
 \subsection{Aufbau eines Koaxialkabels}
 Das Koaxialkabel ist eine Datenübertragungsleitung, die aus mehreren Schichten aufgebaut ist. 
 \autoref{fig:koax} zeigt diesen Aufbau anhand eines geöffneten Kabels.
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{koax.png}
-    \caption{Querschnitt eines Koaxialkabels~\cite[S]{quelle}}
+    \includegraphics[width=0.7\textwidth]{content/images/koax.jpg}
+    \caption{Schichtaufbau eines Koaxialkabels~\cite{koax}}
     \label{fig:koax}
 \end{figure}
 \FloatBarrier\noindent
 Den Kern eines Koaxialkabels bildet der Innenleiter, über den das Signal gesendet wird. 
 Es folgt ein Dielektrikum zur Isolierung des Innenleiters gegen die anderen Komponenten.
-Die nächste Schicht ist die Abschirmung, die verschiedene Gestalt haben kann und ebenfalls elektrisch leitend ist.
-Durch die Abschirmung wird das gespiegelte Signal gesendet.
-Die durch den Stromfluss entstehenden Magnetfelder heben sich daher auf, was das Kabel sehr rauscharm macht.
+Die nächste Schicht ist die Abschirmung, auch Außenleiter genannt, die verschiedene Gestalt haben kann und ebenfalls elektrisch leitend ist.
+Das Signal wird gesendet, indem das elektrische Potential nur zwischen Innen- und Aussenleiter angelegt wird.
+Daher ist der Bereich ausserhalb der beiden Leiter feldfrei~\cite{elek_komp}.
 Die äußerste Schicht bildet der Kabelmantel, der das Kabel gegen mechanische Einwirkung und Kurzschlüsse schützt.
+%
+%
+%
 \subsection{Signalübertragung auf verlustbehafteten Leitungen}
-Reale Leitungen sind verlustbehaftet und können mithilfe eines Ersatzschaltbilds modelliert werden, was \autoref{fig:schaltung} zeigt.
+Während eine ideale Leitung als verlustfrei durch Kapazität $C$ und Induktivität $L$ modelliert werden kann, sind reale Leitungen verlustbehaftet.
+Sie können mithilfe eines erweiterten Ersatzschaltbilds modelliert werden, das die Verluste durch den Widerstandsbelag $R$ und den Querleitwert $G$ beschreibt.
+Der Querleitwert gibt an, wie groß die Verluste durch Stromfluss durch das Diekeltrikum sind~\cite[1]{V52}.
+Die beiden Ersatzschaltbilder zeigt \autoref{fig:schaltung}.
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{ersatzschaltbild.png}
-    \caption{Ersatzschaltbild einer verlustbehafteten Leitung~\cite[1]{v52}.}
+    \includegraphics[width=\textwidth]{content/images/ersatzschaltbild.png}
+    \caption{Ersatzschaltbild einer verlustfreien (a) und einer verlustbehafteten (b) Leitung~\cite[1]{V52}.}
     \label{fig:schaltung}
 \end{figure}
 \FloatBarrier\noindent
-Die Verluste werden beschrieben durch eine Kapazität $C$ zwischen Innen- und Aussenleiter, der Induktivität $L$, den Widerstandsbelag $R$, und den Querleitbelag $G$.
-Letzterer gibt an, wie groß die Verluste durch Stromfluss durch das Diekeltrikum sind.
 Für die gute Funktion von Koaxialkabeln ist es wichtig, dass kein Strom im Dielektrikum fließt.
-Daher ist bei diesen Leitungen $G\approx 0$ und die Ohm'schen Verluste überwiegen.\\
+Daher ist bei diesen Leitungen $G\approx 0$ und die Ohm'schen Verluste überwiegen.
+\subsection{Ausbreitung von Signalen auf einem Koaxialkabel}
 Das Verhalten bei Anlegen einer Signalspannung liefert die Telegrafengleichung
 \begin{equation*}
     \frac{\partial^2U}{\partial t^2} = LC\frac{\partial^2U}{\partial t^2} + \left(LG + RC\right)\frac{\partial U}{\partial t} + RGU.
 \end{equation*}
-Die Lösungen sind gedämpfte harmonische Schwingungen der Form
-\begin{equation*}
+Die Lösungen sind ein- und auslaufende, gedämpfte harmonische Schwingungen der Form
+\begin{equation}
     U(z,t)= U\symup{e}^{-\gamma z}\symup{e}^{i\omega t}
-\end{equation*}
+    \label{eqn:welle}
+\end{equation}
 mit der Ausbreitungskonstante
 \begin{equation*}
     \gamma = \sqrt{\left(R+i\omega L\right)\left(G+i\omega C\right)} = \alpha + i\beta.
 \end{equation*}
-Die 
+Der Realteil $\alpha$ dieser Konstante ist die \textbf{Dämpfungskonstante} des Kabels, der Imaginärteil $\beta$ ist die \textbf{Phasenkonstante}~\cite[1-2]{V52}.
+Die Dämpfungskonstante beschreibt den exponentiellen Abfall der Spannung abhängig von der Position auf der Leitung, also einer Leitungslänge $l$.
+Die Phasenkonstante sorgt für eine Verschiebung der Welle nach einer Zeit $T$.
+Das Verhältnis dieser Verschiebung zur Zeit $T$ heißt Phasengeschwindigkeit $v_{\mathrm{Phase}}$~\cite[123]{beuth_2022}.
+Das Signal in der Leitung ist eine elektromagnetische Welle, für deren Ausbreitungsgeschwindigkeit in einem Medium
+\begin{equation*}
+    v_{\mathrm{Phase}} = \sqrt{\frac{1}{\mu_0\cdot\mu_r\cdot\epsilon_0\cdot\epsilon_r}}
+\end{equation*}
+gilt, mit den elektrischen bzw. magnetischen Feldkonstanten $\epsilon_0$ und $\mu_0$ sowie den Permittivitäten $\epsilon_r$ und $\mu_r$.
+In Koaxialkabeln werden Dielektrika ohne magnetische Wirkung, also $\mu_r = 1$ verwendet. 
+Die Phasengeschwindigkeit des Signals auf einem Koaxialkabel lässt sich daher berechnen als
+\begin{equation}
+    v_{\mathrm{Phase}} = \frac{c_0}{\sqrt{\epsilon_r}}
+    \label{eqn:phasengeschw}
+\end{equation}
+mit der Vakuumlichtgeschwindigkeit $c_0\approx\qty{3e8}{\meter\per\second}$~\cite[126 f.]{beuth_2022}.
+\\
+Ist die Laufzeit $\increment t$ des Signals auf der Leitung bekannt, kann die Länge $l$ der Leitung aus der Phasengeschwindigkeit mit dem Weg-Zeit-Gesetz berechnet werden
+\begin{equation}
+    l = \frac{v_{\mathrm{Phase}} \Delta t}{2}.
+    \label{eqn:laenge}
+\end{equation}
+Mit \autoref{eqn:phasengeschw} folgt der Zusammenhang zwischen der Laufzeit und der elektrischen Permittivität $\epsilon_r$
+\begin{equation}
+    \epsilon_r = \left(\frac{c_0 \Delta t}{2 l}\right)^2
+    \label{eqn:diel}
+\end{equation}
+Das Verhältnis der Spannung zum Strom der ein- oder auslaufenden Welle ist konstant und wird als Wellenwiderstand $Z_0$ bezeichnet~\cite[2]{V52}.
+Bei einem verlustbehafteten Kabel mit sinusförmigem Eingangssignal ergibt sich
+\begin{equation*}
+    Z_0 = \sqrt{\frac{R+i\omega L}{G+i\omega C}}.
+\end{equation*}
+Im Fall eines Kurzschlusses des Koaxialkabels wird die Impedanz durch die Reihenschaltung eines Ohm'schen Widerstands $R$ und einer Induktivität $L$ beschrieben.
+Die Impedanz beträgt dann
+\begin{equation*}
+    Z = R + i\omega L.
+\end{equation*}
+In diesem Fall lassen sich Impedanzbetrag $\left|Z\right|$ und Phasenverschiebung $\varphi$ aus der komplexen Impedanz berechnen zu
+\begin{equation}
+    \left|Z\right| = \sqrt{R^2+\omega^2 L^2}
+    \label{eqn:impedanz}
+\end{equation}
+und
+\begin{equation}
+    \mathrm{\tan}\left(\varphi\right) = \frac{\omega L}{R}.
+    \label{eqn:phase}
+\end{equation}
 %
 %
 %
@@ -51,76 +106,52 @@ Die
 Der Skin-Effekt beschreibt die Erhöhung des Widerstandsbelags bei hohen Frequenzen ab $f=\qty{100}{\kilo\hertz}$.
 Der Stromfluss im Leiter erzeugt Wirbelströme, die den Wechselstrom des Signals verdrängen und so den effektiven Wirkungsquerschnitt verringern.
 Dies führt zum Anstieg des Widerstandsbelags.
-Bei den Frequenzen, bei denen der Skin-Effekt relevant wird, ist die Proportionaliät ungefähr $R\propto \sqrt{\omega}$.
+Bei den Frequenzen, bei denen der Skin-Effekt relevant wird, ist die Proportionaliät $R\propto \sqrt{\omega}$~\cite[128]{beuth_2022}.
 %
 %
+%
+\subsection{Reflektion der Signale am Leitungsabschluss}
+Der auf der Leitung rücklaufende Signalpuls entsteht durch Teilreflektion der elektromagnetischen Welle am Ende der Leitung.
+Ein Koaxialkabel kann dabei als verlustfrei angesehen werden, weil der Widerstandsbelag bei niedrigen Frequenzen klein und der Querleitwert prinzipiell bei Null liegt.
+Den Reflektionsprozess veranschaulicht \autoref{fig:reflektion}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/images/reflektion.png}
+    \caption{Reflektion eines Signals am Abschlusswiderstand $Z_A$ einer Leitung~\cite[129]{beuth_2022}.}
+    \label{fig:reflektion}
+\end{figure}
+Das Amplitudenverhältnis zwischen ein- und rücklaufender Welle wird zusätzlich zur Wellenimpedanz durch die Abschlussimpedanz $Z_A$ beeinflusst.
+Daraus ergibt sich der Reflektionsfaktor
+\begin{equation*}
+    \Gamma = \frac{U_l}{U_0} = \frac{Z_A-Z_0}{Z_A+Z_0}.
+\end{equation*}
+Das reflektierte Signal wird am anderen Leitungsende erneut reflektiert, mit dem Reflektionsfaktor $\Gamma_2$. 
+Daraus lässt sich die Amplitude nach beliebig vielen Reflektionen bestimmen als Summe aller vorheriger reflektierter Amplituden und der Ausgangsamplitude~\cite[3]{V52}.\\
+Die Dämpfung, die die Amplitude nach der Reflektion erfährt, wird durch die Dämpfungskonstante $\alpha$ beschrieben.
+Bei bekannter Leitungslänge kann $\alpha$ aus \autoref{eqn:welle} berechnet werden.
+Dazu wird $z = l$ und $U(z,t) = U_l$ gesetzt sowie der Phasenfaktor vernachlässigt.
+Es folgt daraus für die Dämpfungskonstante
 \begin{equation}
-    \left|Z\right| = \sqrt{R^2+\omega^2 L^2}
-    \label{eqn:impedanz}
-\end{equation}
-%
-%
-%
-\begin{equation}
-    \mathrm{tan}\left(\varphi\right) = \frac{\omega L}{R}
-    \label{eqn:phase}
-\end{equation}
-Diese Formeln hatte sie uns gegeben, aber man findet bestimmt auch nh Quelle.
-% 
-%
-%
-%
-%
-\begin{equation}
-    L = \frac{v_{\mathrm{Phase}} \Delta t}{2}
-    \label{eqn:laenge}
-\end{equation}
-%
-%
-%
-%
-\begin{equation}
-    v_{\mathrm{Phase}} = \frac{c_0}{\sqrt{\epsilon_r}}
-    \label{eqn:phasengeschw}
-\end{equation}
-%
-%
-%
-%
-\begin{equation}
-    \alpha = \frac{1}{2l} \mathrm{ln}\left(\frac{U_0}{U_l}\right)
+    \alpha = \frac{1}{2l} \mathrm{\ln}\left(\frac{U_0}{U_l}\right).
     \label{eqn:daempfung}
 \end{equation}
-Faktor 2 wegen hin und Rückweg. Kann die Formel zur not auch in die Auswertung übernehemen. ergibt sich aus:
-\begin{equation*}
-    U\left(l\right) = U_0 \mathrm{exp}\left(-\alpha l\right)
-\end{equation*}
-%
-%
-%
-%
-\begin{equation}
-    \epsilon_r = \left(\frac{c_0 \Delta t}{2 l}\right)^2
-    \label{eqn:diel}
-\end{equation}
-%
-%
-%
-%
+Da der Spannungsverlauf von der Impedanz des Abschlusses abhängig ist, können die Bauteile, die den Abschluss bilden, anhand des Spannungsverlaufs identifiziert werden.
+\autoref{fig:signalspannungen} zeigt mehrere Beispiele für den Verlauf der Signalspannung bei unterschiedlichen Abschlussimpedanzen.
 \begin{figure}
         \centering
         \includegraphics[width=0.5\textwidth]{content/images/signalspannungen.png}
-        \caption{Erwartete Signalspannungen bei entsprechendem Abschluss sowie zugehörige Zeitkonstante \cite{V52}.}
+        \caption{Erwartete Signalspannungen bei entsprechendem Abschluss sowie zugehörige Zeitkonstante~\cite{V52}.}
         \label{fig:signalspannungen}
 \end{figure}
+\FloatBarrier\noindent
 %
 %
 %
 \subsection{Relative Abweichung experimenteller Messwerte}
 Zur Berechnung der relativen Abweichung von experimentell bestimmten Werten zu theoretischen Werten wird 
 \begin{equation}
-    \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|
+    \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{\exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|
     \label{eqn:relabw}
 \end{equation}
-verwendet \cite{relabw}. 
+verwendet~\cite{relabw}. 
 
