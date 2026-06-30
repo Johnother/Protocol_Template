@@ -1,15 +1,63 @@
 \section{Theorie}
 \label{sec:Theorie}
-
-\cite{V23}
-
+In diesem Abschnitt werden die theoretischen Grundlagen erläutert, die für den Versuch relevant sind.
+%
+%
+%
+%
+%
+\subsection{Stehende Wellen in einem Zylinder-Resonator}
+Es soll zuerst ein Zylinderförmiger Resonator betrachtet werden, in dem sich akustische stehende Wellen ausbilden.
+Entlang der $z$-Achse des Zylinders können diese stehenden Wellen als eindimensionale stehende Wellen angenommen werden.
+Diese ergeben sich, wenn die einlaufende Welle an beiden Enden reflektiert wird. 
+Es ergibt sich eine Überlagerung der reflektierten Wellen, sodass sich periodisch Knoten und Bäuche ergeben, wie es in \autoref{fig:stehendewelle} deutlich wird.  
+Dabei sind bei einer gegebenen Länge $L$ des Resonators nur diskrete Wellenlängen $\lambda_n$ für die stehenden Wellen möglich. 
+Für diese gilt die Bedinung \cite[405 f.]{demtröder_2021}
+\begin{equation}
+    \lambda_n = \frac{2 L}{n} \, . \nonumber
+\end{equation}
+Mit $\lambda = \frac{c}{f}$ ergibt sich damit für die Schallgeschwindigkeit $c$
+\begin{equation}
+    c = \frac{2 L f}{n} \, .
+    \label{eqn:schallgeschw}
+\end{equation}
+Dabei ist $f$ die Frequenz der stehenden Welle.
 \begin{figure}
-        \centering
-        \includegraphics[width=0.5\textwidth]{content/images/signalspannungen.png}
-        \caption{Erwartete Signalspannungen bei entsprechendem Abschluss sowie zugehörige Zeitkonstante~\cite{V52}.}
-        \label{fig:signalspannungen}
+    \centering
+    \includegraphics[width=0.3\textwidth]{content/images/stehendewelle.png}
+    \caption{Darstellung einer eindimensionalen Stehenden Welle mit Knoten und Bäuchen~\cite[405]{demtröder_2021}.}
+    \label{fig:stehendewelle}
 \end{figure}
 \FloatBarrier\noindent
+%
+%
+%
+%
+%
+%
+%
+\subsection{Stehende Wellen in einem Kugel-Resonator}
+Nun sollen ein Kugelresonator betrachtet werden. 
+Dreidimensionale akustische Wellen werden durch die Helmholtz-Glechung
+\begin{equation}
+    \increment p\left(\vec{r}\right) + k^2 p\left(\vec{r}\right) = 0 
+\end{equation}
+mit $k=\frac{\omega}{c}$ beschrieben. %Quelle?
+Dabei ist $\omega$ die Kreisfrequenz der Welle. 
+Für den Kugelresonator sind Kugelkoordinaten $r$, $\theta$ und $\varphi$ die geeignete Wahl.
+Damit ergibt sich als Lösung durch Seperation
+\begin{equation}
+    p = Y\left(\theta, \varphi\right)\cdot R\left(r\right) \, .
+\end{equation}
+Wobei $R\left(r\right)$ die Besselfunktionen
+\begin{equation}
+    R\left(r\right)
+\end{equation}
+und $Y\left(\theta, \varphi\right)$ die Kugelflächenfunktionen
+\begin{equation}
+    Y\left(\theta, \varphi\right)
+\end{equation}
+sind.
 %
 %
 %
