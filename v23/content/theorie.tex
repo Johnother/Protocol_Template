@@ -42,22 +42,32 @@ Dreidimensionale akustische Wellen werden durch die Helmholtz-Glechung
 \begin{equation}
     \increment p\left(\vec{r}\right) + k^2 p\left(\vec{r}\right) = 0 
 \end{equation}
-mit $k=\frac{\omega}{c}$ beschrieben. %Quelle?
+mit der Wellenzahl $k=\frac{2\pi}{\lambda}\frac{\omega}{c}$ beschrieben. %Quelle?
 Dabei ist $\omega$ die Kreisfrequenz der Welle. 
-Für den Kugelresonator sind Kugelkoordinaten $r$, $\theta$ und $\varphi$ die geeignete Wahl.
+Für den Kugelresonator sind Kugelkoordinaten $r$, $\vartheta$ und $\varphi$ die geeignete Wahl.
 Damit ergibt sich als Lösung durch Seperation
 \begin{equation}
-    p = Y\left(\theta, \varphi\right)\cdot R\left(r\right) \, .
+    p = Y\left(\vartheta, \varphi\right)\cdot R\left(r\right) \, .
 \end{equation}
-Wobei $R\left(r\right)$ die Besselfunktionen
+Wobei $R\left(r\right)$ die Besselfunktionen, die die Gleichung 
 \begin{equation}
-    R\left(r\right)
+    R''\left(r\right) + \frac{2}{r} R'\left(r\right)+ \left[k^2 - \frac{l\left(l+1\right)}{r^2}\right]R\left(r\right) = 0
 \end{equation}
-und $Y\left(\theta, \varphi\right)$ die Kugelflächenfunktionen
+erfüllen, und $Y\left(\vartheta, \varphi\right)$ die Kugelflächenfunktionen
+%\begin{equation}
+%    \left[\frac{\partial^2}{\partial \vartheta^2} + \frac{\mathrm{cos}\vartheta}{\mathrm{sin}\vartheta}\frac{\partial}{\partial \vartheta} + \frac{1}{\mathrm{sin}^2 \varphi}\frac{\partial^2}{\partial \varphi^2} + l\left(l+1\right)\right]Y\left(\vartheta, \varphi\right) = 0
+%\end{equation}
+%erfüllen, sind.
 \begin{equation}
-    Y\left(\theta, \varphi\right)
+    Y\left(\vartheta, \varphi\right) = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
 \end{equation}
-sind.
+sind. Dabei sind $l$ und $m$ die Seperationskonstanten, $N_{l,m}$ ist ein Normierungsfaktor und $P_{l,m}$ sind die zugeordneten Legendrepolynome \cite{ehlotzky_2007}.
+%Es ergibt sich 
+%\begin{equation}
+%     p\left(r, \vartheta, \varphi\right)= \sum_{l=0}^\infty \sum_{m=-l}^{+l} \frac{1}{\sqrt{kr}}\left( A_{l,m} R_{l+\frac{1}{2}}\left(kr\right) + B_{l,m} R_{-\left(l+\frac{1}{2}\right)}\left(kr\right)\right) P_l^m \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
+%\end{equation}
+%Dabei handelt es sich bei $l$ und $m$ um Seperationskonstanten.
+%Außerdem sind $P_l^m$ die zugeordneten Legendrepolynome sind.
 %
 %
 %
