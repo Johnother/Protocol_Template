@@ -1,35 +1,4 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 In der Auswertung werden die Rechnungen, Plots und Fit-Funktionen mit \cite{matplotlib}, \cite{numpy}, \cite{scipy} und \cite{uncertainties} durchgeführt bzw. erstellt.
-\subsection{Fehlerrechnung}
-\label{sec:fehlerrechnung}
-%\subsection{Mittelwert}
-Zur Verarbeitung der Messunsicherheiten werden außerdem die folgenden Formeln verwendet: 
-Der Mittelwert wird mithilfe von
 
-\begin{equation}
-\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
-\label{eqn:mittelwert}
-\end{equation}
-bestimmt.
-%\subsection{Standardabweichung}
-Die Standardabweichung wird anhand von
-\begin{equation}
-\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
-\label{eqn:standardabweichung}
-\end{equation}
-berechnet.
-%%\subsubsection{Standardabweichung des Mittelwerts}
-Die Standardabweichung des Mittwertes wird mithilfe von 
-\begin{equation}
-\Delta \bar{x} = \frac{\sigma}{\sqrt{N}}
-\label{eqn:standardmittelwert}
-\end{equation}
-bestimmt.
-%%\subsection{Gaußsche Fehlerfortpflanzung}
-Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
-\begin{equation}
-\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
-\label{eqn:fehlerfortpflanzung}
-\end{equation}
-ermittelt werden.

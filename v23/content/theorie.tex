@@ -6,72 +6,191 @@ In diesem Abschnitt werden die theoretischen Grundlagen erläutert, die für den
 %
 %
 %
-\subsection{Stehende Wellen in einem Zylinder-Resonator}
-Es soll zuerst ein Zylinderförmiger Resonator betrachtet werden, in dem sich akustische stehende Wellen ausbilden.
-Entlang der $z$-Achse des Zylinders können diese stehenden Wellen als eindimensionale stehende Wellen angenommen werden.
-Diese ergeben sich, wenn die einlaufende Welle an beiden Enden reflektiert wird. 
-Es ergibt sich eine Überlagerung der reflektierten Wellen, sodass sich periodisch Knoten und Bäuche ergeben, wie es in \autoref{fig:stehendewelle} deutlich wird.  
-Dabei sind bei einer gegebenen Länge $L$ des Resonators nur diskrete Wellenlängen $\lambda_n$ für die stehenden Wellen möglich. 
-Für diese gilt die Bedinung \cite[405 f.]{demtröder_2021}
-\begin{equation}
-    \lambda_n = \frac{2 L}{n} \, . \nonumber
-\end{equation}
-Mit $\lambda = \frac{c}{f}$ ergibt sich damit für die Schallgeschwindigkeit $c$
-\begin{equation}
-    c = \frac{2 L f}{n} \, .
-    \label{eqn:schallgeschw}
-\end{equation}
-Dabei ist $f$ die Frequenz der stehenden Welle.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.3\textwidth]{content/images/stehendewelle.png}
-    \caption{Darstellung einer eindimensionalen Stehenden Welle mit Knoten und Bäuchen~\cite[405]{demtröder_2021}.}
-    \label{fig:stehendewelle}
-\end{figure}
-\FloatBarrier\noindent
-%
-%
-%
-%
-%
-%
-%
-\subsection{Stehende Wellen in einem Kugel-Resonator}
-Nun sollen ein Kugelresonator betrachtet werden. 
-Dreidimensionale akustische Wellen werden durch die Helmholtz-Glechung
-\begin{equation}
+\subsection{Stehende Wellen in akustischen Resonatoren}
+Bilden sich in einem akustishen Resonator stehende Schallwellen bzw. Druckwellen aus, muss der Druck $P$ der Wellengleichung
+\begin{equation*}
+    \increment P\left(\vec{r},t\right)  - \frac{1}{c^2} \frac{\partial^2}{\partial t^2} P\left(\vec{r},t\right) = 0 
+\end{equation*}
+Mit dem Ansatz
+\begin{equation*}
+    \increment P\left(\vec{r},t\right)  = p \left(\vec{r}\right) \mathrm{e}^{\mathrm{i} \omega t}
+\end{equation*}
+ergibt sich die Helmholtzgleichung
+\begin{equation*}
     \increment p\left(\vec{r}\right) + k^2 p\left(\vec{r}\right) = 0 
+\end{equation*}
+mit der Wellenzahl 
+\begin{equation}
+    k=\frac{2\pi}{\lambda}=\frac{\omega}{c} \, .
+    \label{eqn:wellenzahl}
 \end{equation}
-mit der Wellenzahl $k=\frac{2\pi}{\lambda}\frac{\omega}{c}$ beschrieben. %Quelle?
-Dabei ist $\omega$ die Kreisfrequenz der Welle. 
+Dabei ist $\lambda$ die Wellenlänge, $\omega$ die Kreisfrequenz und $c$ die Ausbreitungsgeschwindigkeit der Schallwelle.
+In einem Resonator bilden sich dabei stehende Wellen aus.
+Diese kann für verschiedene Geometrien des Resonators gelöst werden.
+%
+%
+%
+%
+\subsubsection{Stehende Wellen in einem Zylinderresonator}
+Es soll zuerst ein zylinderförmiger Resonator betrachtet werden.
+Hier ist es sinnvoll die Helmholtzgleichung in Zylinderkoordinaten $r$, $\varphi$ und $z$ zu betrachten. 
+Damit lässt sie sich durch den Seperationsansatz
+\begin{equation*}
+    p\left(r,\varphi,z\right)=R\left(r\right)\cdot \Phi\left(\varphi\right) \cdot Z\left(z\right)
+\end{equation*}
+lösen.
+Es ergibt sich
+\begin{equation*}
+    \Phi\left(\varphi\right)=\mathrm{e}^{\mathrm{i} m \varphi}
+\end{equation*}
+und
+\begin{equation*}
+    Z\left(z\right)=\mathrm{e}^{\mathrm{i} k_{z,l} z}
+\end{equation*}
+mit $k_{z,l}=\frac{l \pi}{L}$.
+Dabei ist $L$ die Resonatorlänge, $l$ eine bleibeige ganze Zahl und $m$ eine Seperationskonstante.
+Der Radialteil wird durch die Besselfunktionen $J$ mit
+\begin{equation*}
+    R\left(r\right) = J \left(k_{r,m,n} r\right)
+\end{equation*}
+gelöst.
+Dabei ergibt sich aus Randbedingungen $k_{r,m,n}=\frac{\eta_{m,n}}{R}$, wobei $\eta_{m,n}$ die $n$-te Nullstelle der $m$-ten Besselfunktion und $R$ der Radius des Zylinderresonators ist. %Quelle?
+Für die Wellenzahl gilt dann $k^2 = k_{r,m,n}^2 + k_{z,l}^2$ \cite[107 f.]{ehlotzky_2007}. %Bessere Quelle?
+Mit $\omega = 2 \pi f$, wobei $f$ die Frequenz ist, und mit \autoref{eqn:wellenzahl} ergibt sich
+\begin{equation}
+    f_{n,m,l} = \frac{c}{2 \pi} \sqrt{\left(\frac{\eta_{m,l}}{R}\right)^2 + \left( \frac{n \pi}{L}\right)^2} \, .
+    \label{eqn:zylfreq}
+\end{equation}
+%Entlang der $z$-Achse des Zylinders können diese stehenden Wellen als eindimensionale stehende Wellen angenommen werden.
+%Diese ergeben sich, wenn die einlaufende Welle an beiden Enden reflektiert wird. 
+%Es ergibt sich eine Überlagerung der reflektierten Wellen, sodass sich periodisch Knoten und Bäuche ergeben, wie es in \autoref{fig:stehendewelle} deutlich wird.  
+%Dabei sind bei einer gegebenen Länge $L$ des Resonators nur diskrete Wellenlängen $\lambda_n$ für die stehenden Wellen möglich. 
+%Für diese gilt die Bedinung \cite[405 f.]{demtröder_2021}
+%\begin{equation}
+%    \lambda_n = \frac{2 L}{n} \, . \nonumber
+%\end{equation}
+%Mit $\lambda = \frac{c}{f}$ ergibt sich damit für die Schallgeschwindigkeit $c$
+%\begin{equation}
+%    c = \frac{2 L f}{n} \, .
+%    \label{eqn:schallgeschw}
+%\end{equation}
+%Dabei ist $f$ die Frequenz der stehenden Welle.
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.3\textwidth]{content/images/stehendewelle.png}
+%    \caption{Darstellung einer eindimensionalen Stehenden Welle mit Knoten und Bäuchen~\cite[405]{demtröder_2021}.}
+%    \label{fig:stehendewelle}
+%\end{figure}
+%\FloatBarrier\noindent
+%
+%
+%
+%
+%
+%
+%
+\subsubsection{Stehende Wellen in einem Kugel-Resonator}
+Nun sollen ein Kugelresonator betrachtet werden. 
 Für den Kugelresonator sind Kugelkoordinaten $r$, $\vartheta$ und $\varphi$ die geeignete Wahl.
 Damit ergibt sich als Lösung durch Seperation
-\begin{equation}
-    p = Y\left(\vartheta, \varphi\right)\cdot R\left(r\right) \, .
-\end{equation}
-Wobei $R\left(r\right)$ die Besselfunktionen, die die Gleichung 
-\begin{equation}
-    R''\left(r\right) + \frac{2}{r} R'\left(r\right)+ \left[k^2 - \frac{l\left(l+1\right)}{r^2}\right]R\left(r\right) = 0
-\end{equation}
-erfüllen, und $Y\left(\vartheta, \varphi\right)$ die Kugelflächenfunktionen
+\begin{equation*}
+    p\left(r,\vartheta, \varphi \right) = Y\left(\vartheta, \varphi\right)\cdot R\left(r\right) = \Theta\left(\vartheta\right) \cdot \Phi\left(\varphi\right)\cdot R\left(r\right)\, .
+\end{equation*}
+Dabei ergibt sich
+\begin{equation*}
+    Y\left(\vartheta, \varphi\right)_l^m = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i} m \varphi}
+\end{equation*}
+mit dem Normierungsfaktor 
+\begin{equation*}
+    N_{l,m} = \sqrt{\frac{2l+1}{2} \frac{\left(l-m\right)!}{\left(l+m\right)!}}\, ,
+\end{equation*}
+und den zugeordneten Legendrepolynomen 
+\begin{equation*}
+    P_{l,m} \left(x\right) = \frac{\left(-1\right)^m}{2^l l!} \left(1-x^2\right)^{\frac{m}{2}} \frac{\mathrm{d}^{l+m}}{\mathrm{d}x^{l+m}} \left(x^2 -1\right)^l \, ,
+\end{equation*}
+wobei $m$ und $l$ Seperationskonstanten sind.
+Diese Funktionen werden Kugelflächenfunktionen genannt.
+Erneut wird $R\left(r\right)$ durch die Besselfunktionen nach
+\begin{equation*}
+    R\left(r\right) = \frac{1}{\sqrt{kr}} J \left(k r\right)
+\end{equation*}
+gelöst \cite[105 f.]{ehlotzky_2007}.
+%\\\\
+%Für diesen Versuch werden die folgenden Kugelflächenfunktionen relevant:
+%\begin{align}
+%    Y\left(\vartheta, \varphi\right)_1^0 = \sqrt{\frac{3}{4 \pi} }\label{eqn:kugelflaech1}\\
+%    Y\left(\vartheta, \varphi\right)_2^0 =  \label{eqn:kugelflaech2}\\
+%    Y\left(\vartheta, \varphi\right)_3^0 =  \label{eqn:kugelflaech3}\\
+%    Y\left(\vartheta, \varphi\right)_5^0 =  \label{eqn:kugelflaech5}\\
+%\end{align}
+%erfüllen, und $Y\left(\vartheta, \varphi\right)$ die Kugelflächenfunktionen
 %\begin{equation}
 %    \left[\frac{\partial^2}{\partial \vartheta^2} + \frac{\mathrm{cos}\vartheta}{\mathrm{sin}\vartheta}\frac{\partial}{\partial \vartheta} + \frac{1}{\mathrm{sin}^2 \varphi}\frac{\partial^2}{\partial \varphi^2} + l\left(l+1\right)\right]Y\left(\vartheta, \varphi\right) = 0
 %\end{equation}
 %erfüllen, sind.
-\begin{equation}
-    Y\left(\vartheta, \varphi\right) = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
-\end{equation}
-sind. Dabei sind $l$ und $m$ die Seperationskonstanten, $N_{l,m}$ ist ein Normierungsfaktor und $P_{l,m}$ sind die zugeordneten Legendrepolynome \cite{ehlotzky_2007}.
-%Es ergibt sich 
 %\begin{equation}
-%     p\left(r, \vartheta, \varphi\right)= \sum_{l=0}^\infty \sum_{m=-l}^{+l} \frac{1}{\sqrt{kr}}\left( A_{l,m} R_{l+\frac{1}{2}}\left(kr\right) + B_{l,m} R_{-\left(l+\frac{1}{2}\right)}\left(kr\right)\right) P_l^m \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
+%    Y\left(\vartheta, \varphi\right) = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
+%\end{equation}
+%sind. Dabei sind $l$ und $m$ die Seperationskonstanten, $N_{l,m}$ ist ein Normierungsfaktor und $P_{l,m}$ sind die zugeordneten Legendrepolynome \cite{ehlotzky_2007}.
+%%Es ergibt sich 
+%\begin{equation}
+%     p\left(r, \vartheta, \varphi\right)= \sum_{l=0}^\infty \saum_{m=-l}^{+l} \frac{1}{\sqrt{kr}}\left( A_{l,m} R_{l+\frac{1}{2}}\left(kr\right) + B_{l,m} R_{-\left(l+\frac{1}{2}\right)}\left(kr\right)\right) P_l^m \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i}m \varphi}
 %\end{equation}
 %Dabei handelt es sich bei $l$ und $m$ um Seperationskonstanten.
 %Außerdem sind $P_l^m$ die zugeordneten Legendrepolynome sind.
 %
 %
 %
-\subsection{Relative Abweichung experimenteller Messwerte}
+%
+%
+\subsection{Beschreibung des Elektrons eines Wasserstoffatoms}
+Die Schrödingergleichung für das Elektron eines Wasserstoffatoms lautet
+\begin{equation}
+    - \frac{\hbar^2}{2 m} \Psi + V \left(r\right) \Psi = E \Psi
+\end{equation}
+%
+%
+%
+%
+%
+%
+%
+\subsection{Verarbeitung von Messungenauigkeiten}
+
+\label{sec:fehlerrechnung}
+%\subsection{Mittelwert}
+Zur Verarbeitung der Messunsicherheiten werden außerdem die folgenden Formeln verwendet: 
+Der Mittelwert wird mithilfe von
+\begin{equation}
+\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
+\label{eqn:mittelwert}
+\end{equation}
+bestimmt.
+%\subsection{Standardabweichung}
+\\
+Die Standardabweichung wird anhand von
+\begin{equation}
+\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
+\label{eqn:standardabweichung}
+\end{equation}
+berechnet.
+%%\subsubsection{Standardabweichung des Mittelwerts}
+\\
+Die Standardabweichung des Mittwertes wird mithilfe von 
+\begin{equation}
+\Delta \bar{x} = \frac{\sigma}{\sqrt{N}}
+\label{eqn:standardmittelwert}
+\end{equation}
+bestimmt.
+%%\subsection{Gaußsche Fehlerfortpflanzung}
+\\
+Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
+\begin{equation}
+\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
+\label{eqn:fehlerfortpflanzung}
+\end{equation}
+ermittelt werden.
+\\
 Zur Berechnung der relativen Abweichung von experimentell bestimmten Werten zu theoretischen Werten wird 
 \begin{equation}
     \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{\exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|
