@@ -8,14 +8,14 @@ Zur Verarbeitung der Messunsicherheiten werden außerdem die folgenden Formeln v
 Der Mittelwert wird mithilfe von
 
 \begin{equation}
-\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
+\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
 \label{eqn:mittelwert}
 \end{equation}
 bestimmt.
 %\subsection{Standardabweichung}
 Die Standardabweichung wird anhand von
 \begin{equation}
-\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
+\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}
 \label{eqn:standardabweichung}
 \end{equation}
 berechnet.
@@ -33,7 +33,7 @@ Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern er
 \label{eqn:fehlerfortpflanzung}
 \end{equation}
 ermittelt werden.
-
+\FloatBarrier
 \subsection{Untersuchung der Frequenzabhängkeit der Leitungskonstanten}
 \label{subsec:leitkon}
 Die Ergebnisse der Messung der Leitungskonstanten sind in \autoref{tab:messind} aufgetragen. 
@@ -65,39 +65,36 @@ Die Unsicherheiten ergeben sich dabei jeweils nach \autoref{eqn:fehlerfortpflanz
     \end{tabular}
     \label{tab:imp_phi}
 \end{table}
-In \autoref{fig:leitungskonstanten} sind die Leitungskonstanten $R$, $L$, $C$ und $\left|Z\right|$ in Diagrammen abhängig von der Signalfrequenz $\omega$ graphisch dargestellt.
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
+In \autoref{fig:ohm} ist $R$, in \autoref{fig:ind} $L$, in \autoref{fig:kap} $C$ und in \autoref{fig:imp} $\left|Z\right|$ jeweils abhängig von der Signalfrequenz $\omega$ in einem Diagramm graphisch dargestellt.
+
+    \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{content/images/ohm.pdf}
-        %\caption{Erstes Bild}
-        %\label{fig:ohm}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=0.7\textwidth]{content/images/ohm.pdf}
+        \caption{Graphische Darstellung des gemessenen ohmschen Belags $R$ abhängig von der Signalfrequenz $\omega$.}
+        \label{fig:ohm}
+    \end{figure}
+
+    \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{content/images/ind.pdf}
-        %\caption{Zweites Bild}
-        %\label{fig:ind}
-    \end{subfigure}
-    \vspace{0.5cm}
-    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=0.7\textwidth]{content/images/ind.pdf}
+        \caption{Graphische Darstellung des gemessenen Induktivitätsbelags $L$ abhängig von der Signalfrequenz $\omega$.}
+        \label{fig:ind}
+    \end{figure}
+
+    \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{content/images/kap.pdf}
-        %\caption{Drittes Bild}
-        %\label{fig:kap}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=0.7\textwidth]{content/images/kap.pdf}
+        \caption{Graphische Darstellung des gemessenen Kapazitätsbelgas $C$ abhängig von der Signalfrequenz $\omega$.}
+        \label{fig:kap}
+    \end{figure}
+
+    \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{content/images/imp.pdf}
-        %\caption{Viertes Bild}
-        %\label{fig:imp}
-    \end{subfigure}
-    \caption{Graphische Darstellung der Leitungskonstanten des Koaxialkabels abhängig von der Frequenz $\omega$, wobei $R$ der Ohmsche Belag, $I$ der Induktivitätsbelag, $C$ der Kapazitätsbelag und $\left|Z\right|$ die Impedanz ist.}
-    \label{fig:leitungskonstanten}
-\end{figure}
+        \includegraphics[width=0.7\textwidth]{content/images/imp.pdf}
+        \caption{Graphische Darstellung des aus den gemessenen Leitungskonstanten bestimmten Betrags der Impedanz $\left|Z\right|$ abhängig von der Signalfrequenz $\omega$.}
+        \label{fig:imp}
+    \end{figure}
+\FloatBarrier
 %
 %
 %
@@ -120,14 +117,14 @@ Die berechneten Werte von $l$, $\alpha$ und $\epsilon_r$ sind in \autoref{tab:le
     \caption{Aus \autoref{tab:messlendaem} berechnete Längen $l$ Dämpfungen $\alpha$ und Dielektrizitäten $\epsilon_r$ sechs verschiedener Koaxialkabel.}
     \begin{tabular}{cccc}
     \toprule
-    Kabel & $l \,/\, [\unit{\meter}]$ & $\alpha \,/\, [1/\unit{\meter}]$ & $\epsilon_r\,/\, [1] $\\
+    Kabel & $l \,/\, [\unit{\meter}]$ & $\alpha \,/\, [1/\unit{\meter}]$ & $\epsilon_r $\\
     \midrule
-    1,0 & 83,942 $\pm$ 0,999 & 0,0087 $\pm$ 0.0004 &  2,19 $\pm$ 0,05\\
-    2,0 &  4,997 $\pm$ 0,200 & 0,0235 $\pm$ 0.0026 &  2,25 $\pm$ 0,18\\
-    3,0 &  9,993 $\pm$ 0,400 & 0,0177 $\pm$ 0.0015 &  2,25 $\pm$ 0,18\\
-    4,0 &  1,699 $\pm$ 0,100 & 0,1341 $\pm$ 0.0103 &  2,89 $\pm$ 0,34\\
-    5,0 &  9,993 $\pm$ 0,400 & 0,0253 $\pm$ 0.0016 &  2,25 $\pm$ 0,18\\
-    6,0 &  1,299 $\pm$ 0,100 & 0,0299 $\pm$ 0.0088 &  2,87 $\pm$ 0,44\\
+    1 & 83,942 $\pm$ 0,999 & 0,0087 $\pm$ 0,0004 &  2,19 $\pm$ 0,05\\
+    2 &  4,997 $\pm$ 0,200 & 0,0235 $\pm$ 0,0026 &  2,25 $\pm$ 0,18\\
+    3 &  9,993 $\pm$ 0,400 & 0,0177 $\pm$ 0,0015 &  2,25 $\pm$ 0,18\\
+    4 &  1,699 $\pm$ 0,100 & 0,1341 $\pm$ 0,0103 &  2,89 $\pm$ 0,34\\
+    5 &  9,993 $\pm$ 0,400 & 0,0253 $\pm$ 0,0016 &  2,25 $\pm$ 0,18\\
+    6 &  1,299 $\pm$ 0,100 & 0,0299 $\pm$ 0,0088 &  2,87 $\pm$ 0,44\\
     \bottomrule
     \end{tabular}
     \label{tab:lendaem}
@@ -168,6 +165,7 @@ Die berechneten Werte von $l$, $\alpha$ und $\epsilon_r$ sind in \autoref{tab:le
     \caption{Ausgabe am Oszilloskop bei der Vermessung der Reflektierten Pulse von Kabel 1 (oben links), Kabel 2 (oben mitte), Kabel 3 (oben rechts), Kabel 4 (unten links), Kabel 5 (unten mitte) und Kabel 6 (unten rechts).}
     \label{fig:lendeambilder}
 \end{figure}
+\FloatBarrier
 %
 %
 %
@@ -182,7 +180,7 @@ Durch einen Vergleich mit \autoref{fig:signalspannungen} lässt sich ermitteln, 
 Außerdem lässt sich anhand der Ausgaben am Oszilloskop die Signalspannung $U_0$ jeweils ablesen.
 \\
 Bei dem Abschluss $1$ (oben links in der Abbildung) handelt es sich um eine Parallelschaltung von einem Widerstand und einer Spule, 
-da das Signal erst auf einem Plateau bie der Signalspannung ist, dann sprunghaft abfällt und weiter abnimmt.
+da das Signal erst auf einem Plateau bei der Signalspannung ist, dann sprunghaft abfällt und weiter abnimmt.
 Die Signalspannung beträgt $U_0=\qty{22(2)}{\volt}$.
 \\
 Bei Abschluss $2$ (oben mitte in der Abbildung) handelt es sich um eine Reihenschaltung eines ohmschen Widerstandes und eines Kondensators, 
@@ -262,6 +260,7 @@ Bei dem $\qty{75}{\ohm}$ Widerstand als Abschluss (unten mitte in der Abbildung)
     \caption{Ausgabe am Oszilloskop, bei der Vermessung von Abschluss 1 (oben links), Abschluss 2 (oben mitte), Abschluss 3 (oben rechts), Abschluss 5 (mitte links), Abschluss 8 (mitte mitte), des offenen Abschlusses (mitte rechts), des Kurzschlusses als Abschluss (unten links), des $\qty{50}{\ohm}$ Widerstandes als Abschluss (unten mitte) und des $\qty{75}{\ohm}$ Widerstandes als Abschluss (unten rechts).}
     \label{fig:abschlussbilder}
 \end{figure}
+\FloatBarrier
 %
 %
 %
@@ -277,22 +276,22 @@ In \autoref{fig:impulsfahrplan} ist der Impulsfahrplan für die Reihenschaltung 
 Die Grafik wurde mit Notability \cite{notability} erstellt.
 Dabei entsprechen die Spannungen $U_i$ den eben genannten Messwerten. 
 Auf den einzelnen Pulsen sind die Formeln für die gemessenen Spannungen abhängig der Reflexionsfaktoren angegeben.
-$\Gamma_{-1}$ ist der Reflexionsfaktor am Übergang vom $\qty{75}{\ohm}$ Kabel zum $\qty{50}{\ohm}$ Kabel, $\Gamma_1$ der am Übergang in die andere Richung 
+$\Gamma_{-1}$ ist der Reflexionsfaktor am Übergang vom $\qty{75}{\ohm}$ Kabel zum $\qty{50}{\ohm}$ Kabel, $\Gamma_1$ der am Übergang vom $\qty{50}{\ohm}$ Kabel zum $\qty{75}{\ohm}$ Kabel.
 und $\Gamma_2$ der am offenen Ende des $\qty{75}{\ohm}$ Kabels.
 Es wird angenommen, dass die Reflexionen an dem Ende des $\qty{50}{\ohm}$ Kabel am Messgerät sehr gering sind und somit vernachlässigt werden können. 
 Die vernachlässigten Pulse sind im Impulsfahrplan durch gestrichelte Linien gekennzeichnet. 
 \\
 Es ergeben sich 
 \begin{align}
-    U_1 &= \Gamma_1 U_0 \label{eqn:u1}\\
-    U_2 &= \Gamma_2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u2}\\
-    U_3 &= \Gamma_{-1} \Gamma_2^2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u3}\\
-    U_4 &= \Gamma_{-1}^2 \Gamma_2^3 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u4} \, .
+    U_1 &= \Gamma_1 U_0 \label{eqn:u1}\, ,\\
+    U_2 &= \Gamma_2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u2}\,, \\
+    U_3 &= \Gamma_{-1} \Gamma_2^2 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u3}\,, \\
+    \mathrm{und} \quad U_4 &= \Gamma_{-1}^2 \Gamma_2^3 \left(1-\Gamma_1\right)^2 U_0 \label{eqn:u4} \, .
 \end{align}
 Daraus können mit den Messwerten die Reflexionsfaktoren berechnet werden.
 Aus \autoref{eqn:u1} ergibt sich $\Gamma_1 \approx 0,15 \pm 0,01 $. 
 Damit wiederum ergibt sich durch \autoref{eqn:u2} $\Gamma_2 \approx 0,92 \pm 0,03$.
-Daraus ergibt sich mit \autoref{eqn:u3} $\Gamma_{-1} \approx -0.18 \pm 0,02 $ und mit \autoref{eqn:u4} $\Gamma_{-1} \approx -0,24 \pm 0,04$.
+Daraus ergibt sich mit \autoref{eqn:u3} $\Gamma_{-1} \approx -0,18 \pm 0,02 $ und mit \autoref{eqn:u4} $\Gamma_{-1} \approx -0,24 \pm 0,04$.
 Da zu erwarten ist, dass $\Gamma_{-1}$ negativ ist, weil auch das Signal $U_3$ negativ ist, wird bei dessen Bestimmung anhand von $U_4$ der negative Wert der Quadratwurzel verwendet. 
 Die Unsicherheiten ergeben sich jeweils nach \autoref{eqn:fehlerfortpflanzung}.
 \begin{figure}
@@ -307,3 +306,4 @@ Die Unsicherheiten ergeben sich jeweils nach \autoref{eqn:fehlerfortpflanzung}.
     \caption{Impulsfahrplan bei Reihenschaltung eines $\qty{50}{\ohm}$ Kabels mit einem $\qty{75}{\ohm}$ Kabel, erstellt mit \cite{notability}.}
     \label{fig:impulsfahrplan}
 \end{figure}
+\FloatBarrier
