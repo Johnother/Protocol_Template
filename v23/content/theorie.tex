@@ -97,9 +97,10 @@ Damit ergibt sich als Lösung durch Seperation
     p\left(r,\vartheta, \varphi \right) = Y\left(\vartheta, \varphi\right)\cdot R\left(r\right) = \Theta\left(\vartheta\right) \cdot \Phi\left(\varphi\right)\cdot R\left(r\right)\, .
 \end{equation*}
 Dabei ergibt sich
-\begin{equation*}
-    Y\left(\vartheta, \varphi\right)_l^m = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i} m \varphi}
-\end{equation*}
+\begin{equation}
+    Y_l^m\left(\vartheta, \varphi\right) = \frac{1}{\sqrt{2 \pi}}N_{l,m} P_{l,m} \left(\mathrm{cos}\vartheta\right) \mathrm{e}^{\mathrm{i} m \varphi}
+    \label{eqn:kugelflaech}
+\end{equation}
 mit dem Normierungsfaktor 
 \begin{equation*}
     N_{l,m} = \sqrt{\frac{2l+1}{2} \frac{\left(l-m\right)!}{\left(l+m\right)!}}\, ,
@@ -144,14 +145,31 @@ gelöst \cite[105 f.]{ehlotzky_2007}.
 %
 %
 \subsection{Beschreibung des Elektrons eines Wasserstoffatoms}
-Die Schrödingergleichung für das Elektron eines Wasserstoffatoms lautet
+Die stationäre Schrödingergleichung für das Elektron eines Wasserstoffatoms lautet
 \begin{equation}
-    - \frac{\hbar^2}{2 m} \Psi + V \left(r\right) \Psi = E \Psi
+    - \frac{\hbar^2}{2 m_e} \Psi\left(r, \vartheta, \varphi \right) + V \left(r\right) \Psi\left(r, \vartheta, \varphi \right) = E_n \Psi\left(r, \vartheta, \varphi \right) \, .
 \end{equation}
+Hierin ist $\hbar$ das reduzierte planksche Wirkungsquantum, $m_e$ die Elektronmasse und $E_n$ sind die Energieeigenwerte. 
+Außerdem ist $V\left(r\right) = \frac{e^2}{4 \pi \epsilon_0 r}$ das kugelsymmetrische Potenzial in dem sich das Elektron befindet.
+Wobei $e$ die Elementarladung, $epsilon_0$ die elektrische Feldkonstante und $r$ der Abstand zum Atomkern in Kugekoordinaten ist. 
+Auch hier wird die Gleichung durch einen Seperationsansatz
+\begin{equation}
+     \Psi\left(r, \vartheta, \varphi \right) = R\left(r\right) \cdot Y_l^m \left(\vartheta \varphi\right)
+\end{equation}
+gelöst.
+Dabei sind $Y_l^m$ auch hier die Kugelflächenfunktionen aus \autoref{eqn:kugelflaech}.
+Der radiale Anteil wird durch 
+\begin{equation*}
+    R_n \left(r\right)= \frac{A}{r}\mathrm{e}^{\mathrm{i} k_n r} + \frac{B}{r}\mathrm{e}^{-\mathrm{i} k_n r}
+\end{equation*}
+mit den allgemeinen Konstanten $A$ und $B$ sowie $k_n=\sqrt{\frac{1 \mu E_n}{\hbar}}$ gelöst.
+Dabei ist $\mu = \frac{m_e m_K}{m_e + m_K}$ die reuzierte Masse mit der Kernmasse $m_K$.
+Die Energieeigenwerte ergeben sich zu $E_n = \frac{E_{\mathrm{Ryd}}}{n^2}$ mit der Rydbergenergie $E_{\mathrm{Ryd}}$.
 %
 %
 %
 %
+\subsection{Vergleich von Wasserstoffatom und akustischem Kugelresonator}
 %
 %
 %
