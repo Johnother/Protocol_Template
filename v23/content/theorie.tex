@@ -16,9 +16,10 @@ Mit dem Ansatz
     \increment P\left(\vec{r},t\right)  = p \left(\vec{r}\right) \mathrm{e}^{\mathrm{i} \omega t}
 \end{equation*}
 ergibt sich die Helmholtzgleichung
-\begin{equation*}
+\begin{equation}
     \increment p\left(\vec{r}\right) + k^2 p\left(\vec{r}\right) = 0 
-\end{equation*}
+    \label{eqn:helmholtz}
+\end{equation}
 mit der Wellenzahl 
 \begin{equation}
     k=\frac{2\pi}{\lambda}=\frac{\omega}{c} \, .
@@ -148,14 +149,15 @@ gelöst \cite[105 f.]{ehlotzky_2007}.
 Die stationäre Schrödingergleichung für das Elektron eines Wasserstoffatoms lautet
 \begin{equation}
     - \frac{\hbar^2}{2 m_e} \Psi\left(r, \vartheta, \varphi \right) + V \left(r\right) \Psi\left(r, \vartheta, \varphi \right) = E_n \Psi\left(r, \vartheta, \varphi \right) \, .
+    \label{eqn:schroedinger}
 \end{equation}
 Hierin ist $\hbar$ das reduzierte planksche Wirkungsquantum, $m_e$ die Elektronmasse und $E_n$ sind die Energieeigenwerte. 
 Außerdem ist $V\left(r\right) = \frac{e^2}{4 \pi \epsilon_0 r}$ das kugelsymmetrische Potenzial in dem sich das Elektron befindet.
 Wobei $e$ die Elementarladung, $epsilon_0$ die elektrische Feldkonstante und $r$ der Abstand zum Atomkern in Kugekoordinaten ist. 
 Auch hier wird die Gleichung durch einen Seperationsansatz
-\begin{equation}
+\begin{equation*}
      \Psi\left(r, \vartheta, \varphi \right) = R\left(r\right) \cdot Y_l^m \left(\vartheta \varphi\right)
-\end{equation}
+\end{equation*}
 gelöst.
 Dabei sind $Y_l^m$ auch hier die Kugelflächenfunktionen aus \autoref{eqn:kugelflaech}.
 Der radiale Anteil wird durch 
@@ -164,12 +166,17 @@ Der radiale Anteil wird durch
 \end{equation*}
 mit den allgemeinen Konstanten $A$ und $B$ sowie $k_n=\sqrt{\frac{1 \mu E_n}{\hbar}}$ gelöst.
 Dabei ist $\mu = \frac{m_e m_K}{m_e + m_K}$ die reuzierte Masse mit der Kernmasse $m_K$.
-Die Energieeigenwerte ergeben sich zu $E_n = \frac{E_{\mathrm{Ryd}}}{n^2}$ mit der Rydbergenergie $E_{\mathrm{Ryd}}$.
+Die Energieeigenwerte ergeben sich zu $E_n = -\frac{Ry}{n^2}$ mit der Rydberkonstanten $Ry$ \cite[141-145]{demtröder_2016}.
 %
 %
 %
 %
 \subsection{Vergleich von Wasserstoffatom und akustischem Kugelresonator}
+Beim Vergleich der Schrödingergleichung des Wasserstoffatoms \autoref{eqn:schroedinger} und der Helmholtzgleichung \autoref{eqn:helmholtz} des Kugelresonators fällt auf, dass sie sich nur um den zusätzlichen Potenzialterm $V\left(r\right)$ beim Wasserstoffatom unterscheiden.
+Ansonsten haben sie die gleiche Strucktur.
+Weil der Potenzialterm nur vom Abstand der $r$ zum Atomkern abhängt, unterscheiden sich die beiden Lösungen nur im radialen anteil $R\left(r\right)$.
+Die Winkelabhängigen Kugelflächenfunktionen $Y_l^m$ sind also in beiden Lösungen vorhanden. 
+Somit ist die Analogie des Kugelresonators für das Elektron den Wasserstoffatoms sinnvoll, wenn die Winkelabhängkeit betrachtet werden soll. 
 %
 %
 %
