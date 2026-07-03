@@ -2,36 +2,69 @@
 \label{sec:Auswertung}
 \subsection{Fehlerrechnung}
 \label{sec:fehlerrechnung}
-%\subsection{Mittelwert}
-Für die Auswertung des Versuchs werden die folgenden Formeln zu Verarbeitung der Messunsicherheiten verwendet: 
-Der Mittelwert wird mithilfe von
-
-\begin{equation}
-\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
-\label{eqn:mittelwert}
-\end{equation}
-bestimmt.
-%\subsection{Standardabweichung}
-Die Standardabweichung wird anhand von
-\begin{equation}
-\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
-\label{eqn:standardabweichung}
-\end{equation}
-berechnet.
-%\subsubsection{Standardabweichung des Mittelwerts}
-Die Standardabweichung des Mittwertes wird mithilfe von 
-\begin{equation}
-\Delta \bar{x} = \frac{\sigma}{\sqrt{N}}
-\label{eqn:standardmittelwert}
-\end{equation}
-bestimmt.
-%\subsection{Gaußsche Fehlerfortpflanzung}
-Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
+Bei Berechnungen, die mit den fehlerbehafteten Messwerten durchgeführt werden, wird die Gauss'sche Fehlerfortpflanzung gemäß
 \begin{equation}
 \Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
 \label{eqn:fehlerfortpflanzung}
 \end{equation}
-ermittelt werden.
+angewandt.
+Für die theoretischen Verstärkungen ergibt sich der Fehler aus Anwendung von \autoref{eqn:fehlerfortpflanzung} auf \autoref{eqn:V_theo} mit
+\begin{align*}
+  \frac{\partial V}{\partial R_1} &= -\frac{R_2}{R_1^2}, & \frac{\partial V}{\partial R_2} &= \frac{1}{R_1}.
+\end{align*}
+Die Fehlerfortpflanzung ist damit
+\begin{equation*}
+  \increment V = \sqrt{{\left(-\frac{R_2}{R_1^2}\right)}^2{(\increment R_1)}^2 + {\left(\frac{\increment R_2}{R_1}\right)}^2}.
+\end{equation*}
+Für die erste Verstärkung mit $R_1 = \qty{1(0.1)}{\kilo\ohm}$ und $R_2=\qty{100(1)}{\kilo\ohm}$ beträgt der Fehler
+\begin{equation*}
+  \increment V_1 = \sqrt{\frac{10000}{10000}\cdot 0.01 + \frac{1}{100}\cdot 1} = \frac{\sqrt{2}}{10} \approx 0.14.
+\end{equation*}
+Der Fehlerwert der Grenzfrequenzen ergibt sich durch Anwenden von \autoref{eqn:fehlerfortpflanzung} auf \autoref{eqn:f_G}. 
+Es werden die fehlerbehafteten Werte $A_0$, $A_{\symup{lin}}$ und $b_{\symup{lin}}$ eingesetzt. 
+Die Ableitungen lauten
+\begin{align*}
+  \frac{\partial f_{\symup{G}}}{\partial A_0} &= \frac{1}{A_0b}f_{\symup{G}}, & \frac{\partial f_{\symup{G}}}{\partial A_{\symup{lin}}} &= \frac{1}{A_{\symup{lin}}b}f_{\symup{G}}, & \frac{\partial f_{\symup{G}}}{\partial b} &= -\frac{\ln\mleft({\frac{A_0}{\sqrt{2}A_{\symup{lin}}}}\mright)}{b^2}f_{\symup{G}}.
+\end{align*}
+Damit gilt für den Fehler
+\begin{equation*}
+  \increment f_{\symup{G}} = f_{\symup{G}}\sqrt{\frac{{\left(\increment A_0\right)}^2}{A_0^2b^2} + \frac{{\left(\increment A_{\symup{lin}}\right)}^2}{A_{\symup{lin}}^2b^2} + \frac{{\left(\increment b\right)}^2}{b^4}{\mleft({\ln\frac{A_0}{\sqrt{2}A_{\symup{lin}}}}\mright)}^2}. 
+\end{equation*}
+Für die Grenzfrequenz der ersten Verstärkung mit den Parametern aus~\ref{eqn:A_0},~\ref{eqn:A_lin} und~\ref{eqn:b} beträgt der Fehler
+\begin{align*}
+  \increment f_{\symup{G},1} &= {\mleft(\frac{9.44}{\qty{5.25e4}{}\sqrt{2}}\mright)}^{\!\!\!-\sfrac{1}{0.898}}\!\!\!\sqrt{\frac{0.02^2}{9.44^2\cdot0.898^2} + \frac{\qty{4.9e5}{}}{{({\qty{5.25e4}{}})}^2\cdot 0.898^2} + \frac{\qty{1e-6}{}}{0.898^4}{\mleft(\ln{\frac{9.44}{\qty{5.25e4}{}\sqrt{2}}}\mright)}^2} \\
+  &\approx \qty{0.4}{\kilo\hertz}.
+\end{align*}
+%\subsection{Mittelwert}
+% Für die Auswertung des Versuchs werden die folgenden Formeln zu Verarbeitung der Messunsicherheiten verwendet: 
+% Der Mittelwert wird mithilfe von
+
+% \begin{equation}
+% \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i.
+% \label{eqn:mittelwert}
+% \end{equation}
+% bestimmt.
+% %\subsection{Standardabweichung}
+% Die Standardabweichung wird anhand von
+% \begin{equation}
+% \sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2}.
+% \label{eqn:standardabweichung}
+% \end{equation}
+% berechnet.
+% %\subsubsection{Standardabweichung des Mittelwerts}
+% Die Standardabweichung des Mittwertes wird mithilfe von 
+% \begin{equation}
+% \Delta \bar{x} = \frac{\sigma}{\sqrt{N}}
+% \label{eqn:standardmittelwert}
+% \end{equation}
+% bestimmt.
+% %\subsection{Gaußsche Fehlerfortpflanzung}
+% Die Abweichung eines Wertes, der sich aus experimentell bestimmten Parametern ergibt, kann mithilfe der Gaußschen Fehlerfortpflanzung 
+% \begin{equation}
+% \Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
+% \label{eqn:fehlerfortpflanzung}
+% \end{equation}
+% ermittelt werden.
 
 \subsection{Verstärkung des invertierenden Linearverstärkers}
 \label{subsec:linear}
@@ -96,14 +129,14 @@ Zur Bestimmung der Leerlaufverstärkung wird die Höhe des Spannungsplateaus dur
 verwendet. Für das Plateau beschreibt der Parameter $A=A_0$ die Höhe der Leerlaufverstärkung. Der Parameter $b=b_0$ sollte nahe Null liegen. An ihm kann abgelesen werden, wie konstant die Werte auf dem Plateau sind.
 Aus dem Fit der Gerade auf dem Plateau ergibt sich für die Parameter:
 \begin{align}
-  A_{0,1} &= \qty{9.44(0.02)}{}\,\mathrm{,} \\
+  A_{0,1} &= \qty{9.44(0.02)}{}\,\mathrm{,} \label{eqn:A_0}\\
   b_{0,1} &= \qty{1.7(0.5)e-3}{}\,\mathrm{.}
 \end{align}
 Die experimentelle Leerlaufverstärkung ist also $V_1 = A_{0,1} \qty{9.44(0.02)}{}$.\\
 Die Werte für die Parameter aus dem Fit des abfallenden Bereiches sind
 \begin{align}
-  A_{\mathrm{lin},1} &= \qty{5.25(0.07)e4}, \\
-  b_{\mathrm{lin},1} &= \qty{-0.898(0.001)}{}.
+  A_{\mathrm{lin},1} &= \qty{5.25(0.07)e4},   \label{eqn:A_lin}\\
+  b_{\mathrm{lin},1} &= \qty{-0.898(0.001)}{}.   \label{eqn:b}
 \end{align}
 Die Grenzfrequenz ist definiert durch den Abfall der Verstärkung um etwa $70.7\%$ und wird durch \autoref{eqn:grenzfrequenz} beschrieben. Sie entspricht der Bandbreite des Operationsverstärkers. Durch Einsetzen der Fit-Funktion in diese Gleichung folgt
 \begin{equation}
