@@ -1,10 +1,14 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+In diesem Kapitel die aufgenommenen Messwerte fu Frequenzgang, Phasengang sowie Hysterese des Schmitt-Triggers dargestellt und ausgewertet.
 \subsection{Fehlerrechnung}
 \label{sec:fehlerrechnung}
+Der verwendete Frequenzgenerator hat eine baulich bedingte Messgenauigkeit von $\increment f = \qty{1}{\milli\hertz}$.
+Diese ist im Vergleich zu den eingestellten Frequenzen sehr gering. Es sind ebenfalls keine Schwankungen der Frequenz erkennbar.
+Daher wird im Folgenden auf die Angabe des Messfehlers der Frequenz verzichtet.\\
 Bei Berechnungen, die mit den fehlerbehafteten Messwerten durchgeführt werden, wird die Gauss'sche Fehlerfortpflanzung gemäß
 \begin{equation}
-\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2}
+\Delta f = \sqrt{\sum_{i=1}^{N} {\left( \frac{\partial f}{\partial x_i} \right)}^2 \cdot {(\Delta x_i)}^2}
 \label{eqn:fehlerfortpflanzung}
 \end{equation}
 angewandt.
@@ -35,6 +39,48 @@ Für die Grenzfrequenz der ersten Verstärkung mit den Parametern aus~\ref{eqn:A
   \increment f_{\symup{G},1} &= {\mleft(\frac{9.44}{\qty{5.25e4}{}\sqrt{2}}\mright)}^{\!\!\!-\sfrac{1}{0.898}}\!\!\!\sqrt{\frac{0.02^2}{9.44^2\cdot0.898^2} + \frac{\qty{4.9e5}{}}{{({\qty{5.25e4}{}})}^2\cdot 0.898^2} + \frac{\qty{1e-6}{}}{0.898^4}{\mleft(\ln{\frac{9.44}{\qty{5.25e4}{}\sqrt{2}}}\mright)}^2} \\
   &\approx \qty{0.4}{\kilo\hertz}.
 \end{align*}
+Die Fehlerwerte der Phase ergeben sich aus den Messfehlern der Zeitdifferenzen mit \autoref{eqn:phi} und \autoref{eqn:fehlerfortpflanzung}.
+Die Ableitung lautet
+\begin{equation*}
+  \frac{\partial \phi}{\partial t} = f\cdot 360\,\unit{\degree}.
+\end{equation*}
+Damit folgt für die Fehlerfortpflanzung
+\begin{equation*}
+  \increment\phi = \sqrt{f^2\cdot{(360\,\unit{\degree})}^2\cdot{(\increment t)}^2}.
+\end{equation*}
+Für den ersten Messwert beträgt der Fehler 
+\begin{equation*}
+  \increment\phi = \sqrt{{(\qty{1}{\hertz})}^2\cdot {(\qty{0.001}{\second})}^2\cdot{(\qty{360}{\degree})}^2} \approx \qty{0.36}{\degree}.
+\end{equation*}
+Zur Berechnung der Schwellspannung des Schmitt-Triggers wird der Mittelwert aus $N$ Werten gemäß
+\begin{equation}
+\overline{U} = \frac{1}{N} \sum_{i=1}^{N} U_i
+\label{eqn:mittelwert}
+\end{equation}
+gebildet.
+Die Abweichung des Mittelwerts ist 
+\begin{equation}
+\Delta \overline{U} = \frac{\sigma_U}{\sqrt{N}}
+\label{eqn:standardmittelwert}
+\end{equation}
+mit der Standardabweichung
+\begin{equation}
+\sigma_U = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} {\left( U_i - \overline{U} \right)}^2}.
+\label{eqn:standardabweichung}
+\end{equation}
+Mit den Werten der Schwellspannung aus \autoref{tab:schmittTri} beträgt der Mittelwert
+\begin{equation*}
+  \overline{U} = \frac{(1.4+1.41875+[\cdots]+1.38125)\,\unit{\volt}}{10} = \qty{1.40945}{\volt}.
+\end{equation*}
+Die Standardabweichung beträgt
+\begin{equation*}
+  \sigma_U = \sqrt{\frac{1}{9}\left((-0.00945)^2+(0.0723)^2+[\cdots]+(-0.0277)^2\right)} \approx \qty{0.02854}\volt.
+\end{equation*}
+Damit ist der Fehler des Mittelwerts
+\begin{equation*}
+  \Delta\overline{U} = \frac{\qty{0.02854}{\volt}}{\sqrt{10}} \approx \qty{0.009}{\volt}.
+\end{equation*}
+
 %\subsection{Mittelwert}
 % Für die Auswertung des Versuchs werden die folgenden Formeln zu Verarbeitung der Messunsicherheiten verwendet: 
 % Der Mittelwert wird mithilfe von
@@ -239,9 +285,10 @@ Das Bandbreitenprodukt beträgt
 \subsection{Phasenbeziehung des invertierenden Linearverstärkers}
 Die Phasendifferenz zwischen Eingangs- und Ausgangsspannung wird am Oszilloskop als Zeitintervall $\symup{\Delta}t$ zwischen zwei benachbarten Maxima in Millisekunden gemessen. 
 Um daraus die Phasendifferenz im Gradmaß zu erhalten, werden die Messwerte mit der Gleichung
-\begin{equation*}
+\begin{equation}
   \symup{\Delta\phi} = \symup{\Delta}t \cdot f\cdot 360\unit{\degree}
-\end{equation*}
+  \label{eqn:phi}
+\end{equation}
 umgerechnet~\cite{studyflix}.\\
 Der erhaltene Frequanzgang der Phasendifferenz für alle vier Messreihen wird in \autoref{fig:phasendifferenz} dargestellt. Die $x-$Achse ist dabei logarithmiert. 
 Die Zuordnung der Diagramme zu ihrer jeweiligen Messreihe erfolgt über ihre theoretische Verstärkung (vgl. \autoref{tab:gain}).
@@ -356,14 +403,14 @@ Der Differenzierer sorgt dafür, dass das Ausgangssignal der Ableitung des Einga
 \subsection{Schwellspannung und Hysterese-Kurve des Schmitt-Triggers}
 Der theoretische Wert der Schwellspannung wird mit \autoref{equ:U_schwell} berechnet. Für den verwendeten Aufbau ergibt sich
 \begin{equation}
-  U_{\mathrm{Schwell,theo}} = \pm \qty{15}{\volt} \frac{\qty{10}{\kilo\ohm}}{\qty{10}{\kilo\ohm}+\qty{100}{\kilo\ohm}} = \pm\qty{1.36}{\volt}.
+  U_{\mathrm{Schwell,theo}} = \pm \qty{15}{\volt} \frac{\qty{10(0.1)}{\kilo\ohm}}{\qty{10(0.1)}{\kilo\ohm}+\qty{100(1)}{\kilo\ohm}} = \pm\qty{1.36(0.02)}{\volt}.
 \end{equation}
 Die erste experimentelle Bestimmung der Schwellspanung erfolgt, wie in \autoref{subsec:schmitt} beschrieben, über ein Sinus- Eingangssignal.\\
-\autoref{fig:schmittSin} zeigt das Sinussignal und die Hysteresekurve. Diese erscheint ab einer eingestellten Speisespannung von $U_{\mathrm{sin}}=\qty{2.804(0.001)}{\volt}$. Diese wird von Maximum bis Minimum gemessen.
+\autoref{fig:schmittSin} zeigt das Sinussignal und die Hysteresekurve. Diese erscheint ab einer eingestellten Speisespannung von $U_{\mathrm{\sin}}=\qty{2.804(0.001)}{\volt}$. Diese wird von Maximum bis Minimum gemessen.
 Der Wert der Schwellspannung ist also halb so groß wie die gemessene Speisespannung. Sie beträgt
 \begin{equation}
-  U_{\mathrm{Schwell,sin}} = \pm\qty{1.402(0.0005)}{\volt}.
-\end{equation}
+  U_{\mathrm{Schwell,\sin}} = \pm\qty{1.402(0.0005)}{\volt}.
+\end{equation}  
 \\
 \begin{figure}
   \centering
@@ -405,7 +452,7 @@ Es werden fünf positive und fünf negative Messwerte für die Schwellspannung g
 \end{table}
 Aus diesen zehn Werten wird der Mittelwert nach \autoref{eqn:mittelwert} und dessen Abweichung nach \autoref{eqn:standardmittelwert} gebildet. Dafür wird der Betrag der Messwerte genommen, um das negative Vorzeichen zu kompensieren. Die mittlere Schwellspanung beträgt 
 \begin{equation}
-  \overline{U}_{\mathrm{Schwell,tri}} = \pm\qty{1.4031(0.0045)}{\volt}.
+  \overline{U}_{\mathrm{Schwell,tri}} = \pm(1.40945\pm0.009)\,\unit{\volt}.
 \end{equation}
 % \begin{figure}
 %   \begin{subfigure}{0.48\textwidth}
