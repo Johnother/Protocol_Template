@@ -1,6 +1,6 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-In diesem Kapitel die aufgenommenen Messwerte fu Frequenzgang, Phasengang sowie Hysterese des Schmitt-Triggers dargestellt und ausgewertet.
+In diesem Kapitel werden die aufgenommenen Messwerte für Frequenzgang, Phasengang sowie die Hysterese des Schmitt-Triggers dargestellt und ausgewertet.
 \subsection{Fehlerrechnung}
 \label{sec:fehlerrechnung}
 Der verwendete Frequenzgenerator hat eine baulich bedingte Messgenauigkeit von $\increment f = \qty{1}{\milli\hertz}$.
@@ -11,7 +11,7 @@ Bei Berechnungen, die mit den fehlerbehafteten Messwerten durchgeführt werden, 
 \Delta f = \sqrt{\sum_{i=1}^{N} {\left( \frac{\partial f}{\partial x_i} \right)}^2 \cdot {(\Delta x_i)}^2}
 \label{eqn:fehlerfortpflanzung}
 \end{equation}
-angewandt.
+angewandt.\\
 Für die theoretischen Verstärkungen ergibt sich der Fehler aus Anwendung von \autoref{eqn:fehlerfortpflanzung} auf \autoref{eqn:V_theo} mit
 \begin{align*}
   \frac{\partial V}{\partial R_1} &= -\frac{R_2}{R_1^2}, & \frac{\partial V}{\partial R_2} &= \frac{1}{R_1}.
@@ -24,6 +24,8 @@ Für die erste Verstärkung mit $R_1 = \qty{1(0.1)}{\kilo\ohm}$ und $R_2=\qty{10
 \begin{equation*}
   \increment V_1 = \sqrt{\frac{10000}{10000}\cdot 0.01 + \frac{1}{100}\cdot 1} = \frac{\sqrt{2}}{10} \approx 0.14.
 \end{equation*}
+Der Fehler für das Bandbreitenprodukt aus \autoref{eqn:bandbreitenprodukt} berechnet sich ähnlich, da der Zusammenhang ebenfalls linear ist.
+Auf die detaillierte Berechnung wird daher verzichtet.\\\\
 Der Fehlerwert der Grenzfrequenzen ergibt sich durch Anwenden von \autoref{eqn:fehlerfortpflanzung} auf \autoref{eqn:f_G}. 
 Es werden die fehlerbehafteten Werte $A_0$, $A_{\symup{lin}}$ und $b_{\symup{lin}}$ eingesetzt. 
 Die Ableitungen lauten
