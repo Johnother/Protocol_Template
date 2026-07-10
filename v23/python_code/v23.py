@@ -22,9 +22,7 @@ H180 = np.genfromtxt("H_180_spektrum.dat",delimiter=" ")
 H180[:,0] /= 1000.0
 
 peaks, props = find_peaks(H180[:,1],height=5)
-print(peaks)
 peaks = np.delete(peaks,(2,8,12))
-print(peaks)
 fig, ax = plt.subplots(layout="constrained")
 ax.plot(H180[:,0],H180[:,1],label=r"Messwerte")
 ax.vlines(H180[peaks,0],ymin=0,ymax=26,ls="--",color="red",label=r"Resonanzfrequenzen")
@@ -54,12 +52,12 @@ for a in alpha:
 
 resonance = [peaks[0],peaks[1],peaks[2],peaks[5]]
 f_res = H180[resonance,0]
-print(" Verwendete Resonanzfrequenzen:")
+print("--- Verwendete Resonanzfrequenzen ---")
 for i in range(len(f_res)):
     print(f"{f_res[i]:.3f}")
+print("----------------------------------------------------------------")
 
 resonance = [61,340,597,1089]
-print(resonance)
 alpha = np.deg2rad(np.arange(0,181,5))
 # alpha= np.arange(0,181,5)
 theta = theta(alpha)
@@ -68,7 +66,6 @@ theta_theory = np.deg2rad(np.linspace(0,361,1000))
 phi = np.zeros_like(theta_theory)
 
 print(len(amplitude[resonance[0],:]))
-print(amplitude)
 
 fig, ax = plt.subplots(subplot_kw={"projection": "polar"},layout="constrained")
 Y = np.abs(sph_harm_y(1,0,theta_theory,phi))
@@ -123,14 +120,18 @@ amp_9[:,0] /= 1000.0
 amp_12 = np.genfromtxt("12mm_Aufspaltung.dat",delimiter=" ")
 amp_12[:,0] /= 1000.0
 
+
+
+
+
 fig, ax = plt.subplots(layout="constrained")
-peaks, props = find_peaks(amp_3[:,1],height=4)
+peaks3, props = find_peaks(amp_3[:,1],height=4)
 ax.plot(amp_3[:,0],amp_3[:,1],label=r"Aufspaltung 3mm Ring")
 secax = ax.secondary_xaxis("top")
-ax.vlines(amp_3[peaks,0],ymin=0,ymax=5.9,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(amp_3[peaks3,0],ymin=0,ymax=5.9,ls="--",color="red",label=r"Resonanzfrequenzen")
 secax.set_xlabel(r"$f$ [kHz]")
-secax.set_xticks(amp_3[peaks,0])
-secax.set_xticklabels(amp_3[peaks,0],rotation=45,ha="center")
+secax.set_xticks(amp_3[peaks3,0])
+secax.set_xticklabels(amp_3[peaks3,0],rotation=45,ha="center")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
 ax.set_xlim(1.8,2.6)
@@ -144,7 +145,6 @@ fig.savefig("3mm_Aufspaltung.pdf")
 fig, ax = plt.subplots(layout="constrained")
 
 peaks9, props = find_peaks(amp_9[:,1],height=5)
-
 ax.plot(amp_9[:,0],amp_9[:,1],label=r"Aufspaltung 9mm Ring")
 secax = ax.secondary_xaxis("top")
 ax.vlines(amp_9[peaks9,0],ymin=0,ymax=6.5,ls="--",color="red",label=r"Resonanzfrequenzen")
@@ -161,17 +161,15 @@ fig.savefig("9mm_Aufspaltung.pdf")
 
 
 
-
-
-
 fig, ax = plt.subplots(layout="constrained")
-peaks, props = find_peaks(amp_12[:,1],height=3)
+
+peaks12, props = find_peaks(amp_12[:,1],height=3)
 ax.plot(amp_12[:,0],amp_12[:,1],label=r"Aufspaltung 12mm Ring")
-ax.vlines(amp_12[peaks,0],ymax=6.9,ymin=0,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(amp_12[peaks12,0],ymax=6.9,ymin=0,ls="--",color="red",label=r"Resonanzfrequenzen")
 secax = ax.secondary_xaxis("top")
 secax.set_xlabel(r"$f$ [kHz]")
-secax.set_xticks(amp_12[peaks,0])
-secax.set_xticklabels(amp_12[peaks,0],rotation=45,ha="center")
+secax.set_xticks(amp_12[peaks12,0])
+secax.set_xticklabels(amp_12[peaks12,0],rotation=45,ha="center")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
 ax.set_xlim(1.8,2.6)
@@ -180,6 +178,22 @@ ax.grid()
 ax.legend()
 fig.savefig("12mm_Aufspaltung.pdf")
 
+dF = [ (ufloat(amp_3[peaks3[1],0],0.01) - ufloat(amp_3[peaks3[0],0],0.01)) , (ufloat(amp_9[peaks9[1],0],0.01) - ufloat(amp_9[peaks9[0],0],0.01)) , (ufloat(amp_12[peaks12[1],0],0.01) - ufloat(amp_12[peaks12[0],0],0.01)) ]
+print(dF)
+F_N = [dF[i].n*1000.0 for i in range(len(dF))]
+F_S = [dF[i].s*1000.0 for i in range(len(dF))]
+d = np.linspace(0,50)
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar([3,9,12],F_N,yerr=F_S,fmt="x",capsize=2,label=r"Messwerte $\increment f$")
+popt, pcov = curve_fit(lin,[3,9,12,],F_N,sigma=F_S,absolute_sigma=True)
+ax.plot(d,lin(d,*popt),label=r"Linearer Fit")
+ax.set_xlabel(r"$d$ [mm]")
+ax.set_ylabel(r"$\increment f$ [Hz]")
+ax.set_xlim(0,20)
+ax.set_ylim(0,300)
+ax.grid()
+ax.legend()
+fig.savefig("Ring_fit.pdf")
 
 
 alpha = np.arange(5,181,5)
@@ -226,7 +240,9 @@ amp_50[:,0] /= 1000.0
 fig, ax = plt.subplots(layout="constrained")
 peaks, props = find_peaks(amp_50[:,1],height=5)
 peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -246,7 +262,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,2],height=5)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -265,7 +283,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,3],height=2)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -284,7 +304,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,4],height=2.5)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -303,7 +325,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,5],height=2.7)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -322,7 +346,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,6],height=2)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -341,7 +367,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,7],height=2)
 peaks = np.delete(peaks,(0))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -360,7 +388,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,8],height=2)
 # peaks = np.delete(peaks,(0,2))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -379,7 +409,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,9],height=2)
 peaks = np.delete(peaks,(1))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -398,7 +430,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,10],height=1.9)
 peaks = np.delete(peaks,(1,2,3))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -417,7 +451,9 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,11],height=2.2)
 peaks = np.delete(peaks,(1,2,3,4))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -436,7 +472,10 @@ fig, ax = plt.subplots(layout="constrained")
 
 peaks, props = find_peaks(amp_50[:,12],height=2)
 peaks = np.delete(peaks,(0,2,3))
-freq = unp.uarray(amp_50[peaks,0],np.ones(len(peaks)))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
+
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
@@ -475,3 +514,34 @@ ax.set_ylabel(r"$\increment f$ [kHz]")
 ax.grid()
 ax.legend()
 fig.savefig("50mm_dF.pdf")
+
+### 75mm Zylinder ###
+
+amp_50 = np.genfromtxt("50mm_Zylinder/1.dat",delimiter=" ")
+for i in range(2,13):
+    file = f"50mm_Zylinder/{i}.dat"
+    data = np.genfromtxt(file,delimiter=" ")
+    amp_50 = np.c_[amp_50,data[:,1]]
+
+amp_50[:,0] /= 1000.0
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_50[:,1],height=5)
+peaks = np.delete(peaks,(0,2))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_50[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF = []
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_50mm = {DeltaF[0]} kHz")
+
+ax.plot(amp_50[:,0],amp_50[:,1])
+ax.plot(amp_50[peaks,0],amp_50[peaks,1],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.grid()
+fig.savefig("50mm_1.pdf")
