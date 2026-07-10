@@ -21,15 +21,19 @@ def lin(x,a,b):
 H180 = np.genfromtxt("H_180_spektrum.dat",delimiter=" ")
 H180[:,0] /= 1000.0
 
+plt.rcParams.update({'font.size': 14})
+
 peaks, props = find_peaks(H180[:,1],height=5)
 peaks = np.delete(peaks,(2,8,12))
+peaks = np.delete(peaks,(4,6,8))
+peaks[7] = 2150
 fig, ax = plt.subplots(layout="constrained")
 ax.plot(H180[:,0],H180[:,1],label=r"Messwerte")
-ax.vlines(H180[peaks,0],ymin=0,ymax=26,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(H180[peaks,0],ymin=0,ymax=26,ls="--",lw=1,color="red",label=r"Resonanzfrequenzen")
 secax = ax.secondary_xaxis("top")
 secax.set_xticks(H180[peaks,0])
 secax.set_xticklabels(H180[peaks,0],rotation=45,ha="center")
-secax.set_xlabel(r"Resonanzfrequenzen [kHz]")
+secax.set_xlabel(r"$f$ [kHz]")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
 ax.set_xlim(0,12)
@@ -72,7 +76,7 @@ Y = np.abs(sph_harm_y(1,0,theta_theory,phi))
 Y_N = Y/np.max(Y)*np.max(amplitude[resonance[0],1:])
 ax.plot(theta,amplitude[resonance[0],1:],"x",label=r"Messwerte")
 # ax.plot(theta_theory,1/2*(3*np.cos(theta_theory)**2-1))
-ax.plot(theta_theory,Y_N,label=r"$Y^1_0$")
+ax.plot(theta_theory,Y_N,label=r"$Y^0_1$")
 ax.grid(True)
 ax.legend()
 
@@ -83,7 +87,7 @@ Y = np.abs(sph_harm_y(2,0,theta_theory,phi))
 Y_N = Y/np.max(Y)*np.max(amplitude[resonance[1],1:])
 ax.plot(theta,amplitude[resonance[1],1:],"x",label=r"Messwerte")
 # ax.plot(theta_theory,1/2*(3*np.cos(theta_theory)**2-1))
-ax.plot(theta_theory,Y_N,label=r"$Y^1_0$")
+ax.plot(theta_theory,Y_N,label=r"$Y^0_2$")
 ax.grid(True)
 ax.legend()
 
@@ -94,7 +98,7 @@ Y = np.abs(sph_harm_y(3,0,theta_theory,phi))
 Y_N = Y/np.max(Y)*np.max(amplitude[resonance[2],1:])
 ax.plot(theta,amplitude[resonance[2],1:],"x",label=r"Messwerte")
 # ax.plot(theta_theory,1/2*(3*np.cos(theta_theory)**2-1))
-ax.plot(theta_theory,Y_N,label=r"$Y^1_0$")
+ax.plot(theta_theory,Y_N,label=r"$Y^0_3$")
 ax.grid(True)
 ax.legend()
 
@@ -105,7 +109,7 @@ Y = np.abs(sph_harm_y(5,0,theta_theory,phi))
 Y_N = Y/np.max(Y)*np.max(amplitude[resonance[3],1:])
 ax.plot(theta,amplitude[resonance[3],1:],"x",label=r"Messwerte")
 # ax.plot(theta_theory,1/2*(3*np.cos(theta_theory)**2-1))
-ax.plot(theta_theory,Y_N,label=r"$Y^1_0$")
+ax.plot(theta_theory,Y_N,label=r"$Y^0_5$")
 ax.grid(True)
 ax.legend()
 
@@ -124,11 +128,11 @@ amp_12[:,0] /= 1000.0
 
 
 
-fig, ax = plt.subplots(layout="constrained")
+fig, ax = plt.subplots(figsize=(5,5),layout="constrained")
 peaks3, props = find_peaks(amp_3[:,1],height=4)
 ax.plot(amp_3[:,0],amp_3[:,1],label=r"Aufspaltung 3mm Ring")
 secax = ax.secondary_xaxis("top")
-ax.vlines(amp_3[peaks3,0],ymin=0,ymax=5.9,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(amp_3[peaks3,0],ymin=0,ymax=5.9,ls="--",lw=1,color="red",label=r"Resonanzfrequenzen")
 secax.set_xlabel(r"$f$ [kHz]")
 secax.set_xticks(amp_3[peaks3,0])
 secax.set_xticklabels(amp_3[peaks3,0],rotation=45,ha="center")
@@ -142,12 +146,12 @@ fig.savefig("3mm_Aufspaltung.pdf")
 
 
 
-fig, ax = plt.subplots(layout="constrained")
+fig, ax = plt.subplots(figsize=(5,5),layout="constrained")
 
 peaks9, props = find_peaks(amp_9[:,1],height=5)
 ax.plot(amp_9[:,0],amp_9[:,1],label=r"Aufspaltung 9mm Ring")
 secax = ax.secondary_xaxis("top")
-ax.vlines(amp_9[peaks9,0],ymin=0,ymax=6.5,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(amp_9[peaks9,0],ymin=0,ymax=6.5,ls="--",lw=1,color="red",label=r"Resonanzfrequenzen")
 secax.set_xlabel(r"$f$ [kHz]")
 secax.set_xticks(amp_9[peaks9,0])
 secax.set_xticklabels(amp_9[peaks9,0],rotation=45,ha="center")
@@ -161,11 +165,11 @@ fig.savefig("9mm_Aufspaltung.pdf")
 
 
 
-fig, ax = plt.subplots(layout="constrained")
+fig, ax = plt.subplots(figsize=(5,5),layout="constrained")
 
 peaks12, props = find_peaks(amp_12[:,1],height=3)
 ax.plot(amp_12[:,0],amp_12[:,1],label=r"Aufspaltung 12mm Ring")
-ax.vlines(amp_12[peaks12,0],ymax=6.9,ymin=0,ls="--",color="red",label=r"Resonanzfrequenzen")
+ax.vlines(amp_12[peaks12,0],ymax=6.9,ymin=0,ls="--",lw=1,color="red",label=r"Resonanzfrequenzen")
 secax = ax.secondary_xaxis("top")
 secax.set_xlabel(r"$f$ [kHz]")
 secax.set_xticks(amp_12[peaks12,0])
@@ -220,7 +224,7 @@ Y_N = Y/np.max(Y)*np.max(amplitude[peaks9[1],1:])
 
 
 ax.plot(alpha,amplitude[peaks9[1],1:],"x",label=r"Messwewrte")
-ax.plot(theta_theory,Y_N,label=r"$Y^1_0$")
+ax.plot(theta_theory,Y_N,label=r"$Y^0_1$")
 ax.grid(True)
 ax.legend()
 fig.savefig("Polar_9_2.pdf")
@@ -255,6 +259,8 @@ ax.plot(amp_50[:,0],amp_50[:,1])
 ax.plot(amp_50[peaks,0],amp_50[peaks,1],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,24.9)
 ax.grid()
 fig.savefig("50mm_1.pdf")
 
@@ -276,6 +282,8 @@ ax.plot(amp_50[:,0],amp_50[:,2])
 ax.plot(amp_50[peaks,0],amp_50[peaks,2],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,29)
 ax.grid()
 fig.savefig("50mm_2.pdf")
 
@@ -297,6 +305,8 @@ ax.plot(amp_50[:,0],amp_50[:,3])
 ax.plot(amp_50[peaks,0],amp_50[peaks,3],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15.9)
 ax.grid()
 fig.savefig("50mm_3.pdf")
 
@@ -318,6 +328,8 @@ ax.plot(amp_50[:,0],amp_50[:,4])
 ax.plot(amp_50[peaks,0],amp_50[peaks,4],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,19.9)
 ax.grid()
 fig.savefig("50mm_4.pdf")
 
@@ -339,6 +351,8 @@ ax.plot(amp_50[:,0],amp_50[:,5])
 ax.plot(amp_50[peaks,0],amp_50[peaks,5],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,13.9)
 ax.grid()
 fig.savefig("50mm_5.pdf")
 
@@ -360,6 +374,8 @@ ax.plot(amp_50[:,0],amp_50[:,6])
 ax.plot(amp_50[peaks,0],amp_50[peaks,6],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,22.5)
 ax.grid()
 fig.savefig("50mm_6.pdf")
 
@@ -381,6 +397,8 @@ ax.plot(amp_50[:,0],amp_50[:,7])
 ax.plot(amp_50[peaks,0],amp_50[peaks,7],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,27.5)
 ax.grid()
 fig.savefig("50mm_7.pdf")
 
@@ -402,6 +420,8 @@ ax.plot(amp_50[:,0],amp_50[:,8])
 ax.plot(amp_50[peaks,0],amp_50[peaks,8],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,22.5)
 ax.grid()
 fig.savefig("50mm_8.pdf")
 
@@ -423,6 +443,8 @@ ax.plot(amp_50[:,0],amp_50[:,9])
 ax.plot(amp_50[peaks,0],amp_50[peaks,9],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15.9)
 ax.grid()
 fig.savefig("50mm_9.pdf")
 
@@ -444,6 +466,8 @@ ax.plot(amp_50[:,0],amp_50[:,10])
 ax.plot(amp_50[peaks,0],amp_50[peaks,10],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,11.9)
 ax.grid()
 fig.savefig("50mm_10.pdf")
 
@@ -465,6 +489,8 @@ ax.plot(amp_50[:,0],amp_50[:,11])
 ax.plot(amp_50[peaks,0],amp_50[peaks,11],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,13)
 ax.grid()
 fig.savefig("50mm_11.pdf")
 
@@ -487,11 +513,13 @@ ax.plot(amp_50[:,0],amp_50[:,12])
 ax.plot(amp_50[peaks,0],amp_50[peaks,12],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15.9)
 ax.grid()
 fig.savefig("50mm_12.pdf")
 
-for i in range(len(DeltaF)):
-    DeltaF[i] = DeltaF[i]**2
+# for i in range(len(DeltaF)):
+#     DeltaF[i] = DeltaF[i]**2
 
 F_N = [DeltaF[i].n for i in range(len(DeltaF))]
 F_S = [DeltaF[i].s for i in range(len(DeltaF))]
@@ -500,48 +528,232 @@ L = np.arange(50,601,50)
 x = np.linspace(50,601)
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(L**2),F_N,yerr=F_S,fmt="x",capsize=2,label=r"Messwerte: $\increment f$")
-popt, pcov = curve_fit(lin,1/(L**2),F_N,sigma=F_S,absolute_sigma=True)
+ax.errorbar(1/L,F_N,yerr=F_S,fmt="x",capsize=2,label=r"Messwerte: $\increment f$")
+popt, pcov = curve_fit(lin,1/L,F_N,sigma=F_S,absolute_sigma=True)
 sigma = np.sqrt(np.diag(pcov))
 a = ufloat(popt[0],sigma[0])
 b = ufloat(popt[1],sigma[1])
 print("--- Fit 50mm ---")
 print(f"a = {a}\tb = {b}")
-print(f"v = {2*unp.sqrt(a)}\n---------------------------------------------")
-ax.plot(1/(x**2),lin(1/(x**2),*popt),label=r"Linearer Fit")
-ax.set_xlabel(r"$L^{-2}[\mathrm{mm}^{-2}]$")
-ax.set_ylabel(r"$\increment f$ [kHz]")
+print(f"v = {2*a}\n---------------------------------------------")
+ax.plot(1/x,lin(1/x,*popt),label=r"Linearer Fit")
+ax.set_xlabel(r"$L^{-1}\,[\mathrm{mm}^{-1}]$")
+ax.set_ylabel(r"$\increment f\,[\mathrm{kHz}]$")
+ax.ticklabel_format(axis="x",style="sci",scilimits=(-3,-3))
 ax.grid()
 ax.legend()
 fig.savefig("50mm_dF.pdf")
 
 ### 75mm Zylinder ###
 
-amp_50 = np.genfromtxt("50mm_Zylinder/1.dat",delimiter=" ")
-for i in range(2,13):
-    file = f"50mm_Zylinder/{i}.dat"
+amp_75 = np.genfromtxt("75mm_Zylinder/1.dat",delimiter=" ")
+for i in range(2,9):
+    file = f"75mm_Zylinder/{i}.dat"
     data = np.genfromtxt(file,delimiter=" ")
-    amp_50 = np.c_[amp_50,data[:,1]]
+    amp_75 = np.c_[amp_75,data[:,1]]
 
-amp_50[:,0] /= 1000.0
+amp_75[:,0] /= 1000.0
 
 fig, ax = plt.subplots(layout="constrained")
-peaks, props = find_peaks(amp_50[:,1],height=5)
-peaks = np.delete(peaks,(0,2))
+peaks, props = find_peaks(amp_75[:,1],height=4)
+# peaks = np.delete(peaks,(0,2))
 ferr = np.empty(len(peaks))
 ferr.fill(0.01)
-freq = unp.uarray(amp_50[peaks,0],ferr)
+freq = unp.uarray(amp_75[peaks,0],ferr)
 dF = []
 for i in range(len(peaks)-1):
     dF.append(freq[i+1]-freq[i])
 
 DeltaF = []
 DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
-print(f"DeltaF_50mm = {DeltaF[0]} kHz")
+print(f"DeltaF_75mm = {DeltaF[0]} kHz")
 
-ax.plot(amp_50[:,0],amp_50[:,1])
-ax.plot(amp_50[peaks,0],amp_50[peaks,1],"rx")
+ax.plot(amp_75[:,0],amp_75[:,1])
+ax.plot(amp_75[peaks,0],amp_75[peaks,1],"rx")
 ax.set_xlabel(r"$f$ [kHz]")
 ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,19.9)
 ax.grid()
-fig.savefig("50mm_1.pdf")
+fig.savefig("75mm_1.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,2],height=2)
+peaks = np.delete(peaks,(0))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_150mm = {DeltaF[1]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,2])
+ax.plot(amp_75[peaks,0],amp_75[peaks,2],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15.9)
+ax.grid()
+fig.savefig("75mm_2.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,3],height=2.5)
+# peaks = np.delete(peaks,(0,2))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_225mm = {DeltaF[2]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,3])
+ax.plot(amp_75[peaks,0],amp_75[peaks,3],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,17.4)
+ax.grid()
+fig.savefig("75mm_3.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,4],height=2.5)
+peaks = np.delete(peaks,(0,2))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_300mm = {DeltaF[3]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,4])
+ax.plot(amp_75[peaks,0],amp_75[peaks,4],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,22.5)
+ax.grid()
+fig.savefig("75mm_4.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,5],height=2.5)
+peaks = np.delete(peaks,(0,2))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_375mm = {DeltaF[4]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,5])
+ax.plot(amp_75[peaks,0],amp_75[peaks,5],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,24.9)
+ax.grid()
+fig.savefig("75mm_5.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,6],height=2)
+peaks = np.delete(peaks,(0,2,3))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_450mm = {DeltaF[5]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,6])
+ax.plot(amp_75[peaks,0],amp_75[peaks,6],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15)
+ax.grid()
+fig.savefig("75mm_6.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,7],height=2)
+peaks = np.delete(peaks,(1,2,3,4,5))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_525mm = {DeltaF[6]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,7])
+ax.plot(amp_75[peaks,0],amp_75[peaks,7],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,11.9)
+ax.grid()
+fig.savefig("75mm_7.pdf")
+
+fig, ax = plt.subplots(layout="constrained")
+peaks, props = find_peaks(amp_75[:,8],height=2)
+# peaks = np.delete(peaks,(0,2))
+ferr = np.empty(len(peaks))
+ferr.fill(0.01)
+freq = unp.uarray(amp_75[peaks,0],ferr)
+dF = []
+for i in range(len(peaks)-1):
+    dF.append(freq[i+1]-freq[i])
+
+DeltaF.append(sum(ufloat(dF[i].n,dF[i].s) for i in range(len(peaks)-1))/(len(peaks)-1))
+print(f"DeltaF_600mm = {DeltaF[7]} kHz")
+
+ax.plot(amp_75[:,0],amp_75[:,8])
+ax.plot(amp_75[peaks,0],amp_75[peaks,8],"rx")
+ax.set_xlabel(r"$f$ [kHz]")
+ax.set_ylabel(r"Amplitude [a.u.]")
+ax.set_xlim(0,12)
+ax.set_ylim(0,15.9)
+ax.grid()
+fig.savefig("75mm_8.pdf")
+
+
+# for i in range(len(DeltaF)):
+#     DeltaF[i] = DeltaF[i]**2
+
+F_N = [DeltaF[i].n for i in range(len(DeltaF))]
+F_S = [DeltaF[i].s for i in range(len(DeltaF))]
+
+L = np.arange(75,601,75)
+x = np.linspace(75,601)
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(1/L,F_N,yerr=F_S,fmt="x",capsize=2,label=r"Messwerte: $\increment f^2$")
+popt, pcov = curve_fit(lin,1/L,F_N,sigma=F_S,absolute_sigma=True)
+sigma = np.sqrt(np.diag(pcov))
+a = ufloat(popt[0],sigma[0])
+b = ufloat(popt[1],sigma[1])
+print("--- Fit 75mm ---")
+print(f"a = {a}\tb = {b}")
+print(f"v = {2*a}\n---------------------------------------------")
+ax.plot(1/x,lin(1/x,*popt),label=r"Linearer Fit")
+ax.set_xlabel(r"$L^{-1}\,[\mathrm{mm}^{-1}]$")
+ax.set_ylabel(r"$\increment f\,[\mathrm{kHz}]$")
+ax.ticklabel_format(axis="x",style="sci",scilimits=(-3,-3))
+ax.grid()
+ax.legend()
+fig.savefig("75mm_dF.pdf")

@@ -1,4 +1,238 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-In der Auswertung werden die Rechnungen, Plots und Fit-Funktionen mit \cite{matplotlib}, \cite{numpy}, \cite{scipy} und \cite{uncertainties} durchgeführt bzw. erstellt.
+In der Auswertung werden die Rechnungen, Plots und Fit-Funktionen mit \textit{Matplotlib}~\cite{matplotlib}, \textit{Numpy}~\cite{numpy}, \textit{Scipy}~\cite{scipy} und \textit{Uncertainties}~\cite{uncertainties} durchgeführt bzw. erstellt.
+In \textit{Uncertainties} werden die Messfehler gemäß der Gleichungen aus \autoref{sec:fehlerrechnung} behandelt.
+
+\noindent
+Bei den Messungen der Spektren werden verschiedene Schrittweiten verwendet, aber die Auflösung des Messprogramms ist in jedem Fall $\increment f = \qty{1}{\hertz}$.
+Dieser Wert wird für alle Frequenzmessungen als Messfehler verwendet.
+%
+%
+%
+\subsection{Vorbereitende Aufgaben zur Messung der Schallgeschwindigkeit}
+Die Schallgeschwindigkeit verknüpft die Resonanzfrequenzen im Zylinderresonator mit ihrer Länge gemäß \autoref{eqn:zylfreq}.
+In dem Versuch werden die axialen Resonanzmoden gemessen, also die Modenzahl $n$ verändert.
+Die Nullstellen der Besselfunktionen können bei dieser Messung vernachlässigt werden, sodass sich \autoref{eqn:zylfreq} vereinfacht zu
+\begin{equation*}
+    f_{n} = \frac{c}{2\pi}\frac{n\pi}{L} = \frac{nc}{2L}.
+\end{equation*}
+Der Frequenzabstand zweier Resonanzfrequenzen ist daher
+\begin{equation}
+    \increment f = f_{n+1} - f_{n} = \frac{c}{2L}.
+    \label{eqn:c_lin}
+\end{equation}
+\autoref{fig:50mm_Zyl} zeigt beispielhaft drei der aufgenommenen Frequenzspektren für die Reihe aus $L=\qty{50}{\milli\meter}$ Zylindern. 
+Mithilfe der Funktion \textit{find\_peaks} von \textit{Scipy}~\cite{scipy} werden die Positionen der Resonanzfrequenzen ermittelt.
+Daraus wird für alle zwölf Zylinderlängen jeweis der mittlere Frequenzabstand der Resonanzfrequenzen berechnet.
+Die Grafiken der übrigen Zylinderlängen für $L = \qty{50}{\milli\meter}$ sind in \autoref{fig:50mm_Rest} im Anhang zu finden.
+\begin{figure}
+    \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/50mm_1.pdf}
+        \caption{$\qty{50}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/50mm_6.pdf}
+        \caption{$\qty{300}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/50mm_12.pdf}
+        \caption{$\qty{600}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \caption{Axiale Frequenzspektren der Zylinderresonatoren aus $\qty{50}{\milli\meter}$ Zylindern für verschiedene Längen.}
+    \label{fig:50mm_Zyl}
+\end{figure}
+\FloatBarrier
+\noindent
+Für die acht Zylinderlängen, aufgebaut aus den Zylindern mit $L = \qty{75}{\milli\meter}$, werden ebenfalls Frequenzspektren aufgenommen, die Resonanzpeaks gesucht und deren mittlerer Frequenzabstand berechnet.
+\autoref{fig:75mm_Zyl} zeigt exemplarisch drei der gemessenen Spektren.
+Die restlichen Spektren sind in \autoref{fig:75mm_Rest} im Anhang abgebildet.
+\begin{figure}
+    \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/75mm_1.pdf}
+        \caption{$\qty{50}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/75mm_4.pdf}
+        \caption{$\qty{300}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.28\textwidth}
+        \centering
+        \includegraphics[height=4cm]{python_code/75mm_8.pdf}
+        \caption{$\qty{600}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \caption{Axiale Frequenzspektren der Zylinderresonatoren aus $\qty{75}{\milli\meter}$ Zylindern für verschiedene Längen.}
+    \label{fig:75mm_Zyl}
+\end{figure}
+\FloatBarrier
+\noindent
+Die Mittelwerte der Frequenzabstände werden gegen die inverse Resonatorlänge im Diagramm aufgetragen.
+Aus \autoref{eqn:c_lin} geht hervor, dass die Schallgeschwindigkeit aus den Messwerten mithilfe der Steigung einer linearen Fit-Funktion der Form
+\begin{equation*}
+    \increment f = a\cdot \frac{1}{L} + b
+\end{equation*}
+entnommen werden kann.
+Die Schallgeschwindigkeit ist dann 
+\begin{equation}
+    c = 2\cdot a.
+    \label{eqn:c_fit}
+\end{equation}
+\autoref{fig:c_lin} zeigt die so aufgetragenen Messwerte für die Zylinder aus $\qty{50}{\milli\meter}$- und  $\qty{75}{\milli\meter}$-Zylindern sowie die linearen Fit-Funktionen.
+\begin{figure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/50mm_dF.pdf}
+        \caption{$\qty{50}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/75mm_dF.pdf}
+        \caption{$\qty{75}{\milli\meter}$ Zylinder.}
+    \end{subfigure}
+    \caption{Mittlere Frequenzabstände der Resonanzpeaks der Resonatoren aus $\qty{50}{\milli\meter}$- und $\qty{75}{\milli\meter}$-Zylindern, aufgetragen gegen die inverse Resonatorlänge, mit linearen Fit-Funktionen.}
+    \label{fig:c_lin}
+\end{figure}
+\FloatBarrier\noindent
+Die Fits werden mit \textit{curve\_fit}~\cite{scipy} erstellt.
+Daraus ergeben sich die Fit-Parameter
+\begin{align*}
+    a_{50} &= \qty{165.8(0.4)}{\meter\per\second}, & b_{50} &= \qty{0.0184(0.0015)}{\kilo\hertz} \\
+    \mathrm{und}\,\,\, a_{75} &= \qty{164.5(0.5)}{\meter\per\second} , & b_{75} &= \qty{0.0203(0.0019)}{\kilo\hertz}.
+\end{align*}
+Für die Schallgeschwindigkeit aus den beiden Versuchen folgt mit \autoref{eqn:c_fit}
+\begin{align*}
+    c_{50} &= \qty{331.7(0.7)}{\meter\per\second}, & c_{75} &= \qty{328.9(1.0)}{\meter\per\second}.
+\end{align*}
+Die mittlere Schallgeschwindigkeit beträgt dann gemäß \autoref{eqn:mittelwert}
+\begin{equation*}
+    \overline{c} = \qty{330.30(0.61)}{\meter\per\second}.
+\end{equation*}
+%
+%
+%
+\subsection{Simulation der Orbitale des Wasserstoffatoms}
+\autoref{fig:H180_Spektrum} zeigt das Spektrum des Kugelresonators bei einem Winkel von $\alpha = \qty{180}{\degree}$.
+Die Resonanzfrequenzen werden mittels \textit{find\_peaks} bestimmt und sind als vertikale Linien gekennzeichnet.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{python_code/H_180_Spektrum.pdf}
+    \caption{Frequenzspektrum des Kugelresonators für $\alpha = \qty{180}{\degree}$, mit markierten Resonanzfrequenzen.}
+    \label{fig:H180_Spektrum}
+\end{figure}
+\FloatBarrier\noindent
+Zur Analyse der Wasserstofforbitale werden vier Resonanzfrequenzen in einem hochaufgelösten Spektrum vermessen.
+Dazu werden die Frequenzen
+\begin{align*}
+    f_1 &= \qty{2.31}{\kilo\hertz}, & f_2 &= \qty{3.705}{\kilo\hertz}, \\
+    f_3 &= \qty{4.99}{\kilo\hertz} & \mathrm{und}\,\,\, f_4 &= \qty{7.45}{\kilo\hertz}
+\end{align*}
+ausgewählt.
+
+\noindent
+Der gemessene Winkel $\alpha$ um die vertikale Achse entspricht nicht dem Winkel $\vartheta$ der Kugelflächenfunktionen $Y^m_l(\vartheta,\varphi)$ , die die Druckverteilung entlang der Achse \enquote{Lautsprecher - Mikrofon} beschreiben.
+Der Radialwinkel $\vartheta$ kann aus $\alpha$ über Rotation des Koordinatensystems um $45\,\unit{\degree}$ berechnet werden. 
+Die Formel dafür lautet~(\cite[25]{Quantum_Analogs}):
+\begin{equation*}
+    \vartheta (\alpha) = \arccos\left( \frac{1}{2}\cos\left(\alpha\right) - \frac{1}{2} \right).
+\end{equation*}
+Im Experiment wird eine Druckamplitude gemessen, die dem Betrag der Kugelflächenfunktionen entspricht.
+Der Azimutwinkel $\varphi$ muss nicht betrachtet werden, da er nur die komplexe Phase der Messwerte beschreibt, deren Betrag Eins ist.
+Außerdem ist das Modell rotationssymmetrisch, weshalb erwartet wird, dass für alle Resonanzen $m=0$ gilt.
+Die Messwerte werden mit den theoretischen Kugelflächenfunktionen $Y_l^0$ verglichen, welche mit \textit{sph\_harm\_y}~\cite{scipy} berechnet werden.
+Dafür wird $\varphi = 0$ gesetzt.
+\autoref{fig:resonanzen} zeigt die Messwerte der Resonanzamplituden und die Kugelflächenfunktion der $l$-ten Ordnung im Polarplot.
+\begin{figure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_2.31kHz.pdf}
+        \caption{$\qty{2.31}{\kilo\hertz}$-Resonanz und $Y^0_1$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_3.705kHz.pdf}
+        \caption{$\qty{3.705}{\kilo\hertz}$-Resonanz und $Y^0_2$.}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_4.99kHz.pdf}
+        \caption{$\qty{4.99}{\kilo\hertz}$-Resonanz und $Y^0_3$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_7.45kHz.pdf}
+        \caption{$\qty{7.45}{\kilo\hertz}$-Resonanz und $Y^0_5$.}
+    \end{subfigure}
+    \caption{Druckamplituden-Messwerte der vier Resonanzfrequenzen im Vergleich mit den Kugelflächenfunktionen $l$-ter Ordnung.}
+    \label{fig:resonanzen}
+\end{figure}
+%
+%
+%
+\subsection{Entartung durch Aufspaltung der Resonanzfrequenzen}
+Durch das Einsetzen der verschieden dicken Metallringe zwischen die Resonatorhälften soll die Resonanzfrequenz $f_1 = \qty{2.31}{\kilo\hertz}$ aufgespalten werden.
+\autoref{fig:aufspaltung} zeigt die Spektren um die Resonanzfrequenz für die Dicken $3\,\unit{\milli\meter}$, $9\,\unit{\milli\meter}$ und $12\,\unit{\milli\meter}$ sowie die aufgespaltenen Resonanzfrequenzen.
+\begin{figure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/3mm_Aufspaltung.pdf}
+        \caption{$\qty{3}{\milli\meter}$-Ring}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/9mm_Aufspaltung.pdf}
+        \caption{$\qty{9}{\milli\meter}$-Ring}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/12mm_Aufspaltung.pdf}
+        \caption{$\qty{12}{\milli\meter}$-Ring}
+    \end{subfigure}
+    \caption{Frequenzspektren der aufgespalteten $\qty{2.31}{\kilo\hertz}$-Resonanz für verschiedene Ringdicken.}
+    \label{fig:aufspaltung}
+\end{figure}
+\FloatBarrier\noindent
+In \autoref{fig:ring_fit} wird der Frequenzabstand $\increment f$ der aufgespaltenen Peaks gegen die Ringdicke $d$ aufgetragen und mit einer linearen Funktion $\increment f(d) = a\cdot d + b$ gefittet.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{python_code/Ring_fit.pdf}
+    \caption{frequenzabstand der Resonanzpeaks gegüber der verwendeten Ringdicke, mit linearem Fit.}
+    \label{fig:ring_fit}
+\end{figure}
+\FloatBarrier\noindent
+Zur näheren Betrachtung werden die beiden neuen Resonanzpeaks der $9\,\unit{\milli\meter}$-Aufspaltung von $\alpha = \qty{0}{\degree}$ bis $\alpha = \qty{180}{\degree}$ in $\qty{5}{\degree}$-Schritten vermessen.
+Anders als bei der Messung der ungestörten Wasserstofforbitale entspricht der Winkel $\alpha$ hier dem Winkel $\vartheta$ der Kugelflächenfunktionen.
+Es muss keine Umrechnung der Winkel erfolgen.
+Die Aufspaltung soll der Entartung in $l$ entsprechen, weshalb die beiden Kugelflächenfunktionen $Y^0_0$ und $Y^0_1$ als Vergleich dargestellt werden.
+\autoref{fig:9mm_polar} zeigt die Messwerte der beiden Resonanzpeaks als Polarplots.
+\begin{figure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_9_1.pdf}
+        \caption{Linker Resonanzpeak und $Y^0_0$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{python_code/Polar_9_2.pdf}
+        \caption{Rechter Resonanzpeak und $Y^0_1$.}
+    \end{subfigure}
+    \caption{Winkelabhängige Druckamplitude des rechten und linken Resonanzpeaks der $9\,\unit{\milli\meter}$-Aufspaltng und dazugehörige Kugelflächenfunktionen.}
+    \label{fig:9mm_polar}
+\end{figure}
+\FloatBarrier\noindent
+
 

@@ -11,7 +11,7 @@ Bilden sich in einem akustishen Resonator stehende Schallwellen bzw. Druckwellen
 \begin{equation*}
     \increment P\left(\vec{r},t\right)  - \frac{1}{c^2} \frac{\partial^2}{\partial t^2} P\left(\vec{r},t\right) = 0 
 \end{equation*}
-Mit dem Ansatz
+entsprechen. Mit dem Ansatz
 \begin{equation*}
     \increment P\left(\vec{r},t\right)  = p \left(\vec{r}\right) \mathrm{e}^{\mathrm{i} \omega t}
 \end{equation*}
@@ -26,8 +26,7 @@ mit der Wellenzahl
     \label{eqn:wellenzahl}
 \end{equation}
 Dabei ist $\lambda$ die Wellenlänge, $\omega$ die Kreisfrequenz und $c$ die Ausbreitungsgeschwindigkeit der Schallwelle.
-In einem Resonator bilden sich dabei stehende Wellen aus.
-Diese kann für verschiedene Geometrien des Resonators gelöst werden.
+Die Helmholtzgleichung kann für verschiedene Geometrien des Resonators gelöst werden.
 %
 %
 %
@@ -49,7 +48,7 @@ und
     Z\left(z\right)=\mathrm{e}^{\mathrm{i} k_{z,l} z}
 \end{equation*}
 mit $k_{z,l}=\frac{l \pi}{L}$.
-Dabei ist $L$ die Resonatorlänge, $l$ eine bleibeige ganze Zahl und $m$ eine Seperationskonstante.
+Dabei ist $L$ die Resonatorlänge, $l$ eine beliebige ganze Zahl und $m$ eine Seperationskonstante.
 Der Radialteil wird durch die Besselfunktionen $J$ mit
 \begin{equation*}
     R\left(r\right) = J \left(k_{r,m,n} r\right)
@@ -57,7 +56,8 @@ Der Radialteil wird durch die Besselfunktionen $J$ mit
 gelöst.
 Dabei ergibt sich aus Randbedingungen $k_{r,m,n}=\frac{\eta_{m,n}}{R}$, wobei $\eta_{m,n}$ die $n$-te Nullstelle der $m$-ten Besselfunktion und $R$ der Radius des Zylinderresonators ist. %Quelle?
 Für die Wellenzahl gilt dann $k^2 = k_{r,m,n}^2 + k_{z,l}^2$ \cite[107 f.]{ehlotzky_2007}. %Bessere Quelle?
-Mit $\omega = 2 \pi f$, wobei $f$ die Frequenz ist, und mit \autoref{eqn:wellenzahl} ergibt sich
+Mit $\omega = 2 \pi f$, wobei $f$ die Frequenz ist.
+Mit \autoref{eqn:wellenzahl} ergibt sich
 \begin{equation}
     f_{n,m,l} = \frac{c}{2 \pi} \sqrt{\left(\frac{\eta_{m,l}}{R}\right)^2 + \left( \frac{n \pi}{L}\right)^2} \, .
     \label{eqn:zylfreq}
@@ -91,7 +91,7 @@ Mit $\omega = 2 \pi f$, wobei $f$ die Frequenz ist, und mit \autoref{eqn:wellenz
 %
 %
 \subsubsection{Stehende Wellen in einem Kugel-Resonator}
-Nun sollen ein Kugelresonator betrachtet werden. 
+Nun soll ein Kugelresonator betrachtet werden. 
 Für den Kugelresonator sind Kugelkoordinaten $r$, $\vartheta$ und $\varphi$ die geeignete Wahl.
 Damit ergibt sich als Lösung durch Seperation
 \begin{equation*}
@@ -151,12 +151,12 @@ Die stationäre Schrödingergleichung für das Elektron eines Wasserstoffatoms l
     - \frac{\hbar^2}{2 m_e} \Psi\left(r, \vartheta, \varphi \right) + V \left(r\right) \Psi\left(r, \vartheta, \varphi \right) = E_n \Psi\left(r, \vartheta, \varphi \right) \, .
     \label{eqn:schroedinger}
 \end{equation}
-Hierin ist $\hbar$ das reduzierte planksche Wirkungsquantum, $m_e$ die Elektronmasse und $E_n$ sind die Energieeigenwerte. 
-Außerdem ist $V\left(r\right) = \frac{e^2}{4 \pi \epsilon_0 r}$ das kugelsymmetrische Potenzial in dem sich das Elektron befindet.
-Wobei $e$ die Elementarladung, $epsilon_0$ die elektrische Feldkonstante und $r$ der Abstand zum Atomkern in Kugekoordinaten ist. 
+Hierin ist $\hbar$ das reduzierte planck'sche Wirkungsquantum, $m_e$ die Elektronmasse und $E_n$ sind die Energieeigenwerte. 
+Außerdem ist $V\left(r\right) = \frac{e^2}{4 \pi \epsilon_0 r}$ das kugelsymmetrische Potenzial, in dem sich das Elektron befindet.
+Dabei ist $e$ die Elementarladung, $\epsilon_0$ die elektrische Feldkonstante und $r$ der Abstand zum Atomkern in Kugelkoordinaten. 
 Auch hier wird die Gleichung durch einen Seperationsansatz
 \begin{equation*}
-     \Psi\left(r, \vartheta, \varphi \right) = R\left(r\right) \cdot Y_l^m \left(\vartheta \varphi\right)
+     \Psi\left(r, \vartheta, \varphi \right) = R\left(r\right) \cdot Y_l^m \left(\vartheta,\varphi\right)
 \end{equation*}
 gelöst.
 Dabei sind $Y_l^m$ auch hier die Kugelflächenfunktionen aus \autoref{eqn:kugelflaech}.
@@ -165,17 +165,17 @@ Der radiale Anteil wird durch
     R_n \left(r\right)= \frac{A}{r}\mathrm{e}^{\mathrm{i} k_n r} + \frac{B}{r}\mathrm{e}^{-\mathrm{i} k_n r}
 \end{equation*}
 mit den allgemeinen Konstanten $A$ und $B$ sowie $k_n=\sqrt{\frac{1 \mu E_n}{\hbar}}$ gelöst.
-Dabei ist $\mu = \frac{m_e m_K}{m_e + m_K}$ die reuzierte Masse mit der Kernmasse $m_K$.
-Die Energieeigenwerte ergeben sich zu $E_n = -\frac{Ry}{n^2}$ mit der Rydberkonstanten $Ry$ \cite[141-145]{demtröder_2016}.
+Dabei ist $\mu = \frac{m_e m_K}{m_e + m_K}$ die reduzierte Masse mit der Kernmasse $m_K$.
+Die Energieeigenwerte ergeben sich zu $E_n = -\frac{Ry}{n^2}$ mit der Rydberkonstante $Ry$ \cite[141-145]{demtröder_2016}.
 %
 %
 %
 %
 \subsection{Vergleich von Wasserstoffatom und akustischem Kugelresonator}
-Beim Vergleich der Schrödingergleichung des Wasserstoffatoms \autoref{eqn:schroedinger} und der Helmholtzgleichung \autoref{eqn:helmholtz} des Kugelresonators fällt auf, dass sie sich nur um den zusätzlichen Potenzialterm $V\left(r\right)$ beim Wasserstoffatom unterscheiden.
-Ansonsten haben sie die gleiche Strucktur.
-Weil der Potenzialterm nur vom Abstand der $r$ zum Atomkern abhängt, unterscheiden sich die beiden Lösungen nur im radialen anteil $R\left(r\right)$.
-Die Winkelabhängigen Kugelflächenfunktionen $Y_l^m$ sind also in beiden Lösungen vorhanden. 
+Beim Vergleich der Schrödingergleichung des Wasserstoffatoms \ref{eqn:schroedinger} und der Helmholtzgleichung \ref{eqn:helmholtz} des Kugelresonators fällt auf, dass sie sich nur um den zusätzlichen Potenzialterm $V\left(r\right)$ beim Wasserstoffatom unterscheiden.
+Ansonsten haben sie die gleiche Struktur.
+Weil der Potenzialterm nur vom Abstand $r$ zum Atomkern abhängt, unterscheiden sich die beiden Lösungen nur im radialen Anteil $R\left(r\right)$.
+Die winkelabhängigen Kugelflächenfunktionen $Y_l^m$ sind also in beiden Lösungen vorhanden. 
 Somit ist die Analogie des Kugelresonators für das Elektron den Wasserstoffatoms sinnvoll, wenn die Winkelabhängkeit betrachtet werden soll. 
 %
 %
