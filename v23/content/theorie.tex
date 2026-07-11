@@ -15,7 +15,7 @@ entsprechen. Mit dem Ansatz
 \begin{equation*}
     \increment P\left(\vec{r},t\right)  = p \left(\vec{r}\right) \mathrm{e}^{\mathrm{i} \omega t}
 \end{equation*}
-ergibt sich die Helmholtzgleichung
+ergibt sich die Helmholtzgleichung \cite{colton_2013}
 \begin{equation}
     \increment p\left(\vec{r}\right) + k^2 p\left(\vec{r}\right) = 0 
     \label{eqn:helmholtz}
@@ -145,7 +145,7 @@ gelöst \cite[105 f.]{ehlotzky_2007}.
 %
 %
 %
-\subsection{Beschreibung des Elektrons eines Wasserstoffatoms}
+\subsection{Beschreibung des Elektrons eines Wasserstoffatoms}\label{sec:wasserstoff}
 Die stationäre Schrödingergleichung für das Elektron eines Wasserstoffatoms lautet
 \begin{equation}
     - \frac{\hbar^2}{2 m_e} \Psi\left(r, \vartheta, \varphi \right) + V \left(r\right) \Psi\left(r, \vartheta, \varphi \right) = E_n \Psi\left(r, \vartheta, \varphi \right) \, .
@@ -167,6 +167,11 @@ Der radiale Anteil wird durch
 mit den allgemeinen Konstanten $A$ und $B$ sowie $k_n=\sqrt{\frac{1 \mu E_n}{\hbar}}$ gelöst.
 Dabei ist $\mu = \frac{m_e m_K}{m_e + m_K}$ die reduzierte Masse mit der Kernmasse $m_K$.
 Die Energieeigenwerte ergeben sich zu $E_n = -\frac{\mathrm{Ry}}{n^2}$ mit der Rydberenergie $\mathrm{Ry} \approx \qty{13.6}{\electronvolt}$ \cite[141-145]{demtröder_2016}.
+\\\\
+In der Realität spalten sich die Energieniveaus auch anhand der Drehimpulsquantenzahl $l$ auf.
+Dies wird vor allem durch drei relativistische Effekte - die relativistische Massenzuhname des Elektrons, die räumliche ausdehnung der Elektronladung (Darwin-Term) und 
+die Kopllung zwischen Bahndrehimpuls und Spin des Elktrons - verursacht. 
+Diese Aufspaltung der Energieniveaus wird Feinstrucktur genannt \cite[153-155]{demtröder_2016}.
 %
 %
 %
@@ -177,6 +182,9 @@ Ansonsten haben sie die gleiche Struktur.
 Weil der Potenzialterm nur vom Abstand $r$ zum Atomkern abhängt, unterscheiden sich die beiden Lösungen nur im radialen Anteil $R\left(r\right)$.
 Die winkelabhängigen Kugelflächenfunktionen $Y_l^m$ sind also in beiden Lösungen vorhanden. 
 Somit ist die Analogie des Kugelresonators für das Elektron den Wasserstoffatoms sinnvoll, wenn die Winkelabhängkeit betrachtet werden soll. 
+\\\\
+Die ebenfalls in \autoref{sec:wasserstoff} beschriebene Aufspaltung der Energieniveaus des Wasserstoffatoms anhand der Quantenzahl $l$ lässt sich ebenfalls durch einen Kugelresonator simulieren.
+Wird die Symmetrie des Resonators durch einbringen von Ringen gebrochen, so spalten auch die Eigenfrequenzen der Schallwellen im Resonator auf anhand $l$ auf \cite{Quantum_Analogs}. 
 %
 %
 %

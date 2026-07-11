@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 In der Auswertung werden die Rechnungen, Plots und Fit-Funktionen mit \textit{Matplotlib}~\cite{matplotlib}, \textit{Numpy}~\cite{numpy}, \textit{Scipy}~\cite{scipy} und \textit{Uncertainties}~\cite{uncertainties} durchgeführt bzw. erstellt.
-In \textit{Uncertainties} werden die Messfehler gemäß der Gleichungen aus \autoref{sec:fehlerrechnung} behandelt.
+In \textit{Uncertainties} werden die Messfehler gemäß \autoref{eqn:fehlerfortpflanzung} behandelt.
 
 \noindent
 Bei den Messungen der Spektren werden verschiedene Schrittweiten verwendet, aber die Auflösung des Messprogramms ist in jedem Fall $\increment f = \qty{1}{\hertz}$.
@@ -112,7 +112,7 @@ Für die Schallgeschwindigkeit aus den beiden Versuchen folgt mit \autoref{eqn:c
 \begin{align*}
     c_{50} &= \qty{331.7(0.7)}{\meter\per\second}, & c_{75} &= \qty{328.9(1.0)}{\meter\per\second}.
 \end{align*}
-Die mittlere Schallgeschwindigkeit beträgt dann gemäß \autoref{eqn:mittelwert}
+Die mittlere Schallgeschwindigkeit beträgt dann gemäß \autoref{eqn:mittelwert}, \autoref{eqn:standardabweichung} und \autoref{eqn:standardmittelwert}
 \begin{equation*}
     \overline{c} = \qty{330.30(0.61)}{\meter\per\second}.
 \end{equation*}
