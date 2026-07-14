@@ -182,7 +182,7 @@ Dafür wird $\varphi = 0$ gesetzt.
 %
 \subsection{Entartung durch Aufspaltung der Resonanzfrequenzen}
 Durch das Einsetzen der verschieden dicken Metallringe zwischen die Resonatorhälften soll die Resonanzfrequenz $f_1 = \qty{2.31}{\kilo\hertz}$ aufgespalten werden.
-\autoref{fig:aufspaltung} zeigt die Spektren um die Resonanzfrequenz für die Dicken $3\,\unit{\milli\meter}$, $9\,\unit{\milli\meter}$ und $12\,\unit{\milli\meter}$ sowie die aufgespaltenen Resonanzfrequenzen.
+\autoref{fig:aufspaltung} zeigt die Spektren um die Resonanzfrequenz für die Dicken $3\,\unit{\milli\meter}$, $6\,\unit{\milli\meter}$ und $9\,\unit{\milli\meter}$ sowie die aufgespaltenen Resonanzfrequenzen.
 \begin{figure}
     \begin{subfigure}{0.3\textwidth}
         \centering
@@ -193,13 +193,13 @@ Durch das Einsetzen der verschieden dicken Metallringe zwischen die Resonatorhä
         \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=5cm]{python_code/9mm_Aufspaltung.pdf}
-        \caption{$\qty{9}{\milli\meter}$-Ring}
+        \caption{$\qty{6}{\milli\meter}$-Ring}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[height=5cm]{python_code/12mm_Aufspaltung.pdf}
-        \caption{$\qty{12}{\milli\meter}$-Ring}
+        \caption{$\qty{9}{\milli\meter}$-Ring}
     \end{subfigure}
     \caption{Frequenzspektren der aufgespalteten $\qty{2.31}{\kilo\hertz}$-Resonanz für verschiedene Ringdicken.}
     \label{fig:aufspaltung}
@@ -209,11 +209,16 @@ In \autoref{fig:ring_fit} wird der Frequenzabstand $\increment f$ der aufgespalt
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{python_code/Ring_fit.pdf}
-    \caption{frequenzabstand der Resonanzpeaks gegüber der verwendeten Ringdicke, mit linearem Fit.}
+    \caption{Frequenzabstand der Resonanzpeaks gegüber der verwendeten Ringdicke, mit linearem Fit.}
     \label{fig:ring_fit}
 \end{figure}
 \FloatBarrier\noindent
-Zur näheren Betrachtung werden die beiden neuen Resonanzpeaks der $9\,\unit{\milli\meter}$-Aufspaltung von $\alpha = \qty{0}{\degree}$ bis $\alpha = \qty{180}{\degree}$ in $\qty{5}{\degree}$-Schritten vermessen.
+Zur näheren Betrachtung werden die beiden neuen Resonanzpeaks einer der Aufspaltungen von $\alpha = \qty{0}{\degree}$ bis $\alpha = \qty{180}{\degree}$ in $\qty{5}{\degree}$-Schritten vermessen.
+Zwischen Versuchsdurchführung und späterer Auswertung ist es zu einem Dokumentationsfehler gekommen.
+Anstatt der angegebenen verwendeten Ringdicken wurden die Dicken $\qty{3}{\milli\meter}$, $\qty{9}{\milli\meter}$ und $\qty{12}{\milli\meter}$ notiert.
+Für die nähere Betrachtung wurde der $\qty{9}{\milli\meter}$-Ring notiert.
+Da dieser Wert in der Mitte der beiden anderen liegt, ist anzunehmen, dass in Wirklichkeit auch die mittlere Ringdicke, also der $\qty{6}{\milli\meter}$-Ring verwendet wurde.
+\newline\noindent
 Anders als bei der Messung der ungestörten Wasserstofforbitale entspricht der Winkel $\alpha$ hier dem Winkel $\vartheta$ der Kugelflächenfunktionen.
 Es muss keine Umrechnung der Winkel erfolgen.
 Die Aufspaltung soll der Entartung in $l$ entsprechen, weshalb die beiden Kugelflächenfunktionen $Y^0_0$ und $Y^0_1$ als Vergleich dargestellt werden.
@@ -230,7 +235,7 @@ Die Aufspaltung soll der Entartung in $l$ entsprechen, weshalb die beiden Kugelf
         \includegraphics[height=5cm]{python_code/Polar_9_2.pdf}
         \caption{Rechter Resonanzpeak und $Y^0_1$.}
     \end{subfigure}
-    \caption{Winkelabhängige Druckamplitude des rechten und linken Resonanzpeaks der $9\,\unit{\milli\meter}$-Aufspaltng und dazugehörige Kugelflächenfunktionen.}
+    \caption{Winkelabhängige Druckamplitude des rechten und linken Resonanzpeaks der $6\,\unit{\milli\meter}$-Aufspaltung und dazugehörige Kugelflächenfunktionen.}
     \label{fig:9mm_polar}
 \end{figure}
 \FloatBarrier\noindent
