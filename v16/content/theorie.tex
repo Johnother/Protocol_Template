@@ -3,18 +3,36 @@
 The theoretical backgrounds for this experiment are discussed in this section. 
 
 
-\subsection{Bethe-Bloch formula}
-
 \subsection{Rutherford scattering formula}
-\cite{sample}
+First the Rutherford scattering formula is needed. 
+If alpha particles are scattered at a foil with thickness $D$ of the material with the nuclear charge number $Z$, the number of scattered particles $\mathrm{d} n$ depending 
+on the scattering angle $\theta$ in the solid angle $\mathrm{d}\Omega$ is given by
+\begin{equation}
+    \frac{\mathrm{d} n}{n} = \frac{Z^2 e^2 D N}{\left(2 \pi \epsilon_0\right)^2 E_{\mathrm{kin}}^2 \mathrm{sin}\left(\frac{\theta}{2}\right)} \, \mathrm{d} \Omega \, .
+    \label{eqn:rutherford}
+\end{equation}
+Here $n$ is the total number of scattered particles, $e$ is the elementary charge, $epsilon_0$ is the permittivity constant of vacuum and $E_{\mathrm{kin}}= \frac{1}{2} m v_o^2$ is the 
+kinetic energy of the alpha particles \cite[39-44]{haken_1984}.
+
+\subsection{Decay chain of the used radioactive material}
+In this experiment americium is used as a radioactive source of alpha particles. 
 
 
+\subsection{Surface barrier detector}
+\cite{leo_1994}
 
 \subsection{Uncertainties of the measurement}
-
 \label{sec:fehlerrechnung}
-%\subsection{Mittelwert}
 To handle the uncertainties of the measurements the folowing formulas are used:
+The Number of measured events is assumed to follow the poisson distribution. 
+Therefor the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$
+It follows that the relativ uncertainty can be calculatet using %QUELLEEEEEEEEEEEEE!!!!!!!!!
+\begin{equation}
+    \frac{\mathrm{\Delta}N}{N} = \frac{1}{\sqrt{N}} \, .
+    \label{eqn:relative_poisson}
+\end{equation}
+\\
+%\subsection{Mittelwert}
 The mean value is calculatet with
 \begin{equation}
 \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i \, .
