@@ -4,15 +4,41 @@ The theoretical backgrounds for this experiment are discussed in this section.
 
 
 \subsection{Rutherford scattering formula}
-First the Rutherford scattering formula is needed. 
-If alpha particles are scattered at a foil with thickness $D$ of the material with the nuclear charge number $Z$, the number of scattered particles $\mathrm{d} n$ depending 
-on the scattering angle $\theta$ in the solid angle $\mathrm{d}\Omega$ is given by
+In the Rutherford scattering experiment alpha particles are scattered off a foil of different materials with the nuclear charge number $Z$. 
+The scattering intensity is measured depending on the scattering angle $\theta$, wich describes the angle betwen the original particle beam an the path of a scattered particle behind the foil.
+To derive a scattering formula the positive charge of an atom of the foil is assumed to be centered in the middle, as it is the case in Ruhterfors atomic model. 
+Therefor the scattering of the positively charged alpha particles is asumed to be an elastic scattering process of the coulomb potential of the atom. 
+The effective area for the elastic scattering is the differential cross section $\frac{\mathrm{d} \sigma}{\mathrm{d} \Omega }$, 
+where $\mathrm{d} \Omega$ is the angular section, in wich the detector measures the scattered particles. 
+It is assumed, that these effective areas do not overlap, which is sufficent for foils with up to $\num{10000}$ atomic layers. 
+Under these assumptions differential cross section depending on the scattering angle is given by
 \begin{equation}
-    \frac{\mathrm{d} n}{n} = \frac{Z^2 e^2 D N}{\left(2 \pi \epsilon_0\right)^2 E_{\mathrm{kin}}^2 \mathrm{sin}\left(\frac{\theta}{2}\right)} \, \mathrm{d} \Omega \, .
+    \mathrm{d} \sigma = \frac{Z^2 e^4}{\left(2 \pi \epsilon_0\right)^2 E_{\mathrm{kin}}^2 } \frac{1}{\mathrm{sin}\left(\frac{\theta}{2}\right)} \, \mathrm{d} \Omega \, .
     \label{eqn:rutherford}
 \end{equation}
-Here $n$ is the total number of scattered particles, $e$ is the elementary charge, $epsilon_0$ is the permittivity constant of vacuum and $E_{\mathrm{kin}}= \frac{1}{2} m v_o^2$ is the 
-kinetic energy of the alpha particles \cite[39-44]{haken_1984}.
+%\begin{equation}
+%    \frac{\mathrm{d} n}{n} = \frac{Z^2 e^2 D N}{\left(2 \pi \epsilon_0\right)^2 E_{\mathrm{kin}}^2 \mathrm{sin}\left(\frac{\theta}{2}\right)} \, \mathrm{d} \Omega \, .
+%    \label{eqn:rutherford}
+%\end{equation}
+%Here $n$ is the total number of scattered particles, $e$ is the elementary charge, $N$ is the number of atoms per $\unit{\centi\meter^2}$, c and $E_{\mathrm{kin}}= \frac{1}{2} m v_o^2$ is the 
+%kinetic energy of the alpha particles \cite[39-44]{haken_1984}.
+Here $e$ is the elementary charge, $e$ is the elementary charge and $E_{\mathrm{kin}}= \frac{1}{2} m v_0^2$ is the average kinetic energy of the alpha particles
+\cite[39-44]{haken_1984}.
+
+
+\subsection{Count rate}
+In the experiment, multiple scattered particles are measured for a specific scattering angle. 
+If the detector counts $N$ events in the time interval $\mathrm{\Delta}t$, the count rate $R$ is given by
+\begin{equation}
+    R = \frac{N}{\mathrm{\Delta} t} \, . 
+    \label{eqn:countrate}
+\end{equation}
+This count rate is directly proportional to the cross section for a specific scattering angle $\theta$ and the angular section $\mathrm{d} \Omega$ of the detector according to 
+\begin{equation} 
+    R \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \, .
+\end{equation}
+\textbf{QUELLE!!!}
+
 
 \subsection{Decay chain of the used radioactive material}
 In this experiment americium is used as a radioactive source of alpha particles. 
@@ -26,7 +52,7 @@ In this experiment americium is used as a radioactive source of alpha particles.
 To handle the uncertainties of the measurements the folowing formulas are used:
 The Number of measured events is assumed to follow the poisson distribution. 
 Therefor the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$
-It follows that the relativ uncertainty can be calculatet using %QUELLEEEEEEEEEEEEE!!!!!!!!!
+It follows that the relativ uncertainty can be calculatet using \textbf{QUELLEE!}
 \begin{equation}
     \frac{\mathrm{\Delta}N}{N} = \frac{1}{\sqrt{N}} \, .
     \label{eqn:relative_poisson}
