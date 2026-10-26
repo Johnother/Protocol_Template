@@ -41,7 +41,7 @@ This count rate is directly proportional to the cross section for a specific sca
 
 
 \subsection{Decay chain of the used radioactive material}
-In this experiment americium is used as a radioactive source of alpha particles. 
+In this experiment Americium is used as a radioactive source of alpha particles. 
 
 
 \subsection{Surface barrier detector}
@@ -50,16 +50,16 @@ In this experiment americium is used as a radioactive source of alpha particles.
 \subsection{Uncertainties of the measurement}
 \label{sec:fehlerrechnung}
 To handle the uncertainties of the measurements the folowing formulas are used:
-The Number of measured events is assumed to follow the poisson distribution. 
-Therefor the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$
-It follows that the relativ uncertainty can be calculatet using \textbf{QUELLEE!}
+The number of measured events is assumed to follow the Poisson distribution. 
+Therefore the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$
+It follows that the relative uncertainty can be calculated using \textbf{QUELLEE!}
 \begin{equation}
     \frac{\mathrm{\Delta}N}{N} = \frac{1}{\sqrt{N}} \, .
     \label{eqn:relative_poisson}
 \end{equation}
 \\
 %\subsection{Mittelwert}
-The mean value is calculatet with
+The mean value is calculated with
 \begin{equation}
 \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i \, .
 \label{eqn:mittelwert}
@@ -71,23 +71,19 @@ The standard deviation is given by
 \sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2} \, .
 \label{eqn:standardabweichung}
 \end{equation}
-berechnet.
 %%\subsubsection{Standardabweichung des Mittelwerts}
-\\
 The standard deviation of the mean value is given by
 \begin{equation}
 \Delta \bar{x} = \frac{\sigma}{\sqrt{N}} \, .
 \label{eqn:standardmittelwert}
 \end{equation}
 %%\subsection{Gaußsche Fehlerfortpflanzung}
-\\
-The deveation of a value derived from experimental parameters can be calculatet using the Gaussian error propagation
+The deviation of a value derived from experimental parameters can be calculated using the Gaussian error propagation
 \begin{equation}
 \Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2} \, .
 \label{eqn:fehlerfortpflanzung}
 \end{equation}
-\\
-The relativ deviation of a experimental parameter from the theoretical parameter is given by ~\cite{relabw}
+The relative deviation of an experimental parameter from the theoretical parameter is given by ~\cite{relabw}
 \begin{equation}
     \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{\exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|\, .
     \label{eqn:relabw}
