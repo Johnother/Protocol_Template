@@ -55,7 +55,7 @@ ax.set_xticks(np.arange(-5,6))
 ax.set_ylim(-1,29)
 ax.grid()
 ax.legend()
-fig.savefig("calibration.pdf")
+fig.savefig("content/images/calibration.pdf")
 
 # Rutherford-Experiment for Au-foil 2um
 
@@ -86,7 +86,7 @@ ax.set_ylabel(r"$N$ [#/s]")
 ax.grid()
 ax.legend()
 
-fig.savefig("Au2.pdf")
+fig.savefig("content/images/Au2.pdf")
 
 # residuals = [i.n for i in N_Au[5:]] - Rutherford(Au2["theta"][5:],*popt)
 # print(sum(residuals**2))
@@ -124,7 +124,7 @@ ax.set_xlabel(r"$\theta$ [°]")
 ax.set_ylabel(r"$N$ [#/s]")
 ax.grid()
 ax.legend()
-fig.savefig("Bi1.pdf")
+fig.savefig("content/images/Bi1.pdf")
 
 # Rutherford-Experiment for Al-foil 3um
 
@@ -160,7 +160,7 @@ ax.set_xlabel(r"$\theta$ [°]")
 ax.set_ylabel(r"$N$ [#/s]")
 ax.legend()
 ax.grid()
-fig.savefig("Al3.pdf")
+fig.savefig("content/images/Al3.pdf")
 
 
 # fig, ax = plt.subplots(layout="constrained")
@@ -177,4 +177,4 @@ Z = [Z_Au, Z_Bi, Z_Al]
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(Z, [i.n for i in INx], yerr = [i.s for i in INx],fmt=".",capsize=2)
-fig.savefig("Z_Dependence.pdf")
+fig.savefig("content/images/Z_Dependence.pdf")
