@@ -41,11 +41,33 @@ This count rate is directly proportional to the cross section for a specific sca
 
 
 \subsection{Decay chain of the used radioactive material}
-In this experiment Americium is used as a radioactive source of alpha particles. 
+In this experiment ${}^{241}\mathrm{Am}$ (americium) is used as a radioactive source of alpha particles \cite{V16}. 
+\\
+This americum nuclid has a half-life of $\qty{432}{\text{a}}$ and decays into neptunium via the alpha decay
+\begin{equation*}
+    {}^{241}\mathrm{Am} \rightarrow {}^{237}\mathrm{Np} + {}^4\mathrm{He} \, .
+\end{equation*}
+The average ernergy emission for this decay is
+\begin{equation}
+    E \approx \qty{5.638}{\mega\electronvolt} \, .
+    \label{qty:decay_energy}
+\end{equation}
+The neptunium has a half-life of $\qty{2.144e6}{\text{a}}$ and decays into ${}^{233}\mathrm{Pa}$ (protactinium) via the alpha decay with an average energy emission of $E \approx \qty{5.638}{\mega\electronvolt}$.
+The protactinium has a half-life of $\qty{26,96}{\text{d}}$ and decays into ${}^{233}\mathrm{U}$ (uranium) via the beta decay.
+The decy chain ends on ${}^{209}\mathrm{Bi}$ (bismuth) \cite{periodensystem_online}.
+\\
+So the americium source will also emitt a bit beta radiation. 
+
 
 
 \subsection{Surface barrier detector}
-\cite{leo_1994}
+The surface barrier detector, which is used in this experiment, functions as follwos: 
+It has a junction of the semiconductor silicon and a metal. 
+The silicon is p- or n-type doped, depending on the used metal.
+Because of the different Fermi levels, the band layers of the silicon are lowered, so that a depletion zone is formed in the silicon.
+Incoming charged particles like alpha particles dissipate energy by producing electron-hole pairs. 
+These pairs recombine at the junction in the detector.
+The resulting current is measured as an event \cite[228-234]{leo_1994}.
 
 \subsection{Uncertainties of the measurement}
 \label{sec:fehlerrechnung}
