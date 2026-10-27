@@ -33,46 +33,59 @@ If the detector counts $N$ events in the time interval $\mathrm{\Delta}t$, the c
     R = \frac{N}{\mathrm{\Delta} t} \, . 
     \label{eqn:countrate}
 \end{equation}
-This count rate is directly proportional to the cross section for a specific scattering angle $\theta$ and the angular section $\mathrm{d} \Omega$ of the detector \cite[39-44]{haken_1984}.
-The proportionality can be expressed by
+Since the number of scattered particles relative to the number of particles in the initial beam is proportional to the cross section at a given angle $\theta$ \cite[42]{haken_1984}
+this count rate is also proportional to the cross section at an angle $\theta$. % and the angular section $\mathrm{d} \Omega$ of the detector \cite[39-44]{haken_1984}.
+It follows that
 \begin{equation} 
-    R \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \, .
+    R \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \left(\theta\right) \, .
 \end{equation}
 
 
 
-\subsection{Decay chain of the used radioactive material}
+\subsection{Alpha decay in the radioactive source}\label{subsec:alpha_decay}
+%Alpha particles are ${}^4 \mathrm{He}$ (helium) nuclei. 
 In this experiment ${}^{241}\mathrm{Am}$ (americium) is used as a radioactive source of alpha particles \cite{V16}. 
 \\
-This americum nuclid has a half-life of $\qty{432}{\text{a}}$ and decays into neptunium via the alpha decay
+This americium nuclid and decays into neptunium via the alpha decay \cite{periodensystem_online}
 \begin{equation*}
     {}^{241}\mathrm{Am} \rightarrow {}^{237}\mathrm{Np} + {}^4\mathrm{He} \, .
 \end{equation*}
-The average ernergy emission for this decay is
-\begin{equation}
-    E \approx \qty{5.638}{\mega\electronvolt} \, .
-    \label{qty:decay_energy}
-\end{equation}
-The neptunium has a half-life of $\qty{2.144e6}{\text{a}}$ and decays into ${}^{233}\mathrm{Pa}$ (protactinium) via the alpha decay with an average energy emission of $E \approx \qty{5.638}{\mega\electronvolt}$.
-The protactinium has a half-life of $\qty{26,96}{\text{d}}$ and decays into ${}^{233}\mathrm{U}$ (uranium) via the beta decay.
-The decy chain ends on ${}^{209}\mathrm{Bi}$ (bismuth) \cite{periodensystem_online}.
+%The average ernergy emission for this decay is
+%\begin{equation}
+$   E \approx \qty{5.638}{\mega\electronvolt}$
+%    \label{qty:decay_energy}
+%\end{equation}
+The americium nuclid has a half-life of $\qty{432}{\text{a}}$ \cite[4]{leo_1994}.
 \\
-So the americium source will also emitt a bit beta radiation. 
-\textbf{termschema und gamma background}
+The alpha decay can occur via multiple transitions betwen the americium and the neptunium neclei, although th e dominant process with $85 \, \%$ is the transition to the neptunium ground state. 
+This transition has an energy of $E \approx \qty{5.638}{\mega\electronvolt}$. 
+But because of the other transitions this energy is not perfectly well defined. 
+If the neptunium is in an excitet state after the alpha decay, it decays to the ground state via one or more gamma decays. 
+Therefore there is also a background of gamma radiation in the radiation of an americium source \cite[2-6]{leo_1994}
+\\
+Alpha particles lose a lot of energy while traveling through matter, because they have a charge of $+\qty{2}{\elementarycharge}$. 
+Thats why they can only travel a few centimeters through air, when they hafe an energy of around $\qty{5}{\mega\electronvolt}$ \cite[4]{leo_1994}
+%The neptunium has a half-life of $\qty{2.144e6}{\text{a}}$ and decays into ${}^{233}\mathrm{Pa}$ (protactinium) via the alpha decay with an average energy emission of $E \approx \qty{5.638}{\mega\electronvolt}$.
+%The protactinium has a half-life of $\qty{26,96}{\text{d}}$ and decays into ${}^{233}\mathrm{U}$ (uranium) via the beta decay.
+%The decy chain ends on ${}^{209}\mathrm{Bi}$ (bismuth) \cite{periodensystem_online}.
+%\\
+%So the americium source will also emitt a bit beta radiation. 
+%has a half-life of $\qty{432}{\text{a}}$
 \\
 \textbf{subsections connecten}
-\\
-\textbf{Reichweite von Alphastrahlung in luft}
 
-\subsection{Surface barrier detector}
+
+\subsection{Surface barrier detector} \label{subsec:detector}
 The surface barrier detector, which is used in this experiment, functions as follwos: 
 It has a junction of the semiconductor silicon and a metal. 
 The silicon is p- or n-type doped, depending on the used metal.
 Because of the different Fermi levels, the band layers of the silicon are lowered, so that a depletion zone is formed in the silicon.
-Incoming charged particles like alpha particles dissipate energy by producing electron-hole pairs. 
+Incoming ionizing radiation like alpha or gamma radiation dissipates energy by producing electron-hole pairs. 
 These pairs recombine at the junction in the detector.
-The resulting current is measured as an event \cite[228-234]{leo_1994}.
-\textbf{ambient light background}
+The resulting current is measured as an event.
+The strengh of the current is proportional to the energy of the incoming particle. %so background from gamma radiation can be ruled out by setting a corresponding threshhold.
+Since the band gap is around $\qty{1}{\mega\electronvolt}$ wide, the detector is very sensitive to ambient light \cite[215-234]{leo_1994}.
+
 
 \subsection{Uncertainties of the measurement}
 \label{sec:fehlerrechnung}
