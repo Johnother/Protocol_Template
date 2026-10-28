@@ -59,6 +59,7 @@ To calibrate the rotor, the new $\qty{0}{\degree}$-point is corrected by the obs
 % \subsection{Real activity of the radiation source}
 % With the maximum count rate delivered by the undisturbed beam the activity of the $\ce{^{241}Am}$ source can be calculated.
 \subsection{Alpha particle scattering on gold foil}
+\label{subsec:Au2}
 For the first scattering experiment a gold foil with a thickness of $d_{\mathrm{Au}} = \qty{2}{\micro\meter}$ is used.
 Multiple scattering angles are measured, up to $\theta = \qty{15}{\degree}$.
 For every scattering angle the measurement time $\increment t$ as well as the vacuum chamber pressure $p$ after the measurement are documented.
@@ -68,21 +69,88 @@ In \autoref{fig:Au2} the count rate is plotted against the scattering angle.
 To check for the dependence given by \autoref{eqn:rutherford}, the data is fitted with a fit-function
 \begin{equation}
   R\left(\theta\right) = \frac{A}{\sin{\left(\frac{\theta}{2}\right)}^b}\,.
+  \label{eqn:fit}
 \end{equation}
 The parameter $A$ accounts for the proportionality given in \autoref{eqn:RpropWQ}.
 Its value is proportional to the scattering material's properties and therefore not relevant for the angular dependence.
+The fit is realized by the function \textit{curve\_fit} from the \enquote{SciPy}-library, with default initial parameters $A=b=1$.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/Au2.pdf}
-  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d = \qty{2}{\micro\meter}$ gold foil.}
+  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d_{\mathrm{Au}} = \qty{2}{\micro\meter}$ gold foil.}
   \label{fig:Au2}
 \end{figure}
 \FloatBarrier
 \noindent
-
-
-
-
+The data points for small scattering angles up to $\theta = \qty{5}{\degree}$ are not fitted through because they lie inside the measured initial particle beam.
+The $\theta=\qty{6}{\degree}$- value is disregarded because of the large deviation from the expected curve.
+Further discussion about the choice of data points for the fit functions in this and later measurements is done in \autoref{sec:Diskussion}.
+\newline\noindent
+The fit parameters returned by the fit-function are
+\begin{align}
+  A_{\mathrm{Au}} &= \qty{4.64(1.11)e-5}{\unit{\per\second}}\,, & b_{\mathrm{Au}} &= \qty{4.05(0.09)}\,.
+\end{align}
+The uncertainties of the parameteres are calculated as the square root of the diagonal elements of the parameter's covariance matrix.
+%
+\subsection{Z-dependence of scattering intensity}
+With taking into account the active area the $\alpha$-particles move through, \autoref{eqn:rutherford} can be rewritten as
+\begin{equation}
+  \frac{\symup{d}n}{n} = \frac{Z^2e^4DN}{\left(4\pi\epsilon_0\right)^2m^2v_0^4\sin^4\left(\frac{\theta}{2}\right)}\symup{d}\Omega\,,
+\end{equation}
+in which $\frac{\symup{d}n}{n}$ is the number of counted particles relative to the total number of particles, $D = d$ is the foil thickness and $N$ is the number of scattering centers per cubic meter in the foil material.
+For a chosen scattering angle $\theta$ the $Z$-dependence can be therefore expressed as
+\begin{equation}
+  Z^2 \propto \frac{R}{N\cdot d}\,,
+\end{equation}
+since 
+\begin{equation*}
+  R\left(\theta\right) \propto \frac{\symup{d}\sigma}{\symup{d}\Omega} \propto \frac{\symup{d}n}{n}\,.
+\end{equation*}
+To calculate the $Z$-dependence, the Rutherford experiment is done again for two foils made from bismuth and aluminium.
+\subsubsection{Scattering count rate for bismuth foil}
+The count rate depending on the scattering angle for scattering on a $d = \qty{1}{\micro\meter}$ bismuth foil is measured and displayed in the same way as for the gold foil scattering in \autoref{subsec:Au2}.
+The original data is listed in \autoref{tab:Bi1} in the appendix.
+\newline\noindent
+To verify that the data follows the expectation of \autoref{eqn:rutherford}, the data is fitted with the fit-function \autoref{eqn:fit}.
+\autoref{fig:Bi1} shows the count rate plotted against the scattering angle, as well as the fit-function.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{content/images/Bi1.pdf}
+  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d_{\mathrm{Bi}} = \qty{1}{\micro\meter}$ bismuth foil.}
+  \label{fig:Bi1}
+\end{figure}
+\FloatBarrier
+\noindent
+The grey data points are again not included for the fit because of them being within the measured influence of the incoming particle beam.
+The parameters returned by the fit-function are
+\begin{align}
+  A_{\mathrm{Bi}} &= \qty{7.35(0.94)e-6}{\per\second} & b_{\mathrm{Bi}} &= \qty{4.29(0.04)}\,.
+\end{align}
+%
+\subsubsection{Scattering count rate for Aluminium foil}
+The thickness of the aluminium foil is $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$.
+As for the bismuth foil, the count rate depending on the scattering angle is plotted and fitted with \autoref{eqn:fit}.
+Both is shown in \autoref{fig:Al3}. 
+The original data is listed in \autoref{tab:Al3} in the appendix.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{content/images/Al3.pdf}
+  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$ aluminium foil.}
+  \label{fig:Al3}
+\end{figure}
+\FloatBarrier
+\noindent
+For this scattering experiment the highest achieved scattering angle is $\theta = \qty{9}{\degree}$. 
+After that point, the count rate reading was so small that the statistical error exceeds the acceptable range.
+\newline\noindent
+The grey data points are left out of the fit because of their high deviation from the other data points.
+Furthermore, the fit-function did not converge when including the two data points. 
+This is further discussed in \autoref{sec:Diskussion}.
+\newline\noindent
+The values of the parameters returned by the fit-function are
+\begin{align}
+  A_{\mathrm{Al}} &= \qty{2.42(0.55)e-6}{\per\second} & b_{\mathrm{Al}} &= \qty{4.31(0.06)}{}\,.
+\end{align}
 % \begin{figure}
 %   \centering
 %   \includegraphics{plot.pdf}

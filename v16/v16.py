@@ -70,8 +70,8 @@ for i in range(len(Au2["N"])):
 
 fig, ax = plt.subplots(layout="constrained")
 
-ax.errorbar(np.rad2deg(Au2["theta"][2:]), [i.n for i in N_Au[2:]], xerr=0.1, yerr=[i.s for i in N_Au[2:]], fmt="x", capsize=2, color="blue", label=r"fitted data")
-ax.errorbar(np.rad2deg(Au2["theta"][:5]), [i.n for i in N_Au[:5]], xerr=0.1, yerr=[i.s for i in N_Au[:5]], fmt="x", color="grey", capsize=2, label=r"Not fitted data")
+ax.errorbar(np.rad2deg(Au2["theta"][5:]), [i.n for i in N_Au[5:]], xerr=0.1, yerr=[i.s for i in N_Au[5:]], fmt=".", capsize=2, color="blue", label=r"fitted data")
+ax.errorbar(np.rad2deg(Au2["theta"][:5]), [i.n for i in N_Au[:5]], xerr=0.1, yerr=[i.s for i in N_Au[:5]], fmt=".", color="grey", capsize=2, label=r"Not fitted data")
 popt, pcov = curve_fit(Rutherford, Au2["theta"][5:], [i.n for i in N_Au[5:]], sigma=[i.s for i in N_Au[5:]], absolute_sigma=True) # , p0=[A_Au, 4, 0]
 print(popt)
 sigma = np.sqrt(np.diag(pcov))
@@ -108,8 +108,8 @@ for i in range(len(Bi1["N"])):
 
 fig, ax = plt.subplots(layout="constrained")
 
-ax.errorbar(np.rad2deg(Bi1["theta"][2:]), [i.n for i in N_Bi[2:]], xerr=0.1, yerr=[i.s for i in N_Bi[2:]], fmt="x", capsize=2, color="orange", label=r"Fitted data")
-ax.errorbar(np.rad2deg(Bi1["theta"][:2]), [i.n for i in N_Bi[:2]], xerr=0.1, yerr=[i.s for i in N_Bi[:2]], fmt="x", capsize=2, color="grey", label=r"Not fitted data")
+ax.errorbar(np.rad2deg(Bi1["theta"][2:]), [i.n for i in N_Bi[2:]], xerr=0.1, yerr=[i.s for i in N_Bi[2:]], fmt=".", capsize=2, color="orange", label=r"Fitted data")
+ax.errorbar(np.rad2deg(Bi1["theta"][:2]), [i.n for i in N_Bi[:2]], xerr=0.1, yerr=[i.s for i in N_Bi[:2]], fmt=".", capsize=2, color="grey", label=r"Not fitted data")
 popt, pcov = curve_fit(Rutherford, Bi1["theta"][2:], [i.n for i in N_Bi[2:]], sigma=[i.s for i in N_Bi[2:]], absolute_sigma=True) #, p0=[A_Bi, 4, 0]
 print(popt)
 sigma = np.sqrt(np.diag(pcov))
