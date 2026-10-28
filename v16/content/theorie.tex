@@ -38,6 +38,7 @@ this count rate is also proportional to the cross section at an angle $\theta$. 
 It follows that
 \begin{equation} 
     R \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \left(\theta\right) \, .
+    \label{eqn:RpropWQ}
 \end{equation}
 
 
@@ -50,6 +51,7 @@ This americium nuclid and decays into neptunium via the alpha decay \cite{period
 \begin{equation*}
     {}^{241}\mathrm{Am} \rightarrow {}^{237}\mathrm{Np} + {}^4\mathrm{He} \, .
 \end{equation*}
+Since Neptunium has a half-life of $\qty{2.144e6}{\text{a}}$ \cite{periodensystem_online}, the rest of the decay chain can be neglected for this experiment. 
 %The average ernergy emission for this decay is
 %\begin{equation}
 $   E \approx \qty{5.638}{\mega\electronvolt}$
@@ -71,8 +73,6 @@ Thats why they can only travel a few centimeters through air, when they hafe an 
 %\\
 %So the americium source will also emitt a bit beta radiation. 
 %has a half-life of $\qty{432}{\text{a}}$
-\\
-\textbf{subsections connecten}
 
 
 \subsection{Surface barrier detector} \label{subsec:detector}
@@ -84,15 +84,15 @@ Incoming ionizing radiation like alpha or gamma radiation dissipates energy by p
 These pairs recombine at the junction in the detector.
 The resulting current is measured as an event.
 The strengh of the current is proportional to the energy of the incoming particle. %so background from gamma radiation can be ruled out by setting a corresponding threshhold.
-Since the band gap is around $\qty{1}{\mega\electronvolt}$ wide, the detector is very sensitive to ambient light \cite[215-234]{leo_1994}.
+Since the band gap is around $\qty{1.1}{\electronvolt}$ wide, the detector is very sensitive to ambient light \cite[215-234]{leo_1994}.
 
 
 \subsection{Uncertainties of the measurement}
 \label{sec:fehlerrechnung}
 To handle the uncertainties of the measurements the folowing formulas are used:
-The number of measured events is assumed to follow the Poisson distribution. 
-Therefore the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$
-It follows that the relative uncertainty can be calculated using \textbf{QUELLEE!}
+The number of measured events of a radioactive decay in a time interval follows the Poisson distribution. 
+Therefore the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$.
+It follows that the relative uncertainty can be calculated using \cite[11]{leo_1994}
 \begin{equation}
     \frac{\mathrm{\Delta}N}{N} = \frac{1}{\sqrt{N}} \, .
     \label{eqn:relative_poisson}
