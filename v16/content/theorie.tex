@@ -22,8 +22,13 @@ Under these assumptions differential cross section depending on the scattering a
 %\end{equation}
 %Here $n$ is the total number of scattered particles, $e$ is the elementary charge, $N$ is the number of atoms per $\unit{\centi\meter^2}$, c and $E_{\mathrm{kin}}= \frac{1}{2} m v_o^2$ is the 
 %kinetic energy of the alpha particles \cite[39-44]{haken_1984}.
-Here $e$ is the elementary charge, $e$ is the elementary charge and $E_{\mathrm{kin}}= \frac{1}{2} m v_0^2$ is the average kinetic energy of the alpha particles
-\cite[39-44]{haken_1984}.
+Here $e$ is the elementary charge, $e$ is the elementary charge and $E_{\mathrm{kin}}= \frac{1}{2} m v_0^2$ is the average kinetic energy of the alpha particles.
+The rutherford formula can also be expressed in term of the number of particles $\mathrm{d}n$ scattered at a certain angle $\theta$ in the interval $\mathrm{d} \Omega$ relative to the total number of scattered particles $n$
+\begin{equation}
+    \frac{\mathrm{d} n}{n} = \frac{Z^2 e^2 d \rho_{N}}{\left(2 \pi \epsilon_0\right)^2 E_{\mathrm{kin}}^2 \mathrm{sin}\left(\frac{\theta}{2}\right)} \, \mathrm{d} \Omega \, .
+    \label{eqn:rutherford}
+\end{equation}
+Here $d$ is the thickness of the foil, $\rho_N$ number of scattering centers per $\unit{\meter\cubed}$ \cite[39-44]{haken_1984}.
 
 
 \subsection{Count rate}
@@ -33,11 +38,11 @@ If the detector counts $N$ events in the time interval $\mathrm{\Delta}t$, the c
     R = \frac{N}{\mathrm{\Delta} t} \, . 
     \label{eqn:countrate}
 \end{equation}
-Since the number of scattered particles relative to the number of particles in the initial beam is proportional to the cross section at a given angle $\theta$ \cite[42]{haken_1984}
+Since $\frac{\mathrm{d} n}{n}$ is proportional to the count rate \cite[42]{haken_1984}
 this count rate is also proportional to the cross section at an angle $\theta$. % and the angular section $\mathrm{d} \Omega$ of the detector \cite[39-44]{haken_1984}.
 It follows that
 \begin{equation} 
-    R \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \left(\theta\right) \, .
+    R \left(\theta\right) \propto \frac{\mathrm{d} n}{n} \left(\theta\right) \propto \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} \left(\theta\right) \, .
     \label{eqn:RpropWQ}
 \end{equation}
 
