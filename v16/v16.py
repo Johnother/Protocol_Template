@@ -41,6 +41,9 @@ def Rutherford(theta,A,b):
     # return (A0*e**4)/((4*np.pi*e_0)**2*m_a**2*v_a**4)/(np.sin((theta-t)/2)**b)
     return A/np.sin(theta/2)**b
 
+def poly2(x,A,B):
+    return A*x**2+B
+
 # Calibration measurement to find the center of the beam
 
 data = np.genfromtxt('calibration.csv',delimiter=',',unpack=True)
@@ -176,5 +179,12 @@ INx = [N_Au[7]/(Nd_Au*D_Au), N_Bi[7]/(Nd_Bi*D_Bi), N_Al[3]/(Nd_Al*D_Al)]
 Z = [Z_Au, Z_Bi, Z_Al]
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(Z, [i.n for i in INx], yerr = [i.s for i in INx],fmt=".",capsize=2)
+ax.errorbar(Z, [i.n for i in INx], yerr = [i.s for i in INx],fmt=".",capsize=2, label=r"Data for $\theta=9\,°$")
+# ax.errorbar(Z, [N_Au[7].n/2/Nd_Au, N_Bi[7].n/Nd_Bi, N_Al[3].n/3/Nd_Al], yerr = [N_Au[7].s/2/Nd_Au, N_Bi[7].s/Nd_Bi, N_Al[3].s/3/Nd_Al],fmt=".",capsize=2)
+popt, pcov = curve_fit(poly2,Z,[i.n for i in INx], sigma = [i.s for i in INx],absolute_sigma=True)
+x = np.linspace(0,100)
+ax.plot(x,poly2(x,*popt), label=r"Fit: $A\cdot x^2 + B$")
+ax.set_xlim(0,95)
+ax.legend()
+ax.grid()
 fig.savefig("content/images/Z_Dependence.pdf")
