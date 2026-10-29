@@ -95,7 +95,11 @@ Since the band gap is around $\qty{1.1}{\electronvolt}$ wide, the detector is ve
 \label{sec:fehlerrechnung}
 To handle the uncertainties of the measurements the folowing formulas are used:
 The number of measured events of a radioactive decay in a time interval follows the Poisson distribution. 
-Therefore the uncertainty for $N$ measured events is given by $\mathrm{\Delta} N = \sqrt{N}$.
+Therefore the uncertainty for $N$ measured events is given by 
+\begin{equation}
+    \mathrm{\Delta} N = \sqrt{N} \, .
+    \label{eqn:poisson_error}
+\end{equation}
 It follows that the relative uncertainty can be calculated using \cite[11]{leo_1994}
 \begin{equation}
     \frac{\mathrm{\Delta}N}{N} = \frac{1}{\sqrt{N}} \, .
