@@ -5,16 +5,24 @@
   \label{tab:calibration}
   \sisetup{table-format=1.1, per-mode=reciprocal}
   \begin{tblr}{
-      colspec = {S[table-format=4.0] S[table-format=2.0] S},
+      colspec = {S[table-format=2.0] S[table-format=1.1] S[table-format=4.0] S[table-format=3.2] S[table-format=3.0] S[table-format=2.1] S[table-format=1.1]},
       row{1} = {guard, mode=math},
-      vline{4} = {2}{-}{text=\clap{$\pm$}},
+      vline{2,4,7} = {2}{-}{text=\clap{$\pm$}},
     }
     \toprule
-    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
+    \SetCell[c=2]{c} \theta \mathbin{/} \unit{\degree} & & \SetCell[c=2]{c} N \mathbin{/} # & & \increment t \mathbin{/} \unit{\second} & \SetCell[c=2]{c} p \mathbin{/} \unit{\milli\bar} & \\
     \midrule
-    360 & 0.1 & 98.3 & 0.9 \\
-    400 & 0.2 & 99.8 & 1.0 \\
-    420 & 0.2 & 99.1 & 0.9 \\
+      -5 & 0.1 & 4    & 2     & 90 & 9.0 & 0.1 \\
+      -4 & 0.1 & 107  & 10.34 & 90 & 9.0 & 0.1 \\
+      -3 & 0.1 & 358  & 18.92 & 90 & 8.9 & 0.1 \\
+      -2 & 0.1 & 835  & 28.90 & 90 & 9.0 & 0.1 \\
+      -1 & 0.1 & 1506 & 38.81 & 90 & 8.8 & 0.1 \\
+      0  & 0.1 & 2087 & 45.68 & 90 & 7.6 & 0.1 \\
+      1  & 0.1 & 2317 & 48.14 & 90 & 8.1 & 0.1 \\
+      2  & 0.1 & 2197 & 46.87 & 90 & 8.2 & 0.1 \\
+      3  & 0.1 & 2063 & 45.42 & 90 & 8.4 & 0.1 \\
+      4  & 0.1 & 1651 & 40.63 & 90 & 8.6 & 0.1 \\
+      5  & 0.1 & 1019 & 31.92 & 90 & 8.8 & 0.1 \\
     \bottomrule
   \end{tblr}
 \end{table}

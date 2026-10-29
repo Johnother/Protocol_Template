@@ -5,7 +5,7 @@ Multiple packages are used, such as \enquote{Matplotlib}~\cite{matplotlib} for c
 The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done with the \enquote{Uncertainties}-package~\cite{uncertainties}.
 \newline\noindent
 The error for the scattering angle is determined by the resolution of the display of the rotor, which is accurate to $\increment\theta = \qty{0.1}{\degree}$.
-As it is unknown how the rotor controller rounds the values inbetween, $\increment\theta = \pm\qty{0.1}{\degree}$ is taken as the absolute error for every scattering angle value. 
+As it is unknown how the rotor controller rounds the values inbetween, $\increment\theta = \pm\,\qty{0.1}{\degree}$ is taken as the absolute error for every scattering angle value. 
 %
 \subsection{Characteristics of the detector signal pulses}
 Before the detector pulses are counted by the digital counter, the signal is amplified.
@@ -61,7 +61,7 @@ To calibrate the rotor, the new $\qty{0}{\degree}$-point is corrected by the obs
 \subsection{Alpha particle scattering on gold foil}
 \label{subsec:Au2}
 For the first scattering experiment a gold foil with a thickness of $d_{\mathrm{Au}} = \qty{2}{\micro\meter}$ is used.
-Multiple scattering angles are measured, up to $\theta = \qty{15}{\degree}$.
+Multiple scattering angles are measured, up to $\theta = \qty{15(0.1)}{\degree}$.
 For every scattering angle the measurement time $\increment t$ as well as the vacuum chamber pressure $p$ after the measurement are documented.
 The data is listed in \autoref{tab:Au2} in the appendix.
 \newline\noindent
@@ -82,30 +82,26 @@ The fit is realized by the function \textit{curve\_fit} from the \enquote{SciPy}
 \end{figure}
 \FloatBarrier
 \noindent
-The data points for small scattering angles up to $\theta = \qty{5}{\degree}$ are not fitted through because they lie inside the measured initial particle beam.
-The $\theta=\qty{6}{\degree}$- value is disregarded because of the large deviation from the expected curve.
+The data points for small scattering angles up to $\theta = \qty{5(0.1)}{\degree}$ are not fitted through because they lie inside the measured initial particle beam.
+The $\theta=\qty{6(0.1)}{\degree}$-value is disregarded because of the large deviation from the expected curve.
 Further discussion about the choice of data points for the fit functions in this and later measurements is done in \autoref{sec:Diskussion}.
 \newline\noindent
 The fit parameters returned by the fit-function are
 \begin{align}
-  A_{\mathrm{Au}} &= \qty{4.64(1.11)e-5}{\unit{\per\second}}\,, & b_{\mathrm{Au}} &= \qty{4.05(0.09)}\,.
+  A_{\mathrm{Au}} &= \qty{4.64(1.11)e-5}{\per\second}\,, & b_{\mathrm{Au}} &= \qty{4.05(0.09)}\,.
 \end{align}
 The uncertainties of the parameteres are calculated as the square root of the diagonal elements of the parameter's covariance matrix.
 %
 \subsection{Z-dependence of scattering intensity}
-With taking into account the active area the $\alpha$-particles move through, \autoref{eqn:rutherford} can be rewritten as
-\begin{equation}
-  \frac{\symup{d}n}{n} = \frac{Z^2e^4DN}{\left(4\pi\epsilon_0\right)^2m^2v_0^4\sin^4\left(\frac{\theta}{2}\right)}\symup{d}\Omega\,,
-\end{equation}
-in which $\frac{\symup{d}n}{n}$ is the number of counted particles relative to the total number of particles, $D = d$ is the foil thickness and $N$ is the number of scattering centers per cubic meter in the foil material.
+The Rutherford scattering formula takes into account the atomic number of the scattering material.
+In this section the goal is to show that the count rate is proportional to the atomic number. 
+\autoref{eqn:rutherfordn} shows that the number of scattered particles can be expressed as dependent on the foils thickness and atomic properties.
+These properties are the only changing parameters in the equation, besides the atomic number.
 For a chosen scattering angle $\theta$ the $Z$-dependence can be therefore expressed as
 \begin{equation}
-  Z^2 \propto \frac{R}{N\cdot d}\,,
+ \frac{R}{\rho_{N}\cdot d} \propto Z^2 \,.
+ \label{eqn:Z_propto}
 \end{equation}
-since 
-\begin{equation*}
-  R\left(\theta\right) \propto \frac{\symup{d}\sigma}{\symup{d}\Omega} \propto \frac{\symup{d}n}{n}\,.
-\end{equation*}
 To calculate the $Z$-dependence, the Rutherford experiment is done again for two foils made from bismuth and aluminium.
 \subsubsection{Scattering count rate for bismuth foil}
 The count rate depending on the scattering angle for scattering on a $d = \qty{1}{\micro\meter}$ bismuth foil is measured and displayed in the same way as for the gold foil scattering in \autoref{subsec:Au2}.
@@ -140,7 +136,7 @@ The original data is listed in \autoref{tab:Al3} in the appendix.
 \end{figure}
 \FloatBarrier
 \noindent
-For this scattering experiment the highest achieved scattering angle is $\theta = \qty{9}{\degree}$. 
+For this scattering experiment the highest achieved scattering angle is $\theta = \qty{9(0.1)}{\degree}$. 
 After that point, the count rate reading was so small that the statistical error exceeds the acceptable range.
 \newline\noindent
 The grey data points are left out of the fit because of their high deviation from the other data points.
@@ -150,6 +146,25 @@ This is further discussed in \autoref{sec:Diskussion}.
 The values of the parameters returned by the fit-function are
 \begin{align}
   A_{\mathrm{Al}} &= \qty{2.42(0.55)e-6}{\per\second} & b_{\mathrm{Al}} &= \qty{4.31(0.06)}{}\,.
+\end{align}
+\subsubsection{Z-dependence for fixed angle}
+As the fixed angle to verify the $Z$-dependence, $\theta = \qty{9(0.1)}{\degree}$ is chosen, because it is the largest angle measured for all three scattering materials.
+The data is plotted according to the proportionality given in \autoref{eqn:Z_propto} and shown in \autoref{fig:Z_dependence}.
+It is then fitted with a quadratic equation
+\begin{equation}
+  f\left(Z\right) = A\cdot Z^2 + B\,.
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{content/images/Z_Dependence.pdf}
+  \caption{$\alpha$-particle intensity for gold, bismuth and aluminum, divided by the foil thickness $d$ and atomic density $\rho_{N}$, against the atomic number $Z$ for fixed $\theta = \qty{9}{\degree}$. }
+  \label{fig:Z_dependence}
+\end{figure}
+\FloatBarrier
+\noindent
+The parameters returned by the quadratic fit function are
+\begin{align}
+  A &= \qty{1.92(0.06)}{\meter\squared\per\second} & B &= \qty{6.38(6.23)}{\meter\squared\per\second}\,.
 \end{align}
 % \begin{figure}
 %   \centering
