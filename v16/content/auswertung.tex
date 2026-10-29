@@ -6,6 +6,11 @@ The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done wit
 \newline\noindent
 The error for the scattering angle is determined by the resolution of the display of the rotor, which is accurate to $\increment\theta = \qty{0.1}{\degree}$.
 As it is unknown how the rotor controller rounds the values inbetween, $\increment\theta = \pm\,\qty{0.1}{\degree}$ is taken as the absolute error for every scattering angle value. 
+\newline\noindent
+The measurement time is taken by a digital timer, of which the smallest possible setting is $\increment t = \qty{1}{\second}$.
+Although, it is safe to assume that the timing error of the timer is much smaller.
+Because no data is taken for shorter time than $\increment t = \qty{60}{\second}$, the timer error is assumed to be neglegicable.
+\newline\noindent
 %
 \subsection{Characteristics of the detector signal pulses}
 Before the detector pulses are counted by the digital counter, the signal is amplified.
