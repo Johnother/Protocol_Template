@@ -1,16 +1,21 @@
 \section{Results and Evaluation}
 \label{sec:Auswertung}
 Calculations with the resulting data are done digitally with the programming language \enquote{Python}.
-Multiple packages are used, such as \enquote{Matplotlib}~\cite{matplotlib} for creating graphics, \enquote{SciPy}~\cite{scipy} for physics constants and curve-fitting and \enquote{Numpy}~\cite{numpy} for data manamgement and math support.
+Multiple packages are used, such as \enquote{Matplotlib}~\cite{matplotlib} for creating graphics, \enquote{SciPy}~\cite{scipy} for physics constants and curve-fitting and \enquote{Numpy}~\cite{numpy} for data management and math support.
 The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done with the \enquote{Uncertainties}-package~\cite{uncertainties}.
 \newline\noindent
 The error for the scattering angle is determined by the resolution of the display of the rotor, which is accurate to $\increment\theta = \qty{0.1}{\degree}$.
-As it is unknown how the rotor controller rounds the values inbetween, $\increment\theta = \pm\,\qty{0.1}{\degree}$ is taken as the absolute error for every scattering angle value. 
+As it is unknown how the rotor controller rounds the values inbetween, $\increment\theta = \pm\,\qty{0.1}{\degree}$ is taken as the absolute error for every scattering angle. 
 \newline\noindent
 The measurement time is taken by a digital timer, of which the smallest possible setting is $\increment t = \qty{1}{\second}$.
-Although, it is safe to assume that the timing error of the timer is much smaller.
-Because no data is taken for shorter time than $\increment t = \qty{60}{\second}$, the timer error is assumed to be neglegicable.
+Although, it is safe to assume that the error of the timer is much smaller.
+Because no data is taken for shorter time than $\increment t = \qty{60}{\second}$, the timer error is assumed to be negligible.
 \newline\noindent
+With the measurement time interval $\increment t$ the count rate is calculated using \autoref{eqn:countrate}.
+Since the number of detected particles $N$ is based on Poisson statistics, the error for each particle count is calculated with \autoref{eqn:poisson_error}.
+The error of the count rate is then obtained by Gaussian error propagation through \autoref{eqn:fehlerfortpflanzung}, which in this case leads to dividing both nominal value and standard deviation by $\increment t$.
+It is desired to keep the relative error low to obtain vaild data.
+With \autoref{eqn:relative_poisson} this leads to particle counts of $N \geq 1112$ needed for $\frac{1}{\sqrt{N}} \leq \qty{3}{\percent}$.
 %
 \subsection{Characteristics of the detector signal pulses}
 Before the detector pulses are counted by the digital counter, the signal is amplified.
@@ -39,11 +44,11 @@ Before amplification the signal pulse is distorted by irregular signal noise, as
 Also, the pulse height is in the same range as the high-frequency noise, reaching $U_{\mathrm{pre}} \approx \qty{300}{\milli\volt}$. 
 In the amplified signal the detector pulse is much more distinct, with a pulse height of $U_{\mathrm{post}} \approx \qty{11}{\volt}$, as shown in \autoref{subfig:after}.
 The pulse is amplified by a preset factor of $V_{\mathrm{Amp}} = \qty{16.6}{}$.
-To improve the visibility of the whole pulse, the timesteps on the oscilloscope are larger for the amplified pulse than for the unamplified signal.
+To improve the visibility of the whole pulse, the timesteps on the oscilloscope are larger for the amplified pulse then for the unamplified signal.
 The noise is still visible for the amplified signal, as the baseline before and after the pulse is distorted irregularly.
 %
 \subsection{Beam profile measurement for calibration}
-The Rutherford-experiment depends on the scattering angle, with respect to the center of the incoming beam of $\alpha$-particles.
+The Rutherford experiment depends on the scattering angle, with respect to the center of the incoming beam of $\alpha$-particles.
 To ensure that the beam center is aligned correctly with the surface barrier detector, the undisturbed beam profile is measured.
 \autoref{fig:calibration} shows the intensity of the $\alpha$-particles depending on the scattering angle without the foil in the way and under vacuum.
 The data is taken from \autoref{tab:calibration} in the appendix.
@@ -97,17 +102,45 @@ The fit parameters returned by the fit-function are
 \end{align}
 The uncertainties of the parameteres are calculated as the square root of the diagonal elements of the parameter's covariance matrix.
 %
-\subsection{Z-dependence of scattering intensity}
+\subsection{Z-dependence of the scattering intensity}
 The Rutherford scattering formula takes into account the atomic number of the scattering material.
 In this section the goal is to show that the count rate is proportional to the atomic number. 
-\autoref{eqn:rutherfordn} shows that the number of scattered particles can be expressed as dependent on the foils thickness and atomic properties.
+\autoref{eqn:rutherfordn} shows that the number of scattered particles can be expressed as dependent on the foil's thickness and atomic properties.
 These properties are the only changing parameters in the equation, besides the atomic number.
 For a chosen scattering angle $\theta$ the $Z$-dependence can be therefore expressed as
 \begin{equation}
  \frac{R}{\rho_{N}\cdot d} \propto Z^2 \,.
  \label{eqn:Z_propto}
 \end{equation}
-To calculate the $Z$-dependence, the Rutherford experiment is done again for two foils made from bismuth and aluminium.
+The values of $\rho_{N}$ are calculated from the material's density $\rho$ and its molar mass $m_{u}$ by
+\begin{equation*}
+  \rho_N = \frac{\rho}{m_{u}} \cdot \symup{N}_{\mathrm{A}},
+\end{equation*}
+where $\symup{N}_{\mathrm{A}} = \qty{6.022e23}{\per\mol}$ is Avogadro's constant~\cite[14]{demtröder_2016}.
+The values for $\rho$ and $m_{u}$ are taken from the digital periodic table provided in~\cite{periodensystem_online}.
+The calculated values for $\rho_{N}$ are listed in \autoref{tab:rho_N}.
+\begin{table}
+  \centering
+  \caption{Values for the number of scattering centers for gold, bismuth and aluminum.}
+  \label{tab:rho_N}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=3.0] S[table-format=2.2] S[table-format=3.0] S[table-format=1.2] },
+      row{1} = {guard, mode=math},
+      vline{4} = {2}{-}{text=\clap{$\pm$}},
+    }
+    \toprule
+    \mathrm{Material} & \rho \mathbin{/} 10^6\,\unit{\gram\per\meter\cubed} & m_{u} \mathbin{/} \unit{\gram\per\mol} & \rho_{N} \mathbin{/} 10^{28}\,\unit{\per\meter\cubed} \\
+    \midrule
+      \text{Gold}     & 19.32 & 197 & 5.91 \\
+      \text{Bismuth}  & 9.78 & 209  & 2.82 \\
+      \text{Aluminum} & 2.7 & 27    & 6.02 \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier
+\noindent
+To calculate the $Z$-dependence, the Rutherford experiment is done again for two foils made from bismuth and aluminum.
 \subsubsection{Scattering count rate for bismuth foil}
 The count rate depending on the scattering angle for scattering on a $d = \qty{1}{\micro\meter}$ bismuth foil is measured and displayed in the same way as for the gold foil scattering in \autoref{subsec:Au2}.
 The original data is listed in \autoref{tab:Bi1} in the appendix.
@@ -128,15 +161,15 @@ The parameters returned by the fit-function are
   A_{\mathrm{Bi}} &= \qty{7.35(0.94)e-6}{\per\second} & b_{\mathrm{Bi}} &= \qty{4.29(0.04)}\,.
 \end{align}
 %
-\subsubsection{Scattering count rate for Aluminium foil}
-The thickness of the aluminium foil is $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$.
+\subsubsection{Scattering count rate for aluminum foil}
+The thickness of the aluminum foil is $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$.
 As for the bismuth foil, the count rate depending on the scattering angle is plotted and fitted with \autoref{eqn:fit}.
 Both is shown in \autoref{fig:Al3}. 
 The original data is listed in \autoref{tab:Al3} in the appendix.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{content/images/Al3.pdf}
-  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$ aluminium foil.}
+  \caption{Intensity of the $\alpha$-particles with respect to the scattering angle, scattered on $d_{\mathrm{Al}} = \qty{3}{\micro\meter}$ aluminum foil.}
   \label{fig:Al3}
 \end{figure}
 \FloatBarrier
@@ -167,7 +200,7 @@ It is then fitted with a quadratic equation
 \end{figure}
 \FloatBarrier
 \noindent
-The parameters returned by the quadratic fit function are
+The parameters returned by the quadratic fit-function are
 \begin{align}
   A &= \qty{1.92(0.06)e-27}{\meter\squared\per\second} & B &= \qty{6.38(6.23)e-26}{\meter\squared\per\second}\,.
 \end{align}

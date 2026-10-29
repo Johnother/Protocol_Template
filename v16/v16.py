@@ -35,7 +35,7 @@ A_Au = Z_Au**2*D_Au*Nd_Au
 A_Bi = Z_Bi**2*D_Bi*Nd_Bi
 A_Al = Z_Al**2*D_Al*Nd_Al
 
-print(f"Combined coefficients:\tA_Au={A_Au:.2f}\t|\tA_Bi={A_Bi:.2f}\t|\tA_Al={A_Al:.2f}\n")
+print(f"Atomic densities:\tA_Au={Nd_Au}\t|\tA_Bi={Nd_Bi}\t|\tA_Al={Nd_Al}\n")
 
 def Rutherford(theta,A,b):
     # return (A0*e**4)/((4*np.pi*e_0)**2*m_a**2*v_a**4)/(np.sin((theta-t)/2)**b)

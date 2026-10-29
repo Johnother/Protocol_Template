@@ -1,2 +1,89 @@
 \section{Discussion}
 \label{sec:Diskussion}
+An important constriction for the conduction of the experiment was to obtain a total particle count of $N \geq 1112$ to keep the relative error low.
+The data in the appendix shows that this could not be realized within a reasonable time frame for neither of the measurements, especially for large scattering angles.
+It therefore can be assumed that the error in the count rate causes relevant deviations from the theoretically expected scattering distribution.
+%
+\subsection{Discussion of the detector signal pulses}
+In the two signal pulses in \autoref{fig:pulses} the positive influence of the amplification is clearly visible.
+The signal-to-noise ratio gets smaller and the triggering with the oscilloscope becomes easyer and less faulty.
+Nevertheless, a direct comparison of the two pulses is not possible because of the differently chosen timestep settings.
+While \autoref{subfig:pre} shows the noise signal in detail and underlines the difficulty of triggering to the real signal pulse, the characteristic falling flank of the signal cannot be observed.
+In \autoref{subfig:after}, this flank can be seen clearly.
+Although, the timestep setting does not show the characteristics of the noise.
+\newline\noindent
+For better comparison a setting should be chosen in which both signal pulses fill out the oscilloscope screen as best as possible.
+Since the pulse length is not amplified, this should be possible by keeping the same timestep setting and only adjusting the voltage setting to account for the amplification factor.
+%
+\subsection{Usage of the calibration measurement}
+The measurement of the $\alpha$-particle beam profile shows that the alignment of the beam and the detector is off by $\theta = \qty{1(0.1)}{\degree}$.
+This could be due to the center-point being wrongly defined before or by the radiation source being placed off-axis.
+In both cases the whole beam profile would be a mirror-symmetric gaussian curve with the maximum at the shifted angle.
+\newline\noindent
+In \autoref{fig:calibration} it can be seen that the beam profile is not symmetric around the red dashed line, which marks the shifted maximum.
+An explanation for that behaviour could be the statistical error of the count rate because of the randomness of the atomic decay.
+Also, a slight misplacement between the measurement points could cause the deviation.
+Before starting the measurement, the radioactive source had to be taped down inside the vacuum chamber.
+Otherwise, the vibrations of the vacuum pump cause the source to move uncontrolled.
+It is therefore possible, though it cannot be quantified, that the tension of the duct tape causes slight movements. 
+%
+\subsection{Angular dependence of scattering for all used materials}
+The Rutherford scattering formula \autoref{eqn:rutherford} states that the theoretical value for the exponent on the sine function is $b_{\mathrm{theo}} = \qty{4}{}$.
+This value can be compared to the fit parameters for the measurment with gold, bismuth, and aluminum foil by using the relative deviation formula from \autoref{eqn:relabw}.
+The parameter values and their relative deviations are listed in \autoref{tab:relabw}.
+\begin{table}
+  \centering
+  \caption{Relative deviations between experimental and theoretical value for the exponent $b$ of the sine in the Rutherford scattering formula~\ref{eqn:rutherford}.}
+  \label{tab:relabw}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=3.0] },
+      row{1} = {guard, mode=math},
+      vline{3,5} = {2}{-}{text=\clap{$\pm$}},
+    }
+    \toprule
+    \mathrm{Material} & \SetCell[c=2]{c} b_{\mathrm{exp}} & & \SetCell[c=2]{c} \increment b_{\mathrm{rel}} \mathbin{/} \unit{\percent} & \\
+    \midrule
+        \text{Gold}     & 4.05 & 0.09 & 1.25 & 2.25 \\
+        \text{Bismuth}  & 4.29 & 0.04 & 7.25 & 1.0  \\
+        \text{Aluminum} & 4.31 & 0.06 & 7.75 & 1.50 \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier
+\noindent
+The small deviations of under $\qty{10}{\percent}$ for all three measurements show that the experiment reproduced the theoretical expectations by reasonable accuracy.
+Still, the error of the experimental values is large in comparison to the relative error of the nominal value.
+This is best visible for the measurement with gold foil, in which the error on the relative deviation is nearly double the nominal deviation.
+For the other two experiments this effect is smaller, because the relative deviation is larger in the first place.
+Therefore, the valid quantity is the nominal value of the relative deviation which is small in all three cases.
+The large errors can be explained by the already discussed large statistical errors of the total particle counts due to time restrictions and low count rates.
+\newline\noindent
+Not all data points have been included into the fit functions of the three measurements.
+In case of the gold and bismuth measurement this is due to the small scattering angle values causing the exponent $b$ to vary largly from the expected value.
+There also is a visible difference in the proportionality for the large and small scattering angle values.
+This is most significant in \autoref{fig:Au2}, where the values up to $\theta = \qty{6(0.1)}{\degree}$ follow a less steep curve than the data for the larger angles.
+For the bismuth measurement this effect also occurs, but less strong.
+\newline\noindent
+The data for the aluminum measurement differs from that behaviour.
+\autoref{fig:Al3} shows, that only the third and fourth value vary from the other data points.
+Opposite to the other two measurements, the small and large angle data correspond to the same fit function.
+Including the third and fourth value led to the fit not converging, even if the smallest angle values were left out.
+Therefore, the third and fourth value are probably faulty data points.
+\newline\noindent
+Furthermore, the aluminum foil is the thickest of the three used foils.
+Therefore, multiple scattering could lead to measurement errors such as those which were observed.
+%
+\subsection{Discussion of the Z-dependence}
+For checking the $Z$-dependence a large scattering angle is chosen, because for large angles the count rate only differs slightly for small variations of the scattering angle.
+Choosing a larger scattering angle than $\theta = \qty{9(0.1)}{\degree}$ would therefore be beneficial.
+The aluminum measurement is the constraint in this case.
+\newline\noindent
+The plotted data in \autoref{fig:Z_dependence} shows no clear proportionality to $Z^2$.
+Although it is possible to fit the data points with a quadratic equation, the fitted graph does not intersect with the last two data points or their errorbars.
+The fit parameters also show, that the fit function does not fit the data.
+For the parameter $B$ the ratio between nominal value and standard deviation is $\frac{B}{\sigma B} = \qty{97.5}{\percent}$.
+\newline\noindent
+Therefore, the theoretically proposed $Z$-dependence cannot be confirmed or denied, because the data is not sufficient and probably faulty.
+An improved experiment could include more materials to provide more data along the expected curve.
+Also, the measurement should be focused on one large scattering angle or multiple angles, for which the measurement time is increased to one or more hours.
