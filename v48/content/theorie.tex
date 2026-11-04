@@ -1,0 +1,39 @@
+\section{Theory}
+\label{sec:Theorie}
+
+
+
+
+\subsection{Uncertainties of the measurement}
+\label{sec:fehlerrechnung}
+%\subsection{Mittelwert}
+The mean value is calculated with
+\begin{equation}
+\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i \, .
+\label{eqn:mittelwert}
+\end{equation}
+%\subsection{Standardabweichung}
+\\
+The standard deviation is given by
+\begin{equation}
+\sigma = \sqrt{\frac{1}{N - 1} \sum_{i=1}^{N} \left( x_i - \bar{x}_N \right)^2} \, .
+\label{eqn:standardabweichung}
+\end{equation}
+%%\subsubsection{Standardabweichung des Mittelwerts}
+The standard deviation of the mean value is given by
+\begin{equation}
+\Delta \bar{x} = \frac{\sigma}{\sqrt{N}} \, .
+\label{eqn:standardmittelwert}
+\end{equation}
+%%\subsection{Gaußsche Fehlerfortpflanzung}
+The deviation of a value derived from experimental parameters can be calculated using the Gaussian error propagation
+\begin{equation}
+\Delta f = \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\Delta x_i)^2} \, .
+\label{eqn:fehlerfortpflanzung}
+\end{equation}
+The relative deviation of an experimental parameter from the theoretical parameter is given by ~\cite{relabw}
+\begin{equation}
+    \increment x_{\mathrm{rel}} = \left| \frac{x_{\mathrm{\exp}}-x_{\mathrm{theo}}}{x_{\mathrm{theo}}}\right|\, .
+    \label{eqn:relabw}
+\end{equation}
+
