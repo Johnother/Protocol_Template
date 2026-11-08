@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.constants as const
 import matplotlib.pyplot as plt
-from uncertainties import ufloat, unumpy as unp
+from uncertainties import ufloat, umath, unumpy as unp
 from scipy.optimize import curve_fit
 
 # Global constants
@@ -16,6 +16,9 @@ def bmean(T):
 
 def expo(x,a,b):
     return a*np.exp(b*x)
+
+def expou(x,a,b):
+    return a*umath.exp(b*x)
 
 
 # Measurement for b=2
@@ -63,13 +66,40 @@ ax.set_ylabel(r"$I$ [pA]")
 ax.grid()
 ax.legend()
 
+fig.savefig("images/b2_background.pdf")
+
+
+
+
+mask[:] = True
+
+for i in range(len(T2)):
+    I2[i]= (I2[i]-expou(T2[i], a, b))
+
+mask[:19] = False
+mask[41:] = False
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="darkorange",capsize=3,label="Hintergrund")
+#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
+#x_lin = np.linspace(min(unp.nominal_values(T2[mask])),max(unp.nominal_values(T2[mask])),500)
+#ax.plot(x_lin, expo(x_lin, *popt), label="Exponentieller Fit")
+
+ax.set_xlabel(r"$T$ [K]")
+ax.set_ylabel(r"$I$ [pA]")
+
+
+ax.grid()
+ax.legend()
+
 fig.savefig("images/b2.pdf")
 
 
 
 
 
-
+#####################################################################
 
 # Measurement for b=1.5
 
@@ -109,6 +139,33 @@ ax.errorbar(unp.nominal_values(T15[~mask]),unp.nominal_values(I15[~mask]),yerr=u
 
 x_lin = np.linspace(min(unp.nominal_values(T15[mask])),max(unp.nominal_values(T15[mask])),500)
 ax.plot(x_lin, expo(x_lin, *popt), label="Exponentieller Fit")
+
+ax.set_xlabel(r"$T$ [K]")
+ax.set_ylabel(r"$I$ [pA]")
+
+
+ax.grid()
+ax.legend()
+
+fig.savefig("images/b15_background.pdf")
+
+
+
+
+mask[:] = True
+
+for i in range(len(T15)):
+    I15[i]= (I15[i]-expou(T15[i], a, b))
+
+mask[:20] = False
+mask[49:] = False
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="darkorange",capsize=3,label="Hintergrund")
+#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
+#x_lin = np.linspace(min(unp.nominal_values(T2[mask])),max(unp.nominal_values(T2[mask])),500)
+#ax.plot(x_lin, expo(x_lin, *popt), label="Exponentieller Fit")
 
 ax.set_xlabel(r"$T$ [K]")
 ax.set_ylabel(r"$I$ [pA]")
