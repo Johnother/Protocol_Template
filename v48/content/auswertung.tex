@@ -21,3 +21,51 @@ The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done wit
   \label{fig:pulses}
 \end{figure}
 \FloatBarrier
+
+
+\subsection{Finding and subtracting the background}
+First of all the background has to be determined and than subtracted from the data. 
+In order to do so an exponential fit of the from
+\begin{equation}
+  f\left(x\right) = a \mathrm{e}^{b*x}
+\end{equation}
+is applied to the data which is not part of the observed peak. 
+This is done for both sets of measurement.
+Values with a positive sign and those that deveate significantly are not taken into account. 
+The overall sign of the data is then inversed for more convinience.
+The complete measurement data can be found in \autoref{tab:b2_data} for a heating rate of $b=\qty{2}{\kelvin \per \minute}$ and in \autoref{tab:b15_data} for $b=\qty{1.5}{\kelvin \per \minute}$.
+For both sets the data is plotted in \autoref{fig:background} with an exponential fit for the bakground. 
+The fit values yield
+\begin{align*}
+  a_{b2} &= & a_{b1.5} &= \\
+  b_{b2} &= & b_{b1.5} &= \\
+\end{align*}
+For each datapoint of both datasets the value for $I$ of the corresponding fit is subtracted at the corresponding temperature is subtracted, so that the background is not included in the further analisys.
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{images/b2_background.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{images/b15_background.pdf}
+  \end{subfigure}
+  \caption{Measurement data with an exponential fit for the background for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
+  \label{fig:background}
+\end{figure}
+
+
+
+
+
+
+
+\subsection{Evaluating the activation energy and relaxation time}
+
+
+\subsubsection{First method}
+
+
+\subsubsection{Second method}

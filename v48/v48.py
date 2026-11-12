@@ -17,6 +17,9 @@ def bmean(T):
 def expo(x,a,b):
     return a*np.exp(b*x)
 
+def expom(x,a,b):
+    return a*np.exp(-b/x)
+
 def expou(x,a,b):
     return a*umath.exp(b*x)
 
@@ -64,7 +67,7 @@ x_lin = np.linspace(min(unp.nominal_values(T2[mask])),max(unp.nominal_values(T2[
 ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
 
 ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$I$ [pA]")
+ax.set_ylabel(r"$-I$ [pA]")
 
 
 ax.grid()
@@ -91,7 +94,7 @@ mask[41:] = False
 
 mask2 = np.ones(len(T2), dtype=bool)
 
-mask2[:19]= False
+mask2[:21]= False
 mask2[29:] = False
 
 
@@ -112,13 +115,44 @@ ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit"
 
 
 ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$I$ [pA]")
+ax.set_ylabel(r"$-I$ [pA]")
 
 
 ax.grid()
 ax.legend()
 
 fig.savefig("images/b2.pdf")
+
+print("fit parameters:")
+print(c)
+print(d)
+
+
+I2_log = unp.log(abs(I2))
+
+
+popt, pcov = curve_fit(lin,1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),sigma=unp.std_devs(I2_log[mask2]),absolute_sigma=True,p0=[0.01,0.1])
+perr = np.sqrt(np.diag(pcov))
+c = ufloat(popt[0], perr[0])
+d = ufloat(popt[1], perr[1])
+
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(1/(unp.nominal_values(T2[mask])),unp.nominal_values(I2_log[mask]),yerr=unp.std_devs(I2_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
+ax.errorbar(1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),yerr=unp.std_devs(I2_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
+#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
+x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2[mask2])),500)
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+
+ax.set_xlabel(r"$1/T$ [1/K]")
+ax.set_ylabel(r"$-I$ [pA]")
+
+
+ax.grid()
+ax.legend()
+
+fig.savefig("images/b2_log.pdf")
 
 print("fit parameters:")
 print(c)
@@ -170,7 +204,7 @@ x_lin = np.linspace(min(unp.nominal_values(T15[mask])),max(unp.nominal_values(T1
 ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
 
 ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$I$ [pA]")
+ax.set_ylabel(r"$-I$ [pA]")
 
 
 ax.grid()
@@ -196,7 +230,7 @@ mask[45:] = False
 
 mask2 = np.ones(len(T15), dtype=bool)
 
-mask2[:21]= False
+mask2[:23]= False
 mask2[32:] = False
 
 
@@ -216,7 +250,7 @@ x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T
 ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
 
 ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$I$ [pA]")
+ax.set_ylabel(r"$-I$ [pA]")
 
 
 ax.grid()
@@ -231,29 +265,29 @@ print(d)
 I15_log = unp.log(abs(I15))
 
 
-#popt, pcov = curve_fit(lin,unp.nominal_values(T15[mask2]),unp.nominal_values(I15_log[mask2]),sigma=unp.std_devs(I15_log[mask2]),absolute_sigma=True,p0=[0.01,0.1])
-#perr = np.sqrt(np.diag(pcov))
-#c = ufloat(popt[0], perr[0])
-#d = ufloat(popt[1], perr[1])
+popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),sigma=unp.std_devs(I15_log[mask2]),absolute_sigma=True,p0=[0.01,0.1])
+perr = np.sqrt(np.diag(pcov))
+c = ufloat(popt[0], perr[0])
+d = ufloat(popt[1], perr[1])
 
 
-#fig, ax = plt.subplots(layout="constrained")
-#ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
-#ax.errorbar(unp.nominal_values(T15[mask2]),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
-##ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
-#
-#x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
-#ax.plot(x_lin, lin(x_lin, *popt),color="darkorchid", label="Lin Fit")
-#
-#ax.set_xlabel(r"$T$ [K]")
-#ax.set_ylabel(r"$I$ [pA]")
-#
-#
-#ax.grid()
-#ax.legend()
-#
-#fig.savefig("images/b15_log.pdf")
-#
-#print("fit parameters:")
-#print(c)
-#print(d)
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(1/(unp.nominal_values(T15[mask])),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
+ax.errorbar(1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
+#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
+x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+
+ax.set_xlabel(r"$1/T$ [1/K]")
+ax.set_ylabel(r"$-I$ [pA]")
+
+
+ax.grid()
+ax.legend()
+
+fig.savefig("images/b15_log.pdf")
+
+print("fit parameters:")
+print(c)
+print(d)
