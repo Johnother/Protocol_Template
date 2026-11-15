@@ -3,6 +3,7 @@ import scipy.constants as const
 import matplotlib.pyplot as plt
 from uncertainties import ufloat, umath, unumpy as unp
 from scipy.optimize import curve_fit
+from scipy.integrate import cumulative_trapezoid
 
 # Global constants
 
@@ -146,7 +147,7 @@ x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2
 ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$-I$ [pA]")
+ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
 
 
 ax.grid()
@@ -161,6 +162,63 @@ print("activation energy:")
 w=-(c*k_b)/e
 print(w)
 
+
+#second methode
+
+T2m = T2[mask]
+I2m = I2[mask]
+inte = [ufloat(0,0)]
+for i in range(1, len(T2m)):
+    dT = T2m[i] - T2m[i-1]
+    area = 0.5*(I2m[i]+I2m[i-1])*dT
+    inte.append(inte[-1]+area)
+
+inte = np.array(inte)
+
+integral = inte[-1] - inte[:-1]
+
+tau_ln = (unp.log(integral)-unp.log(bm2)-unp.log(np.abs(I2m[:-1])))
+
+T2m = T2m[:-1]
+
+mask3 = np.ones(len(T2m), dtype=bool)
+mask3[:5] = False
+mask3[17:] = False
+
+
+
+popt, pcov = curve_fit(lin,1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),sigma=unp.std_devs(tau_ln[mask3]),absolute_sigma=True,p0=[0.01,0.1])
+perr = np.sqrt(np.diag(pcov))
+c = ufloat(popt[0], perr[0])
+d = ufloat(popt[1], perr[1])
+
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(1/(unp.nominal_values(T2m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
+ax.errorbar(1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="used")
+
+x_lin = np.linspace(min(unp.nominal_values(T2m[mask3])),max(unp.nominal_values(T2m[mask3])),500)
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+
+ax.set_xlabel(r"$1/T$ [1/K]")
+ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
+
+
+ax.grid()
+ax.legend()
+
+fig.savefig("images/b2_int.pdf")
+
+print("fit parameters:")
+print(c)
+print(d)
+
+tau_0 = unp.exp(d)
+w=(c*k_b)/e
+print("activation energy:")
+print(w)
+print("relaxation time:")
+print(tau_0)
 
 #####################################################################
 print("\n")
@@ -282,7 +340,7 @@ x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T
 ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$-I$ [pA]")
+ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
 
 
 ax.grid()
@@ -297,3 +355,60 @@ print(d)
 print("activation energy:")
 w=-(c*k_b)/e
 print(w)
+
+
+#second methode
+
+T15m = T15[mask]
+I15m = I15[mask]
+inte = [ufloat(0,0)]
+for i in range(1, len(T15m)):
+    dT = T15m[i] - T15m[i-1]
+    area = 0.5*(I15m[i]+I15m[i-1])*dT
+    inte.append(inte[-1]+area)
+
+inte = np.array(inte)
+
+integral = inte[-1] - inte[:-1]
+
+tau_ln = (unp.log(integral)-unp.log(bm15)-unp.log(np.abs(I15m[:-1])))
+
+T15m = T15m[:-1]
+
+mask3 = np.ones(len(T15m), dtype=bool)
+mask3[:3] = False
+mask3[20:] = False
+
+
+
+popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15m[mask3])),unp.nominal_values(tau_ln[mask3]),sigma=unp.std_devs(tau_ln[mask3]),absolute_sigma=True,p0=[0.01,0.1])
+perr = np.sqrt(np.diag(pcov))
+c = ufloat(popt[0], perr[0])
+d = ufloat(popt[1], perr[1])
+
+fig, ax = plt.subplots(layout="constrained")
+ax.errorbar(1/(unp.nominal_values(T15m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
+ax.errorbar(1/(unp.nominal_values(T15m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="Messwerte")
+
+x_lin = np.linspace(min(unp.nominal_values(T15m[mask3])),max(unp.nominal_values(T15m[mask3])),500)
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+
+ax.set_xlabel(r"$1/T$ [1/K]")
+ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
+
+
+ax.grid()
+ax.legend()
+
+fig.savefig("images/b15_int.pdf")
+
+print("fit parameters:")
+print(c)
+print(d)
+
+tau_0 = unp.exp(d)
+w=(c*k_b)/e
+print("activation energy:")
+print(w)
+print("relaxation time:")
+print(tau_0)
