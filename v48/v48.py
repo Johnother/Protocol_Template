@@ -375,22 +375,22 @@ tau_ln = (unp.log(integral)-unp.log(bm15)-unp.log(np.abs(I15m[:-1])))
 
 T15m = T15m[:-1]
 
-mask3 = np.ones(len(T15m), dtype=bool)
-mask3[:3] = False
-mask3[20:] = False
+mask4 = np.ones(len(T15m), dtype=bool)
+mask4[:5] = False
+mask4[20:] = False
 
 
 
-popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15m[mask3])),unp.nominal_values(tau_ln[mask3]),sigma=unp.std_devs(tau_ln[mask3]),absolute_sigma=True,p0=[0.01,0.1])
+popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),sigma=unp.std_devs(tau_ln[mask4]),absolute_sigma=True,p0=[0.01,0.1])
 perr = np.sqrt(np.diag(pcov))
 c = ufloat(popt[0], perr[0])
 d = ufloat(popt[1], perr[1])
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(1/(unp.nominal_values(T15m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T15m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="Messwerte")
+ax.errorbar(1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),yerr=unp.std_devs(tau_ln[mask4]),fmt="x",color="orange",capsize=3,label="Messwerte")
 
-x_lin = np.linspace(min(unp.nominal_values(T15m[mask3])),max(unp.nominal_values(T15m[mask3])),500)
+x_lin = np.linspace(min(unp.nominal_values(T15m[mask4])),max(unp.nominal_values(T15m[mask4])),500)
 ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")

@@ -78,7 +78,7 @@ The cleansed data can be found in \autoref{fig:cleansed}, where just the relevan
 
 
 \FloatBarrier
-\subsection{Evaluating the activation energy and relaxation time}
+\subsection{Evaluating the activation energy and caracteristic relaxation time}
 Now the activation energy and the relaxation time can be evaluated. 
 As discussed in \textbf{REFERENZ} there are two different possible methodes.
 In this section the activation energy and the relaxation time are determined with both methodes.
@@ -118,3 +118,29 @@ According to \textbf{REFERENZ} the actiavation energys can then be determined as
 \end{figure}
 
 \subsubsection{Second method}
+\begin{align*}
+  a_{b2} &= \qty{1.03(5)e4}{\kelvin}   & a_{b1.5} &= \qty{1.03(3)e4}{\kelvin} \, , \\
+  b_{b2} &= \num{-37.9(4)}    & b_{b1.5} &= \num{-37.9(12)} \, .\\
+\end{align*}
+\begin{align*}
+  W_{2}= \qty{0.89(4)}{\electronvolt} \, , \\
+  W_{1.5}= \qty{0.88(3)}{\electronvolt} \, .
+\end{align*}
+\begin{align*}
+  \tau_{0,2}= \qty{0.88(4)}{\second} \, , \\
+  \tau_{0,1.5}= \qty{3(7)e-17}{\second} \, .
+\end{align*}
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{images/b2_int.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{images/b15_int.pdf}
+  \end{subfigure}
+  \caption{Half-logarythmic plot of the relaxation time against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
+  \label{fig:logfit}
+\end{figure}
