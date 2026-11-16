@@ -7,9 +7,9 @@ from scipy.integrate import cumulative_trapezoid
 
 # Global constants
 
-k_b = const.k
-e = const.electron_volt
 
+e = const.electron_volt
+k_b = const.k/e
 #functions
 
 def bmean(T):
@@ -159,9 +159,14 @@ print("fit parameters:")
 print(c)
 print(d)
 print("activation energy:")
-w=-(c*k_b)/e
+w=-(c*k_b)
 print(w)
+j_max = np.argmax(I2)
 
+tau_0 = ((k_b)*T2[j_max]**2)/((bm2/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
+
+print("relaxation time:")
+print(tau_0)
 
 #second methode
 
@@ -214,7 +219,7 @@ print(c)
 print(d)
 
 tau_0 = unp.exp(d)
-w=(c*k_b)/e
+w=(c*k_b)
 print("activation energy:")
 print(w)
 print("relaxation time:")
@@ -353,9 +358,17 @@ print(c)
 print(d)
 
 print("activation energy:")
-w=-(c*k_b)/e
+w=-(c*k_b)
 print(w)
 
+j_max = np.argmax(I15)
+
+
+tau_0 = ((k_b)*T15[j_max]**2)/((bm15/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
+
+
+print("relaxation time:")
+print(tau_0)
 
 #second methode
 
@@ -407,7 +420,7 @@ print(c)
 print(d)
 
 tau_0 = unp.exp(d)
-w=(c*k_b)/e
+w=(c*k_b)
 print("activation energy:")
 print(w)
 print("relaxation time:")
