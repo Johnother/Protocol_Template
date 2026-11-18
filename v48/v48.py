@@ -10,6 +10,10 @@ from scipy.integrate import cumulative_trapezoid
 
 e = const.electron_volt
 k_b = const.k/e
+
+w_theo = 0.66
+tau_theo = 4e-14
+
 #functions
 
 def bmean(T):
@@ -100,19 +104,11 @@ mask2[29:] = False
 
 
 
-#popt, pcov = curve_fit(expo,unp.nominal_values(T2[mask2]),unp.nominal_values(I2[mask2]),sigma=unp.std_devs(I2[mask2]),absolute_sigma=True,p0=[0.01,0.1])
-#perr = np.sqrt(np.diag(pcov))
-#c = ufloat(popt[0], perr[0])
-#d = ufloat(popt[1], perr[1])
 
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="orange",capsize=3,label="cleansed data")
-#ax.errorbar(unp.nominal_values(T2[mask2]),unp.nominal_values(I2[mask2]),yerr=unp.std_devs(I2[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
-#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
 
-#x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2[mask2])),500)
-#ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
 
 
 ax.set_xlabel(r"$T$ [K]")
@@ -124,9 +120,7 @@ ax.legend()
 
 fig.savefig("images/b2.pdf")
 
-#print("fit parameters:")
-#print(c)
-#print(d)
+
 
 
 I2_log = unp.log(abs(I2))
@@ -141,7 +135,7 @@ d = ufloat(popt[1], perr[1])
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(1/(unp.nominal_values(T2[mask])),unp.nominal_values(I2_log[mask]),yerr=unp.std_devs(I2_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
 ax.errorbar(1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),yerr=unp.std_devs(I2_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
-#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
 
 x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2[mask2])),500)
 ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
@@ -167,6 +161,11 @@ tau_0 = ((k_b)*T2[j_max]**2)/((bm2/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
 
 print("relaxation time:")
 print(tau_0)
+
+print("rel dev:")
+print((unp.nominal_values(w)-w_theo)/w_theo)
+print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
+
 
 #second methode
 
@@ -224,6 +223,11 @@ print("activation energy:")
 print(w)
 print("relaxation time:")
 print(tau_0)
+
+print("rel dev:")
+print((unp.nominal_values(w)-w_theo)/w_theo)
+print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
+
 
 #####################################################################
 print("\n")
@@ -300,19 +304,12 @@ mask2[32:] = False
 
 
 
-#popt, pcov = curve_fit(expo,unp.nominal_values(T15[mask2]),unp.nominal_values(I15[mask2]),sigma=unp.std_devs(I15[mask2]),absolute_sigma=True,p0=[0.01,0.1])
-#perr = np.sqrt(np.diag(pcov))
-#c = ufloat(popt[0], perr[0])
-#d = ufloat(popt[1], perr[1])
+
 
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="orange",capsize=3,label="cleansed data")
-#ax.errorbar(unp.nominal_values(T15[mask2]),unp.nominal_values(I15[mask2]),yerr=unp.std_devs(I15[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
-#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
 
-#x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
-#ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
 
 ax.set_xlabel(r"$T$ [K]")
 ax.set_ylabel(r"$-I$ [pA]")
@@ -323,9 +320,7 @@ ax.legend()
 
 fig.savefig("images/b15.pdf")
 
-#print("fit parameters:")
-#print(c)
-#print(d)
+
 
 I15_log = unp.log(abs(I15))
 
@@ -339,7 +334,7 @@ d = ufloat(popt[1], perr[1])
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(1/(unp.nominal_values(T15[mask])),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
 ax.errorbar(1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
-#ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+
 
 x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
 ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
@@ -369,6 +364,10 @@ tau_0 = ((k_b)*T15[j_max]**2)/((bm15/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
 
 print("relaxation time:")
 print(tau_0)
+
+print("rel dev:")
+print((unp.nominal_values(w)-w_theo)/w_theo)
+print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
 
 #second methode
 
@@ -425,3 +424,7 @@ print("activation energy:")
 print(w)
 print("relaxation time:")
 print(tau_0)
+
+print("rel dev:")
+print((unp.nominal_values(w)-w_theo)/w_theo)
+print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)

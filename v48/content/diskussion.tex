@@ -1,2 +1,28 @@
 \section{Discussion}
 \label{sec:Diskussion}
+
+In this section the experimental results are discussed. 
+
+\subsection{Relative deviation from comparitive values}
+First the relative deviation from comparitive values is calculated. 
+The latter can be found in \cite{muccillo_1974}.
+For the activation energy of strontium doped potassium bromide $W = \qty{0.66(1)}{\electronvolt}$ is used.
+For the characteristic relaxation time the comparitive value is $\tau_0 = \qty{4(2)e-14}{\second}$.
+Then the relative deviation is calculated with \autoref{eqn:relabw}.
+The deviations for all results obtained from the two data sets using both methodes can be found in \autoref{tab:reldev}.
+\begin{table}
+    \centering
+    \caption{Relative deviation of the experimental results from comparitive values in \cite{muccillo_1974} for the activation energy and the characteristic relaxation time.}
+    \label{tab:reldev}
+    \sisetup{table-format=1.1, per-mode=reciprocal}
+    \begin{tblr}{c c c c c}
+        \toprule
+        & \SetCell[c=2]{c} method 1 & & \SetCell[c=2]{c} method 2 & \\
+        $b$ / $[\unit{\kelvin\per\minute}]$ & $\increment W_{\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment \tau_{0,\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment W_{\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment \tau_{0,\mathrm{rel}}$ / $[\unit{\percent}]$ \\
+        \midrule
+        $2$   & 33.2 & 92.6 & 34.4 & 99.9 \\
+        $1.5$ & 40.4 & 96.2 & 34.0 & 99.9 \\
+        \bottomrule
+    \end{tblr}
+\end{table}
+
