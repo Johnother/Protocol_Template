@@ -65,11 +65,11 @@ b = ufloat(popt[1], perr[1])
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="darkorange",capsize=3,label="Hintergrund")
-ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="darkorange",capsize=3,label="not used")
+ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="used for fit")
 
 x_lin = np.linspace(min(unp.nominal_values(T2[mask])),max(unp.nominal_values(T2[mask])),500)
-ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
+ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="exponential fit")
 
 ax.set_xlabel(r"$T$ [K]")
 ax.set_ylabel(r"$-I$ [pA]")
@@ -107,7 +107,7 @@ mask2[29:] = False
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="orange",capsize=3,label="cleansed data")
+ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="orange",capsize=3,label="data without background")
 
 
 
@@ -133,12 +133,12 @@ d = ufloat(popt[1], perr[1])
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T2[mask])),unp.nominal_values(I2_log[mask]),yerr=unp.std_devs(I2_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
-ax.errorbar(1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),yerr=unp.std_devs(I2_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
+ax.errorbar(1/(unp.nominal_values(T2[mask])),unp.nominal_values(I2_log[mask]),yerr=unp.std_devs(I2_log[mask]),fmt="x",color="grey",capsize=3,label="not used")
+ax.errorbar(1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),yerr=unp.std_devs(I2_log[mask2]),fmt="x",color="darkorange",capsize=3,label="used for fit")
 
 
 x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2[mask2])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
 ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
@@ -199,10 +199,10 @@ d = ufloat(popt[1], perr[1])
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(1/(unp.nominal_values(T2m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="used")
+ax.errorbar(1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="used for fit")
 
 x_lin = np.linspace(min(unp.nominal_values(T2m[mask3])),max(unp.nominal_values(T2m[mask3])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
 ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
@@ -266,11 +266,11 @@ b = ufloat(popt[1], perr[1])
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="darkorange",capsize=3,label="Hintergrund")
-ax.errorbar(unp.nominal_values(T15[~mask]),unp.nominal_values(I15[~mask]),yerr=unp.std_devs(I15[~mask]),fmt="x",color="grey",capsize=3,label="Messwerte")
+ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="darkorange",capsize=3,label="not used")
+ax.errorbar(unp.nominal_values(T15[~mask]),unp.nominal_values(I15[~mask]),yerr=unp.std_devs(I15[~mask]),fmt="x",color="grey",capsize=3,label="used for fit")
 
 x_lin = np.linspace(min(unp.nominal_values(T15[mask])),max(unp.nominal_values(T15[mask])),500)
-ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="Exponentieller Fit")
+ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="exponential fit")
 
 ax.set_xlabel(r"$T$ [K]")
 ax.set_ylabel(r"$-I$ [pA]")
@@ -308,7 +308,7 @@ mask2[32:] = False
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="orange",capsize=3,label="cleansed data")
+ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="orange",capsize=3,label="data without background")
 
 
 ax.set_xlabel(r"$T$ [K]")
@@ -332,12 +332,12 @@ d = ufloat(popt[1], perr[1])
 
 
 fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T15[mask])),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="Hintergrund")
-ax.errorbar(1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="Fit Werte")
+ax.errorbar(1/(unp.nominal_values(T15[mask])),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="not used")
+ax.errorbar(1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="used for fit")
 
 
 x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
 ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
@@ -400,10 +400,10 @@ d = ufloat(popt[1], perr[1])
 
 fig, ax = plt.subplots(layout="constrained")
 ax.errorbar(1/(unp.nominal_values(T15m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),yerr=unp.std_devs(tau_ln[mask4]),fmt="x",color="orange",capsize=3,label="Messwerte")
+ax.errorbar(1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),yerr=unp.std_devs(tau_ln[mask4]),fmt="x",color="orange",capsize=3,label="used for fit")
 
 x_lin = np.linspace(min(unp.nominal_values(T15m[mask4])),max(unp.nominal_values(T15m[mask4])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="Lin Fit")
+ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
 
 ax.set_xlabel(r"$1/T$ [1/K]")
 ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
