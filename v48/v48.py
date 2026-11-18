@@ -17,7 +17,10 @@ tau_theo = 4e-14
 #functions
 
 def bmean(T):
-    return np.mean(np.diff(T))
+    dT = np.diff(unp.nominal_values(T))
+    mean = np.mean(dT)
+    error = np.std(dT, ddof=1) / np.sqrt(len(dT))
+    return ufloat(mean, error)
 
 def expo(x,a,b):
     return a*np.exp(b*x)
