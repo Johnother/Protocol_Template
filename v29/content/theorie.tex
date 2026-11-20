@@ -1,25 +1,42 @@
 \section{Theory}
-In this section the theoretical background for this experiment is explained.
-\textbf{Ein klein bisschen allgemeinen shit}
-In cryptography the sender is refered to as Alice and the reciever is refered to as Bob. 
-\textbf{One Time Pad}
+%In this section the theoretical background for this experiment is explained.
+Quantum cryptography is a method of cryptography which makes use of the uncertainty priciple of quantum mechanics.
+In cryptography the sender is refered to as Alice and the reciever is refered to as Bob. %, except if you have an exercise in modern quantum computing and quantum simulation where, for unknown reasons, the sender is Bob instead of Alice and the reciever Alice.
+A message is encrypted with a key, which has to be generated in beforehand. 
+THe security of quantum key distribution is based on the fact that quantum mechanical states collapse after measurement and on the no-cloning theorem \cite{riggs_2022}.
+The latter states that a single quantum state cannot be cloned. 
+Therefor an eavesdropper, which is refered to as Eve, cannot measure a transmitted quantum state wihtout destroying it. 
+In this experiment the quantum key distribution protocol BB84 which makes use of photn polarisation states, is used. 
+The theoretical background of this protocol and the implementation in this experiment is discussed in this section. 
+
+\subsection{One time pad}
+In cryptography a one time pad is a cipher, where the key has the same length as the message. 
+Besides that the message and the key are combined with the XOR operator \cite{lugrin_2023}.  
+In this experiment a one time pad is used for encryption.
+
 \subsection{Polarisation states of photons}
-\textbf{Malus und so}
-\subsection{Quantum cryptography with the BB84 protocol}
-For the BB84 protocol in quantum cryptography photon polarisation states can be used to transmitt information. 
-For that two different bases (+ and x) are used. 
-These two bases are at an angle of $\frac{\pi}{2}$ to each other. 
-Then for each base one state is defined as the bit $0$ and the other orthogonal state is defined as the bit $1$ \cite{bennet_2014}. 
+For the bb84 protocol in quantum cryptography photon polarisation states are used to transmitt information. 
+Here a base for a linear polarized photon is used, so that the two eigenstates can be defined as the bit states 1 and 0.
+If a photon, which is polarized at an angle $\alpha$,is measured in such a base, the probability for it to be measured in one of the two eigenstates is $\mathrm{cos}^2\left(\alpha\right)$ for one state and $\mathrm{sin}^2\left(\alpha\right)$.
+For $\alpha = \frac{\pi}{2}$ the probability for both states is $\qty{50}{\percent}$.
+This is made use of for the bb84 protocol.
+%For a photon, which is linearly polarized at the angle $\alpha$, the probability to traspass a polarisation filter at the angle $\beta$ is given by $\mathrm{cos}^2\left(\alpha - \beta \right)$.
+Here the two different bases of linear polarisation (+ and x), which have are at the angle $\frac{\pi}{2}$ to eachother, are used. 
+%These two bases are at an angle of $\frac{\pi}{2}$ to each other. 
+For each base one state is defined as the bit $0$ and the other orthogonal state is defined as the bit $1$.
+Then if the photon is measured with the wrong base, the information gets lost \cite{bennet_2014}. 
 This encoding scheme is shown in \autoref{fig:encode_bb84}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{images/encode_bb84.png}
-    \caption{Encoding table for the BB84 protocol with photon polarisation states \cite{V29}.}
+    \caption{Encoding table for the bb84 protocol with photon polarisation states \cite{V29}.}
     \label{fig:encode_bb84}
 \end{figure}
 \FloatBarrier
-To transmitt messages with this scheme, a key has to be generated first. 
-In order to do so some bits have to be send. 
+
+
+\subsection{Quantum cryptography with the bb84 protocol}
+For the bb84 a random sting of bits is generated and then transmitted from Alice to Bob. s
 For each transmitted bit Alice and Bob will chose a base indiviually and randomly. 
 Then Alice and Bob share their used bases publicly and toss away every bit, where their bases differ. 
 The rest of these bits will be used as the key \cite{bennet_2014}.  %Quelle sollte passen 
