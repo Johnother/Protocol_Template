@@ -60,13 +60,31 @@ These states are hard to distinguishe from normal signal states for Eve, which l
 
 
 \subsection{Implementing decoy states with different wavelengths}
-In practice these decoy states can be realised by using states with higher photon numbers and defining signal and decoy states by the number photons or in other words the intensity \cite{V29}. 
+In practice these decoy states can be realised by using states with higher photon numbers and defining signal and decoy states by the number photons or in other words the intensity. 
+For this method one can determine, wheather Eve is involved, whithout sacrifycing some of the bits, for which Alice and Bob used the same base \cite{V29}. 
 \\
-For this experiment it will be realised with a second wavelength, which is a simple version usefull for educational pruposes. 
+For this experiment it will be realised with a second wavelength, which is a simplifyed version usefull for educational pruposes. 
 The modified coding table for this protocol is found in \autoref{fig:encode_decoy}.
 For each base one state is not used, which acts as the decoy state. 
 If Eve is not involved, the decoy states should not show up after Alice and Bob discarded all bits where their bases differed \cite{riggs_2021}. 
 \\
+To test reliably weather an Eve is involved, for this simplifyed protocol, the campared bits need to be used.
+In order to do so the quantum bit error rate (QBER) can be calculated. 
+It is given by
+\begin{equation}
+    p_{\amthrm{QBER}} = \frac{N_{\mathrm{error}}}{N_{\mathrm{sifted bits}}} \, .
+    \label{eqn:qber}
+\end{equation}
+Here $N_{\mathrm{error}}$ is the number of incorrect bits, when comparing Alices and Bobs string of bits.
+$N_{\mathrm{sifted bits}}$ is the number of bits which are compared. 
+Another quantity to test, if Eve is involved, is the decoy fraction in the number of compared bits.
+It is calculated by
+\begin{equation}
+    p_{\amthrm{decoy}} = \frac{N_{\mathrm{decoy}}}{N_{\mathrm{sifted bits}}} \, ,
+    \label{eqn:decoy}
+\end{equation}
+where $N_{\mathrm{decoy}}$ is the number of decoy, that Bob measured in the compared bits. 
+These errors are expected to increase significantly, when Eve is involved, compared to the case where Eve is not involved \cite{V29}.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{images/encode_decoy.png}
