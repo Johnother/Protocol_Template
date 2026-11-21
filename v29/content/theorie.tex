@@ -54,11 +54,26 @@ Although the bb84 protocol is perfectly secure in theory, in reality is is not, 
 If some pulses have more then one photon, Eve can do a photon number splitting (PNS) attack. 
 For that Eve blocks all single photon pulses and splits of photons from pulses with more than one photon. 
 Then Eve can measure the photon, which she has split of, without Alice and Bob noticing it.
+\\ 
 This PNS attack can be countered by introducing decoy states. 
 These states are hard to distinguishe from normal signal states for Eve, which leads to her beeing detectable although using PNS attacks \cite{riggs_2022}.
 
 
 \subsection{Implementing decoy states with different wavelengths}
+In practice these decoy states can be realised by using states with higher photon numbers and defining signal and decoy states by the number photons or in other words the intensity \cite{V29}. 
+\\
+For this experiment it will be realised with a second wavelength, which is a simple version usefull for educational pruposes. 
+The modified coding table for this protocol is found in \autoref{fig:encode_decoy}.
+For each base one state is not used, which acts as the decoy state. 
+If Eve is not involved, the decoy states should not show up after Alice and Bob discarded all bits where their bases differed \cite{riggs_2021}. 
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/encode_decoy.png}
+    \caption{Encoding table for the modified bb84 protocol with two wavelengths, which is denoted by the two different colors \cite{V29}.}
+    \label{fig:encode_decoy}
+\end{figure}
+\FloatBarrier
 
 
 %\subsection{Uncertainties of the measurement}
