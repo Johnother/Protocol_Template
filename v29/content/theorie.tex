@@ -39,9 +39,17 @@ This encoding scheme is shown in \autoref{fig:encode_bb84}.
 For the bb84 a random sting of bits is generated and then transmitted from Alice to Bob. s
 For each transmitted bit Alice and Bob will chose a base indiviually and randomly. 
 Then Alice and Bob share their used bases publicly and toss away every bit, where their bases differ. 
-The rest of these bits will be used as the key \cite{bennet_2014}.  %Quelle sollte passen 
+The key is determined from the rest of the bits \cite{bennet_2014}.  %Quelle sollte passen 
 \\
-\textbf{Eve}
+Eve does not know the bases of Alice, so she can only choose random bases for the measurement while intercepting the bits. 
+After that she will send the bit she recieved with the same base. 
+If her base differs from Alices base, the information is destroyed due to the measurement. 
+Thats why Alice and Bob can determine weather an Eve was involved or not, by sacrifycing some of their bits, where they used the same base, and compare the bits actual information via a public channel. 
+According to statistics the randomly chosen bases of Eve, will lead to $\qty{25}{\percent}$ of the compared bits to be unequal, if an Eve was involved \cite{bennet_2014}.
+
+
+
+\subsection{Photon number splitting attack}
 
 
 
