@@ -2,20 +2,124 @@
 In this section the theoretical background is given to understand the concept of ionic crystals as well as the effects that lead to dipole relaxation.
 As the crystal used in the experiment is potassium bromide ($\ce{K}\ce{Br}$), the examples given in the theory are based on this ionic crystal.
 \label{sec:Theorie}
-\subsection{Dipoles in doped ionic crystals}
+\subsection{Dipoles forming in doped ionic crystals}
 An ionic crystal consists of positively charged anions and negatively charged kations.
 When brought together, they form ionic bonds and align themselves spatially in a crystal lattice.
-In the case of $\ce{K}\ce{Br}$ the crystal is a face-centerd cubic (fcc) lattice.
+In the case of $\ce{K}\ce{Br}$ the crystal is described by a face-centerd cubic (fcc) lattice.
 \newline\noindent
-Doping a crystal describes the replacement of lattice atoms with few foreign atoms. 
-In the $\ce{K}\ce{Br}$ crystal, the positive $\ce{K^+}$ ions are replaced with $\ce{Sr^{2+}}$ ions.
-The locally higher positive charge has to be compensated by the surrounding $\ce{Br^-}$ ions.
-To recreate the neutral charge locally, the $\ce{Br^-}$ ions move away from the defect ion, leaving a hole.
+An ionic crystal can be doped by replacing some of its lattice ions with ions of another element. 
+In the electrically neutral $\ce{K}\ce{Br}$ crystal, the positive $\ce{K^+}$ ions are replaced with $\ce{Sr^{2+}}$ ions.
+The locally higher positive charge is compensated by surrounding $\ce{K^+}$ ions moving away from the strontium defect, to other vacancies or to the crystal surface.
+The created $\ce{K+}$-vacancy is negatively charged.
+Therefore, the total charge is conserved, if the $\ce{K^+}$ ions moved out of the crystal, and the crystal is electrically neutral.
 \newline\noindent
-
-
-
-
+Since the oppositely charged defect and vacancy are separated by the distance $\vec{r}$, they form an electric ion-vacancy (I-V) dipole with dipole momentum $\vec{p}$ according to
+\begin{equation*}
+    \vec{p} = q\cdot\vec{r}\,.
+\end{equation*}
+%
+\subsection{Dipole reorientation in an external electric field}
+%
+The potential energy of a dipole in an electric field is given by
+\begin{equation*}
+    E_{\mathrm{pot}} = -\vec{p}\cdot\vec{E}\,.
+\end{equation*}
+Since this is a scalar product between the dipole moment and the electric field, $E_{\mathrm{pot}}$ is minimized, if $\vec{p} \parallel \vec{E}$.
+Thus, if an external electric field $\vec{E}$ is applied to the doped ionic crystal, the I-V dipoles are reoriented along the electric field lines.
+In the crystal lattice, the dipoles switch orientations by anions leaving their lattice points and filling the vacancy, leaving behind a vacancy at their original lattice point.
+\newline\noindent
+Whithout an electric field, the aligned dipoles lose their preferred orientation through relaxation.
+For the anions to move without an external energy source, their thermal energy has to be higher than the activation energy $W$.
+The higher the temperature, the faster the relaxation will occur.
+Therefore, the relaxation time $\tau$, after which a dipole loses its orientation, is described as an Arrhenius process with
+\begin{equation}
+    \tau\left(T\right) = \tau_0\cdot\exp\left(\frac{W}{\symup{k}_{\mathrm{B}}T}\right)\,.
+\label{eqn:tau}
+\end{equation}
+Here, $\tau_0$ is the characteristic relaxation time, $W$ is the activation energy, $\symup{k}_{\mathrm{B}}$ the Boltzmann constant and $T$ the temperature of the crystal.
+\newline\noindent
+\subsection{Derivation of the depolarisation current}
+%
+The relaxation of the I-V dipoles causes an electric depolarisation current $I(T)$ in the ionic crystal because of the anions moving through the lattice. 
+The depolarisation current $I$ is proportional to the average polarisation $P$, the number of participating dipoles $N$ and the relaxation rate $\frac{1}{\tau}$.
+All three contributions are temperature dependent.
+It can be written as
+\begin{equation}
+I\left(T\right) = \frac{P\left(T\right)\cdot N\left(T\right)}{\tau\left(T\right)}\,. 
+\label{eqn:current_prop}
+\end{equation}
+In the Debye theory, the average dipole polarisation is defined as
+\begin{equation}
+    P\left(T\right) = \frac{p^2E}{3\symup{k}_{\mathrm{B}}T}\,,
+\end{equation}
+with the dipole moment $p$, the electric field $E$, the temperature $T$ and the Boltzmann constant $\symup{k}_{\mathrm{B}}$.
+\newline\noindent
+The number of participating dipoles $N$ depends on the depolarisation rate and is described by the differential equation
+\begin{equation}
+    \frac{\symup{d}N}{\symup{d}t} = -\frac{N}{\tau\left(T\right)}\,.
+    \label{eqn:relax}
+\end{equation}
+The solution to this equation is a decreasing exponential function
+\begin{equation*}
+    N\left(T\right) = N_0\cdot\exp\left(-\int_{t_0}^t \frac{\symup{d}t'}{\tau\left(T\right)}\right) = N_0\cdot\exp\left(-\frac{1}{b}\int_{T_0}^T \frac{\symup{d}T'}{\tau\left(T'\right)}\right)\,,
+\end{equation*}
+%
+with substituting $T'$ for $t'$ assuming a costant heating rate $b = \frac{\symup{d}T}{\symup{d}t}$.
+\newline\noindent
+With this and with the relaxation time from \autoref{eqn:tau}, \autoref{eqn:current_prop} can be written as
+\begin{equation}
+    I\left(T\right) = \frac{p^2EN_0}{3\symup{k}_{\mathrm{B}}T\tau_0}\cdot\exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T}\right)\cdot\exp\left(-\frac{1}{b\tau_0}\int_{T_0}^T \exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T'}\right)\symup{d}T'\right)\,.
+\label{eqn:relax_current}
+\end{equation}
+%
+%
+\subsection{Determination of the activation energy and relaxation time}
+The activation energy $W$ and the relaxation time $\tau_0$ can be obtained from \autoref{eqn:relax_current}, if the depolarisation current and the corresponding crystal temperature are known.
+Although, they cannot be read from the current curve directly.
+There are two ways of obtaining the two parameters, which are presented in the folowing sections.
+\subsubsection{Linearisation of the depolarisation current}
+For low temperatures $T$, it can be assumed that $W \gg \symup{k}_{\mathrm{B}}T$ and the integration integral $\left[T_0,T\right]$ is small, which leads to
+\begin{equation*}
+\int_{T_0}^T \exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T'}\right)\symup{d}T' \approx 0\,.
+\end{equation*}
+The depolarisation simplifies to
+\begin{equation*}
+    I\left(T\right) = \frac{p^2EN_0}{3\symup{k}_{\mathrm{B}}T\tau_0}\cdot\exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T}\right)\,.
+\end{equation*}
+For a given temperature and current, taking the logarithm of this equation leads to the linear dependence
+\begin{equation*}
+    \ln{\left(I\left(T\right)\right)} = \text{const.} - \frac{W}{\symup{k}_{\mathrm{B}}T}\,.
+\end{equation*}
+From this, $W$ and $\tau_0$ describe the slope and the $y$-intercept of a linear function proportional to the inverse temperature.
+%
+\subsubsection{Linearisation of the relaxation time}
+%
+The activation energy and the relaxation time can also be obtained from analysing the whole depolarisation current fuinction.
+Since the charge is conserved in this process, the continuity equation
+\begin{equation*}
+    -\frac{\symup{d}P\left(T\right)}{\symup{d}t} = J\left(T\right)
+\end{equation*}
+connects the current density $J\left(T\right) = I\left(T\right)/A$, where $A$ is the area of the crystal, to the change in polarisation.
+The polarisation change is assumed to be decribed by a differential equation like \autoref{eqn:relax}, since the total polarisation depends on the number of contributing dipoles.
+Therefore, the continuity equation can be expressed as
+\begin{equation*}
+    -\frac{\symup{d}P\left(T\right)}{\symup{d}t} = \frac{P\left(t\right)}{\tau\left(T\right)} = \frac{I\left(T\right)}{A}.
+\end{equation*}
+Integration of this equation yields
+\begin{equation*}
+    P\left(T\right)A = \int_{t\left(T\right)}^{\infty} I\left(T\left(t'\right)\right)\symup{d}t' = \frac{1}{b} \int_{T}^{T_{\mathrm{end}}} I\left(T'\right)\symup{d}T'\,.
+\end{equation*}
+With this, the relaxation time can be expressed as
+\begin{equation*}
+    \tau\left(T\right) = \frac{P\left(T\right)A}{I\left(T\right)} \iff \tau_0\exp{\left(\frac{W}{\symup{k}_{\mathrm{B}}T}\right)} = \frac{1}{b\cdot I\left(T\right)} \int_{T}^{T_{\mathrm{end}}} I\left(T'\right)\symup{d}T'\,.
+\end{equation*}
+Taking the logarithm of this equation leads again to a linear connection
+\begin{equation}
+    \ln{\left(\tau\right)} = \ln{\left(\tau_0\right)} + \frac{W}{\symup{k}_{\mathrm{B}}T} = \ln{\left(\int_{T}^{T_{\mathrm{end}}} I\left(T'\right)\symup{d}T'\right)} - \ln{\left(b\right)} - \ln{\left(I\left(T\right)\right)}\,.
+    \label{eqn:lin_tau}
+\end{equation}
+%
+%
 \subsection{Uncertainties of the measurement}
 \label{sec:fehlerrechnung}
 %\subsection{Mittelwert}
