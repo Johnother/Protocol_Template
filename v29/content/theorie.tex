@@ -1,4 +1,4 @@
-\section{Theory}
+\section{Theory} \label{sec:theory}
 %In this section the theoretical background for this experiment is explained.
 Quantum cryptography is a method of cryptography which makes use of the uncertainty priciple of quantum mechanics.
 In cryptography the sender is refered to as Alice and the reciever is refered to as Bob. %, except if you have an exercise in modern quantum computing and quantum simulation where, for unknown reasons, the sender is Bob instead of Alice and the reciever Alice.
@@ -16,15 +16,15 @@ In this experiment a one time pad is used for encryption.
 
 \subsection{Polarisation states of photons}
 For the bb84 protocol in quantum cryptography photon polarisation states are used to transmitt information. 
-Here a base for a linear polarized photon is used, so that the two eigenstates can be defined as the bit states 1 and 0.
-If a photon, which is polarized at an angle $\alpha$,is measured in such a base, the probability for it to be measured in one of the two eigenstates is $\mathrm{cos}^2\left(\alpha\right)$ for one state and $\mathrm{sin}^2\left(\alpha\right)$.
+Here an eigenbasis for a linear polarized photon is used, so that the two eigenstates can be defined as the bit states 1 and 0.
+If a photon, which is polarized at an angle $\alpha$,is measured in such a basis, the probability for it to be measured in one of the two eigenstates is $\mathrm{cos}^2\left(\alpha\right)$ for one state and $\mathrm{sin}^2\left(\alpha\right)$.
 For $\alpha = \frac{\pi}{2}$ the probability for both states is $\qty{50}{\percent}$.
 This is made use of for the bb84 protocol.
 %For a photon, which is linearly polarized at the angle $\alpha$, the probability to traspass a polarisation filter at the angle $\beta$ is given by $\mathrm{cos}^2\left(\alpha - \beta \right)$.
 Here the two different bases of linear polarisation (+ and x), which have are at the angle $\frac{\pi}{2}$ to eachother, are used. 
 %These two bases are at an angle of $\frac{\pi}{2}$ to each other. 
-For each base one state is defined as the bit $0$ and the other orthogonal state is defined as the bit $1$.
-Then if the photon is measured with the wrong base, the information gets lost \cite{bennet_2014}. 
+For each basis one state is defined as the bit $0$ and the other orthogonal state is defined as the bit $1$.
+Then if the photon is measured with the wrong basis, the information gets lost \cite{bennet_2014}. 
 This encoding scheme is shown in \autoref{fig:encode_bb84}.
 \begin{figure}
     \centering
@@ -37,14 +37,14 @@ This encoding scheme is shown in \autoref{fig:encode_bb84}.
 
 \subsection{Quantum cryptography with the bb84 protocol}
 For the bb84 a random sting of bits is generated and then transmitted from Alice to Bob. s
-For each transmitted bit Alice and Bob will chose a base indiviually and randomly. 
+For each transmitted bit Alice and Bob will chose a basis indiviually and randomly. 
 Then Alice and Bob share their used bases publicly and toss away every bit, where their bases differ. 
 The key is determined from the rest of the bits \cite{bennet_2014}.  %Quelle sollte passen 
 \\
 Eve does not know the bases of Alice, so she can only choose random bases for the measurement while intercepting the bits. 
-After that she will send the bit she recieved with the same base. 
-If her base differs from Alices base, the information is destroyed due to the measurement. 
-Thats why Alice and Bob can determine weather an Eve was involved or not, by sacrifycing some of their bits, where they used the same base, and compare the bits actual information via a public channel. 
+After that she will send the bit she recieved with the same basis. 
+If her basis differs from Alices basis, the information is destroyed due to the measurement. 
+Thats why Alice and Bob can determine weather an Eve was involved or not, by sacrifycing some of their bits, where they used the same basis, and compare the bits actual information via a public channel. 
 According to statistics the randomly chosen bases of Eve, will lead to $\qty{25}{\percent}$ of the compared bits to be unequal, if an Eve was involved \cite{bennet_2014}.
 
 
@@ -61,11 +61,11 @@ These states are hard to distinguishe from normal signal states for Eve, which l
 
 \subsection{Implementing decoy states with different wavelengths}
 In practice these decoy states can be realised by using states with higher photon numbers and defining signal and decoy states by the number photons or in other words the intensity. 
-For this method one can determine, wheather Eve is involved, whithout sacrifycing some of the bits, for which Alice and Bob used the same base \cite{V29}. 
+For this method one can determine, wheather Eve is involved, whithout sacrifycing some of the bits, for which Alice and Bob used the same basis \cite{V29}. 
 \\
 For this experiment it will be realised with a second wavelength, which is a simplifyed version usefull for educational pruposes. 
 The modified coding table for this protocol is found in \autoref{fig:encode_decoy}.
-For each base one state is not used, which acts as the decoy state. 
+For each basis one state is not used, which acts as the decoy state. 
 If Eve is not involved, the decoy states should not show up after Alice and Bob discarded all bits where their bases differed \cite{riggs_2021}. 
 \\
 To test reliably weather an Eve is involved, for this simplifyed protocol, the campared bits need to be used.
