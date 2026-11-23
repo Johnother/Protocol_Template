@@ -49,9 +49,9 @@ I\left(T\right) = \frac{P\left(T\right)\cdot N\left(T\right)}{\tau\left(T\right)
 \label{eqn:current_prop}
 \end{equation}
 In the Debye theory, the average dipole polarisation is defined as
-\begin{equation}
+\begin{equation*}
     P\left(T\right) = \frac{p^2E}{3\symup{k}_{\mathrm{B}}T}\,,
-\end{equation}
+\end{equation*}
 with the dipole moment $p$, the electric field $E$, the temperature $T$ and the Boltzmann constant $\symup{k}_{\mathrm{B}}$.
 \newline\noindent
 The number of participating dipoles $N$ depends on the depolarisation rate and is described by the differential equation
@@ -87,10 +87,16 @@ The depolarisation simplifies to
     I\left(T\right) = \frac{p^2EN_0}{3\symup{k}_{\mathrm{B}}T\tau_0}\cdot\exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T}\right)\,.
 \end{equation*}
 For a given temperature and current, taking the logarithm of this equation leads to the linear dependence
-\begin{equation*}
+\begin{equation}
     \ln{\left(I\left(T\right)\right)} = \text{const.} - \frac{W}{\symup{k}_{\mathrm{B}}T}\,.
-\end{equation*}
+    \label{eqn:lin_i}
+\end{equation}
 From this, $W$ and $\tau_0$ describe the slope and the $y$-intercept of a linear function proportional to the inverse temperature.
+\textbf{Am besten hier die Formel noch}
+\begin{equation}
+    T_{\mathrm{max}} = \sqrt{\frac{b W \tau\left(T_{\mathrm{max}}\right)}{k_{\mathrm{b}}}}
+    \label{eqn:Tmax}
+\end{equation}
 %
 \subsubsection{Linearisation of the relaxation time}
 %
