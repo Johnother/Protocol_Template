@@ -86,9 +86,10 @@ In this section the activation energy and the relaxation time are determined wit
 \subsubsection{First method}
 For the first method the natural logarythm if the depolarisation current is plotted against the inversed temperature. 
 Then linear regression 
-\begin{equation*}
+\begin{equation}
   f\left(x\right)= ax + b 
-\end{equation*}
+  \label{eqn:lin_fit}
+\end{equation}
 can be done to determine the activation energy. % according to \textbf{REFERENZ}.
 This is done for both data sets.
 The regressions yield the parameters
@@ -127,7 +128,7 @@ The data yields
 
 \subsubsection{Second method}
 For this methode the natural logarythm of the temperature dependend relaxation time $\tau\left(T\right)$ is determined as in \autoref{eqn:lin_tau}.
-Then a linear regression is done for the temperature dependend relaxation time. 
+Then a linear regression of the form in \autoref{eqn:lin_fit} is done for the temperature dependend relaxation time. 
 This is done for both data sets. 
 Both fits can be found in \autoref{fig:intfit}.
 The fit parameters yield: 
