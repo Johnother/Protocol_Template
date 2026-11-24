@@ -5,7 +5,7 @@ As the crystal used in the experiment is potassium bromide ($\ce{K}\ce{Br}$), th
 \subsection{Dipoles forming in doped ionic crystals}
 An ionic crystal consists of positively charged anions and negatively charged kations.
 When brought together, they form ionic bonds and align themselves spatially in a crystal lattice.
-In the case of $\ce{K}\ce{Br}$ the crystal is described by a face-centerd cubic (fcc) lattice.
+In the case of $\ce{K}\ce{Br}$ the crystal is described by the sodium chloride structure~\cite[121]{holleman_nils_wiberg_2019}.
 \newline\noindent
 An ionic crystal can be doped by replacing some of its lattice ions with ions of another element. 
 In the electrically neutral $\ce{K}\ce{Br}$ crystal, the positive $\ce{K^+}$ ions are replaced with $\ce{Sr^{2+}}$ ions.
@@ -37,22 +37,49 @@ Therefore, the relaxation time $\tau$, after which a dipole loses its orientatio
 \label{eqn:tau}
 \end{equation}
 Here, $\tau_0$ is the characteristic relaxation time, $W$ is the activation energy, $\symup{k}_{\mathrm{B}}$ the Boltzmann constant and $T$ the temperature of the crystal.
-\newline\noindent
+It is obvious, that for the crystal being fully polarised in an electric field, the time of exposeure $t$ needs to fulfill $t \gg \tau\left(T\right)$.
+As this depends on the crystal temperature, fast polarisation times can be achieved with sufficiently high crystal temperatures.
+Furthermore, when cooling the polarised crystal well below $\qty{0}{\degreeCelsius}$, the crystal will stay polarised even without an electric field present.
+%
+%
 \subsection{Derivation of the depolarisation current}
 %
-The relaxation of the I-V dipoles causes an electric depolarisation current $I(T)$ in the ionic crystal because of the anions moving through the lattice. 
-The depolarisation current $I$ is proportional to the average polarisation $P$, the number of participating dipoles $N$ and the relaxation rate $\frac{1}{\tau}$.
+% There are two ways to derive the depolarisation current, that differ in the way of looking at the process as a micro- or macroscopic phenomenon.
+% The former yields the current density ansatz, the latter the polarisation current ansatz.
+% Both lead to the same current formula.
+% \subsubsection{Current density ansatz}
+% %
+% As the dipoles relax in their origin states, the corresponding charges travel a distance $d$ in the material within the relaxation time $\tau\left(T\right)$.
+% The drift velocity of the charges is therefore
+% \begin{equation*}
+%     v\left(T\right) = \frac{d}{\tau\left(T\right)}.
+% \end{equation*}
+% With the definition of the current density~\cite[198]{JacksonV2}
+% \begin{equation*}
+%     J = \rho\cdot v\,,
+% \end{equation*}
+% with the charge density per unit volume $\rho = N\cdot q_{\mathrm{tot}}$~\cite[169]{JacksonV2}.
+% Combined, this yields the equation for the current density
+% \begin{equation*}
+%     J\left(T\right) = \frac{N\left(T\right)\cdot q\cdot d}{\tau\left(T\right)} = \frac{N\left(T\right)\cdot p}{\tau\left(T\right)}.
+% \end{equation*}
+% %
+% \subsubsection{Polarisation current ansatz}
+%
+As the crystal is heated up, the relaxation time of the I-V dipoles increases. 
+This causes an electric depolarisation current $I(T)$ in the ionic crystal because of the anions moving through the lattice. 
+The depolarisation current $I$ is proportional to the average polarisation $P$, the number of participating dipoles $N$ and the relaxation rate $\frac{1}{\tau}$~\cite[2]{fuller}.
 All three contributions are temperature dependent.
 It can be written as
 \begin{equation}
 I\left(T\right) = \frac{P\left(T\right)\cdot N\left(T\right)}{\tau\left(T\right)}\,. 
 \label{eqn:current_prop}
 \end{equation}
-In the Debye theory, the average dipole polarisation is defined as
+In the Debye theory, the average dipole polarisation is approximated as
 \begin{equation}
     P\left(T\right) = \frac{p^2E}{3\symup{k}_{\mathrm{B}}T}\,,
 \end{equation}
-with the dipole moment $p$, the electric field $E$, the temperature $T$ and the Boltzmann constant $\symup{k}_{\mathrm{B}}$.
+under the condition of $ \frac{p\cdot E}{\symup{k}_{\mathrm{B}}T} \ll 1$~\cite[184]{JacksonV2}, with the dipole moment $p$, the electric field $E$, the temperature $T$ and the Boltzmann constant $\symup{k}_{\mathrm{B}}$.
 \newline\noindent
 The number of participating dipoles $N$ depends on the depolarisation rate and is described by the differential equation
 \begin{equation}
@@ -109,6 +136,7 @@ Integration of this equation yields
 \begin{equation*}
     P\left(T\right)A = \int_{t\left(T\right)}^{\infty} I\left(T\left(t'\right)\right)\symup{d}t' = \frac{1}{b} \int_{T}^{T_{\mathrm{end}}} I\left(T'\right)\symup{d}T'\,.
 \end{equation*}
+The upper integral limit is taken as some end temperature, because for sufficiently high temperatures the depolarisation current is as low as the noise current in an experiment and therefore negligible.
 With this, the relaxation time can be expressed as
 \begin{equation*}
     \tau\left(T\right) = \frac{P\left(T\right)A}{I\left(T\right)} \iff \tau_0\exp{\left(\frac{W}{\symup{k}_{\mathrm{B}}T}\right)} = \frac{1}{b\cdot I\left(T\right)} \int_{T}^{T_{\mathrm{end}}} I\left(T'\right)\symup{d}T'\,.
