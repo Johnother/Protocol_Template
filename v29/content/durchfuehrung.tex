@@ -2,22 +2,68 @@
 \label{sec:Durchführung}
 
 \subsection{Experimental setup}
-For this experiment a modified version of the thorlabs EDU-QCRY1 quantum cryptography demonstration kit \cite{thorlabs_edu-qcry1} is used.
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/setup_bb84.png}
-    \caption{Experimental setup for the bb84 protocol with lasers\cite{V29}.}
-    \label{fig:setup_bb84}
-\end{figure}
+For this experiment a modified version of the \enquote{Thorlabs EDU-QCRY1 Quantum Cryptography Demonstration Kit} \cite{thorlabs_edu-qcry1} is used.
+This setup can be seen in \autoref{fig:setup_decoy}.
+\\
+For Alice there are two lasers of two different wavelengths.
+One is green and one is red. 
+Both can send laser pulses with the push of a button. 
+By holding the button down, the lasers can be switched into setup mode, so that they stay on permanently for setting up the beam paths. 
+In front of each laser there is a half-wave plate (HWP), whose angle can be changed, to set the basis and the content for each bit, which Alice sends to Bob. 
+The two laser beams are merged with a dichroic mirror, which lets the red laser through and reflects the green laser.
+\\
+For Bob that kind of mirror is used to split the two laser beams again. 
+Then both beams pass trough another HWP, whose angles can be altered, to set the basis, in which Bob measures the incoming Bit. 
+After each HWP there is a polarizing beam splitter (PBS) which reflects one polarisation and lets the other one through. 
+Two photodiodes for each differnet wavelength are placed, so that it can be determined weather the lasers were orthogonally or parallel polarized. 
+For that a LED will light up, when the diode registeres an incoming pulse. 
+As explained in \autoref{sec:theory}, if the basis of the incoming photons dont match the measuring basis, one photon will randomly chose one polarisation state. 
+Since here the laser pulses consist of multiple photons, both photodiodes will measure the pulse. 
+Therefor the randomness is here simulated by the control electronics, and only one LED will light up randomly.
+The photodiodes can be set into setup mode with the press of a button, where both LED will light up in this case. 
+\\
+For this experiment Eve consists of one instance of Bobs setup and one instance of Alices setup. 
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=\textwidth]{images/setup_bb84.png}
+%    \caption{Experimental setup for the bb84 protocol with lasers\cite{V29}.}
+%    \label{fig:setup_bb84}
+%\end{figure}
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/setup_decoy.png}
     \caption{Experimental setup for the modified bb84 protocol with lasers of two different wavelengths \cite{V29}.}
     \label{fig:setup_decoy}
 \end{figure}
-FloatBarrier
+\FloatBarrier
 
 
 
 \subsection{Experimental procedure}
-
+For conducting the experiment first the bases and the bits are generated randomly. 
+For that the random number generator \enquote{RANDOM.ORG} \cite{random} is used. 
+The bases and bits are noted down on the sheets from the devices manual \cite{thorlabs_edu-qcry1}.
+\\
+Next the measurements without Eve are conducted. 
+Because of that the components for Eve are taken out of the setup. 
+Then the bb84 protocol is cunducted.
+For that only the red laser is used.
+Here the random string of bits is sent from Alice to Bob in the randomly generated bases and measured by Bob in the randomly generated bases using the encoding table in \autoref{fig:encode_bb84}.
+The Bits measured in the same basis are noted in the sheed as the key. 
+Then the short message \enquote{HOME} is translated in binary, encrypted with the key and than send from Alice to Bob.
+A sheet for translation and for binary addition can also be found in the manual \cite{thorlabs_edu-qcry1}. 
+The bits, which Bob recieved, are translated back. 
+\\
+Then the bb84 protocol with decoy states is conducted. 
+Now both lasers are used. 
+Here the contens of the bits can be three different numberes. 
+The random string of bits is then send by Alice and recieved by Bob using the randomly generated bases and the encoding table in \autoref{fig:encode_decoy}.
+The recieved string is noted in the sheet. 
+\\
+After that Eve is put back into the setup.
+Both protocols are done the same way as explained above, with the exepetion that Eve measures the signal from Alice in a random basis. 
+She then sends the recieved bit to Bob in the same basis, which she used for the measurement. 
+For both protocols the string of bits, which Bob recieved, is noted in the sheet. 
+\\
+The error rates can be calculated for both protocols.
+In addition those rates can be compared for the cases, where Eve is involved and where Eve is not involved.

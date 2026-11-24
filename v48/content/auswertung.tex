@@ -80,15 +80,16 @@ The cleansed data can be found in \autoref{fig:cleansed}, where just the relevan
 \FloatBarrier
 \subsection{Evaluating the activation energy and caracteristic relaxation time}
 Now the activation energy and the relaxation time can be evaluated. 
-As discussed in \textbf{REFERENZ} there are two different possible methodes.
+As discussed in \autoref{sec:Theorie} there are two different possible methodes.
 In this section the activation energy and the relaxation time are determined with both methodes.
 
 \subsubsection{First method}
 For the first method the natural logarythm if the depolarisation current is plotted against the inversed temperature. 
 Then linear regression 
-\begin{equation*}
+\begin{equation}
   f\left(x\right)= ax + b 
-\end{equation*}
+  \label{eqn:lin_fit}
+\end{equation}
 can be done to determine the activation energy. % according to \textbf{REFERENZ}.
 This is done for both data sets.
 The regressions yield the parameters
@@ -97,7 +98,7 @@ The regressions yield the parameters
   b_{b2} &= \num{41.1(18)}    & b_{b1.5} &= \num{43.4(21)} \, .\\
 \end{align*}
 The fits for both data sets can be found in \autoref{fig:logfit}
-According to \textbf{REFERENZ} the actiavation energys can then be determined as 
+According to \autoref{eqn:lin_i} the actiavation energys can then be determined as 
 \begin{align*}
   W_{2}= \qty{0.88(4)}{\electronvolt} \, , \\
   W_{1.5}= \qty{0.93(5)}{\electronvolt} \, .
@@ -116,7 +117,7 @@ According to \textbf{REFERENZ} the actiavation energys can then be determined as
   \caption{Half-logarythmic plot of the depolarisation current against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
   \label{fig:logfit}
 \end{figure}
-With the activation energy the characteristic relaxation time can be calculated according to \textbf{REFERENZ}.
+With the activation energy the characteristic relaxation time can be calculated according to \autoref{eqn:Tmax} and \autoref{eqn:tau}.
 The data yields
 \begin{align*}
   \tau_{0,2}= \qty{3(5)e-15}{\second} \, , \\
@@ -126,8 +127,8 @@ The data yields
 
 
 \subsubsection{Second method}
-For this methode the natural logarythm of the temperature dependend relaxation time $\tau\left(T\right)$ is determined as in \textbf{REFERENZ}. \textbf{Integral über Zeit in theorie erwähnen}
-Then a linear regression is done for the temperature dependend relaxation time. 
+For this methode the natural logarythm of the temperature dependend relaxation time $\tau\left(T\right)$ is determined as in \autoref{eqn:lin_tau}.
+Then a linear regression of the form in \autoref{eqn:lin_fit} is done for the temperature dependend relaxation time. 
 This is done for both data sets. 
 Both fits can be found in \autoref{fig:intfit}.
 The fit parameters yield: 
@@ -135,7 +136,7 @@ The fit parameters yield:
   a_{b2} &= \qty{1.03(5)e4}{\kelvin}   & a_{b1.5} &= \qty{1.03(3)e4}{\kelvin} \, , \\
   b_{b2} &= \num{-37.9(4)}    & b_{b1.5} &= \num{-37.9(12)} \, .\\
 \end{align*}
-Form these parameters the actiavation energy as well as the characteristic relaxation time can be determined according to \textbf{REFERENZ}.
+Form these parameters the actiavation energy as well as the characteristic relaxation time can be determined according to \autoref{eqn:lin_tau}.
 It yields: 
 \begin{align*}
   W_{2}= \qty{0.89(5)}{\electronvolt} \, , \\
