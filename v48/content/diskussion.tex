@@ -4,21 +4,23 @@
 In this section the experimental results are discussed. 
 
 \subsection{Relative deviation from comparitive values}
-First the relative deviation from comparitive values is calculated. 
+First, the relative deviation from comparative values is calculated. 
 The latter can be found in \cite{muccillo_1974}.
 For the activation energy of strontium doped potassium bromide $W = \qty{0.66(1)}{\electronvolt}$ is used.
-For the characteristic relaxation time the comparitive value is $\tau_0 = \qty{4(2)e-14}{\second}$.
-Then the relative deviation is calculated with \autoref{eqn:relabw}.
-The deviations for all results obtained from the two data sets using both methodes can be found in \autoref{tab:reldev}.
-It stands out, that the deviations for the characteristic relaxation times are very high while those for the activation energy are quite yet aceptable.
+For the characteristic relaxation time the comparative value is $\tau_0 = \qty{4(2)e-14}{\second}$.
+\newline\noindent
+Then, the relative deviation is calculated with \autoref{eqn:relabw}.
+The deviations for all results obtained from the two data sets using both methods can be found in \autoref{tab:reldev}.
+It stands out, that the deviations for the characteristic relaxation times are high, while those for the activation energy are quite yet aceptable.
 \begin{table}
     \centering
-    \caption{Relative deviation of the experimental results from comparitive values in \cite{muccillo_1974} for the activation energy and the characteristic relaxation time.}
+    \caption{Relative deviation of the experimental results from comparative values in \cite{muccillo_1974} for the activation energy and the characteristic relaxation time.}
     \label{tab:reldev}
     \sisetup{table-format=1.1, per-mode=reciprocal}
     \begin{tblr}{c c c c c}
         \toprule
         & \SetCell[c=2]{c} method 1 & & \SetCell[c=2]{c} method 2 & \\
+        \cmidrule[lr]{2-3}\cmidrule[lr]{4-5}
         $b$ / $[\unit{\kelvin\per\minute}]$ & $\increment W_{\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment \tau_{0,\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment W_{\mathrm{rel}}$ / $[\unit{\percent}]$ & $\increment \tau_{0,\mathrm{rel}}$ / $[\unit{\percent}]$ \\
         \midrule
         $2$   & 33.2 & 92.6 & 34.4 & 99.9 \\
@@ -28,57 +30,57 @@ It stands out, that the deviations for the characteristic relaxation times are v
 \end{table}
 \FloatBarrier
 \subsection{Discussion for the first method}
-First it has to be said, that fitting the background of both data sets was quite hard. 
-The data points after the peak can not be fitted exponentially with the data points before the peak easily.
-Therfore the background fit could lead to errors in the further analisys. 
+At first, it has to be said, that fitting the background of both data sets was difficult. 
+The data points after the peak cannot be fitted exponentially with the data points before the peak easily.
+Therfore, the background fit could lead to errors in the further analysis. 
 \\
-Likewise fitting the natural logarythm of the depolarisation current to the inverse of the temperature was just as hard, because the linear decline is not clearly visible.
-So the data point are deveating from the theoretical expectaion. 
+Likewise, fitting the natural logarithm of the depolarisation current to the inverse of the temperature was just as difficult, because the linear decline is not clearly visible.
+So the data points are deviating from the theoretical expectaion. 
 \\
-Both of these could explain the deviations of the experimental results for the first method. 
-The deviation of the characteristic relaxation time could be higher because the error for the activation energy propagates and a possible error of the temperature at which the current at its maximum adds. 
+Both of these problems could explain the deviations of the experimental results for the first method. 
+The deviation of the characteristic relaxation time could be higher because the error for the activation energy propagates and a possible error of the temperature, at which the current reaches its maximum, adds. 
 
 
 \subsection{Discussion for the second method}
-The possible error of the bachground fit could also propagate in the analisys with the second method. 
+The possible error of the background fit could also propagate in the analysis with the second method. 
 \\
-Here the linear dependence of the natural logarythm of the relaxation time is easier to regognice, but still not perfectly clear. 
+Here, the linear dependence of the natural logarithm of the relaxation time is easier to recognize, but still not perfectly clear. 
 But the fit values vary depending on which data points are used for the fit and which are not. 
-Especially the y-axis intercept strongly varies and has a very large unvertainty. 
-Therefor this explains the deviation of the experimental results.
+Especially the y-axis intercept strongly varies and has a very large uncertainty. 
+This explains the deviation of the experimental results.
 It also explains, why the results for the characteristic relaxation times deviate so much, since they are determined from the y-axis intercept. 
 
 
 \subsection{Discussion of general sources of error}
-The deviation of the results for both methodes can be explained by the following general sources of error.
+The deviation of the results for both methods can be explained by the following general sources of error.
 \\
-During the conduction of the experiment it was already apparent that the experimental data is way smaler than expected. 
-This could be a hint that some of the data is deveating and therefor explain, why the linear fits where not clearly visible. 
-In addition an unexpected decline of the current at the end of the measurement series for larger temperatures was noticed, although a decline of the background is not expected at this point. 
-This could explain in particular, why the background was so hard to fit. 
+During the conduction of the experiment it was already apparent that the measured depolarisation current is an order of magnitude smaller than expected. 
+This could be a hint that some of the data is deviating and therefore explain, why the linear fits were not clearly visible. 
+Additionally, an unexpected decline of the current at the end of the measurement series for larger temperatures was noticed, although a decline of the background is not expected at this point. 
+This could explain in particular, why the background was so difficult to fit. 
 \\
-A possible reason for deveating data is that the ammeter was very sensitive, since its not schielded and its measuring currents in a range of $\unit{\pico\ampere}$.
-While conducting the experiment there often was a spice in the ammeters reading, when moving an arm or an electric device near the ammeter. 
-Therefor external fields may have affected the sensitive measurement electronics.
+A possible reason for deviating data is that the electrometer was very sensitive, since it is not shielded and it is measuring currents in the order of $\unit{\pico\ampere}$.
+While conducting the experiment, there often was a spike in the electrometers reading when moving an arm or an electric device near it. 
+Therefore, external fields may have affected the sensitive measurement electronics.
 \\
 Another possible error source are impurities in the ionic crystal, which cause currents that are not part of the expected background. 
-In fact, one thing that stands out in both data setzt is a narrow large peak at around $-\qty{47}{\celsius}$. 
+In fact, one thing that stands out in both data sets is a narrow, large peak at around $-\qty{47}{\celsius}$. 
 This can also be seen in \autoref{fig:background}.
-Besides that for very low temperatures there are some data points with a current, which has a different sign than the rest. 
-These data points are not taken into account for the analisys, but similar unexpected deviations could be an error source. 
+Besides that, for very low temperatures there are some data points with a current which has a different sign than the other data. 
+These data points are not taken into account for the analysis, but similar unexpected deviations could be an error source. 
 \\
 Another possible error source is the fact that the heating rates are not perfectly constant. 
-Although the mean values are very close to the targeted rates, there are still some deviations for the different data point. 
-This is due to the fact that the heating rate is controlled via the heating current, which, in turn, is controlled manually. 
-Also The actual heating rate changes very slowly when adjusting the current. 
-These slightly inconsistent heating rates could also cause deviations in the experimental resulst. 
+Although the mean values are very close to the targeted rates, there are still some deviations for the different data points. 
+This is due to the fact that the heating rate is controlled via the heating current, which, in return, is controlled manually. 
+Also, the actual heating rate changes very slowly when adjusting the current. 
+These slightly inconsistent heating rates could also cause deviations in the experimental results. 
 \\
-In addition to that there was the problem, that the container for the liquid nitrogen had to be refilled during the cooling process. 
-Therefore there was a slow period of time where the crystal heated up a little bit during the cooling phase. 
+In addition to that there was the problem, that the dewar for the liquid nitrogen had to be refilled during the cooling process. 
+Therefore, there was a period of time where the crystal heated up a little bit during the cooling phase. 
 This could cause some dipoles or other effects in the crystal to relaxate early. 
 This is another possible reason for deviating results. 
 
 \subsection{Conclusion}
-To conclude it can be said that the results are satisfying, although the measured current was generally higher than expected.
-The especially large deviations of the relaxation times can mostly be explained by the methoded of the analysis. 
-General deviations can also be explained by multiple reasons, as expained in the previous subsections. 
+In conclusion, it can be said that the results are satisfying, although the measured current was generally lower than expected.
+The especially large deviations of the relaxation times can mostly be explained by the method of the analysis. 
+General deviations can also be explained by multiple reasons, as explained in the previous subsections. 

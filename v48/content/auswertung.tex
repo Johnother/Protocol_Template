@@ -6,15 +6,15 @@ The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done wit
 
 
 \subsection{Determining the actual heating rates}
-Because the heating is controled manually, the actual heating rates are expected to deviate from the targeted rates. 
-Therefor the actual heating rates are determined from the measurement data. %, by averaging the temperature differences between adjacent data point. 
+Because the heating is controlled manually, the actual heating rates are expected to deviate from the targeted rates. 
+Therefore the actual heating rates are determined from the measurement data. %, by averaging the temperature differences between adjacent data point. 
 %Then the heating rate is given by
 %\begin{equation*}
 %  b = \sum_i^N-1 \left(\frac{T_{i+1}-T_i}{\Delta t}\right) \, .
 %\end{equation*}
 %Here its always $\Delta t= \qty{1}{\minute}$.
 Since the time step for every data point is constantly $\Delta t = \qty{1}{\minute}$, the heating rate is just given by \autoref{eqn:mittelwert}, where $x_i$ are the temperature differences between between adjacent data points. 
-The uncertainty of the heatrate is then given by \autoref{eqn:standardabweichung} and \autoref{eqn:standardmittelwert}.
+The uncertainty of the heating rate is then given by \autoref{eqn:standardabweichung} and \autoref{eqn:standardmittelwert}.
 For both data sets with targeted heating rates $b=\qty{2}{\kelvin \per \minute}$ (\autoref{tab:b2_data}) and $b=\qty{1.5}{\kelvin \per \minute}$ (\autoref{tab:b15_data}) the averaging yields the actual heating rates
 \begin{align*}
   b_{2, \mathrm{actual}}= \qty{1.92(2)}{\kelvin\per\minute} \, , \\
@@ -24,24 +24,24 @@ For simplicity these heating rates and the corresponding data sets are still lab
 
 
 \subsection{Finding and subtracting the background}
-First of all the background has to be determined and than subtracted from the data. 
-In order to do so an exponential fit of the from
+First of all, the background has to be determined and than subtracted from the data. 
+In order to do so, an exponential fit of the form
 \begin{equation}
-  f\left(x\right) = a \mathrm{e}^{bx}
+  f\left(x\right) = a\cdot \mathrm{e}^{bx}
 \end{equation}
 is applied to the data which is not part of the observed peak. 
-This is done for both sets of measurement.
-Values with a positive sign and those that deveate significantly are not taken into account. 
-The overall sign of the data is then inversed for more convinience.
+This is done for both sets of measurement data.
+Values with a positive sign and those that deviate significantly are not taken into account. 
+The overall sign of the data is then inversed for more convenience.
 %The complete measurement data can be found in \autoref{tab:b2_data} for a heating rate of $b=\qty{2}{\kelvin \per \minute}$ and in \autoref{tab:b15_data} for $b=\qty{1.5}{\kelvin \per \minute}$.
-For both sets the data is plotted in \autoref{fig:background} with an exponential fit for the bakground. 
+For both sets the data is plotted in \autoref{fig:background} with an exponential fit for the background. 
 The fit values yield
 \begin{align*}
   a_{b2} &= \qty{2.7(6)e-8}{\pico\ampere}   & a_{b1.5} &= \qty{1.7(4)e-8}{\pico\ampere} \, , \\
   b_{b2} &= \qty{0.0646(9)}{\per\kelvin}    & b_{b1.5} &= \qty{0.066(1)}{\per\kelvin} \, . \\
 \end{align*}
-For each datapoint of both datasets the value for $I$ of the corresponding fit is subtracted at the corresponding temperature is subtracted, so that the background is not included in the further analisys.
-The cleansed data can be found in \autoref{fig:cleansed}, where just the relevant peak is plotted.
+For each datapoint of both datasets the value for $I$ of the corresponding fit is subtracted at the corresponding temperature, so that the background is not included in the further analysis.
+The cleaned data can be found in \autoref{fig:cleansed}, where just the relevant peak is plotted.
 \begin{figure}[htbp]
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -69,23 +69,19 @@ The cleansed data can be found in \autoref{fig:cleansed}, where just the relevan
       \centering
       \includegraphics[width=\textwidth]{content/images/b15.pdf}
   \end{subfigure}
-  \caption{Cleansed data with the background subtracted for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
+  \caption{Cleaned data with the background subtracted for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
   \label{fig:cleansed}
 \end{figure}
-
-
-
-
-
 \FloatBarrier
+%
 \subsection{Evaluating the activation energy and caracteristic relaxation time}
-Now the activation energy and the relaxation time can be evaluated. 
-As discussed in \autoref{sec:Theorie} there are two different possible methodes.
+Now, the activation energy and the relaxation time can be evaluated. 
+As discussed in \autoref{sec:Theorie}, there are two different possible methods.
 In this section the activation energy and the relaxation time are determined with both methodes.
 
 \subsubsection{First method}
-For the first method the natural logarythm if the depolarisation current is plotted against the inversed temperature. 
-Then linear regression 
+For the first method the natural logarithm of the depolarisation current is plotted against the inversed temperature. 
+Then, linear regression
 \begin{equation}
   f\left(x\right)= ax + b 
   \label{eqn:lin_fit}
@@ -98,7 +94,7 @@ The regressions yield the parameters
   b_{b2} &= \num{41.1(18)}    & b_{b1.5} &= \num{43.4(21)} \, .\\
 \end{align*}
 The fits for both data sets can be found in \autoref{fig:logfit}
-According to \autoref{eqn:lin_i} the actiavation energys can then be determined as 
+According to \autoref{eqn:lin_i}, the actiavation energies can then be determined as 
 \begin{align*}
   W_{2}= \qty{0.88(4)}{\electronvolt} \, , \\
   W_{1.5}= \qty{0.93(5)}{\electronvolt} \, .
@@ -114,7 +110,7 @@ According to \autoref{eqn:lin_i} the actiavation energys can then be determined 
       \centering
       \includegraphics[width=\textwidth]{content/images/b15_log.pdf}
   \end{subfigure}
-  \caption{Half-logarythmic plot of the depolarisation current against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
+  \caption{Half-logarithmic plot of the depolarisation current against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
   \label{fig:logfit}
 \end{figure}
 With the activation energy the characteristic relaxation time can be calculated according to \autoref{eqn:Tmax} and \autoref{eqn:tau}.
@@ -127,8 +123,8 @@ The data yields
 
 
 \subsubsection{Second method}
-For this methode the natural logarythm of the temperature dependend relaxation time $\tau\left(T\right)$ is determined as in \autoref{eqn:lin_tau}.
-Then a linear regression of the form in \autoref{eqn:lin_fit} is done for the temperature dependend relaxation time. 
+For this method, the natural logarithm of the temperature-dependent relaxation time $\tau\left(T\right)$ is determined as in \autoref{eqn:lin_tau}.
+Then, a linear regression of the form in \autoref{eqn:lin_fit} is done for the temperature dependent relaxation time. 
 This is done for both data sets. 
 Both fits can be found in \autoref{fig:intfit}.
 The fit parameters yield: 
@@ -136,8 +132,8 @@ The fit parameters yield:
   a_{b2} &= \qty{1.03(5)e4}{\kelvin}   & a_{b1.5} &= \qty{1.03(3)e4}{\kelvin} \, , \\
   b_{b2} &= \num{-37.9(4)}    & b_{b1.5} &= \num{-37.9(12)} \, .\\
 \end{align*}
-Form these parameters the actiavation energy as well as the characteristic relaxation time can be determined according to \autoref{eqn:lin_tau}.
-It yields: 
+From these parameters the activation energy as well as the characteristic relaxation time can be determined according to \autoref{eqn:lin_tau}.
+It yields 
 \begin{align*}
   W_{2}= \qty{0.89(5)}{\electronvolt} \, , \\
   W_{1.5}= \qty{0.88(4)}{\electronvolt} \, ,
@@ -158,6 +154,6 @@ as well as
       \centering
       \includegraphics[width=\textwidth]{content/images/b15_int.pdf}
   \end{subfigure}
-  \caption{Half-logarythmic plot of the relaxation time against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
+  \caption{Half-logarithmic plot of the relaxation time against $\frac{1}{T}$ for both heating rates $b=\qty{2}{\kelvin \per \minute}$ (left) and $b=\qty{1.5}{\kelvin \per \minute}$ (right).}
   \label{fig:intfit}
 \end{figure}
