@@ -107,8 +107,11 @@
 \usepackage{pdfpages}
 
 % Anhang als A, B nummerieren
-\usepackage{appendix}
-
+\usepackage[toc]{appendix}
+\newcommand{\appref}[1]{%
+  % #1 = Label des PDF‑Seiten‑Labels (z. B. app:sheet:2)
+  \autoref{app:sheet}‑\ref{#1}%
+}
 
 % erweiterte Bookmarks im PDF
 \usepackage{bookmark}
