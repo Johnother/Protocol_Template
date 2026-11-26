@@ -1,3 +1,27 @@
 \newpage
-\section{Appendix}
+\appendix
+\section{Measuring protocol sheets}
+\label{app:sheet}
 
+\newcounter{pdfpage}
+\setcounter{pdfpage}{0}
+
+\newcommand{\addpdfpages}[2]{
+  \includepdf[
+      pages=-,
+      pagecommand={
+          \stepcounter{pdfpage}
+          \thispagestyle{plain}
+          \phantomsection
+          \label{#2\thepdfpage}
+      }%
+  ]{#1}%
+}
+
+\addpdfpages{part1-noEve.pdf}{app:messdaten:}
+
+\addpdfpages{part1-Eve.pdf}{app:messdaten:}
+
+\addpdfpages{part2-noEve.pdf}{app:messdaten:}
+
+\addpdfpages{part2-Eve.pdf}{app:messdaten:}

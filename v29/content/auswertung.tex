@@ -1,7 +1,114 @@
 \section{Results and evaluation}
 \label{sec:Auswertung}
+%
+The data taken in the experiment is written down on the measuring protocol sheets.
+For convenience, the data is not transferred into tables in the results.
+The protocol sheets are added to the appendix in \autoref{app:sheet} and referenced when needed.
+\newline\noindent
 Calculations with the resulting data are done digitally with the programming language \enquote{Python}.
 Multiple packages are used, such as \enquote{Matplotlib}~\cite{matplotlib} for creating graphics, \enquote{SciPy}~\cite{scipy} for physics constants and curve-fitting and \enquote{Numpy}~\cite{numpy} for data management and math support.
 %The uncertainty management as stated in \autoref{sec:fehlerrechnung} is done with the \enquote{Uncertainties}-package~\cite{uncertainties}.
+%
+\subsection{Standard BB84 experiment}
+In the standard experiment, the probability for Alice and Bob to have chosen the same basis is $p_{\mathrm{\rotatebox[origin=c]{90}{+},\rotatebox[origin=c]{45}{+}}} = \qty{50}{\percent}$.
+In every case, the ratio
+\begin{equation*}
+    p_{\mathrm{sifted}} = \frac{N_{\mathrm{sifted}}}{N_{\mathrm{tot}}}
+\end{equation*}
+between the total number of bits $N_{\mathrm{tot}}$ and the number of sifted bits $N_{\mathrm{sifted}}$ should be this probability.
+\newline\noindent
+The QBER from \autoref{eqn:qber} is expected be $p_{\mathrm{QBER}} = \qty{0}{\percent}$ without Eve present and $p_{\mathrm{QBER}} = \qty{25}{\percent}$ with Eve inercepting the message.
+%
+\subsubsection{Probabilities without Eve}
+%
+The bits on which the bases of Alice and Bob are the same are listed in \autoref{tab:sifted1}.
+The number of sifted bits is $N_{\mathrm{sifted}} = 22$.
+\begin{table}
+  \centering
+  \caption{Sifted bits in the standard BB84 experiment, without Eve intercepting.}
+  \label{tab:sifted1}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1]},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} \\
+    \midrule
+        3  & 0 & 0 & 15 & 1 & 1 & 42 & 1 & 1 \\
+        4  & 0 & 0 & 18 & 1 & 1 & 44 & 0 & 0 \\
+        5  & 0 & 0 & 19 & 0 & 0 & 46 & 1 & 1 \\
+        6  & 1 & 1 & 20 & 1 & 1 & 47 & 1 & 1 \\
+        9  & 1 & 1 & 29 & 0 & 0 & 48 & 1 & 1 \\
+        10 & 1 & 1 & 31 & 0 & 0 & 51 & 1 & 1 \\
+        12 & 1 & 1 & 33 & 1 & 1 &    &   &   \\
+        13 & 1 & 1 & 40 & 1 & 1 &    &   &   \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier\noindent
+From this, the sifted bit ratio is 
+\begin{equation}
+    p_{\mathrm{sifted}} = \frac{22}{52} \approx \qty{42.31}{\percent}\,.
+\end{equation}
+As obvious from \autoref{tab:sifted1}, the quantum bit error rate is
+\begin{equation}
+    p_{\mathrm{QBER}} = \qty{0}{\percent}\,,
+\end{equation}
+because there are no differences in the sifted bits recieved by Alice and Bob without Eve present.
+\subsubsection{Probabilities with intercepting Eve}
+The same data analysis is done for the experiment with Eve intercepting the bits, adding another $p = \qty{50}{\percent}$ chance of basis selection.
+The number of sifted bits stays unchanged, because for Alice and Bob the bases are used.
+Additionally, the same data is sent by Alice, which can be seen in comparison between the measuring protocol sheets in \autoref{app:sheet:1} and \autoref{app:sheet:3}.
+The sifted bits for this part of the experiment are shown in \autoref{tab:sifted_E1}.
+\begin{table}
+  \centering
+  \caption{Sifted bits in the standard BB84 experiment, with Eve intercepting the message.}
+  \label{tab:sifted_E1}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1]},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} \\
+    \midrule
+        3  & 0 & 0 & 15 & 1 & 0 & 42 & 1 & 1 \\
+        4  & 0 & 0 & 18 & 1 & 1 & 44 & 0 & 0 \\
+        5  & 0 & 0 & 19 & 0 & 1 & 46 & 1 & 0 \\
+        6  & 1 & 1 & 20 & 1 & 1 & 47 & 1 & 1 \\
+        9  & 1 & 1 & 29 & 0 & 0 & 48 & 1 & 0 \\
+        10 & 1 & 1 & 31 & 0 & 0 & 51 & 1 & 1 \\
+        12 & 1 & 1 & 33 & 1 & 0 &    &   &   \\
+        13 & 1 & 1 & 40 & 1 & 0 &    &   &   \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier\noindent
+The number of mismatching bits is $N_{\mathrm{error}} = 6$.
+With \autoref{eqn:qber} this leads to a QBER of
+\begin{equation}
+    p_{\mathrm{QBER}} = \frac{6}{22} \approx \qty{27.27}{\percent}\,.
+\end{equation}
+%
+\subsection{BB84 with decoy states}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

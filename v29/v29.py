@@ -1,433 +1,146 @@
 import numpy as np
-import scipy.constants as const
-import matplotlib.pyplot as plt
-from uncertainties import ufloat, umath, unumpy as unp
-from scipy.optimize import curve_fit
-from scipy.integrate import cumulative_trapezoid
-
-# Global constants
-
-
-e = const.electron_volt
-k_b = const.k/e
-
-w_theo = 0.66
-tau_theo = 4e-14
-
-#functions
-
-def bmean(T):
-    dT = np.diff(unp.nominal_values(T))
-    mean = np.mean(dT)
-    error = np.std(dT, ddof=1) / np.sqrt(len(dT))
-    return ufloat(mean, error)
-
-def expo(x,a,b):
-    return a*np.exp(b*x)
-
-def expom(x,a,b):
-    return a*np.exp(-b/x)
-
-def expou(x,a,b):
-    return a*umath.exp(b*x)
-
-def lin(x,a,b):
-    return a*x+b
-
-# Measurement for b=2
-
-data2 = np.genfromtxt('b2.txt')
-t2 = data2[:,0]
-T2 = unp.uarray(data2[:,1],data2[:,2])
-I2 = unp.uarray(-data2[:,3],data2[:,4])
-
-bm2 = bmean(T2)
-
-print("bmean for b2:")
-print(bm2)
-
-T2 = T2 + 273.15
-
-
-#find background
-
-mask = np.ones(len(T2), dtype=bool)
-
-mask[:5] = False
-mask[43:] = False
-mask[11:14] = False
-mask[16] = False
-mask[17] = False
-mask[21:39] = False
-
-
-popt, pcov = curve_fit(expo,unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),sigma=unp.std_devs(I2[mask]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-a = ufloat(popt[0], perr[0])
-b = ufloat(popt[1], perr[1])
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="darkorange",capsize=3,label="not used")
-ax.errorbar(unp.nominal_values(T2[~mask]),unp.nominal_values(I2[~mask]),yerr=unp.std_devs(I2[~mask]),fmt="x",color="grey",capsize=3,label="used for fit")
-
-x_lin = np.linspace(min(unp.nominal_values(T2[mask])),max(unp.nominal_values(T2[mask])),500)
-ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="exponential fit")
-
-ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$-I$ [pA]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b2_background.pdf")
-
-print("fit parameters:")
-print(a)
-print(b)
-
-
-
-
-#methode one
-
-mask[:] = True
-
-for i in range(len(T2)):
-    I2[i]= (I2[i]-expou(T2[i], a, b))
-
-mask[:19] = False
-mask[41:] = False
-
-mask2 = np.ones(len(T2), dtype=bool)
-
-mask2[:21]= False
-mask2[29:] = False
-
-
-
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T2[mask]),unp.nominal_values(I2[mask]),yerr=unp.std_devs(I2[mask]),fmt="x",color="orange",capsize=3,label="data without background")
-
-
-
-ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$-I$ [pA]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b2.pdf")
-
-
-
-
-I2_log = unp.log(abs(I2))
-
-
-popt, pcov = curve_fit(lin,1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),sigma=unp.std_devs(I2_log[mask2]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-c = ufloat(popt[0], perr[0])
-d = ufloat(popt[1], perr[1])
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T2[mask])),unp.nominal_values(I2_log[mask]),yerr=unp.std_devs(I2_log[mask]),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T2[mask2])),unp.nominal_values(I2_log[mask2]),yerr=unp.std_devs(I2_log[mask2]),fmt="x",color="darkorange",capsize=3,label="used for fit")
-
-
-x_lin = np.linspace(min(unp.nominal_values(T2[mask2])),max(unp.nominal_values(T2[mask2])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
-
-ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b2_log.pdf")
-
-print("fit parameters:")
-print(c)
-print(d)
-print("activation energy:")
-w=-(c*k_b)
-print(w)
-j_max = np.argmax(I2)
-
-tau_0 = ((k_b)*T2[j_max]**2)/((bm2/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
-
-print("relaxation time:")
-print(tau_0)
-
-print("rel dev:")
-print((unp.nominal_values(w)-w_theo)/w_theo)
-print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
-
-
-#second methode
-
-T2m = T2[mask]
-I2m = I2[mask]
-inte = [ufloat(0,0)]
-for i in range(1, len(T2m)):
-    dT = T2m[i] - T2m[i-1]
-    area = 0.5*(I2m[i]+I2m[i-1])*dT
-    inte.append(inte[-1]+area)
-
-inte = np.array(inte)
-
-integral = inte[-1] - inte[:-1]
-
-tau_ln = (unp.log(integral)-unp.log(bm2)-unp.log(np.abs(I2m[:-1])))
-
-T2m = T2m[:-1]
-
-mask3 = np.ones(len(T2m), dtype=bool)
-mask3[:5] = False
-mask3[17:] = False
-
-
-
-popt, pcov = curve_fit(lin,1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),sigma=unp.std_devs(tau_ln[mask3]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-c = ufloat(popt[0], perr[0])
-d = ufloat(popt[1], perr[1])
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T2m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T2m[mask3])),unp.nominal_values(tau_ln[mask3]),yerr=unp.std_devs(tau_ln[mask3]),fmt="x",color="orange",capsize=3,label="used for fit")
-
-x_lin = np.linspace(min(unp.nominal_values(T2m[mask3])),max(unp.nominal_values(T2m[mask3])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
-
-ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b2_int.pdf")
-
-print("fit parameters:")
-print(c)
-print(d)
-
-tau_0 = unp.exp(d)
-w=(c*k_b)
-print("activation energy:")
-print(w)
-print("relaxation time:")
-print(tau_0)
-
-print("rel dev:")
-print((unp.nominal_values(w)-w_theo)/w_theo)
-print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
-
-
-#####################################################################
-print("\n")
-# Measurement for b=1.5
-
-data15 = np.genfromtxt('b15.txt')
-t15 = data15[:,0]
-T15 = unp.uarray(data15[:,1],data15[:,2])
-I15 = unp.uarray(-data15[:,3],data15[:,4])
-
-bm15 = bmean(T15)
-
-print("b_mean for b15:")
-print(bm15)
-
-T15 = T15 + 273.15
-
-
-#find background
-
-mask = np.ones(len(T15), dtype=bool)
-
-mask[:8] = False
-mask[52:] = False
-mask[10] = False
-mask[12] = False
-mask[13] = False
-mask[15:18] = False
-mask[23:45] = False
-
-
-popt, pcov = curve_fit(expo,unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),sigma=unp.std_devs(I15[mask]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-a = ufloat(popt[0], perr[0])
-b = ufloat(popt[1], perr[1])
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="darkorange",capsize=3,label="not used")
-ax.errorbar(unp.nominal_values(T15[~mask]),unp.nominal_values(I15[~mask]),yerr=unp.std_devs(I15[~mask]),fmt="x",color="grey",capsize=3,label="used for fit")
-
-x_lin = np.linspace(min(unp.nominal_values(T15[mask])),max(unp.nominal_values(T15[mask])),500)
-ax.plot(x_lin, expo(x_lin, *popt),color="darkorchid", label="exponential fit")
-
-ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$-I$ [pA]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b15_background.pdf")
-
-print("fit parameters:")
-print(a)
-print(b)
-
-
-
-#methode one
-
-mask[:] = True
-
-for i in range(len(T15)):
-    I15[i]= (I15[i]-expou(T15[i], a, b))
-
-mask[:21] = False
-mask[45:] = False
-
-mask2 = np.ones(len(T15), dtype=bool)
-
-mask2[:23]= False
-mask2[32:] = False
-
-
-
-
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(unp.nominal_values(T15[mask]),unp.nominal_values(I15[mask]),yerr=unp.std_devs(I15[mask]),fmt="x",color="orange",capsize=3,label="data without background")
-
-
-ax.set_xlabel(r"$T$ [K]")
-ax.set_ylabel(r"$-I$ [pA]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b15.pdf")
-
-
-
-I15_log = unp.log(abs(I15))
-
-
-popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),sigma=unp.std_devs(I15_log[mask2]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-c = ufloat(popt[0], perr[0])
-d = ufloat(popt[1], perr[1])
-
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T15[mask])),unp.nominal_values(I15_log[mask]),yerr=unp.std_devs(I15_log[mask]),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T15[mask2])),unp.nominal_values(I15_log[mask2]),yerr=unp.std_devs(I15_log[mask2]),fmt="x",color="darkorange",capsize=3,label="used for fit")
-
-
-x_lin = np.linspace(min(unp.nominal_values(T15[mask2])),max(unp.nominal_values(T15[mask2])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
-
-ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$\mathrm{ln}(-I)$ [1]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b15_log.pdf")
-
-print("fit parameters:")
-print(c)
-print(d)
-
-print("activation energy:")
-w=-(c*k_b)
-print(w)
-
-j_max = np.argmax(I15)
-
-
-tau_0 = ((k_b)*T15[j_max]**2)/((bm15/60)*w)*unp.exp(-(w)/(k_b*T2[j_max]))
-
-
-print("relaxation time:")
-print(tau_0)
-
-print("rel dev:")
-print((unp.nominal_values(w)-w_theo)/w_theo)
-print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
-
-#second methode
-
-T15m = T15[mask]
-I15m = I15[mask]
-inte = [ufloat(0,0)]
-for i in range(1, len(T15m)):
-    dT = T15m[i] - T15m[i-1]
-    area = 0.5*(I15m[i]+I15m[i-1])*dT
-    inte.append(inte[-1]+area)
-
-inte = np.array(inte)
-
-integral = inte[-1] - inte[:-1]
-
-tau_ln = (unp.log(integral)-unp.log(bm15)-unp.log(np.abs(I15m[:-1])))
-
-T15m = T15m[:-1]
-
-mask4 = np.ones(len(T15m), dtype=bool)
-mask4[:5] = False
-mask4[20:] = False
-
-
-
-popt, pcov = curve_fit(lin,1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),sigma=unp.std_devs(tau_ln[mask4]),absolute_sigma=True,p0=[0.01,0.1])
-perr = np.sqrt(np.diag(pcov))
-c = ufloat(popt[0], perr[0])
-d = ufloat(popt[1], perr[1])
-
-fig, ax = plt.subplots(layout="constrained")
-ax.errorbar(1/(unp.nominal_values(T15m)),unp.nominal_values(tau_ln),yerr=unp.std_devs(tau_ln),fmt="x",color="grey",capsize=3,label="not used")
-ax.errorbar(1/(unp.nominal_values(T15m[mask4])),unp.nominal_values(tau_ln[mask4]),yerr=unp.std_devs(tau_ln[mask4]),fmt="x",color="orange",capsize=3,label="used for fit")
-
-x_lin = np.linspace(min(unp.nominal_values(T15m[mask4])),max(unp.nominal_values(T15m[mask4])),500)
-ax.plot(1/(x_lin), lin(1/(x_lin), *popt),color="darkorchid", label="linear fit")
-
-ax.set_xlabel(r"$1/T$ [1/K]")
-ax.set_ylabel(r"$\mathrm{ln}(\tau)$ [1]")
-
-
-ax.grid()
-ax.legend()
-
-fig.savefig("images/b15_int.pdf")
-
-print("fit parameters:")
-print(c)
-print(d)
-
-tau_0 = unp.exp(d)
-w=(c*k_b)
-print("activation energy:")
-print(w)
-print("relaxation time:")
-print(tau_0)
-
-print("rel dev:")
-print((unp.nominal_values(w)-w_theo)/w_theo)
-print((unp.nominal_values(tau_0)-tau_theo)/tau_theo)
+import pandas as pd
+
+# BB88 protocol experiment without decoys
+
+
+df = pd.read_csv(
+    "data/bb84_1.csv",
+    header=None,
+    dtype={
+        0: "int64",
+        1: "string",
+        2: "int64",
+        3: "string",
+        4: "int64",
+        5: "string",
+        6: "int64",
+    },
+)
+
+df.columns = [
+    "bit", "polA",
+    "A", "polB",
+    "B", "polE",
+    "BI"
+]
+
+print(df.head())
+
+bit = df["bit"].tolist()
+polA = df["polA"].tolist()
+A = df["A"].tolist()
+polB = df["polB"].tolist()
+B = df["B"].tolist()
+polE = df["polE"].tolist()
+BI = df["BI"].tolist()
+
+print(bit)
+
+
+
+# Print the sifted bits and their number
+sifted = []
+
+for i in range(len(bit)):
+    if polA[i] == polB[i]:
+        sifted.append([bit[i], A[i], B[i]])
+    else: continue
+    
+print("-------------- Sifted bits for BB84 without Eve ----------------------------------")
+print(f"{len(sifted)} sifted bits. Ratio: {len(sifted)/52:.4f}")
+for i in range(len(sifted)):
+    print(sifted[i])
+
+# With Eve
+sifted = []
+
+for i in range(len(bit)):
+    if polA[i] == polB[i]:
+        sifted.append([bit[i], A[i], BI[i]])
+    else: continue
+    
+print("-------------- Sifted bits for BB84 with Eve ----------------------------------")
+print(f"{len(sifted)} sifted bits. Ratio: {len(sifted)/52:.4f}")
+for i in range(len(sifted)):
+    print(sifted[i])
+
+N_err = 0
+for i in range(len(sifted)):
+    if sifted[i][1] != sifted[i][2]:
+        N_err += 1
+    else: continue
+
+print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted)}")
+
+# BB88 protocol experiment with decoys
+
+
+df = pd.read_csv(
+    "data/bb84_2.csv",
+    header=None,
+    dtype={
+        0: "int64",
+        1: "string",
+        2: "int64",
+        3: "string",
+        4: "int64",
+        5: "string",
+        6: "int64",
+    },
+)
+
+df.columns = [
+    "bit", "polA",
+    "A", "polB",
+    "B", "polE",
+    "BI"
+]
+
+print(df.head())
+
+bit = df["bit"].tolist()
+polA = df["polA"].tolist()
+A = df["A"].tolist()
+polB = df["polB"].tolist()
+B = df["B"].tolist()
+polE = df["polE"].tolist()
+BI = df["BI"].tolist()
+
+print(bit)
+
+
+
+# Print the sifted bits and their number
+sifted = []
+
+for i in range(len(bit)):
+    if polA[i] == polB[i]:
+        sifted.append([bit[i], A[i], B[i]])
+    else: continue
+    
+print("-------------- Sifted bits for BB84 without Eve ----------------------------------")
+print(f"{len(sifted)} sifted bits. Ratio: {len(sifted)/52:.4f}")
+for i in range(len(sifted)):
+    print(sifted[i])
+
+# With Eve
+sifted = []
+
+for i in range(len(bit)):
+    if polA[i] == polB[i]:
+        sifted.append([bit[i], A[i], BI[i]])
+    else: continue
+    
+print("-------------- Sifted bits for BB84 with Eve ----------------------------------")
+print(f"{len(sifted)} sifted bits. Ratio: {len(sifted)/52:.4f}")
+for i in range(len(sifted)):
+    print(sifted[i])
+
+N_err = 0
+for i in range(len(sifted)):
+    if sifted[i][1] != sifted[i][2]:
+        N_err += 1
+    else: continue
+
+print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted)}")
