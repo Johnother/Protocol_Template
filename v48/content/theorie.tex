@@ -31,12 +31,12 @@ In the crystal lattice, the dipoles switch orientations by anions leaving their 
 Whithout an electric field, the aligned dipoles lose their preferred orientation through relaxation.
 For the anions to move without an external energy source, their thermal energy has to be higher than the activation energy $W$.
 The higher the temperature, the faster the relaxation will occur.
-Therefore, the relaxation time $\tau$, after which a dipole loses its orientation, is described as an Arrhenius process with
+Therefore, the relaxation time $\tau$, after which a dipole loses its orientation, is described as a temperature-dependent quantity with
 \begin{equation}
     \tau\left(T\right) = \tau_0\cdot\exp\left(\frac{W}{\symup{k}_{\mathrm{B}}T}\right)\,.
 \label{eqn:tau}
 \end{equation}
-Here, $\tau_0$ is the characteristic relaxation time, $W$ is the activation energy, $\symup{k}_{\mathrm{B}}$ the Boltzmann constant and $T$ the temperature of the crystal.
+Here, $\tau_0$ is the characteristic relaxation time, $W$ is the activation energy, $\symup{k}_{\mathrm{B}}$ the Boltzmann constant and $T$ the temperature of the crystal~\cite[816]{Bucci_Fieschi}.
 It is obvious, that for the crystal being fully polarised in an electric field, the time of exposeure $t$ needs to fulfill $t \gg \tau\left(T\right)$.
 As this depends on the crystal temperature, fast polarisation times can be achieved with sufficiently high crystal temperatures.
 Furthermore, when cooling the polarised crystal well below $\qty{0}{\degreeCelsius}$, the crystal will stay polarised even without an electric field present.
@@ -98,6 +98,7 @@ With this and with the relaxation time from \autoref{eqn:tau}, \autoref{eqn:curr
     I\left(T\right) = \frac{p^2EN_0}{3\symup{k}_{\mathrm{B}}T\tau_0}\cdot\exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T}\right)\cdot\exp\left(-\frac{1}{b\tau_0}\int_{T_0}^T \exp\left(\frac{-W}{\symup{k}_{\mathrm{B}}T'}\right)\symup{d}T'\right)\,.
 \label{eqn:relax_current}
 \end{equation}
+The use of \autoref{eqn:tau} is only valid under the assumption that the depolarisation current is caused only by the one described type of dipole relaxation~\cite[582]{muccillo_1974}.
 %
 %
 \subsection{Determination of the activation energy and relaxation time}
