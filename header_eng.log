@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.5.31)  28 OCT 2026 15:43
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.5.31)  27 NOV 2026 18:05
  system commands enabled.
  file:line:error style messages enabled.
 **/home/jbong/FP/Protocol_Template/header_eng.tex
@@ -987,11 +987,55 @@ File: hluatex.def 2026-04-24 v7.01q Hyperref driver for luaTeX
 Package hyperref Warning: Option `hyperfigures' has already been used,
 (hyperref)                setting the option has no effect on input line 104.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2026/03/30 v0.6h Insert pages of external PDF documents (AM)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
+\ESO@tempdima=\dimen195
+\ESO@tempdimb=\dimen196
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 274.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+))
+\AM@pagewidth=\dimen197
+\AM@pageheight=\dimen198
+\AM@fboxrule=\dimen199
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/pdfpages/ppluatex.def
+File: ppluatex.def 2026/03/30 v0.6h Pdfpages driver for LuaTeX (AM)
+)
+\pdfpages@includegraphics@status=\count353
+\AM@pagebox=\box72
+\AM@global@opts=\toks28
+\AM@pagecnt=\count354
+\AM@toc@title=\toks29
+\AM@lof@heading=\toks30
+\c@AM@survey=\count355
+\AM@templatesizebox=\box73
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count356
+\c@@ppsavesec=\count357
+\c@@ppsaveapp=\count358
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2026-05-21 v1.32 PDF bookmarks (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-luatex.def
 File: bkm-luatex.def 2026-05-21 v1.32 bookmark driver for luaTeX (HO)
-\BKM@id=\count353
+\BKM@id=\count359
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
@@ -1000,185 +1044,188 @@ Package tocbasic Info: Loading of class-dependent code for package caption3
 
  (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen195
-\captionmargin=\dimen196
-\caption@leftmargin=\dimen197
-\caption@rightmargin=\dimen198
-\caption@width=\dimen199
-\caption@indent=\dimen256
-\caption@parindent=\dimen257
-\caption@hangindent=\dimen258
+\caption@tempdima=\dimen256
+\captionmargin=\dimen257
+\caption@leftmargin=\dimen258
+\caption@rightmargin=\dimen259
+\caption@width=\dimen260
+\caption@indent=\dimen261
+\caption@parindent=\dimen262
+\caption@hangindent=\dimen263
 )
-\c@caption@flags=\count354
-\c@continuedfloat=\count355
+\c@caption@flags=\count360
+\c@continuedfloat=\count361
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count356
+\c@subfigure=\count362
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count357
+\c@subtable=\count363
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tabularray/tabularray.sty
 Package: tabularray 2025-11-27 v2025C Typeset tabulars and arrays with LaTeX3
-\g__tblr_nohyper_int=\count358
-\l__tblr_a_int=\count359
-\l__tblr_c_int=\count360
-\l__tblr_r_int=\count361
-\l__tblr_d_dim=\dimen259
-\l__tblr_h_dim=\dimen260
-\l__tblr_o_dim=\dimen261
-\l__tblr_p_dim=\dimen262
-\l__tblr_q_dim=\dimen263
-\l__tblr_r_dim=\dimen264
-\l__tblr_s_dim=\dimen265
-\l__tblr_t_dim=\dimen266
-\l__tblr_v_dim=\dimen267
-\l__tblr_w_dim=\dimen268
-\l__tblr_a_box=\box72
-\l__tblr_b_box=\box73
-\l__tblr_c_box=\box74
-\l__tblr_d_box=\box75
-\c@tblrcount=\count362
-\c@rownum=\count363
-\c@colnum=\count364
-\c@rowcount=\count365
-\c@colcount=\count366
-\abovesep=\dimen269
-\belowsep=\dimen270
-\leftsep=\dimen271
-\rightsep=\dimen272
-\gTblrLevelInt=\count367
-\g__tblr_data_row_key_count_int=\count368
-\g__tblr_data_column_key_count_int=\count369
-\g__tblr_data_cell_key_count_int=\count370
-\g__tblr_array_int=\count371
-\l__tblr_key_count_int=\count372
-\l__tblr_key_quotient_int=\count373
-\l__tblr_key_quotient_two_int=\count374
-\l__tblr_key_remainder_int=\count375
-\g__tblr_data_str_value_count_int=\count376
-\lTblrChildTotalInt=\count377
-\lTblrChildHtotalInt=\count378
-\lTblrChildVtotalInt=\count379
-\l__child_diff_h_int=\count380
-\l__child_diff_v_int=\count381
-\l__child_sign_h_int=\count382
-\l__child_sign_v_int=\count383
-\l__child_step_int=\count384
-\lTblrDefaultHruleWidthDim=\dimen273
-\lTblrDefaultVruleWidthDim=\dimen274
-\l__tblr_split_balance_int=\count385
-\l__tblr_strut_dp_dim=\dimen275
-\l__tblr_strut_ht_dim=\dimen276
-\g__tblr_cell_wd_dim=\dimen277
-\g__tblr_cell_ht_dim=\dimen278
-\g__tblr_cell_head_dim=\dimen279
-\g__tblr_cell_foot_dim=\dimen280
-\l__tblr_measured_cell_box=\box76
-\g__tblr_last_box=\box77
-\l__tblr_temp_box=\box78
-\l__tblr_column_target_dim=\dimen281
-\l__tblr_hfuzz_dim=\dimen282
-\l__tblr_caption_box=\box79
-\l__tblr_caption_left_box=\box80
-\lTblrRowHeadInt=\count386
-\lTblrRowFootInt=\count387
-\l__tblr_row_head_box=\box81
-\l__tblr_row_foot_box=\box82
-\l__tblr_row_head_foot_dim=\dimen283
-\lTblrTableWidthDim=\dimen284
-\l__tblr_table_firsthead_box=\box83
-\l__tblr_table_middlehead_box=\box84
-\l__tblr_table_lasthead_box=\box85
-\l__tblr_table_firstfoot_box=\box86
-\l__tblr_table_middlefoot_box=\box87
-\l__tblr_table_lastfoot_box=\box88
-\l__tblr_remain_height_dim=\dimen285
-\l__tblr_next_rows_dim=\dimen286
-\l__tblr_page_overfill_dim=\dimen287
-\l__tblr_long_from_int=\count388
-\l__tblr_long_to_int=\count389
-\l__tblr_curr_i_int=\count390
-\l__tblr_prev_i_int=\count391
-\lTblrTablePageInt=\count392
-\l__tblr_table_head_box=\box89
-\l__tblr_table_foot_box=\box90
-\l__tblr_table_head_foot_dim=\dimen288
-\l__tblr_table_head_body_foot_dim=\dimen289
-\l__tblr_table_box=\box91
-\lTblrRowFirstInt=\count393
-\lTblrRowLastInt=\count394
-\l__tblr_cover_box_a_dim=\dimen290
-\l__tblr_cover_box_b_dim=\dimen291
-\l__tblr_table_hlines_box=\box92
-\l__tblr_hline_box=\box93
-\l__tblr_row_box=\box94
-\l__tblr_col_o_wd_dim=\dimen292
-\l__tblr_col_b_wd_dim=\dimen293
-\l__tblr_hline_leftskip_dim=\dimen294
-\l__tblr_hline_rightskip_dim=\dimen295
-\l__tblr_row_ht_dim=\dimen296
-\l__tblr_row_dp_dim=\dimen297
-\l__tblr_row_abovesep_dim=\dimen298
-\l__tblr_row_belowsep_dim=\dimen299
-\l__tblr_row_vlines_box=\box95
-\l__tblr_vline_box=\box96
-\l__tblr_cell_box=\box97
-\l__tblr_row_upper_dim=\dimen300
-\l__tblr_row_lower_dim=\dimen301
-\l__tblr_row_vpace_dim=\dimen302
-\l__tblr_vline_aboveskip_dim=\dimen303
-\l__tblr_vline_belowskip_dim=\dimen304
-\lTblrCellRowSpanInt=\count395
-\lTblrCellColSpanInt=\count396
-\l__tblr_cell_wd_dim=\dimen305
-\l__tblr_cell_ht_dim=\dimen306
-\lTblrCellAboveBorderWidthDim=\dimen307
-\lTblrCellBelowBorderWidthDim=\dimen308
-\lTblrCellLeftBorderWidthDim=\dimen309
-\lTblrCellRightBorderWidthDim=\dimen310
-\l__tblr_diag_box=\box98
-\l__tblr_cell_inner_wd_dim=\dimen311
-\l__tblr_cell_inner_dp_dim=\dimen312
-\l__tblr_cell_hanchor_dim=\dimen313
-\l__tblr_last_cell_table_ht_dim=\dimen314
-\l__tblr_last_cell_table_dp_dim=\dimen315
-\l__tblr_last_vline_wd_dim=\dimen316
-\l__tblr_tikz_node_box=\box99
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/ninecolors/ninecolors.sty
+Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
+)
+\g__tblr_nohyper_int=\count364
+\l__tblr_a_int=\count365
+\l__tblr_c_int=\count366
+\l__tblr_r_int=\count367
+\l__tblr_d_dim=\dimen264
+\l__tblr_h_dim=\dimen265
+\l__tblr_o_dim=\dimen266
+\l__tblr_p_dim=\dimen267
+\l__tblr_q_dim=\dimen268
+\l__tblr_r_dim=\dimen269
+\l__tblr_s_dim=\dimen270
+\l__tblr_t_dim=\dimen271
+\l__tblr_v_dim=\dimen272
+\l__tblr_w_dim=\dimen273
+\l__tblr_a_box=\box74
+\l__tblr_b_box=\box75
+\l__tblr_c_box=\box76
+\l__tblr_d_box=\box77
+\c@tblrcount=\count368
+\c@rownum=\count369
+\c@colnum=\count370
+\c@rowcount=\count371
+\c@colcount=\count372
+\abovesep=\dimen274
+\belowsep=\dimen275
+\leftsep=\dimen276
+\rightsep=\dimen277
+\gTblrLevelInt=\count373
+\g__tblr_data_row_key_count_int=\count374
+\g__tblr_data_column_key_count_int=\count375
+\g__tblr_data_cell_key_count_int=\count376
+\g__tblr_array_int=\count377
+\l__tblr_key_count_int=\count378
+\l__tblr_key_quotient_int=\count379
+\l__tblr_key_quotient_two_int=\count380
+\l__tblr_key_remainder_int=\count381
+\g__tblr_data_str_value_count_int=\count382
+\lTblrChildTotalInt=\count383
+\lTblrChildHtotalInt=\count384
+\lTblrChildVtotalInt=\count385
+\l__child_diff_h_int=\count386
+\l__child_diff_v_int=\count387
+\l__child_sign_h_int=\count388
+\l__child_sign_v_int=\count389
+\l__child_step_int=\count390
+\lTblrDefaultHruleWidthDim=\dimen278
+\lTblrDefaultVruleWidthDim=\dimen279
+\l__tblr_split_balance_int=\count391
+\l__tblr_strut_dp_dim=\dimen280
+\l__tblr_strut_ht_dim=\dimen281
+\g__tblr_cell_wd_dim=\dimen282
+\g__tblr_cell_ht_dim=\dimen283
+\g__tblr_cell_head_dim=\dimen284
+\g__tblr_cell_foot_dim=\dimen285
+\l__tblr_measured_cell_box=\box78
+\g__tblr_last_box=\box79
+\l__tblr_temp_box=\box80
+\l__tblr_column_target_dim=\dimen286
+\l__tblr_hfuzz_dim=\dimen287
+\l__tblr_caption_box=\box81
+\l__tblr_caption_left_box=\box82
+\lTblrRowHeadInt=\count392
+\lTblrRowFootInt=\count393
+\l__tblr_row_head_box=\box83
+\l__tblr_row_foot_box=\box84
+\l__tblr_row_head_foot_dim=\dimen288
+\lTblrTableWidthDim=\dimen289
+\l__tblr_table_firsthead_box=\box85
+\l__tblr_table_middlehead_box=\box86
+\l__tblr_table_lasthead_box=\box87
+\l__tblr_table_firstfoot_box=\box88
+\l__tblr_table_middlefoot_box=\box89
+\l__tblr_table_lastfoot_box=\box90
+\l__tblr_remain_height_dim=\dimen290
+\l__tblr_next_rows_dim=\dimen291
+\l__tblr_page_overfill_dim=\dimen292
+\l__tblr_long_from_int=\count394
+\l__tblr_long_to_int=\count395
+\l__tblr_curr_i_int=\count396
+\l__tblr_prev_i_int=\count397
+\lTblrTablePageInt=\count398
+\l__tblr_table_head_box=\box91
+\l__tblr_table_foot_box=\box92
+\l__tblr_table_head_foot_dim=\dimen293
+\l__tblr_table_head_body_foot_dim=\dimen294
+\l__tblr_table_box=\box93
+\lTblrRowFirstInt=\count399
+\lTblrRowLastInt=\count400
+\l__tblr_cover_box_a_dim=\dimen295
+\l__tblr_cover_box_b_dim=\dimen296
+\l__tblr_table_hlines_box=\box94
+\l__tblr_hline_box=\box95
+\l__tblr_row_box=\box96
+\l__tblr_col_o_wd_dim=\dimen297
+\l__tblr_col_b_wd_dim=\dimen298
+\l__tblr_hline_leftskip_dim=\dimen299
+\l__tblr_hline_rightskip_dim=\dimen300
+\l__tblr_row_ht_dim=\dimen301
+\l__tblr_row_dp_dim=\dimen302
+\l__tblr_row_abovesep_dim=\dimen303
+\l__tblr_row_belowsep_dim=\dimen304
+\l__tblr_row_vlines_box=\box97
+\l__tblr_vline_box=\box98
+\l__tblr_cell_box=\box99
+\l__tblr_row_upper_dim=\dimen305
+\l__tblr_row_lower_dim=\dimen306
+\l__tblr_row_vpace_dim=\dimen307
+\l__tblr_vline_aboveskip_dim=\dimen308
+\l__tblr_vline_belowskip_dim=\dimen309
+\lTblrCellRowSpanInt=\count401
+\lTblrCellColSpanInt=\count402
+\l__tblr_cell_wd_dim=\dimen310
+\l__tblr_cell_ht_dim=\dimen311
+\lTblrCellAboveBorderWidthDim=\dimen312
+\lTblrCellBelowBorderWidthDim=\dimen313
+\lTblrCellLeftBorderWidthDim=\dimen314
+\lTblrCellRightBorderWidthDim=\dimen315
+\l__tblr_diag_box=\box100
+\l__tblr_cell_inner_wd_dim=\dimen316
+\l__tblr_cell_inner_dp_dim=\dimen317
+\l__tblr_cell_hanchor_dim=\dimen318
+\l__tblr_last_cell_table_ht_dim=\dimen319
+\l__tblr_last_cell_table_dp_dim=\dimen320
+\l__tblr_last_vline_wd_dim=\dimen321
+\l__tblr_tikz_node_box=\box101
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen317
-\lightrulewidth=\dimen318
-\cmidrulewidth=\dimen319
-\belowrulesep=\dimen320
-\belowbottomsep=\dimen321
-\aboverulesep=\dimen322
-\abovetopsep=\dimen323
-\cmidrulesep=\dimen324
-\cmidrulekern=\dimen325
-\defaultaddspace=\dimen326
-\@cmidla=\count397
-\@cmidlb=\count398
-\@aboverulesep=\dimen327
-\@belowrulesep=\dimen328
-\@thisruleclass=\count399
-\@lastruleclass=\count400
-\@thisrulewidth=\dimen329
+\heavyrulewidth=\dimen322
+\lightrulewidth=\dimen323
+\cmidrulewidth=\dimen324
+\belowrulesep=\dimen325
+\belowbottomsep=\dimen326
+\aboverulesep=\dimen327
+\abovetopsep=\dimen328
+\cmidrulesep=\dimen329
+\cmidrulekern=\dimen330
+\defaultaddspace=\dimen331
+\@cmidla=\count403
+\@cmidlb=\count404
+\@aboverulesep=\dimen332
+\@belowrulesep=\dimen333
+\@thisruleclass=\count405
+\@lastruleclass=\count406
+\@thisrulewidth=\dimen334
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
-\MT@toks=\toks28
-\MT@tempbox=\box100
-\MT@count=\count401
+\MT@toks=\toks31
+\MT@tempbox=\box102
+\MT@count=\count407
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
 LaTeX Info: Redefining \leftprotrusion on input line 1085.
-\MT@prot@toks=\toks29
+\MT@prot@toks=\toks32
 LaTeX Info: Redefining \rightprotrusion on input line 1104.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen330
+\MT@outer@kern=\dimen335
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count402
+\MT@listname@count=\count408
  (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype-luatex.def
 File: microtype-luatex.def 2026/03/01 v3.2d Definitions specific to luatex (RS)
 Lua module: microtype 2026/03/01 v3.2d microtype module.
@@ -1196,10 +1243,327 @@ LaTeX Info: Redefining \microtypesetup on input line 3065.
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count403
+\lrq@indent=\count409
  (/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+))
+\c@tabx@nest=\count410
+\c@listtotal=\count411
+\c@listcount=\count412
+\c@liststart=\count413
+\c@liststop=\count414
+\c@citecount=\count415
+\c@citetotal=\count416
+\c@multicitecount=\count417
+\c@multicitetotal=\count418
+\c@instcount=\count419
+\c@maxnames=\count420
+\c@minnames=\count421
+\c@maxitems=\count422
+\c@minitems=\count423
+\c@citecounter=\count424
+\c@maxcitecounter=\count425
+\c@savedcitecounter=\count426
+\c@uniquelist=\count427
+\c@uniquename=\count428
+\c@refsection=\count429
+\c@refsegment=\count430
+\c@maxextratitle=\count431
+\c@maxextratitleyear=\count432
+\c@maxextraname=\count433
+\c@maxextradate=\count434
+\c@maxextraalpha=\count435
+\c@abbrvpenalty=\count436
+\c@highnamepenalty=\count437
+\c@lownamepenalty=\count438
+\c@maxparens=\count439
+\c@parenlevel=\count440
+\blx@tempcnta=\count441
+\blx@tempcntb=\count442
+\blx@tempcntc=\count443
+\c@blx@maxsection=\count444
+\blx@maxsegment@0=\count445
+\blx@notetype=\count446
+\blx@parenlevel@text=\count447
+\blx@parenlevel@foot=\count448
+\blx@sectionciteorder@0=\count449
+\blx@sectionciteorderinternal@0=\count450
+\blx@entrysetcounter=\count451
+\blx@biblioinstance=\count452
+\labelnumberwidth=\skip86
+\labelalphawidth=\skip87
+\biblabelsep=\skip88
+\bibitemsep=\skip89
+\bibnamesep=\skip90
+\bibinitsep=\skip91
+\bibparsep=\skip92
+\bibhang=\skip93
+\blx@bcfin=\read3
+\blx@bcfout=\write3
+\blx@langwohyphens=\language93
+\c@mincomprange=\count453
+\c@maxcomprange=\count454
+\c@mincompwidth=\count455
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
-\c@tabx@nest=\
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count456
+\c@savedafterword=\count457
+\c@annotator=\count458
+\c@savedannotator=\count459
+\c@author=\count460
+\c@savedauthor=\count461
+\c@bookauthor=\count462
+\c@savedbookauthor=\count463
+\c@commentator=\count464
+\c@savedcommentator=\count465
+\c@editor=\count466
+\c@savededitor=\count467
+\c@editora=\count468
+\c@savededitora=\count469
+\c@editorb=\count470
+\c@savededitorb=\count471
+\c@editorc=\count472
+\c@savededitorc=\count473
+\c@foreword=\count474
+\c@savedforeword=\count475
+\c@holder=\count476
+\c@savedholder=\count477
+\c@introduction=\count478
+\c@savedintroduction=\count479
+\c@namea=\count480
+\c@savednamea=\count481
+\c@nameb=\count482
+\c@savednameb=\count483
+\c@namec=\count484
+\c@savednamec=\count485
+\c@translator=\count486
+\c@savedtranslator=\count487
+\c@shortauthor=\count488
+\c@savedshortauthor=\count489
+\c@shorteditor=\count490
+\c@savedshorteditor=\count491
+\c@labelname=\count492
+\c@savedlabelname=\count493
+\c@institution=\count494
+\c@savedinstitution=\count495
+\c@lista=\count496
+\c@savedlista=\count497
+\c@listb=\count498
+\c@savedlistb=\count499
+\c@listc=\count500
+\c@savedlistc=\count501
+\c@listd=\count502
+\c@savedlistd=\count503
+\c@liste=\count504
+\c@savedliste=\count505
+\c@listf=\count506
+\c@savedlistf=\count507
+\c@location=\count508
+\c@savedlocation=\count509
+\c@organization=\count510
+\c@savedorganization=\count511
+\c@origlocation=\count512
+\c@savedoriglocation=\count513
+\c@origpublisher=\count514
+\c@savedorigpublisher=\count515
+\c@publisher=\count516
+\c@savedpublisher=\count517
+\c@language=\count518
+\c@savedlanguage=\count519
+\c@origlanguage=\count520
+\c@savedoriglanguage=\count521
+\c@pageref=\count522
+\c@savedpageref=\count523
+\shorthandwidth=\skip94
+\shortjournalwidth=\skip95
+\shortserieswidth=\skip96
+\shorttitlewidth=\skip97
+\shortauthorwidth=\skip98
+\shorteditorwidth=\skip99
+\locallabelnumberwidth=\skip100
+\locallabelalphawidth=\skip101
+\localshorthandwidth=\skip102
+\localshortjournalwidth=\skip103
+\localshortserieswidth=\skip104
+\localshorttitlewidth=\skip105
+\localshortauthorwidth=\skip106
+\localshorteditorwidth=\skip107
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count524
+\c@textcitetotal=\count525
+\c@textcitemaxnames=\count526
+\c@biburlbigbreakpenalty=\count527
+\c@biburlbreakpenalty=\count528
+\c@biburlnumpenalty=\count529
+\c@biburlucpenalty=\count530
+\c@biburllcpenalty=\count531
+\biburlbigskip=\muskip22
+\biburlnumskip=\muskip23
+\biburlucskip=\muskip24
+\biburllcskip=\muskip25
+\c@smartand=\count532
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count533
+\c@bbx:relatedtotal=\count534
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2026-05-26 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/ncctools/extdash.sty
+Package: extdash 2018/06/24 v1.3 Extended Dash Package (NCC)
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2026/03/03 v3.8.0 Yet another Pygments shim for LaTeX
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2026/02/25 v1.14.0 fvextra - extensions and patches for fancyvrb
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2026/04/16 4.6a verbatim text (tvz,hv)
+\FV@CodeLineNo=\count535
+\FV@InFile=\read4
+\FV@TabBox=\box103
+\c@FancyVerbLine=\count536
+\FV@StepNumber=\count537
+\FV@OutFile=\write4
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2026/03/08 line numbers on paragraphs v5.9
+\linenopenalty=\count538
+\output=\toks33
+\linenoprevgraf=\count539
+\linenumbersep=\dimen336
+\linenumberwidth=\dimen337
+\c@linenumber=\count540
+\c@pagewiselinenumber=\count541
+\c@LN@truepage=\count542
+\c@internallinenumber=\count543
+\c@internallinenumbers=\count544
+\quotelinenumbersep=\dimen338
+\bframerule=\dimen339
+\bframesep=\dimen340
+\bframebox=\box104
+\@LN@amsmath@ams@eqpen=\count545
+
+
+LaTeX Warning: Command \@parboxrestore  has changed.
+               Check if current package is valid.
+
+)
+
+Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a warning from the lineno package on input line 36.
+
+\c@FancyVerbWriteLine=\count546
+\c@FancyVerbBufferLine=\count547
+\c@FV@TrueTabGroupLevel=\count548
+\c@FV@TrueTabCounter=\count549
+\FV@TabBox@Group=\box105
+\FV@bgcolorstructbox=\box106
+\FV@TmpLength=\skip108
+\c@FV@HighlightLinesStart=\count550
+\c@FV@HighlightLinesStop=\count551
+\FV@LoopCount=\count552
+\FV@NCharsBox=\box107
+\FV@BreakIndent=\dimen341
+\FV@BreakIndentNChars=\count553
+\FV@BreakSymbolSepLeft=\dimen342
+\FV@BreakSymbolSepLeftNChars=\count554
+\FV@BreakSymbolSepRight=\dimen343
+\FV@BreakSymbolSepRightNChars=\count555
+\FV@BreakSymbolIndentLeft=\dimen344
+\FV@BreakSymbolIndentLeftNChars=\count556
+\FV@BreakSymbolIndentRight=\dimen345
+\FV@BreakSymbolIndentRightNChars=\count557
+\c@FancyVerbLineBreakLast=\count558
+\FV@LineBox=\box108
+\FV@LineIndentBox=\box109
+\c@FV@BreakBufferDepth=\count559
+\FV@LineWidth=\dimen346
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+Package: latex2pydata 2026/02/25 v0.7.0 latex2pydata - write data to file in Python literal format
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks36
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks37
+\pgfopts@list@add@b@toks=\toks38
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+\c@minted@FancyVerbLineTemp=\count560
+\@float@every@listing=\toks39
+\c@listing=\count561
+))
+! Emergency stop.
+<*> ...e/jbong/FP/Protocol_Template/header_eng.tex
+                                                  
+
+Here is how much of LuaTeX's memory you used:
+ 43688 strings out of 475888
+ 100000,2373549 words of node,token memory allocated
+ 560 words of node memory still in use:
+   5 hlist, 1 vlist, 2 rule, 1 dir, 4 kern, 1 glyph, 8 attribute, 71 glue_spec, 6 attribute_list, 1 write, 1 pdf_colorstack nodes
+   avail lists: 1:1,2:33,3:3,4:2,5:1,7:29,9:4,11:3
+ 65775 multiletter control sequences out of 65536+600000
+ 50 fonts using 19552951 bytes
+ 108i,1n,101p,11245b,2936s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
