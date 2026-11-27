@@ -71,7 +71,7 @@ for i in range(len(sifted)):
         N_err += 1
     else: continue
 
-print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted)}")
+print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted):.4f}")
 
 # BB88 protocol experiment with decoys
 
@@ -138,9 +138,13 @@ for i in range(len(sifted)):
     print(sifted[i])
 
 N_err = 0
+N_Decoy = 0
 for i in range(len(sifted)):
-    if sifted[i][1] != sifted[i][2]:
+    if sifted[i][2] == 3:
+        N_Decoy += 1
+    elif sifted[i][1] != sifted[i][2]:
         N_err += 1
     else: continue
 
-print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted)}")
+print(f"{N_err} wrong bits. QBER ratio: {N_err/len(sifted):.4f}\t{N_Decoy} decoy states\tDecoy ratio: {N_Decoy/len(sifted):.4f}")
+print(f"{N_err+N_Decoy} total errors\tTotal error rate: {(N_err/len(sifted) + N_Decoy/len(sifted)):.4f}")

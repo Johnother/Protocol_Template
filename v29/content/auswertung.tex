@@ -59,7 +59,7 @@ because there are no differences in the sifted bits recieved by Alice and Bob wi
 \subsubsection{Probabilities with intercepting Eve}
 The same data analysis is done for the experiment with Eve intercepting the bits, adding another $p = \qty{50}{\percent}$ chance of basis selection.
 The number of sifted bits stays unchanged, because for Alice and Bob the bases are used.
-Additionally, the same data is sent by Alice, which can be seen in comparison between the measuring protocol sheets in \appref{app:sheetpg:1} and \appref{app:sheetpg:3}.
+Additionally, the same data is sent by Alice, which can be seen in comparison between the measuring protocol sheets in \appref{subapp:sheetpg:1} and \appref{subapp:sheetpg:3}.
 The sifted bits for this part of the experiment are shown in \autoref{tab:sifted_E1}.
 \begin{table}
   \centering
@@ -94,19 +94,99 @@ With \autoref{eqn:qber} this leads to a QBER of
 \subsubsection{Transmitting a message}
 With the sifted bits a key is made as a one-time pad with $N = 20$ bits length.
 The word that is transmitted is \enquote{HOME}.
-The encoding of the letters is done with binary addition according to the tables on \appref{app:sheetpg:5}.
+The encoding of the letters is done with binary addition according to the tables on \appref{subapp:sheetpg:5}.
 \newline\noindent
 Using the same basis for Alice and Bob according to the sifted key, the message is transmitted from Alice to Bob then decrypted by Bob using the sifted key.
 The word, Bob recieves, is indeed \enquote{HOME}.
 The defining of the word, the encryption and the decryption are not written out here.
-It is done in \appref{app:sheetpg:1} and \appref{app:sheetpg:1} and can be seen in there.
+It is done in \appref{subapp:sheetpg:1} and \appref{subapp:sheetpg:1} and can be seen in there.
 %
 \subsection{BB84 with decoy states}
-
-
-
-
-
+When introducint decoy states in this experiment, the green laser is added to the setup and trits of data are sent instead of bits.
+The randomly generated bits and polarisations are found in \appref{subapp:sheetpg:6}.
+\newline\noindent
+Since the probability to choose a basis is the same, the ratio of sifted and total bits, $p_{\mathrm{sifted}}$, should stay the same as in the standard BB84 experiment.
+Consequently, the QBER and the Decoy fraction in matched number of basis values should be
+\begin{align*}
+    p_{\mathrm{QBER}} &= \qty{0}{\percent}\,, & p_{\mathrm{decoy}} &= \qty{0}{\percent}\,.
+\end{align*}
+%
+\subsubsection{Probabilities with decoy states \& without Eve}
+%
+The sifted bits and their values for Alice and Bob are listed in \autoref{tab:sifted2}.
+\begin{table}
+  \centering
+  \caption{Sifted bits in the BB84 experiment with decoys, without Eve intercepting.}
+  \label{tab:sifted2}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1]},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} \\
+    \midrule
+        1  & 2 & 2 & 19 & 1 & 1 & 41 & 0 & 0 \\
+        2  & 0 & 0 & 20 & 0 & 0 & 42 & 2 & 2 \\
+        3  & 1 & 1 & 21 & 2 & 2 & 45 & 1 & 1 \\
+        4  & 2 & 2 & 22 & 2 & 2 & 46 & 2 & 2 \\
+        7  & 0 & 0 & 26 & 1 & 1 & 48 & 1 & 1 \\
+        9  & 1 & 1 & 28 & 0 & 0 & 50 & 0 & 0 \\
+        12 & 1 & 1 & 31 & 2 & 2 & 52 & 2 & 2 \\
+        13 & 2 & 1 & 32 & 0 & 0 &    &   &   \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier\noindent
+There are $N_{\mathrm{sifted}} = 23$ bits left after sifting.
+This corresponds to a ratio of 
+\begin{equation}
+    p_{\mathrm{sifted}} = \qty{44.23}{\percent}\,.
+\end{equation}
+As appearent from the bit values in \autoref{tab:sifted2}, the QBER and the decoy fraction are
+\begin{align}
+    p_{\mathrm{QBER}} &= \qty{0}{\percent}\,, & p_{\mathrm{decoy}} &= \qty{0}{\percent}\,.
+\end{align}
+%
+\subsubsection{Probabilities with decoy states and Eve intercepting}
+%
+As for the standard BB84 experiment, the bases of Alice and Bob as well as Alice's bit values stay the same for this measurement.
+Eve's bases are again chosen randomly and can be found in \appref{subapp:sheet:10}.
+\newline\noindent
+The data for this measurement is shown in \autoref{tab:sifted_E2}.
+\begin{table}
+  \centering
+  \caption{Sifted bits in the BB84 experiment with decoys and Eve present.}
+  \label{tab:sifted_E2}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1] || S[table-format=2] S[table-format=1] S[table-format=1]},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} & \text{Bit Number} & \text{Alice} & \text{Bob} \\
+    \midrule
+        1  & 2 & 2 & 19 & 1 & 1        & 41 & 0 & 0        \\
+        2  & 0 & 0 & 20 & 0 & 0        & 42 & 2 & 2        \\
+        3  & 1 & 0 & 21 & 2 & \text{d} & 45 & 1 & 1        \\
+        4  & 2 & 2 & 22 & 2 & 2        & 46 & 2 & \text{d} \\
+        7  & 0 & 1 & 26 & 1 & 1        & 48 & 1 & 1        \\
+        9  & 1 & 1 & 28 & 0 & 0        & 50 & 0 & 0        \\
+        12 & 1 & 1 & 31 & 2 & 2        & 52 & 2 & 2        \\
+        13 & 2 & 2 & 32 & 0 & 1        &    &   &          \\
+    \bottomrule
+  \end{tblr}
+\end{table}
+\FloatBarrier\noindent
+In this case, the QBER is calculated excluding the decoy states, which cannot match up with Alice's bits per definition.
+Thus, the QBER and decoy state rate are
+\begin{align}
+    p_{\mathrm{QBER}} &= \qty{13.04}{\percent}\,, & p_{\mathrm{decoy}} &= \qty{8.70}{\percent}\,.
+\end{align}
+Together, they sum up to the total error fraction
+\begin{equation}
+    p_{\mathrm{err}} = p_{\mathrm{QBER}} + p_{\mathrm{decoy}} = \qty{21.74}{\percent}\,.
+\end{equation}
 
 
 
